@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>无标题文档</title>
+	</head>
+
+	<body>
+		<select name="select" id="chance">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<input type="button" onclick="button1()" value="确定" />
+
+		<script type="text/javascript">
+			function button1() {
+				var rate = document.getElementById("chance").value;
+				alert("★★★★★☆☆☆☆☆".slice(5 - rate, 10 - rate));
+			}
+		</script>
+
+	</body>
+
+</html>

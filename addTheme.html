@@ -1,0 +1,213 @@
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+		<title>主题设置</title>
+		<link rel="stylesheet" media="screen" href="css/stepByStep/zzsc.css" />
+		<link rel="stylesheet" href="css/stepByStep/common.css" />
+
+		<style>
+			body {
+				background: #FFFFFF;
+			}
+		</style>
+	</head>
+	<script src="/adsense.js" type="text/javascript"></script>
+	<form id="msform" action="ab.php" method="post">
+		<!-- progressbar -->
+		<ul id="progressbar">
+			<li class="active">欢迎页面设置</li>
+			<li>轮播图</li>
+			<li>品牌活动</li>
+		</ul>
+		<!-- fieldsets -->
+		<fieldset>
+			<div class="itemlist">
+
+				<div class="fl">
+					<div class="fl"><label style="line-height: 32px;"><span class="red">*</span>上传背景图片：</label></div>
+					<table style="display:inline-block;">
+						<tr>
+							<td>
+								<div class="filecontainer">
+									<input type="file" class=" file  border-radius" id="selectfile" accept="" />
+									<input type="button" class="search-input-button text bgblue border-radius" disabled="" value="选择图片" />
+
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div style="margin-top:20px;">
+									<img src="img/defaultImg.png" class="pro_img" style="width:150px;height:200px;" />
+									<p style="margin-top:15px;line-height: 24px;">图片尺寸为1080*1920！<br/>图片大小不可超过500Kb！</p>
+									<label class="hidden error_notice"><i class="icon icon_error_red"></i><span class="error">请上传产品图片</span></label>
+								</div>
+							</td>
+						</tr>
+					</table>
+
+				</div>
+				<div class="fr" style="margin-right: 20px;">
+					<div>
+						<label><span class="red ">*</span>是否展示提示：</label>
+						<input type="radio" style="width:15px;height:15px;vertical-align: middle;margin-top: -2px;" name="status" value="1" checked="checked" />&nbsp;是
+						<input type="radio" style="width:15px;height:15px;vertical-align: middle;margin-top: -2px;margin-left: 20px;" name="status" value="2" />&nbsp;否
+					</div>
+					<div style="margin-top: 35px;">
+						<label><span class="red">*</span>提示内容：</label>
+						<textarea style="width:180px;height:200px;vertical-align: top;" class="note" name="note" id="note"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="text-center" style=" margin: 20px auto;">
+				<input type="button" name="next" value="下一步" class="next search-input-button bgblue" id="subButton" style="margin-left:90px;" />
+				<input type="button" value="返回" class="search-input-button " id="backButton" style="margin-left:50px;" />
+			</div>
+			<!--<input type="button" name="next" class="next action-button" value="Next" />-->
+		</fieldset>
+
+		<fieldset>
+			<div class="itemlist_a">
+				<div class="over-hidden item_a first_a">
+					<div class="fl">
+						<div class="filecontainer">
+							<input type="file" class=" file  border-radius" id="selectfile" accept="" />
+							<input type="button" class="search-input-button text bgblue border-radius" disabled="" value="选择图片" />
+							<span class="showFileName inline-block text-ellipsis " id="filename">未选择文件</span>
+						</div>
+						<p class="mt13">图片尺寸为640*340，大小不可超过500KB</p>
+						<input type="text" placeholder="请填写链接地址：例 http//www....." class="mt13 Wt300" />
+						<div class="mt13">
+							<input type="button" class=" text text-center border-radius bgblue addPic_a"  value="添加一项" onclick="add_a(this)" />
+							<input type="button" class=" text text-center border-radius bgblue delePic_a none" value="删除一项" onclick="deleteObj_a(this)" />
+						</div>
+					</div>
+					<div class="fr">
+						<img src="img/defaultImg.png" class="defaultimg" />
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="clearfix"></div>
+
+			<div class="text-center" style=" margin: 70px auto;">
+				<input type="button" name="next" value="下一步" class="next search-input-button bgblue text text-center border-radius bgblue addPic" id="subButton" />
+				<input type="button" name="previous" value="后退" class="previous search-input-button " id="backButton" style="margin-left:10px;" />
+				<input type="button" value="返回" class="search-input-button " id="backButton" style="margin-left:10px;" />
+			</div>
+
+			<!--<input type="button" name="previous" class="previous action-button" value="Previous" />
+			<input type="button" name="next" class="next action-button" value="Next" />-->
+
+		</fieldset>
+		<fieldset>
+			<div class="itemlist_b">
+				<div class="over-hidden item_b first_b">
+					<div class="fl">
+						<div>
+							<label style="display:block;">活动标题：</label>
+							<input type="text" class="cate_name" placeholder="不超过12个字" style="width:180px;margin-left:1px;margin-top: 2px;" />
+						</div>
+						<div style="margin-top: 20px;">
+							<label style="display:block;">活动内容：</label>
+							<textarea style="width:240px; height:140px; vertical-align: top; color:#CCCCCC;margin-left:1px;margin-top: 2px;" class="note" name="note" id="note">不超过12个字</textarea>
+						</div>
+						<div class="mt13">
+							<input type="button" class=" text text-center border-radius bgblue addPic_b" value="添加一项" onclick="add_b(this)" />
+							<input type="button" class=" text text-center border-radius bgblue delePic_b none" value="删除一项" onclick="deleteObj_b(this)" />
+						</div>
+					</div>
+					<div>
+
+						<div class="fr">
+							<div class="filecontainer">
+								<input type="file" class=" file  border-radius" id="selectfile" accept="" />
+								<input type="button" class="search-input-button text bgblue border-radius" disabled="" value="选择上传" />
+								<span class="showFileName inline-block text-ellipsis " id="filename">未选择文件</span>
+							</div>
+							<div class="mt13">
+								<img src="img/defaultImg.png" class="pro_img" style="width:160px;height:95px;" />
+								<p class="mt5">图片尺寸为640*340，大小不可超过500KB</p>
+								<label class="mt5" style="display:block;">跳转链接：</label>
+								<input class="mt5" type="text" style="width:266px" placeholder="请填写链接地址：例 http//www..." />
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="text-center" style=" margin: 30px auto;">
+					<input type="submit" name="submit" value="保存" class="submit search-input-button bgblue text text-center border-radius bgblue addPic" id="subButton" />
+					<input type="button" name="previous" value="后退" class="previous search-input-button " id="backButton" style="margin-left:10px;" />
+					<input type="button" value="返回" class="search-input-button " id="backButton" style="margin-left:10px;" />
+				</div>
+
+		</fieldset>
+	</form>
+	<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+	<script src="js/stepByStep/zzsc.js" type="text/javascript"></script>
+	
+	<!--<script src="js/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>-->
+	<!--<script src="js/js.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/layFun.js" type="text/javascript" charset="utf-8"></script>-->
+	<script>
+		var cloneNode;
+		var itemlist_a = $('.itemlist_a');
+		var itemlist_b = $('.itemlist_b');
+		var itemlength, count = 5;
+		$(function() {
+			$('#selectfile').change(function() {
+				commonObj.selectfile(this);
+			})
+		})
+
+		function add_a() {
+			cloneNode = $('.item_a.first_a').clone();
+			$(cloneNode).addClass('mt20');
+			$(cloneNode).removeClass('first_a');
+			$(cloneNode).find('.addPic_a').addClass('none');
+			$(cloneNode).find('.delePic_a').removeClass('none');
+
+			itemlength = $(itemlist_a).find('.item_a').length;
+			if(itemlength < count) {
+				$(cloneNode).appendTo($(itemlist_a));
+			} else {
+				layObj.msg('最多只能添加5个图片！');
+			}
+		}
+		
+		function add_b() {
+			cloneNode = $('.item_b.first_b').clone();
+			$(cloneNode).addClass('mt20');
+			$(cloneNode).removeClass('first_b');
+			$(cloneNode).find('.addPic_b').addClass('none');
+			$(cloneNode).find('.delePic_b').removeClass('none');
+
+			itemlength = $(itemlist_b).find('.item_b').length;
+			if(itemlength < count) {
+				$(cloneNode).appendTo($(itemlist_b));
+			} else {
+				layObj.msg('最多只能添加5个图片！');
+			}
+		}
+		
+		
+
+		function deleteObj_a(obj) {
+			$(obj).parent().parent().parent().remove();
+		}
+		
+		function deleteObj_b(obj) {
+			$(obj).parent().parent().parent().remove();
+		}
+		
+	</script>
+	</body>
+
+</html>
