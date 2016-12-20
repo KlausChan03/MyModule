@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+    table, tr, td, caption{
+        border:1px solid #666;
+        border-collapse:collapse;
+        background-color:rgb(210, 219, 236);
+    }
+ 
+    td, caption{
+        font-family:'微软雅黑';
+        font-size:12px;
+        text-align:center;
+        padding:3px 15px;
+    }
+ 
+    caption{
+        border-bottom:none;
+        cursor:pointer;
+    }
+  </style>
+	</head>
+	<body>
+		<script>
+//***********add*************
+//功能：隐藏、显示表格中的一行，行由参数给出
+//参数：num 行；display 1 显示 0 隐藏
+//*********************************
+function HiddenTr(num,display){
+var tempTable=document.getElementsByTagName("table")[0];//表示页面中第几个表格，在页面中从上往下数
+var tempTd=tempTable.getElementsByTagName("tr")[num];
+if(display=="1")
+  tempTd.style.display=""
+else
+  tempTd.style.display="none"
+}
+</script>
+<table>
+    <caption>显示/隐藏价格</caption>
+    <tr>
+        <td>产品</td>
+        <td>价格</td>
+        <td>销量</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>88元</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>77元</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>66元</td>
+        <td>4</td>
+    </tr>
+  </table>
+<br>
+<input type="button" onClick="HiddenTr(3,0)" value="隐藏"/>&nbsp;<input type="button" onClick="HiddenTr(3,1)" value="显示"/>
+	</body>
+</html>
