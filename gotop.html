@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <!DOCTYPE HTML>
 <head>
@@ -34,4 +35,42 @@ p{text-align:center;font-family:Georgia, 'Times New Roman', Times, serif;font-si
 </script>
 
 </body>
+=======
+
+<!DOCTYPE HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery动态回到顶部特效</title>
+
+</head>
+<body>
+<style>
+p{text-align:center;font-family:Georgia, 'Times New Roman', Times, serif;font-size:24px;font-weight:bold;}
+#goTopBtn {position: fixed;line-height:36px;width:40px;height:40px;bottom:50px;right:50px;cursor:pointer;display:none; background:url(img/gotop.png);}
+</style>
+<p>***，how are you。<br/>Just do what you want do!!!</p>
+<div style="height:4000px;"></div>
+<div id="goTopBtn"></div>
+
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+
+<script type="text/javascript">
+ $(window).scroll(function(){
+     var sc=$(window).scrollTop();
+     var rwidth=$(window).width()
+     if(sc>0){
+        $("#goTopBtn").css("display","block");
+        $("#goTopBtn").css("left",(rwidth-60)+"px")
+     }else{
+      $("#goTopBtn").css("display","none");
+     }
+  })
+  $("#goTopBtn").click(function(){
+     var sc=$(window).scrollTop();
+     $('body,html').animate({scrollTop:0},500);
+  })
+</script>
+
+</body>
+>>>>>>> origin/master
 </html>
