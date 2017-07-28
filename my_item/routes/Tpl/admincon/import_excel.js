@@ -22,8 +22,7 @@ module.exports.run = function(f, pg, mo) {
 	//将前台传值转化为百分号解决模糊查询中'%'导致的bug；
 	sql1 = f.arg.sql;
 	sql = sql1.toString().replace(/@klaus@/g,'%');
-	
-	console.log(sql,'aaa');
+
 	s = pgdb.query(pg, sql).数据//查询的所有数据，注意要[{},{},{}....]格式
 	var result = import_excel.import(s);//调用接口会传入一个buffer
 	//console.log(result)//打印下来是一串乱码

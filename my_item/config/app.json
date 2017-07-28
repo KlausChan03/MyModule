@@ -13,7 +13,7 @@
 		"serverKey说明":"这个功能是做为平台间交互的唯一标识"
 	},
 	"postgresql":{
-		"使用":"是",
+		"使用":"否",
 		"host":"192.168.0.103",
 		"user":"postgres",
 		"pass":"qqpt123",
