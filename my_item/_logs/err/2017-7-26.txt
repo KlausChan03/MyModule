@@ -1,0 +1,33 @@
+---2017-7-26 15:26:14【Error: listen EADDRINUSE :::8080
+    at Object.exports._errnoException (util.js:1018:11)
+    at exports._exceptionWithHostPort (util.js:1041:20)
+    at Server._listen2 (net.js:1258:14)
+    at listen (net.js:1294:10)
+    at Server.listen (net.js:1390:5)
+    at Object.<anonymous> (E:\Klaus_items\zyd\fgs_Manager（正式）\apimain.js:82:8)
+    at Module._compile (module.js:570:32)
+    at Object.Module._extensions..js (module.js:579:10)
+    at Module.load (module.js:487:32)
+    at tryModuleLoad (module.js:446:12)】
+---2017-7-26 15:26:36【Error: Cannot find module 'E:\Klaus_items\zyd\fgs_Manager（正式）\node_modules\_sqlite3@3.1.8@sqlite3\lib\binding\node-v48-win32-x64\node_sqlite3.node'
+    at Function.Module._resolveFilename (module.js:469:15)
+    at Function.Module._load (module.js:417:25)
+    at Module.require (module.js:497:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (E:\Klaus_items\zyd\fgs_Manager（正式）\node_modules\_sqlite3@3.1.8@sqlite3\lib\sqlite3.js:4:15)
+    at Module._compile (module.js:570:32)
+    at Object.Module._extensions..js (module.js:579:10)
+    at Module.load (module.js:487:32)
+    at tryModuleLoad (module.js:446:12)
+    at Function.Module._load (module.js:438:3)】
+---2017-7-26 15:32:25【Error: Cannot find module 'E:\Klaus_items\zyd\fgs_Manager（正式）\node_modules\_sqlite3@3.1.8@sqlite3\lib\binding\node-v48-win32-x64\node_sqlite3.node'
+    at Function.Module._resolveFilename (module.js:469:15)
+    at Function.Module._load (module.js:417:25)
+    at Module.require (module.js:497:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (E:\Klaus_items\zyd\fgs_Manager（正式）\node_modules\_sqlite3@3.1.8@sqlite3\lib\sqlite3.js:4:15)
+    at Module._compile (module.js:570:32)
+    at Object.Module._extensions..js (module.js:579:10)
+    at Module.load (module.js:487:32)
+    at tryModuleLoad (module.js:446:12)
+    at Function.Module._load (module.js:438:3)】

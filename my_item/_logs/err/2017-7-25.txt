@@ -1,0 +1,32 @@
+---2017-7-25 20:12:50【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (E:\Klaus_items\zyd\fgs_Manager（正式）\routes\Tpl\admin\login_submit.js:36:9)
+    at E:\Klaus_items\zyd\fgs_Manager（正式）\routes\app_routes_main.js:52:20
+--> in Database#all('select id,密码,权限组,权限id,随机码,状态 from 管_管理员表 where 登录名 = \'roger\' ', [Function])
+    at done (E:\Klaus_items\zyd\fgs_Manager（正式）\func\sqlite.js:64:16)
+    at Object.sqlite.query (E:\Klaus_items\zyd\fgs_Manager（正式）\func\sqlite.js:36:5)
+    at Object.module.exports.run (E:\Klaus_items\zyd\fgs_Manager（正式）\routes\Tpl\admin\login_submit.js:35:17)
+    at E:\Klaus_items\zyd\fgs_Manager（正式）\routes\app_routes_main.js:52:20】
+---2017-7-25 20:13:14【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (E:\Klaus_items\zyd\fgs_Manager（正式）\routes\Tpl\admin\login_submit.js:36:9)
+    at E:\Klaus_items\zyd\fgs_Manager（正式）\routes\app_routes_main.js:52:20
+--> in Database#all('select id,密码,权限组,权限id,随机码,状态 from 管_管理员表 where 登录名 = \'admin\' ', [Function])
+    at done (E:\Klaus_items\zyd\fgs_Manager（正式）\func\sqlite.js:64:16)
+    at Object.sqlite.query (E:\Klaus_items\zyd\fgs_Manager（正式）\func\sqlite.js:36:5)
+    at Object.module.exports.run (E:\Klaus_items\zyd\fgs_Manager（正式）\routes\Tpl\admin\login_submit.js:35:17)
+    at E:\Klaus_items\zyd\fgs_Manager（正式）\routes\app_routes_main.js:52:20】
+---2017-7-25 20:13:15【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (E:\Klaus_items\zyd\fgs_Manager（正式）\routes\Tpl\admin\login_submit.js:36:9)
+    at E:\Klaus_items\zyd\fgs_Manager（正式）\routes\app_routes_main.js:52:20
+--> in Database#all('select id,密码,权限组,权限id,随机码,状态 from 管_管理员表 where 登录名 = \'admin\' ', [Function])
+    at done (E:\Klaus_items\zyd\fgs_Manager（正式）\func\sqlite.js:64:16)
+    at Object.sqlite.query (E:\Klaus_items\zyd\fgs_Manager（正式）\func\sqlite.js:36:5)
+    at Object.module.exports.run (E:\Klaus_items\zyd\fgs_Manager（正式）\routes\Tpl\admin\login_submit.js:35:17)
+    at E:\Klaus_items\zyd\fgs_Manager（正式）\routes\app_routes_main.js:52:20】
+---2017-7-25 20:15:15【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (E:\Klaus_items\zyd\fgs_Manager（正式）\routes\Tpl\admin\login_submit.js:36:9)
+    at E:\Klaus_items\zyd\fgs_Manager（正式）\routes\app_routes_main.js:52:20
+--> in Database#all('select id,密码,权限组,权限id,随机码,状态 from 管_管理员表 where 登录名 = \'admin\' ', [Function])
+    at done (E:\Klaus_items\zyd\fgs_Manager（正式）\func\sqlite.js:64:16)
+    at Object.sqlite.query (E:\Klaus_items\zyd\fgs_Manager（正式）\func\sqlite.js:36:5)
+    at Object.module.exports.run (E:\Klaus_items\zyd\fgs_Manager（正式）\routes\Tpl\admin\login_submit.js:35:17)
+    at E:\Klaus_items\zyd\fgs_Manager（正式）\routes\app_routes_main.js:52:20】
