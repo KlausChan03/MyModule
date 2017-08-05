@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>test</button>
+		<script src="jquery.min.js"></script>
+		<script>
+			$("button").click(function(){
+				var data={};
+				data.状态="1";
+				data = JSON.stringify(data);
+				console.log(data)
+				$.ajax({
+					type: "POST",
+					url: "/ajax.post?func=test",
+					data: 'data=' + data,
+					success: function(p) {
+						console.log(p)
+					}
+
+				})
+			})
+		</script>
+	</body>
+</html>
