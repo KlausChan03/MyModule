@@ -1,8 +1,3 @@
-/**
-创建人：秦功科
-创建时间：2017年5月9日16:58:39
-创建内容：创建市级代理分公司
- */
 
 var cipher = require('../func/cipher.js');
 var config = require('../func/config.js');

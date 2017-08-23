@@ -22,60 +22,13 @@ config.readfile();
 
 /**进程错误监控*/
 
-process.on('uncaughtException', function(err) {
-	console.log(err.stack);
-	logs.write('err', err.stack);
-});
 
-process.on('SyntaxError', function(err) {
-	console.log(err.stack);
-	logs.write('err', err.stack);
-});
-
-/**进程错误监控*/
 
 /**http服务及https服务*/
 
 var app = express();
 
-//redis存储session
-if(config.get('app').redis.使用 == '是') {
 
-	var RedisStrore = require('connect-redis')(session);
-	var cf = {
-		"cookie": {
-			"maxAge": 360000
-		},
-		"sessionStore": {
-			"host": config.get('app').redis.host,
-			"port": config.get('app').redis.port,
-			"pass": config.get('app').redis.password,
-			"db": config.get('app').redis.sessionDB,
-			"ttl": 1800,
-			"logErrors": true
-		}
-	};
-
-	app.use(session({
-		name: "hy-go",
-		secret: 'Asecret123-',
-		resave: true,
-		rolling: true,
-		saveUninitialized: false,
-		cookie: cf.cookie,
-		store: new RedisStrore(cf.sessionStore)
-	}));
-
-} else {
-
-	app.use(session({
-		resave: true,
-		secret: uuid.v4(), //secret的值建议使用随机字符串
-		saveUninitialized: true,
-		cookie: { maxAge: 360000 } // 过期时间（毫秒）
-	}));
-
-}
 
 var server = http.createServer(app);
 
