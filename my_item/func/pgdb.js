@@ -1,12 +1,3 @@
-/**pg数据库功能
-创建时间：2016-09-23
-创建人：吕扶美
-
-更新时间
-更新内容：
-更新人：
-
-*/
 var Fiber = require('fibers');
 var pg = require('pg');
 var config = require('./config.js');

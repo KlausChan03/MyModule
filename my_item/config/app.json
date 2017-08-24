@@ -19,6 +19,13 @@
 		"pass":"qqpt123",
 		"db":"zyd_fgs"
 	},
+	"mysql":{
+		"使用":"是",
+		"host":"localhost",
+		"user":"root",
+		"pass":"123456",
+		"db":"roger"
+	},
 	"mongodb":{
 		"使用":"否",
 		"address":"192.168.0.200",
