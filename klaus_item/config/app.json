@@ -1,0 +1,17 @@
+{
+  "main": {
+    "servername": "klaus_support",
+    "httpPort": 8080
+  },
+  "mysql": {
+    "使用": "是",
+    "host": "localhost",
+    "user": "root",
+    "pass": "123456",
+    "db": "roger"
+  },
+
+  "sqlite": {
+    "db": "mysql.db"
+  }
+}
