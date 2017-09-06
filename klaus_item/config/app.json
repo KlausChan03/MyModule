@@ -1,7 +1,7 @@
 {
   "main": {
     "servername": "klaus_support",
-    "httpPort": 8080
+    "httpPort": 1314
   },
   "mysql": {
     "使用": "是",

@@ -5,11 +5,14 @@ var favicon = require("serve-favicon");
 var logger = require("morgan");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
+var http = require("http");
+var config = require("./function/config.js");
 
 // 加载路由控制
 var routes = require("./routes/index");
 // var users = require('./routes/users');
 var test = require("./routes/test");
+var push = require("./routes/push");
 
 // 创建项目实例
 var app = express();
@@ -35,6 +38,7 @@ app.use("/", routes);
 // app.use('/users', users);
 
 app.post("/run", test.run);
+app.post("/swim", push.swim);
 
 // 404错误处理
 app.use(function(req, res, next) {
