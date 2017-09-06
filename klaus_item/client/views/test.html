@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link rel="shortcut icon" href="../images/favicon.ico"/>
-    <link rel="bookmark" href="../images/favicon.ico"/>
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="bookmark" href="../images/favicon.ico" />
     <!--<link href="public/admin/css/test.css" rel="stylesheet" />-->
     <link href="../stylesheets/font-awesome.css" rel="stylesheet" />
     <link href="../stylesheets/flex.css" rel="stylesheet" />
@@ -27,8 +27,8 @@
             console.log(data)
             $.ajax({
                 type: "POST",
-                url: "/run",
-                data: 'dataurl=' + data,
+                url: "/routes.post?func=test",
+                data: 'data=' + data,
                 success: function (p) {
                     console.log(p)
                     $("span").html(p.数据[1].id);

@@ -23,8 +23,8 @@ module.exports.run = function(body, pg, mo) {
   var result = {};
 
   query(sql, function(err, vals, fields) {
-  console.log(vals);
-  res.send(vals)
+  console.log("ll");
+  // res.send(vals)
   });
   //do something
   // console.log(vals)

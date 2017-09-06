@@ -5,7 +5,8 @@ var pool = mysql.createPool({
   password: "123456",
   database: "roger"
 });
-var query = function(sql, callback) {
+var query = {};
+query.link = function(sql, callback) {
   pool.getConnection(function(err, conn) {
     if (err) {
       callback(err, null, null);

@@ -22,6 +22,7 @@ ajax.index = function(req, res, body) {
     var func = require("./" + body.func + ".js");
 
     body.send = func.run(body, obj.mysql);
+    console.log(body.send, "rog");
 
     /**---------pg-------*/
     // if (conf.mysql.使用 == "是") {
@@ -87,7 +88,7 @@ ajax.index = function(req, res, body) {
       console.log("ajax接口:" + body.func + "---运行时间:" + body.Time + "毫秒");
       console.log("---------------------------------");
 
-    //   query.close(obj.pg);
+      //   query.close(obj.pg);
 
       if (conf.mongodb.使用 == "是") {
         obj.mongo
