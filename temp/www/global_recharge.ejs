@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/init.js"></script>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/flex.css">
+    <title>充值</title>
+    <style>
+        body {
+            font-size: .24rem;
+        }
+
+        .mt-05rem {
+            margin-top: .5rem;
+        }
+
+        .mt-025rem {
+            margin-top: .25rem;
+        }
+
+        .recharge-main-container {
+            margin-bottom: 2.5rem;
+        }
+
+        .recharge-amount-items {
+            width: 30%;
+            height: 1.5rem;
+            margin-left: 2.5%;
+            border: 1px solid #666;
+        }
+
+        .recharge-amount-items p {
+            margin-top: .1rem;
+        }
+
+        .recharge-input {
+            margin-left: 2.5%;
+        }
+
+        .display-none {
+            display: none;
+        }
+
+        .display-show {
+            display: block;
+        }
+
+        .ic-coin {
+            width: .3rem;
+            height: .3rem;
+        }
+
+        footer {
+            width: 100%;
+            height: .8rem;
+            position: fixed;
+            bottom: 0;
+            background-color: #fff;
+        }
+
+        footer p {
+            padding: 0 .2rem;
+        }
+
+        footer p:first-child {
+            border-right: 1px solid #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="recharge-main-container">
+        <ul class="recharge-amount-container flex-hw flex-hl-vc">
+            <% 列表.forEach(function (name,key){%>
+                <li class="recharge-amount-items flex-v flex-hc-vc mt-025rem">
+                    <img class="ic-coin" src="<%=name.图片地址%>" />
+                    <p>
+                        <%=name.名称%>
+                    </p>
+                    <p>
+                        <%=name.面值%>0</p>
+                </li>
+                <% })%>
+
+                    <!--<li class="recharge-amount-items flex-v flex-hc-vc mt-025rem">
+                <img class="ic-coin" src="img/ic_record.png" />
+                <p>100全球币</p>
+                <p>￥100</p>
+            </li>
+            <li class="recharge-amount-items flex-v flex-hc-vc mt-025rem">
+                <img class="ic-coin" src="img/ic_record.png" />
+                <p>100全球币</p>
+                <p>￥100</p>
+            </li>
+            <li class="recharge-amount-items flex-v flex-hc-vc mt-025rem">
+                <img class="ic-coin" src="img/ic_record.png" />
+                <p>100全球币</p>
+                <p>￥100</p>
+            </li>-->
+                    <li class="recharge-amount-items flex-v flex-hc-vc mt-025rem">
+                        <p>+</p>
+                    </li>
+        </ul>
+        <div>
+            <div class="recharge-input mt-05rem display-none">
+                <div><span>金额：</span><input /></div>
+            </div>
+            <div class="recharge-input mt-05rem">
+                <div><span>账号：</span><input /></div>
+
+                <div><span>昵称：</span><input /></div>
+            </div>
+        </div>
+    </div>
+    <footer class="flex-hc-vc">
+        <p>充值记录</p>
+        <p>使用说明</p>
+    </footer>
+
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/share.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="./js/cookie.js"></script>
+    <script>
+        ajax.ajax_common = function (obj_save, success_func, error_func, type) {
+            var ajax_type;
+            if (!arguments[2]) {
+                error_func = function () { };
+            }
+            if (!arguments[3]) {
+                ajax_type = "POST";
+            }
+
+            var func = obj_save.func;
+            var datas = obj_save.datas;
+            datas = JSON.stringify(datas);
+            console.log(func)
+            $.ajax({
+                type: "POST",
+                url: "PT_chongzhilist.xhtml",
+                data: "data=" + datas,
+                success: function (res) {
+                    console.log(res);
+                    if (res.状态 == "成功") {
+                        console.log(res)
+                        success_func(res)
+                    }
+                },
+                error: function (res) {
+                    if (res.状态 != "成功") {
+                        error_func(res)
+                    }
+                }
+            });
+        }
+
+        $(".recharge-amount-container li:last-child").click(function () {
+            $(".display-none").addClass("display-show").removeClass("display-none");
+            $(".recharge-amount-container li:last-child").before($(".recharge-amount-container li:last-child").clone().html('<img class="ic-coin" src="img/ic_record.png" /><p>100全球币</p><p>￥100 </p>'));
+        })
+
+        $(document).ready(function () {
+            var list_success = function () { };
+            var obj_save = { datas: { 测试: 111 }, func: "PT_chongzhilist" };
+            ajax.ajax_common(obj_save, list_success)
+        })
+    </script>
+</body>
+
+</html>
