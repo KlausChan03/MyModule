@@ -2,9 +2,9 @@ var $,tab,skyconsWeather;
 layui.config({
 	base : "js/"
 }).use(['bodyTab','form','element','layer','jquery'],function(){
-	var form = layui.form(),
+	var form = layui.form,
 		layer = layui.layer,
-		element = layui.element();
+		element = layui.element;
 		$ = layui.jquery;
 		tab = layui.bodyTab({
 			openTabNum : "50",  //最大可打开窗口数量
@@ -266,7 +266,7 @@ layui.config({
 			openTitle += '<i class="layui-icon layui-unselect layui-tab-close" data-id="'+menu[i].layId+'">&#x1006;</i>';
 			element.tabAdd("bodyTab",{
 				title : openTitle,
-		        content :"<iframe src='"+menu[i].href+"' data-id='"+menu[i].layId+"'></frame>",
+		        content :"<iframe id='iframe_"+menu[i].layId+"' src='"+menu[i].href+"' data-id='"+menu[i].layId+"'  data-func='"+menu[i].func+"'></frame>",
 		        id : menu[i].layId
 			})
 			//定位到刷新前的窗口
@@ -346,6 +346,26 @@ layui.config({
 		tab.tabMove();
 	})
 })
+
+
+document.onkeyup = function (event) {
+	var e = event || window.event;
+	var keyCode = e.keyCode || e.which;
+	switch (keyCode) {
+		case 116:
+			event.preventDefault()
+			window.sessionStorage.removeItem("menu");
+			menu = [];
+			window.sessionStorage.removeItem("curmenu");
+			break;
+		case 115:
+			event.preventDefault()
+			console.log("lllkkk")
+			break;
+		default:
+			break;
+	}
+}
 
 //打开新窗口
 function addTab(_this){

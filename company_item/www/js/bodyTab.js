@@ -6,7 +6,7 @@
 */
 var tabFilter,menu=[],liIndex,curNav,delMenu;
 layui.define(["element","jquery"],function(exports){
-	var element = layui.element(),
+	var element = layui.element,
 		$ = layui.jquery,
 		layId,
 		Tab = function(){
@@ -93,7 +93,7 @@ layui.define(["element","jquery"],function(exports){
 				title += '<i class="layui-icon layui-unselect layui-tab-close" data-id="'+tabIdIndex+'">&#x1006;</i>';
 				element.tabAdd(tabFilter, {
 			        title : title,
-			        content :"<iframe src='"+_this.attr("data-url")+"' data-id='"+tabIdIndex+"'></frame>",
+			        content :"<iframe id='iframe_"+tabIdIndex+"' src='"+_this.attr("data-url")+"' data-id='"+tabIdIndex+"' data-func='"+_this.attr("data-func")+"'></frame>",
 			        id : new Date().getTime()
 			    })
 				//当前窗口内容
@@ -139,7 +139,7 @@ layui.define(["element","jquery"],function(exports){
 					topTabs.css("left",-tabLi.position().left);
 				}
 				//拖动效果
-				var flag = false;
+				var flag = true;
 				var cur = {
 				    x:0,
 				    y:0

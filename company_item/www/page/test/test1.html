@@ -6,25 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+    <style>
+
+    </style>
 </head>
 
-<body>
-    <h1>helloworld</h1>
+<body class="childrenBody">
+    <div class="layui-form table-container">
+        <table class="layui-table">
+            <caption></caption>
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+    </div>
     <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../layui/layui.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/table.js"></script>
     <script>
-        $(document).ready(function () {
-            var data = {};
-            data = JSON.stringify(data);
-            $.ajax({
-                url: "/ajax.post?func=test",
-                type: "POST",
-                data: 'data=' + data,
-                success: function (s) {
-                    console.log(s)
-                }
-            });
-        })
+
     </script>
+
+
 
 </body>
 
