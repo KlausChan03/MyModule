@@ -93,7 +93,7 @@ layui.define(["element","jquery"],function(exports){
 				title += '<i class="layui-icon layui-unselect layui-tab-close" data-id="'+tabIdIndex+'">&#x1006;</i>';
 				element.tabAdd(tabFilter, {
 			        title : title,
-			        content :"<iframe id='iframe_"+tabIdIndex+"' src='"+_this.attr("data-url")+"' data-id='"+tabIdIndex+"' data-func='"+_this.attr("data-func")+"'></frame>",
+			        content :"<iframe class='iframe_' src='"+_this.attr("data-url")+"' data-id='"+tabIdIndex+"' data-func='"+_this.attr("data-func")+"'></frame>",
 			        id : new Date().getTime()
 			    })
 				//当前窗口内容

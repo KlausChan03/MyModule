@@ -23,19 +23,26 @@ ajax.ajax_depend_concurrent = function( obj_save, success_func, error_func, type
 
 ajax.ajax_common = function(obj_save, success_func, error_func, type) {
     var ajax_type;
-    if (!arguments[2]) { error_func = function() {}; }
-    if (!arguments[3]) { ajax_type = "POST"; }
+    
+    // if (!arguments[2]) { error_func = function() {}; }
+    // if (!arguments[3]) { ajax_type = "POST"; }
     var func = obj_save.func;
     var datas = obj_save.datas;
     datas = JSON.stringify(datas);
+    console.log(func)
+    
     $.ajax({
       type: "POST",
       url: "/ajax.post?func=" + func,
       data: "data=" + datas,
       success: function(res) {
-        if (res.状态 == "成功") { success_func(res); } else { error_func(res); }
+        console.log(res)
+        // if (res.状态 == "成功") { success_func(res); } else { error_func(res); }
+        return false;
+        
       }
     });
+    
 };
   
 

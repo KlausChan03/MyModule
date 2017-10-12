@@ -1,37 +1,69 @@
-// layui.config({
-//     base : "js/"
-// }).use(['form','element','layer','jquery'],function(){
-//     var form = layui.form(),
-//         layer = parent.layer === undefined ? layui.layer : parent.layer,
-//         element = layui.element(),
-//         $ = layui.jquery;
-// })
-// //新消息
-// $.get("../json/navs.json",
-//     function(data){
-//         $(".newMessage span").text(data.length);
+// $(".table-container table thead").append("<tr></tr>")
+// for (i in res.列表[0]) {
+//     $(".table-container table thead").append("<th>" + i + "</th>")
+//     // $(".table-container table tbody").append("<th>" + res.列表[0][i] + "</th>")
+// }
+// for (j in res.列表) {
+//     $(".table-container table tbody").append("<tr></tr>")
+//     for (k in res.列表[j]) {
+//         $(".table-container table tbody tr:eq(" + j + ")").append("<th>" + res.列表[j][k] + "</th>")
+//         $("tbody tr").off("click").on("click",function () {
+//             var pos = $(this).position().top;
+//             $(window).scrollTop(pos);
+//         })
 //     }
-// )
+// }
 
-var list_i = 1;
-var ifarme_func = window.top.document.getElementById("iframe_"+list_i).src;
-console.log(GetRequest(ifarme_func).func)
-var obj_save = { datas: {}, func: GetRequest(ifarme_func).func};
-var success_func = function (res){
-    $(".table-container table thead").append("<tr></tr>")
-    for (i in res.列表[0]) {
-        $(".table-container table thead").append("<th>" + i + "</th>")
-        // $(".table-container table tbody").append("<th>" + res.列表[0][i] + "</th>")
-    }
-    for (j in res.列表) {
-        $(".table-container table tbody").append("<tr></tr>")
-        for (k in res.列表[j]) {
-            $(".table-container table tbody tr:eq(" + j + ")").append("<th>" + res.列表[j][k] + "</th>")
-            $("tbody tr").off("click").on("click",function () {
-                var pos = $(this).position().top;
-                $(window).scrollTop(pos);
-            })
+layui.use("table", function() {
+  var table = layui.table;
+
+  var ifarme_func = window.top.document.getElementsByClassName("iframe_");
+  var obj_save = { datas: {}, func: GetRequest(ifarme_func).func };
+  var success_func = function(res) {
+    var th=[];
+    th.push( { checkbox: true, fixed: true, align:'center' },{"title":"操作",toolbar: '#act-bar', width:150, fixed: true,align:'center'});
+    for (i in res.列表[0]){ th.push({"field":i,"title":i,"width": "120","align":"center"});}
+    th[2].sort = true;
+
+    window.demoTable = table.render({
+      elem: "#demo",
+      id:"test",
+      data: res.列表,
+      width: window.innerWidth-20,
+      cols: [th],
+      skin: "row", //表格风格
+      even: true,
+      page: true, //是否显示分页
+      limits: [10, 15, 20],
+      limit: 15 //每页默认显示的数量
+    });
+
+    var $ = layui.jquery, active = {
+        getCheckData: function () {
+            var checkStatus = table.checkStatus('test')
+                , data = checkStatus.data;
+            layer.alert(JSON.stringify(data));
         }
-    }
-}
-ajax.ajax_common(obj_save, success_func)
+        , getCheckLength: function () {
+            var checkStatus = table.checkStatus('test')
+                , data = checkStatus.data;
+            layer.msg('选中了：' + data.length + ' 个');
+        }
+        , isAll: function () {
+            var checkStatus = table.checkStatus('test');
+            layer.msg(checkStatus.isAll ? '全选' : '未全选')
+        }
+        , parseTable: function () {
+            table.init('parse-table-demo');
+        }
+    };
+
+    $('.layui-btn').on('click', function () {
+        var type = $(this).data('type');
+        active[type] ? active[type].call(this) : '';
+    });
+    
+  };
+  ajax.ajax_common(obj_save, success_func);
+  //方法级渲染
+});

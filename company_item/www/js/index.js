@@ -266,7 +266,7 @@ layui.config({
 			openTitle += '<i class="layui-icon layui-unselect layui-tab-close" data-id="'+menu[i].layId+'">&#x1006;</i>';
 			element.tabAdd("bodyTab",{
 				title : openTitle,
-		        content :"<iframe id='iframe_"+menu[i].layId+"' src='"+menu[i].href+"' data-id='"+menu[i].layId+"'  data-func='"+menu[i].func+"'></frame>",
+		        content :"<iframe class='iframe_' src='"+menu[i].href+"' data-id='"+menu[i].layId+"'  data-func='"+menu[i].func+"'></frame>",
 		        id : menu[i].layId
 			})
 			//定位到刷新前的窗口
@@ -286,15 +286,15 @@ layui.config({
 
 	//刷新当前
 	$(".refresh").on("click",function(){  //此处添加禁止连续点击刷新一是为了降低服务器压力，另外一个就是为了防止超快点击造成chrome本身的一些js文件的报错(不过貌似这个问题还是存在，不过概率小了很多)
-		if($(this).hasClass("refreshThis")){
-			$(this).removeClass("refreshThis");
-			$(".clildFrame .layui-tab-item.layui-show").find("iframe")[0].contentWindow.location.reload(true);
-			setTimeout(function(){
-				$(".refresh").addClass("refreshThis");
-			},2000)
-		}else{
-			layer.msg("您点击的速度超过了服务器的响应速度，还是等两秒再刷新吧！");
-		}
+			if($(this).hasClass("refreshThis")){
+				$(this).removeClass("refreshThis");
+				$(".clildFrame .layui-tab-item.layui-show").find("iframe")[0].contentWindow.location.reload(true);
+				setTimeout(function(){
+					$(".refresh").addClass("refreshThis");
+				},2000)
+			}else{
+				layer.msg("您点击的速度超过了服务器的响应速度，还是等两秒再刷新吧！");
+			}
 	})
 
 	//关闭其他
@@ -353,14 +353,12 @@ document.onkeyup = function (event) {
 	var keyCode = e.keyCode || e.which;
 	switch (keyCode) {
 		case 116:
-			event.preventDefault()
 			window.sessionStorage.removeItem("menu");
 			menu = [];
 			window.sessionStorage.removeItem("curmenu");
 			break;
 		case 115:
-			event.preventDefault()
-			console.log("lllkkk")
+			$(".clildFrame .layui-tab-item.layui-show").find("iframe")[0].contentWindow.location.reload(true);
 			break;
 		default:
 			break;
@@ -373,16 +371,16 @@ function addTab(_this){
 }
 
 //捐赠弹窗
-function donation(){
-	layer.tab({
-		area : ['260px', '367px'],
-		tab : [{
-			title : "微信",
-			content : "<div style='padding:30px;overflow:hidden;background:#d2d0d0;'><img src='images/wechat.jpg'></div>"
-		},{
-			title : "支付宝",
-			content : "<div style='padding:30px;overflow:hidden;background:#d2d0d0;'><img src='images/alipay.jpg'></div>"
-		}]
-	})
-}
+// function donation(){
+// 	layer.tab({
+// 		area : ['260px', '367px'],
+// 		tab : [{
+// 			title : "微信",
+// 			content : "<div style='padding:30px;overflow:hidden;background:#d2d0d0;'><img src='images/wechat.jpg'></div>"
+// 		},{
+// 			title : "支付宝",
+// 			content : "<div style='padding:30px;overflow:hidden;background:#d2d0d0;'><img src='images/alipay.jpg'></div>"
+// 		}]
+// 	})
+// }
 

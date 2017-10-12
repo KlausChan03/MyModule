@@ -598,7 +598,7 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-table-fixed-r{left: auto; right: -1px; border-left: 1px solid #e2e2e2; box-shadow: -1px 0 8px rgba(0,0,0,.1);}
 .layui-table-fixed-r .layui-table-header{position: relative; overflow: visible;}
 .layui-table-mend{position: absolute; right: -49px; top: 0; height: 100%; width: 50px;}
-.layui-table-tool{position: relative; width: 100%; padding: 7px 10px 0 0; border-width: 0; border-top-width: 1px; height: 41px; margin-bottom: -1px; font-size: 12px;  white-space: nowrap;}
+.layui-table-tool{position: relative; width: 100%; padding: 2px ; border-width: 0; border-top-width: 1px; height: 41px; margin-bottom: -1px; font-size: 12px;  white-space: nowrap;}
 .layui-table-tool:hover{overflow-x: auto;}
 
 .layui-table-page{height: 26px;}
