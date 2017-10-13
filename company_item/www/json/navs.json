@@ -42,12 +42,6 @@
         "icon": "&#xe609;",
         "href": "page/test/test2.html?func=test2",
         "spread": false
-      },{
-        "id":"3",
-        "title": "测试三",
-        "icon": "&#xe609;",
-        "href": "page/test/test3.html?func=test3",
-        "spread": false
       }
     ]
   },
@@ -61,6 +55,12 @@
         "title": "404页面",
         "icon": "&#xe61c;",
         "href": "page/404.html",
+        "spread": false
+      },
+      {
+        "title": "平台用户信息",
+        "icon": "&#xe61c;",
+        "href": "page/user/user-list.html?func=user-list",
         "spread": false
       },
       {

@@ -5,14 +5,15 @@ var $;
 layui.config({
 	base : "../../js/"
 }).use(['form','layer','upload','laydate'],function(){
-	form = layui.form();
+	form = layui.form;
 	var layer = parent.layer === undefined ? layui.layer : parent.layer;
 		$ = layui.jquery;
 		$form = $('form');
-		laydate = layui.laydate;
+        laydate = layui.laydate;
+        upload = layui.upload;
         loadProvince(); //加载省信息
 
-    layui.upload({
+    upload.render({
     	url : "../../json/userface.json",
     	success: function(res){
     		var num = parseInt(4*Math.random());  //生成0-4的随机数

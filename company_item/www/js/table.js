@@ -1,3 +1,4 @@
+// 旧方法实现数据渲染
 // $(".table-container table thead").append("<tr></tr>")
 // for (i in res.列表[0]) {
 //     $(".table-container table thead").append("<th>" + i + "</th>")
@@ -14,6 +15,7 @@
 //     }
 // }
 
+// 新方法实现数据渲染
 layui.use("table", function() {
   var table = layui.table;
 
@@ -24,12 +26,21 @@ layui.use("table", function() {
     th.push( { checkbox: true, fixed: true, align:'center' },{"title":"操作",toolbar: '#act-bar', width:150, fixed: true,align:'center'});
     for (i in res.列表[0]){ th.push({"field":i,"title":i,"width": "120","align":"center"});}
     th[2].sort = true;
-
+   
+    // 宽度监测
+    // function change_width() {
+    //     window_width = window.innerWidth-20;    
+    //     console.log(window_width);   
+    // }
+    // change_width();
+    // window.onresize = function(){
+    //     change_width()
+    // };
     window.demoTable = table.render({
       elem: "#demo",
       id:"test",
       data: res.列表,
-      width: window.innerWidth-20,
+      width: "auto",
       cols: [th],
       skin: "row", //表格风格
       even: true,
@@ -51,7 +62,8 @@ layui.use("table", function() {
         }
         , isAll: function () {
             var checkStatus = table.checkStatus('test');
-            layer.msg(checkStatus.isAll ? '全选' : '未全选')
+            // layer.msg(checkStatus.isAll ? '全选' : '未全选');
+            layObj.form("新增");
         }
         , parseTable: function () {
             table.init('parse-table-demo');
@@ -65,5 +77,4 @@ layui.use("table", function() {
     
   };
   ajax.ajax_common(obj_save, success_func);
-  //方法级渲染
 });

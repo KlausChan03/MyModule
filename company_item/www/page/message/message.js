@@ -2,7 +2,7 @@ var $;
 layui.config({
 	base : "../../js/"
 }).use(['form','layer','layedit'],function(){
-    var form = layui.form(),
+    var form = layui.form,
         layer = parent.layer === undefined ? layui.layer : parent.layer,
         layedit = layui.layedit;
         $ = layui.jquery;
