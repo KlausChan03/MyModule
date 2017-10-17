@@ -1,3 +1,4 @@
+'use strict';
 var layObj = {
 	tit: "",
 	lay_content: "",
@@ -157,24 +158,21 @@ var layObj = {
 
 		});
 	},
-	'form': function(tit, input_arr, success) {
+	'form': function(tit, success_func, test, tb_id ) {
 		layer.open({
 			type: 1,
 			title: tit,
-			content: '<div class="site-text site-block"> <form class="layui-form" action=""> <div class="layui-form-item"> <label class="layui-form-label">输入框</label> <div class="layui-input-block"> <input type="text" name="title" required="" lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input"> </div> </div> <div class="layui-form-item"> <div class="layui-input-block"> <button class="layui-btn" lay-submit="" lay-filter="formDemo">立即提交</button> <button type="reset" class="layui-btn layui-btn-primary">重置</button> </div> </div> </form> </div>',
-			closeBtn: 0,
-			offset: ['10%'],
-			// btn: ['确定', '取消'],
+			content: '<div class="site-text site-block"> <form class="layui-form" action=""> '+ test +'<div class="layui-input-block"> <button class="layui-btn" lay-submit="" lay-filter="formDemo">立即提交</button> <button type="reset" class="layui-btn layui-btn-primary">重置</button> </div></form> </div>',
+			closeBtn: 1,
+			offset: ['5%'],
+			area:['auto','750px'],
 			skin: 'layui-layer-diy w520 btn-2',
 			anim: 0,
-			isOutAnim: false,
-			scrollbar: false,
-			// btn1: function(index, layero) {
-			// 	btn1_opt(layero, index);
-			// },
-			// btn2: function(index, layero) {
-			// 	layer.close(index);
-			// }
+			isOutAnim: 2,
+			success:function(){
+				success_func()
+
+			}
 		});
 	}
 }

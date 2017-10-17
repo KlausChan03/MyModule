@@ -31,16 +31,22 @@
     "children": [
       {
         "id":"1",
-        "title": "测试一",
+        "title": "全_套餐设置",
         "icon": "&#xe61c;",
-        "href": "page/test/test1.html?func=test",
+        "href": "page/test/test1.html?func=test&bc_id=bc001",
         "spread": false
       },
       {
         "id":"2",
-        "title": "测试二",
+        "title": "全_微信支付日志",
         "icon": "&#xe609;",
-        "href": "page/test/test2.html?func=test2",
+        "href": "page/test/test2.html?func=test2&bc_id=bc002",
+        "spread": false
+      },{
+        "id":"2",
+        "title": "联表查询",
+        "icon": "&#xe609;",
+        "href": "page/test/test_link.html?func=test_link",
         "spread": false
       }
     ]

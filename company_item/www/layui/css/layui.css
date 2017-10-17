@@ -258,6 +258,8 @@ a cite{font-style: normal; *cursor:pointer;}
 /** 页面元素 **/
 .layui-btn, .layui-input, .layui-textarea, .layui-upload-button, .layui-select{outline: none; -webkit-appearance: none; transition: all .3s; -webkit-transition: all .3s; box-sizing: border-box;}
 
+
+
 /* 引用 */.layui-elem-quote{margin-bottom: 10px; padding: 15px; line-height: 22px; border-left: 5px solid #2B9CED; border-radius: 0 2px 2px 0; background-color: #f2f2f2;}
 .layui-quote-nm{border-color: #e2e2e2; border-style: solid; border-width: 1px; border-left-width: 5px; background: none;}
 /* 字段集合 */.layui-elem-field{margin-bottom: 10px; padding: 0; border: 1px solid #e2e2e2;}
@@ -351,6 +353,8 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-form select, 
 .layui-form input[type=checkbox],
 .layui-form input[type=radio]{display: none;}
+
+.layui-input[disabled="disabled"]{background-color: #eee}
 
 .layui-form-item{margin-bottom: 15px; clear: both; *zoom: 1;}
 .layui-form-item:after{content:'\20'; clear: both; *zoom: 1; display: block; height:0;}

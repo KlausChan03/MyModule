@@ -27,9 +27,9 @@ function navBar(strData){
 			ulHtml += '<dl class="layui-nav-child">';
 			for(var j=0;j<data[i].children.length;j++){
 				if(data[i].children[j].target == "_blank"){
-					ulHtml += '<dd><a href="javascript:;"  data-func="'+data[i].children[j].func+'" data-url="'+data[i].children[j].href+'" target="'+data[i].children[j].target+'">';
+					ulHtml += '<dd><a href="javascript:;"   data-url="'+data[i].children[j].href+'" target="'+data[i].children[j].target+'">';
 				}else{
-					ulHtml += '<dd><a href="javascript:;"  data-func="'+data[i].children[j].func+'" data-url="'+data[i].children[j].href+'">';
+					ulHtml += '<dd><a href="javascript:;"   data-url="'+data[i].children[j].href+'">';
 				}
 				if(data[i].children[j].icon != undefined && data[i].children[j].icon != ''){
 					if(data[i].children[j].icon.indexOf("icon-") != -1){
@@ -43,14 +43,11 @@ function navBar(strData){
 			ulHtml += "</dl>";
 		}else{
 			if(data[i].target == "_blank"){
-				ulHtml += '<a href="javascript:;" data-func="'+data[i].func+'" data-url="'+data[i].href+'" target="'+data[i].target+'">';
+				ulHtml += '<a href="javascript:;" data-url="'+data[i].href+'" target="'+data[i].target+'">';
 			}else{
-				ulHtml += '<a href="javascript:;" data-func="'+data[i].func+'" data-url="'+data[i].href+'">';
+				ulHtml += '<a href="javascript:;" data-url="'+data[i].href+'">';
 			}
-			$(".ohno").click(function(){
-				
-					console.log($(this).attr("data-func"))
-				})
+
 			if(data[i].icon != undefined && data[i].icon != ''){
 				if(data[i].icon.indexOf("icon-") != -1){
 					ulHtml += '<i class="iconfont '+data[i].icon+'" data-icon="'+data[i].icon+'"></i>';
