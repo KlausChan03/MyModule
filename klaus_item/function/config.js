@@ -6,20 +6,21 @@ var config = {};
 //更新缓存
 config.readfile = function() {
   var dir = "./config/";
-  console.log(dir, "1");
+  // console.log(dir, "1");
   var files = fs.readdirSync(dir);
-  console.log(files, "2");
+  // console.log(files, "2");
 
   for (var i = 0; i < files.length; i++) {
     var file = files[i];
     if (file.substring(file.length - 5, file.length) == ".json") {
       var path = dir + file;
-      console.log(path, "3");
+      // console.log(path, "3");
 
       var config = fs.readFileSync(path);
       try {
         var json = JSON.parse(config.toString());
         var key = "config/" + file.substring(0, file.length - 5);
+        console.log(key)
         cache.put(key, json);
       } catch (e) {
         console.error("读取配置文件出错误！！");

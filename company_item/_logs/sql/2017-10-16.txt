@@ -1,0 +1,963 @@
+---2017-10-16 10:48:58【错误语句:insert into 全_微信支付日志 (微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('ceshi', '2312312','2131','','','','','','','','','','','', '')错误信息:error: 无效的数字类型输入语法: ""
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 11:0:48【错误语句:insert into 全_微信支付日志 (微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('21', '2121','12','13','213','21312','213','21','321','213','213213','213213','2321','3213', '23123')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 11:10:30【错误语句:insert into 全_微信支付日志 (微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('13', '23','32','131','23','23','21','123','213','3','213213','123','23','2131', '3213')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 11:57:40【错误语句:insert into 全_微信支付日志 (微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12', '12','12','3','21312','3213','213','213','','231','','312','321','321','3123131')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 11:58:58【错误语句:insert into 全_微信支付日志 (微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12', '123','3','2','323','1','312','312','312','3213','213','213','23','232','3')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 11:59:51【错误语句:insert into 全_微信支付日志 (微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12', '13','213','12','3','12','12','213','2','3','213','213','2','312312','1231')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 11:59:51【错误语句:insert into 全_微信支付日志 (微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12', '13','213','12','3','12','12','213','2','3','213','213','2','312312','1231')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 11:59:51【错误语句:insert into 全_微信支付日志 (微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12', '13','213','12','3','12','12','213','2','3','213','213','2','312312','1231')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 13:44:37【错误语句:insert into 全_微信支付日志 (微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('1321', '12','33','213','21321','3','3','213','2','312','3213','1231','23','21312','31')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 13:48:12【错误语句:insert into 全_微信支付日志 (微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('1', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 13:48:47【错误语句:insert into 全_微信支付日志 (微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('2', '1','21','321','3','','','','','','','','','','')错误信息:error: 无效的数字类型输入语法: ""
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 13:58:44【错误语句:select a.头像,a.性别,a.年龄,a.职业,a.地区,b.全球币,b.手机号,b.身份认证 from 全_会员资料表a,全_会员表b where a.账号=b.账号错误信息:error: 关系 "全_会员资料表a" 不存在
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:5:24【错误语句:insert into 全_微信支付日志 (微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('1', '','','','','','','','','','','','','','')错误信息:error: 无效的数字类型输入语法: ""
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:6:57【错误语句:insert into 全_微信支付日志 (微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('', '','12','','','','','','','','','','','','')错误信息:error: 无效的数字类型输入语法: ""
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:10:22【错误语句:insert into 全_微信支付日志 (微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('13', '23','1241','','','','','','','','','','','','')错误信息:error: 无效的数字类型输入语法: ""
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:17:23【错误语句:insert into全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('21311', '13','','','','','','','','','','','','','')错误信息:error: 语法错误 在 "into全_微信支付日志" 或附近的
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:17:24【错误语句:insert into全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('21311', '13','','','','','','','','','','','','','')错误信息:error: 语法错误 在 "into全_微信支付日志" 或附近的
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:18:40【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '','','','','','','','','','','','','','')错误信息:error: 无效的数字类型输入语法: ""
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:18:57【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:4【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:4【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:4【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:4【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:4【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:4【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:5【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:5【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:5【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:5【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:5【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:5【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:5【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:6【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:6【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:6【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:6【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:6【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:7【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:7【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:7【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:7【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:7【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:7【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:8【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:8【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:8【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:8【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:8【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:8【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:9【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:9【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:9【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:9【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:19:9【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12545555', '1','1','1','1','1','1','1','1','1','1','1','1','1','1')错误信息:error: 重复键违反唯一约束"全_微信支付日志_支付订单号_key"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:30:43【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('9999', '12321312312312','21321312','','','','32131','3','321232131','','','','','','')错误信息:error: 无效的数字类型输入语法: ""
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:39:15【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('12313', '1213123','21','312312','3213','','','','','','','','','','')错误信息:error: 无效的数字类型输入语法: ""
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:39:59【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('13', '21','3','1231','','','','','','','','','','','')错误信息:error: 无效的数字类型输入语法: ""
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:41:52【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('f.微信openid','f.公众账号id','f.商户号','f.账号','f.姓名','f.总金额','f.支付订单号','f.商户订单号','f.交易类型','f.状态','f.类别','f.内容','f.录入人','f.录入时间','f.备注',)错误信息:error: 语法错误 在 ")" 或附近的
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:47:37【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('1314520000', '','','','','','','','','','','','','','')错误信息:error: 无效的数字类型输入语法: ""
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:52:1【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('312333333333333333', '321','33333333333333333333333','333333333333333','','','','','','','','','','','')错误信息:error: 无效的数字类型输入语法: ""
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 14:56:22【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('2123213', '12111111111113','231231','','','','','','','','','','','','')错误信息:error: 无效的数字类型输入语法: ""
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 15:22:42【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','123321','123321123321','123321','123321','123321','123321','123321','123321','123321','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 15:23:34【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','123321123321','123321','123321','123321','123321','123321','123321','123321','123321','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 15:48:19【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','2111111111111111111111111111111','21','3213','21','321','312','3','123213','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 17:25:10【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','123','12','12312','312','3123','','','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 17:33:32【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','1','213','213','323','123','123','','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 17:38:54【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','1322323123','312','21','3','312','31231','12313','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 17:39:29【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','123213','1321','123233','12','13','1','','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 17:41:0【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','','1111','111','','','','','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 17:41:21【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','','231','23123','','','','','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 17:42:44【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','','213123','21','','','','','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 17:45:16【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','','','23','123','123123','','','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 17:46:19【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','','322','3','21312','3213','','','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 17:51:56【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','1321','12','312','3123','','','','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 17:59:18【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','','3213','2','','','','','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:3:2【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','321','21','13','3123','','','','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:3:55【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','21','3213','312','313','','','','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:4:19【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','','12','312','3213','','','','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:5:0【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','d2121','121','2121','','','','','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:8:42【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','21312','213','23','312','3213','','','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:9:12【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','213','12','12312','321','3123','21312','3123','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:19:51【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','222','','','','','','','','','','','','','3','3')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:21:5【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','111111','22','','','','','','','','','','','','333','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:23:24【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','32','232','3','32','3','23','23','232','23232','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:24:8【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','22','22','','','','','','','','','','','22','222','``')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:24:57【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','1223','3231321','','','','','','','','','','','','23123','12313')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:27:16【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','132','1312','','24','12','','4','5235','','','','','','','111')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:28:22【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','111','1122','323','1323','','','','','','','','','','2131','23123')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:30:8【错误语句:update 全_微信支付日志set微信openid=111,公众账号id=222,商户号=,账号=,姓名=,总金额=,支付订单号=,商户订单号=,交易类型=,状态=,类别=,内容=,录入人=,录入时间=,备注=,' where id = 38错误信息:error: 语法错误 在 "=" 或附近的
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:31:46【错误语句:update 全_微信支付日志set 微信openid='ren', 公众账号id='zhi', 商户号='chu', 姓名='', 总金额='', 支付订单号='', 商户订单号='', 交易类型='', 类别='', 状态='', 内容='', 录入人='', 录入时间='', 备注='' where id = 38错误信息:error: 语法错误 在 "=" 或附近的
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:34:15【错误语句:update 全_微信支付日志set 微信openid='98989', 公众账号id='12', 商户号='3213', 姓名='3', 总金额='123', 支付订单号='12312321', 商户订单号='31', 交易类型='3', 类别='11111', 状态='213123123', 内容='111111', 录入人='1', 录入时间='1111', 备注='111111' where id = 38错误信息:error: 语法错误 在 "=" 或附近的
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:40:9【错误语句:update 全_微信支付日志set 微信openid=666,公众账号id=666,商户号=666,账号=,姓名=,总金额=,支付订单号=,商户订单号=,交易类型=,状态=,类别=,内容=,录入人=,录入时间=,备注=,' where id = 12错误信息:error: 语法错误 在 "=" 或附近的
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:41:16【错误语句:update 全_微信支付日志 set 微信openid=6667,公众账号id=6667,商户号=666667,账号=,姓名=,总金额=,支付订单号=,商户订单号=,交易类型=,状态=,类别=,内容=,录入人=,录入时间=,备注=,' where id = 12错误信息:error: 语法错误 在 "," 或附近的
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:42:26【错误语句:update 全_微信支付日志 set 微信openid='1***',公众账号id='99*/*/',商户号='',账号='',姓名='',总金额='',支付订单号='',商户订单号='',交易类型='',状态='',类别='',内容='',录入人='',录入时间='',备注='',' where id = 12错误信息:error: 未结束的引用字符串 在 "' where id = 12" 或附近的
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:46:10【错误语句:update 全_微信支付日志 set 微信openid='999',公众账号id='999',商户号='999',账号='999',姓名='999',总金额='999',支付订单号='999',商户订单号='999',交易类型='999',状态='999',类别='999',内容='999',录入人='',录入时间='',备注=''' where id = 12错误信息:error: 未结束的引用字符串 在 "''' where id = 12" 或附近的
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:53:11【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','12111111','11111','111','111111111','','','','','','','','','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 18:56:32【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('','98878978787','98878978787','98878978787','98878978787','98878978787','98878978787','98878978787','98878978787','98878978787','98878978787','98878978787','98878978787','','','')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 20:22:13【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('1314','11314','1314','1314','1314','1314','1314','1314','1314','1314','1314','1314')错误信息:error: INSERT 的指定字段数多于表达式
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 20:24:5【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('654','654','654','654','654','654','654','654','654','654','654','654')错误信息:error: INSERT 的指定字段数多于表达式
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 20:24:51【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('11111','11111','1111','1111111','11111111','1111','111111','11','11111','1111121','2','123213')错误信息:error: INSERT 的指定字段数多于表达式
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 20:24:54【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('11111','11111','1111','1111111','11111111','1111','111111','11','11111','1111121','2','123213')错误信息:error: INSERT 的指定字段数多于表达式
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 20:26:25【错误语句:insert into 全_微信支付日志(微信openid,公众账号id,商户号,账号,姓名,总金额,支付订单号,商户订单号,交易类型,状态,类别,内容,录入人,录入时间,备注) values ('111212','412412','131231','41','2412','4','124','124','12','1241','14','14')错误信息:error: INSERT 的指定字段数多于表达式
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 20:27:12【错误语句:insert into 全_套餐设置表(名称,面值,折扣,账号,手续费,类别,状态,说明,交易类型,图片地址,录入人,录入时间) values ('13','1312','231','2312','321','32','132','13','13','','','11')错误信息:error: 关系 "全_套餐设置表" 的 "账号" 字段不存在
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 20:28:35【错误语句:insert into 全_套餐设置表(名称,面值,折扣,手续费,类别,状态,说明,交易类型,图片地址,录入人,录入时间) values ('111111111111111','11111','11111111','111','11','21','21','12312','312','3123','','')错误信息:error: 关系 "全_套餐设置表" 的 "交易类型" 字段不存在
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 20:30:3【错误语句:insert into 全_套餐设置表(名称,面值,折扣,手续费,类别,状态,说明,图片地址,录入人,录入时间,备注) values ('1314','222','222','222','222','222','222','222','222','222','22','22')错误信息:error: INSERT 的表达式多于指定的字段数
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 20:31:53【错误语句:insert into 全_套餐设置表(名称,面值,折扣,手续费,类别,状态,说明,图片地址,录入人,录入时间,备注,抵扣比例) values ('1314','22','2','2','2','2','2','2','2','22','','2')错误信息:error: 重复键违反唯一约束"全_套餐设置表_pkey"
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-16 20:37:29【错误语句:insert into 全_套餐设置表(名称,面值,折扣,手续费,类别,状态,说明,图片地址,录入人,录入时间,备注,抵扣比例) values ('21','21','312','3123','312','3123','13','','','','','')错误信息:error: 无效的数字类型输入语法: ""
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】

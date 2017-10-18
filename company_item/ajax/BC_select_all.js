@@ -22,7 +22,7 @@ module.exports.run = function(body, pg, mo) {
   // var f = body.receive[0];
   var f = {};
   f.data = body.receive[0];
-  var b = body.receive[1];
+  f.check = body.receive[1];
   var menu = config.get("menu");
   var table_name = "";
   var table_id = "";
@@ -32,7 +32,7 @@ module.exports.run = function(body, pg, mo) {
     if (item.导航) {
       for (i in item.导航) {
         // console.log(item.导航[i].表格编号);
-        if (item.导航[i].表格编号 == b) {
+        if (item.导航[i].表格编号 == f.check) {
           table_name = item.导航[i].表格名称;
         }
       }

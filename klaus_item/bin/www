@@ -23,6 +23,16 @@ var server = http.createServer(app);
 
 server.listen(config.get("app").main.httpPort, function() {
   console.log("HTTP SERVER 启动成功! 监听端口:" + config.get("app").main.httpPort);
+
+  var test = config.get("mime").json;
+
+  // for (var i in test) {
+  //   console.log(i+"-----→"+test[i]);
+  // }
+  
+  for (var i in test) {
+    console.log(test[i].name + " -----→ " + test[i].value);
+  }
 });
 
 server.on("error", onError);

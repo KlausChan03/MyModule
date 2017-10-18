@@ -17,11 +17,13 @@
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
     <firstcomponent></firstcomponent>
+    <app3></app3>
   </div>
 </template>
 
 <script>
-import firstcomponent from "./component/test.vue";
+import app3 from "./component/mystic.vue";
+import firstcomponent from "./component/dopa.vue";
 
 export default {
   name: 'app',
