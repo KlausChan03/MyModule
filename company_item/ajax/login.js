@@ -21,23 +21,29 @@ module.exports.run = function(body, pg, mo) {
   var server = config.get("server");
   var p = {};
   body.receive = JSON.parse(body.data);
+  console.log(body.receive);
   var f = body.receive;
   var sql = "";
   var 时间 = moment().format("YYYY-MM-DD HH:mm:ss");
   var 日期 = moment().format("YYYY-MM-DD");
 
-  sql = "select * from 全_套餐设置表 where 1 =1";
+  sql = "select id,密码,权限组,权限id,随机码,状态 from 管_管理员表 where 登录名 = '" + f.用户名 + "' ";
   var result = pgdb.query(pg, sql);
-  if (result.数据.length == 0) {
-    p.状态 = "获取列表异常";
-    return p;
-  } else {
-    f.列表 = result.数据;
-    f.条数 = result.数据.length;
-  }
+  console.log(result);
+  // console.log("111",cipher.md5(result.数据[0].随机码 + f.密码));
 
-  p.状态 = "成功";
-  p.列表 = f.列表;
-  p.条数 = f.条数;
+  if (result.数据.length == 0) {
+    f._状态 = "账号不存在";
+  } else if (result.数据[0].状态 != "正常") {
+    f._状态 = "账号已停用";
+  } else if (result.数据[0].密码 != cipher.md5(result.数据[0].随机码 + f.密码)) {
+    f._状态 = "密码错误";
+  } else {
+    f._状态 = "成功";
+  }
+  //  else if (s.数据[0].权限id == "0") {
+  //    f._状态 ="无设置权限";
+  // }
+  p.状态 = f._状态;
   return common.removenull(p);
 };

@@ -26,7 +26,7 @@ module.exports.run = function(body, pg, mo) {
   var 时间 = moment().format("YYYY-MM-DD HH:mm:ss");
   var 日期 = moment().format("YYYY-MM-DD");
 
-  sql = "select * from 全_套餐设置表 where 1 =1";
+  sql = "select a.账号,a.头像,a.性别,a.年龄,a.职业,a.地区,b.全球币,b.手机号,b.身份认证 from 全_会员资料表 a,全_会员表 b where a.账号=b.账号";
   var result = pgdb.query(pg, sql);
   if (result.数据.length == 0) {
     p.状态 = "获取列表异常";

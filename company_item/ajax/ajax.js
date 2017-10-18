@@ -1,9 +1,9 @@
 var Fiber = require("fibers");
 var fs = require("fs");
 var config = require("../func/config.js");
-var query = require("../func/mysql.js");
+var pgdb = require("../func/pgdb.js");
 var mongo = require("../func/mongo.js");
-var logs = require("../func/logs.js");
+var logs = require("../func/mongo.js");
 var async = require("async");
 
 var ajax = {};
@@ -14,19 +14,19 @@ ajax.index = function(req, res, body) {
 
   var fiber = Fiber(function(cb) {
     /**---------pg-------*/
-    // if (conf.mysql.使用 == "是") {
-    //   query.start(obj.pg); //数据库事务开始
-    // }
+    if (conf.postgresql.使用 == "是") {
+      pgdb.start(obj.pg); //数据库事务开始
+    }
     /**---------pg-------*/
 
     var func = require("./" + body.func + ".js");
 
-    body.send = func.run(body, obj.mysql);
+    body.send = func.run(body, obj.pg, obj.mongo);
 
     /**---------pg-------*/
-    // if (conf.mysql.使用 == "是") {
-    //   query.end(obj.pg); //数据库事务结束
-    // }
+    if (conf.postgresql.使用 == "是") {
+      pgdb.end(obj.pg); //数据库事务结束
+    }
     /**---------pg-------*/
 
     cb(null, "");
@@ -39,7 +39,7 @@ ajax.index = function(req, res, body) {
           cb(null, "");
           return;
         }
-        query_.open(function(err, client, done) {
+        pgdb.open(function(err, client, done) {
           if (err) {
             console.log("连接pg数据库失败!");
             logs.write("err", "错误:连接PG数据库失败,错误信息:" + err);
@@ -87,7 +87,7 @@ ajax.index = function(req, res, body) {
       console.log("ajax接口:" + body.func + "---运行时间:" + body.Time + "毫秒");
       console.log("---------------------------------");
 
-    //   query.close(obj.pg);
+      pgdb.close(obj.pg);
 
       if (conf.mongodb.使用 == "是") {
         obj.mongo
