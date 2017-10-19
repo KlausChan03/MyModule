@@ -27,6 +27,9 @@ module.exports.run = function(body, pg, mo) {
   var 日期 = moment().format("YYYY-MM-DD");
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> c331d07d9475ffd1daf316e293fad7e526eae7ca
   sql = "select * from 全_套餐设置表 where 1 =1";
   var result = pgdb.query(pg, sql);
   if (result.数据.length == 0) {
@@ -36,6 +39,8 @@ module.exports.run = function(body, pg, mo) {
     f.列表 = result.数据;
     f.条数 = result.数据.length;
   }
+<<<<<<< HEAD
+=======
 =======
   query(sql, function(err, vals, fields) {
   console.log("ll");
@@ -48,6 +53,7 @@ module.exports.run = function(body, pg, mo) {
   // console.log(vals)
   // p.数据 = vals;
 >>>>>>> 2607991b77efc056aabed7517552384b71c86a2b
+>>>>>>> c331d07d9475ffd1daf316e293fad7e526eae7ca
 
   p.状态 = "成功";
   p.列表 = f.列表;

@@ -29,7 +29,10 @@ console.log(conf.版本号);
 config.readfile = function(){
 	var dir = './config/';
 	var files = fs.readdirSync(dir);
+<<<<<<< HEAD
+=======
 	// console.log(files)
+>>>>>>> c331d07d9475ffd1daf316e293fad7e526eae7ca
 	for(var i = 0; i< files.length ; i++){
 		var file = files[i];
 		if(file.substring(file.length - 5, file.length ) == ".json"){
