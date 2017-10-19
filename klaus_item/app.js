@@ -6,7 +6,14 @@ var logger = require("morgan");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var http = require("http");
+<<<<<<< HEAD
 var config = require("./function/config.js");
+=======
+var https = require("https");
+var url = require("url");
+var querystring = require("querystring");
+var buffer = require("buffer");
+>>>>>>> 2607991b77efc056aabed7517552384b71c86a2b
 
 // 加载路由控制
 var routes = require("./routes/index");
@@ -18,8 +25,8 @@ var push = require("./routes/push");
 var app = express();
 
 // 定义EJS模板引擎和模板文件位置，也可以使用jade或其他模型引擎
-// app.set("views", path.join(__dirname, "views"));
-// app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "client/views"));
+app.set("view engine", "ejs");
 
 // 定义icon图标
 // app.use(favicon(__dirname + '/public/images/favicon.ico'));
@@ -37,8 +44,52 @@ app.use(express.static(path.join(__dirname, "client")));
 app.use("/", routes);
 // app.use('/users', users);
 
+<<<<<<< HEAD
 app.post("/run", test.run);
 app.post("/swim", push.swim);
+=======
+// app.post("/run", test.run);
+
+app.post("/routes.post*", function(req, res) {
+  var body = "";
+  console.log("111111");
+  // body += chunk;
+  // console.log(body);
+  try {
+    console.log("-----------------接收参数-----------------");
+    console.log(req.url + body);
+    console.log("-----------------接收参数-----------------");
+    var path = url.parse(req.url, true).query;
+    body = querystring.parse(body);
+    if (path.func != undefined) {
+      body.func = path.func;
+      console.log(body.func);
+    } else if (body.func == undefined) {
+      res.send('{"code":"-45","msg":" not find func "}').end();
+      return;
+    }
+    body.session = req.session;
+    body.path = req.path;
+    body.arg = url.parse(req.url, true).query;
+    body.startTime = new Date().getTime();
+    // body.date = moment().format("YYYY-MM-DD HH:mm:ss");
+    body.ip = req.ip;
+    // body.uuid = uuid.v4();
+    var ajax = require("./routes/ajax.js");
+    var bool = ajax.searchfile(body.func);
+    if (bool) {
+      ajax.index(req, res, body);
+    } else {
+      console.log("kkk");
+
+      res.send('{"code":"-4","msg":" not find func "}').end();
+    }
+  } catch (e) {
+    console.log(e);
+    res.send('{"code":"-1","msg":"body error"}').end();
+  }
+});
+>>>>>>> 2607991b77efc056aabed7517552384b71c86a2b
 
 // 404错误处理
 app.use(function(req, res, next) {

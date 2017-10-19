@@ -33,7 +33,7 @@
 .top_menu.layui-nav .layui-this,.closeBox.layui-nav .layui-this{ background-color:transparent; }
 .top_menu.layui-nav .layui-this a,.closeBox.layui-nav .layui-this a{ color:#c2c2c2; }
 .top_menu.layui-nav dd.layui-this a,.closeBox.layui-nav dd.layui-this a{ color:#333; }
-.top_menu.layui-nav .layui-nav-child a:hover,.closeBox.layui-nav .layui-nav-child a:hover{ color:#fff; background-color:#5FB878; }
+.top_menu.layui-nav .layui-nav-child a:hover,.closeBox.layui-nav .layui-nav-child a:hover{ color:#fff; background-color:#2B9CED; }
 .top_menu .iconfont{ font-size: 14px !important; }
 .top_menu .layui-nav-bar{ top:60px !important; background-color:rgba(0,0,0,0.7) }
 
