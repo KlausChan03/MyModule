@@ -29,16 +29,11 @@ layui.use("table", function() {
 
   var success_func = function(res) {
     // 数据处理
+    var bar_set = $(".layui-hide .layui-btn").length;
     var th = [];
     th.push(
       { checkbox: true, fixed: true, align: "center" },
-      {
-        title: "操作",
-        toolbar: "#act-bar",
-        width: 150,
-        fixed: true,
-        align: "center"
-      }
+      { title: "操作", toolbar: "#act-bar", width: 80 * bar_set, fixed: true, align: "center" }
     );
     for (var i in res.列表[0]) {
       th.push({ field: i, title: i, width: "120", align: "center" });
@@ -58,6 +53,9 @@ layui.use("table", function() {
       limits: [10, 15, 20],
       limit: 15 //每页默认显示的数量
     });
+
+    
+    
 
     //表格内功能工具条
     table.on("tool(demo)", function(obj) {

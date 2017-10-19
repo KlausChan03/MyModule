@@ -134,6 +134,7 @@ layui.config({
 	//隐藏左侧导航
 	$(".hideMenu").click(function(){
 		$(".layui-layout-admin").toggleClass("showMenu");
+		$(".hideMenu").toggleClass("icon-rotate-90");
 		//渲染顶部窗口
 		tab.tabMove();
 	})
