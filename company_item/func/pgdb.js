@@ -1,3 +1,12 @@
+/**pg数据库功能
+创建时间：2016-09-23
+创建人：吕扶美
+
+更新时间
+更新内容：
+更新人：
+
+*/
 var Fiber = require("fibers");
 var pg = require("pg");
 var config = require("./config.js");
@@ -11,11 +20,6 @@ pgdb.pool = poolModule.Pool({
   //将建 一个 连接的 handler
   create: function(callback) {
     var conf = config.get("app");
-
-    if (conf.postgresql.使用 != "是") {
-      callback("postgresql参数为不使用", null);
-      return;
-    }
     var constring =
       "tcp://" +
       conf.postgresql.user +
@@ -56,75 +60,14 @@ pgdb.pool = poolModule.Pool({
   log: false
 });
 
-pgdb.pool_two = poolModule.Pool({
-  name: "postgresql",
-  //将建 一个 连接的 handler
-  create: function(callback) {
-    var conf = config.get("app");
-
-    if (conf.postgresql_two.使用 != "是") {
-      callback("postgresql参数为不使用", null);
-      return;
-    }
-
-    var constring =
-      "tcp://" +
-      conf.postgresql_two.user +
-      ":" +
-      conf.postgresql_two.pass +
-      "@" +
-      conf.postgresql_two.host +
-      "/" +
-      conf.postgresql_two.db;
-    var client = new pg.Client(constring);
-    client.connect(function(err) {
-      if (err) {
-        callback(err, null);
-        throw err;
-      } else {
-        // console.log("PGSQL创建了一个连接！");
-        callback(null, client);
-      }
-    });
-  },
-  // 释放一个连接的 handler
-  destroy: function(client) {
-    client.end(function(err) {
-      if (err) {
-        throw err;
-      } else {
-        // console.log("PGSQL断开了一个连接！");
-      }
-    });
-  },
-  // 连接池中最大连接数量
-  max: 50,
-  // 连接池中最少连接数量
-  min: 10,
-  // 如果一个线程30秒钟内没有被使用过的话。那么就释放
-  idleTimeoutMillis: 30000,
-  // 如果 设置为 true 的话，就是使用 console.log 打印入职，当然你可以传递一个 function 最为作为日志记录handler
-  log: false
-});
-
 pgdb.open = function(cb) {
   pgdb.pool.acquire(function(err, db) {
     cb(err, db);
   });
 };
 
-pgdb.open_two = function(cb) {
-  pgdb.pool_two.acquire(function(err, db) {
-    cb(err, db);
-  });
-};
-
 pgdb.close = function(client) {
   pgdb.pool.release(client);
-};
-
-pgdb.close_two = function(client) {
-  pgdb.pool_two.release(client);
 };
 
 pgdb.start = function(client) {

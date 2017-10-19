@@ -1,0 +1,89 @@
+[
+  {
+    "title": "后台首页",
+    "icon": "icon-computer",
+    "href": "page/main.html",
+    "spread": false
+  },
+  {
+    "title": "文章列表",
+    "icon": "icon-text",
+    "href": "page/news/newsList.html",
+    "spread": false
+  },
+  {
+    "title": "友情链接",
+    "icon": "&#xe64c;",
+    "href": "page/links/linksList.html",
+    "spread": false
+  },
+  {
+    "title": "系统基本参数",
+    "icon": "&#xe631;",
+    "href": "page/systemParameter/systemParameter.html",
+    "spread": false
+  },
+  {
+    "title": "klaus测试",
+    "icon": "&#xe635;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "id":"1",
+        "title": "全_套餐设置",
+        "icon": "&#xe61c;",
+        "href": "page/test/test1.html?func=BC_select_all&bc_id=bc001",
+        "spread": false
+      },
+      {
+        "id":"2",
+        "title": "全_微信支付日志",
+        "icon": "&#xe609;",
+        "href": "page/test/test2.html?func=BC_select_all&bc_id=bc002",
+        "spread": false
+      },
+      {
+        "id":"3",
+        "title": "全_会员",
+        "icon": "&#xe609;",
+        "href": "page/test/test3.html?func=BC_select_all&bc_id=bc003",
+        "spread": false
+      },
+      {
+        "id":"1000",
+        "title": "联表查询",
+        "icon": "&#xe609;",
+        "href": "page/test/test_link.html?func=test_link",
+        "spread": false
+      }
+    ]
+  },
+  {
+    "title": "其他页面",
+    "icon": "&#xe630;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "title": "404页面",
+        "icon": "&#xe61c;",
+        "href": "page/404.html",
+        "spread": false
+      },
+      {
+        "title": "平台用户信息",
+        "icon": "&#xe61c;",
+        "href": "page/user/user-list.html?func=user-list",
+        "spread": false
+      },
+      {
+        "title": "登录",
+        "icon": "&#xe609;",
+        "href": "page/login/login.html",
+        "spread": false,
+        "target": "_blank"
+      }
+    ]
+  }
+]

@@ -6,15 +6,20 @@ var logger = require("morgan");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var http = require("http");
+<<<<<<< HEAD
 var https = require("https");
 var url = require("url");
 var querystring = require("querystring");
 var buffer = require("buffer");
+=======
+var config = require("./function/config.js");
+>>>>>>> 489d82e76355f102de77dd0ca3b2380084a559ef
 
 // 加载路由控制
 var routes = require("./routes/index");
 // var users = require('./routes/users');
 var test = require("./routes/test");
+var push = require("./routes/push");
 
 // 创建项目实例
 var app = express();
@@ -39,6 +44,7 @@ app.use(express.static(path.join(__dirname, "client")));
 app.use("/", routes);
 // app.use('/users', users);
 
+<<<<<<< HEAD
 // app.post("/run", test.run);
 
 app.post("/routes.post*", function(req, res) {
@@ -80,6 +86,10 @@ app.post("/routes.post*", function(req, res) {
     res.send('{"code":"-1","msg":"body error"}').end();
   }
 });
+=======
+app.post("/run", test.run);
+app.post("/swim", push.swim);
+>>>>>>> 489d82e76355f102de77dd0ca3b2380084a559ef
 
 // 404错误处理
 app.use(function(req, res, next) {

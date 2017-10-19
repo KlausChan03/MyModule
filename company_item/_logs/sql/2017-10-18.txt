@@ -1,0 +1,45 @@
+---2017-10-18 10:56:47【错误语句:select * from 全_会员 where 1 =1错误信息:error: 关系 "全_会员" 不存在
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-18 10:58:2【错误语句:select * from 全_会员 where 1 =1错误信息:error: 关系 "全_会员" 不存在
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-18 11:36:59【错误语句:select * fromundefined where 1 =1错误信息:error: 语法错误 在 "fromundefined" 或附近的
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-18 11:38:35【错误语句:select * fromundefined where 1 =1错误信息:error: 语法错误 在 "fromundefined" 或附近的
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】
+---2017-10-18 11:40:24【错误语句:select * from全_会员 where 1 =1错误信息:error: 语法错误 在 "from全_会员" 或附近的
+    at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)】

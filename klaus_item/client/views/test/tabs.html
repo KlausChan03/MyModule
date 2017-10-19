@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../javascripts/init.js"></script>
+    <link href="../../stylesheets/common.css" rel="stylesheet" />
+    <link href="../../stylesheets/flex.css" rel="stylesheet" />
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: .3rem;
+        }
+
+        .tabs-container li {
+            height: .5rem;
+            border-right: 1px solid #999;
+        }
+
+        .tabs-container li:last-child {
+            border: none;
+        }
+
+
+        .main-items {
+            width: 100%;
+            height: 1rem;
+            border: 1px solid #999;
+            background-color: #ffffff;
+        }
+
+        .hide {
+            display: none
+        }
+
+        .show {
+            display: block
+        }
+
+        .active {
+            background-color: #2b9ced;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab-list">
+        <ul class="tabs-container flex-hb-vc">
+            <li class="tabs-items flex-hc-vc flex1 active">tab one</li>
+            <li class="tabs-items flex-hc-vc flex1">tab one</li>
+            <li class="tabs-items flex-hc-vc flex1">tab one</li>
+        </ul>
+        <ul class="main-container">
+            <li class="main-items">1</li>
+            <li class="main-items hide">2</li>
+            <li class="main-items hide">3</li>
+        </ul>
+    </div>
+
+
+
+    <script src="../../javascripts/jquery.min.js"></script>
+    <script>
+        // $(".tabs-container li").click(function () {
+        //     var index = $(this).index();
+        //     $(this).siblings().removeClass("active");
+        //     $(this).addClass("active");
+        //     $(".main-container li").eq(index).addClass("show");
+        //     $(".main-container li").eq(index).siblings().removeClass("show").addClass("hide");
+        // })
+
+        var Tabs = function (ct) {
+            this.ct = ct;
+            this.init();
+            this.bind();
+        }
+        Tabs.prototype.init = function () {
+            this.tabList = this.ct.querySelectorAll('.tabs-container>li');
+            this.mainList = this.ct.querySelectorAll(".main-container>li");
+            // console.log(this.mainList)
+        }
+        Tabs.prototype.bind = function () {
+            var _this = this;
+            this.tabList.forEach(function (tabli) {
+                tabli.onclick = function (e) {
+                    var target = e.target;
+                    console.log(_this.tabList)
+                    var index = [].indexOf.call(_this.tabList, target);
+                    console.log(index)
+                    _this.tabList.forEach(function (li) {
+                        li.classList.remove('active');
+                    })
+                    target.classList.add('active');
+
+                    _this.mainList.forEach(function (panel) {
+                        panel.classList.add('hide')
+                        panel.classList.remove('show')
+                    })
+                    _this.mainList[index].classList.add('show')
+                }
+            })
+        }
+        new Tabs(document.querySelectorAll('.tab-list')[0])
+    </script>
+</body>
+
+</html>
