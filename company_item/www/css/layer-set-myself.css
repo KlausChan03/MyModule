@@ -18,6 +18,10 @@
 	border-radius: .15rem;
 } */
 
+.layui-table-header tr th span{
+  font-weight: bolder;
+}
+
 .layui-layer-diy[type="page"].w520 {
   width: 850px !important;
   border-radius: 2px;

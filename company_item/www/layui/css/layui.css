@@ -625,8 +625,8 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-table-edit:focus{background-color: #F0F9F2;}
 
 body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-shadow: 0 1px 6px rgba(0,0,0,.1);}
-.layui-table-tips-main{margin: -44px 0 0 -1px; max-height: 150px; padding: 8px 15px; font-size: 14px; overflow-y: scroll; background-color: #fff; color: #333; border: 1px solid #e2e2e2}
-.layui-table-tips-c{position: absolute; right: -3px; top: -12px; width: 18px; height: 18px; padding: 3px; text-align: center; font-weight: 700; border-radius: 100%; font-size: 14px; cursor: pointer; background-color: #666;}
+.layui-table-tips-main{cursor:pointer;margin: -44px 0 0 -1px; max-height: 150px; padding: 8px 15px; font-size: 14px; overflow-y: scroll; background-color: #fff; color: #333; border: 1px solid #e2e2e2}
+.layui-table-tips-c{position: absolute; right: -3px; top: -12px; width: 18px; height: 18px; padding: 3px; text-align: center; font-weight: 700; border-radius: 100%; font-size: 14px; cursor: zoom-out; background-color: #666;}
 .layui-table-tips-c:hover{background-color: #999;}
 
 
@@ -755,7 +755,7 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 
 .layui-tab-content{padding: 10px;}
 
-/* Tab关闭 */.layui-tab-title li .layui-tab-close{position: relative; display: inline-block; width: 18px; height: 18px; line-height: 20px; margin-left: 15px; top: 1px; text-align: center; font-size: 12px; color: #fff; transition: all .2s; -webkit-transition: all .2s; background-color: #999; border-radius: 50%; padding: .5px; }
+/* Tab关闭 */.layui-tab-title li .layui-tab-close{position: relative; display: inline-block; width: 18px; height: 18px; line-height: 18px; margin-left: 15px; top: 1px; text-align: center; font-size: 12px; color: #fff; transition: all .2s; -webkit-transition: all .2s; background-color: #999; border-radius: 50%; padding: .5px; }
 .layui-tab-title li .layui-tab-close:hover{background-color: #393D49;color: #fff;}
 
 /* Tab简洁风格 */.layui-tab-brief > .layui-tab-title .layui-this{color: #2B9CED;}
