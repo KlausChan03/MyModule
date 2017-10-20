@@ -1,20 +1,5 @@
 "use strict";
-// 旧方法实现数据渲染
-// $(".table-container table thead").append("<tr></tr>")
-// for (i in res.列表[0]) {
-//     $(".table-container table thead").append("<th>" + i + "</th>")
-//     // $(".table-container table tbody").append("<th>" + res.列表[0][i] + "</th>")
-// }
-// for (j in res.列表) {
-//     $(".table-container table tbody").append("<tr></tr>")
-//     for (k in res.列表[j]) {
-//         $(".table-container table tbody tr:eq(" + j + ")").append("<th>" + res.列表[j][k] + "</th>")
-//         $("tbody tr").off("click").on("click",function () {
-//             var pos = $(this).position().top;
-//             $(window).scrollTop(pos);
-//         })
-//     }
-// }
+
 
 // 新方法实现数据渲染
 layui.use("table", function() {
@@ -42,6 +27,10 @@ layui.use("table", function() {
 
     // 生成表格
     window.demoTable = table.render({
+    	initSort: {
+			    field: 'id' //排序字段，对应 cols 设定的各字段名
+			    ,type: 'asc' //排序方式  asc: 升序、desc: 降序、null: 默认排序
+			},
       elem: "#demo",
       id: "test",
       data: res.列表,
@@ -80,15 +69,7 @@ layui.use("table", function() {
       }
     });
 
-    // 宽度监测
-    // function change_width() {
-    //     window_width = window.innerWidth-20;
-    //     console.log(window_width);
-    // }
-    // change_width();
-    // window.onresize = function(){
-    //     change_width()
-    // };
+    
 
     //表格外功能工具条
     var active = {
@@ -177,20 +158,30 @@ table_act.insert = function(res, tb_id) {
 table_act.update = function(res, tb_id, data) {
   var test_arr = [];
   var old_arr = [];
+  
+  //循环字段名
   for (i in res.列表[0]) {
     test_arr.push(i);
   }
+  
+  //循环字段名所对应的值
   for (var j in data) {
     old_arr.push(data[j]);
   }
   var test = "";
+  
+  //赋给录入时期的的input的一个id名
+  var classTest=""
   test_arr.pop();
   for (var i = 0; i < test_arr.length; i++) {
     // 特殊编码转义
     old_arr[i] = old_arr[i].replace(/'/g, "&#39;").replace(/"/g, "&quot;").replace(/>/g, "&gt;").replace(/</g, "&lt;");
+    if(test_arr[i]=="录入时间"){
+    	classTest="dateClass"
+    }
     test +='<div class="layui-form-item"><label class="layui-form-label">' +
       test_arr[i] +
-      '</label> <div class="layui-input-block"> <input type="text" name="' +
+      '</label> <div class="layui-input-block"> <input type="text" id="'+classTest+'" name="' +
       test_arr[i] +
       '" autocomplete="off" value="'+
       old_arr[i]+'" class="layui-input insert-input"> </div> </div>';
@@ -211,6 +202,19 @@ table_act.update = function(res, tb_id, data) {
         return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
       });
     });
+    
+    /**
+     * 更改录入时间
+     */
+    layui.use('laydate', function(){
+		  var laydate = layui.laydate;
+		  
+		  //执行一个laydate实例
+		  laydate.render({
+		  	type:"datetime",
+		    elem: '#dateClass' //指定元素
+		  });
+		});
   };
   layObj.form("编辑", success_func, test, tb_id);
 };

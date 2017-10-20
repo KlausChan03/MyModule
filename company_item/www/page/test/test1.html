@@ -1,47 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
-    <link rel="stylesheet" href="../../css/layer-set-myself.css" media="all" />
-    <link rel="stylesheet" href="../../css/flex.css" media="all" />
-    
-    <style>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/layer-set-myself.css" media="all" />
+		<link rel="stylesheet" href="../../css/flex.css" media="all" />
 
-    </style>
-</head>
+		<style>
 
-<body class="childrenBody">
-    <div class="layui-btn-group">
-        <button class="layui-btn" data-type="getCheckData">获取选中行数据</button>
-        <button class="layui-btn" data-type="getCheckLength">获取选中数目</button>
-        <button class="layui-btn" data-type="isAll">验证是否全选</button>
-        <button class="layui-btn" data-type="insertData">新增数据</button>
-        <button class="layui-btn" data-type="updateData">修改数据</button>
-    </div>
-    <div class="layui-form table-container">
-        <table class="layui-table" id="demo" lay-filter="demo">
-            <!-- <thead></thead>
+		</style>
+	</head>
+
+	<body class="childrenBody">
+		<div class="layui-btn-group">
+			<button class="layui-btn" data-type="getCheckData">获取选中行数据</button>
+			<button class="layui-btn" data-type="getCheckLength">获取选中数目</button>
+			<button class="layui-btn" data-type="isAll">验证是否全选</button>
+			<button class="layui-btn" data-type="insertData">新增数据</button>
+			<button class="layui-btn" data-type="updateData">修改数据</button>
+
+		</div>
+		<div class="layui-form">
+			<div class="layui-inline">
+				<select name="city" lay-verify="required">
+					<option value="">请选择您要查找的条件</option>
+					<option value="010">北京</option>
+					<option value="021">上海</option>
+					<option value="0571">杭州</option>
+				</select>
+				<div class="layui-unselect layui-form-select layui-form-selected">
+					<div class="layui-select-title"><input type="text" placeholder="请选择您要查找的条件" value="" readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div>
+					<dl class="layui-anim layui-anim-upbit" style="">
+						<dd lay-value="" class="layui-select-tips"></dd>
+						<dd lay-value="010" class="">北京</dd>
+						<dd lay-value="021" class="">上海</dd>
+						<dd lay-value="0571" class="">杭州</dd>
+					</dl>
+				</div>
+				
+			</div>
+			<div class="layui-input-inline">
+            	<input type="text" name="selectVal" required="" lay-verify="required" placeholder="请输入您要查找的内容" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-input-inline">
+            	<button class="layui-btn layui-bg-orange" data-type="">查询</button>
+            </div>
+            
+          
+		</div>
+		<div class="layui-form table-container">
+			<table class="layui-table" id="demo" lay-filter="demo">
+				<!-- <thead></thead>
             <tbody></tbody> -->
-        </table>
-        <div class="layui-hide" id="act-bar">
-            <a class="layui-btn layui-btn-mini" lay-event="edit"><i class="layui-icon" style="font-size: 16px; color: #eee;">&#xe642;</i>编辑</a>
-            <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del"><i class="layui-icon" style="font-size: 16px; color: #eee;">&#xe640;</i>删除</a> 
-        </div>
-    </div>
-    <script type="text/javascript" src="../../js/jquery.min.js"></script>
-    <script type="text/javascript" src="../../layui/layui.js"></script>
-    <script type="text/javascript" src="../../js/common.js"></script>
-    <script type="text/javascript" src="../../js/table.js"></script>
-    <script type="text/javascript" src="../../js/layFun.js"></script>
-    <script>
+			</table>
+			<div class="layui-hide" id="act-bar">
+				<a class="layui-btn layui-btn-mini" lay-event="edit"><i class="layui-icon" style="font-size: 16px; color: #eee;">&#xe642;</i>编辑</a>
+				<a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del"><i class="layui-icon" style="font-size: 16px; color: #eee;">&#xe640;</i>删除</a>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../../layui/layui.js"></script>
+		<script type="text/javascript" src="../../js/common.js"></script>
+		<script type="text/javascript" src="../../js/table.js"></script>
+		<script type="text/javascript" src="../../js/layFun.js"></script>
+		<script>
+		</script>
 
-    </script>
-
-</body>
+	</body>
 
 </html>
