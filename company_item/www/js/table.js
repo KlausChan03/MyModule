@@ -157,6 +157,8 @@ table_act.insert = function(res, tb_id) {
 
   var success_func = function() {
     $("*[name='id']").attr("disabled", "true");
+    $("*[name='id']").attr("placeholder", "");
+    
 
     layui.use("form", function() {
       var form = layui.form;

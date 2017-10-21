@@ -18,11 +18,12 @@ ajax.index = function(req, res, body) {
       pgdb.start(obj.pg); //数据库事务开始
     }
     /**---------pg-------*/
-
+    
+    console.log(body);
+    
     var func = require("./" + body.func + ".js");
-
     body.send = func.run(body, obj.pg, obj.mongo);
-
+    
     /**---------pg-------*/
     if (conf.postgresql.使用 == "是") {
       pgdb.end(obj.pg); //数据库事务结束

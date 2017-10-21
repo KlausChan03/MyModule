@@ -21,6 +21,12 @@ layui.define(["element","jquery"],function(exports){
 	//获取二级菜单数据
 	Tab.prototype.render = function() {
 		var url = this.tabConfig.url;
+
+		var obj_save = { datas: {}, func: "admin_control_test" };
+        var success_func = function(res) { };
+        var error_func = function(res) { };
+		ajax.ajax_common(obj_save, success_func, error_func);
+
 		$.get(url,function(data){
 			//显示左侧菜单
 			if($(".navBar").html() == ''){

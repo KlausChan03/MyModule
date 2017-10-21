@@ -159,7 +159,6 @@ app.post("/ajax.post*", function(req, res) {
     })
     .on("end", function() {
       try {
-        console.log("shuaiqi");
         console.log("-----------------接收参数-----------------");
         console.log(req.url + body);
         console.log("-----------------接收参数-----------------");

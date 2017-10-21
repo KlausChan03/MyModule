@@ -1,9 +1,3 @@
-/**
-创建人：秦功科
-创建时间：2017年5月9日16:58:39
-创建内容：根据编号搜索分公司名称
- */
-
 var cipher = require("../func/cipher.js");
 var config = require("../func/config.js");
 var share = require("../ajax/public/share.js");
@@ -19,31 +13,68 @@ var fs = require("fs");
 
 module.exports.run = function(body, pg, mo) {
   var server = config.get("server");
-  var p = {};
   body.receive = JSON.parse(body.data);
-  console.log(body.receive);
-  var f = body.receive;
+
+  var p = {};
+  var f = {};
+
+  // console.log(body.receive,"llllll");
+
+  // 初始化部分参数
+  f.data = body.receive;
+  f._状态 = "成功";
+
   var sql = "";
   var 时间 = moment().format("YYYY-MM-DD HH:mm:ss");
   var 日期 = moment().format("YYYY-MM-DD");
 
-  sql = "select id,密码,权限组,权限id,随机码,状态 from 管_管理员表 where 登录名 = '" + f.用户名 + "' ";
-  var result = pgdb.query(pg, sql);
-  console.log(result);
-  // console.log("111",cipher.md5(result.数据[0].随机码 + f.密码));
-
-  if (result.数据.length == 0) {
-    f._状态 = "账号不存在";
-  } else if (result.数据[0].状态 != "正常") {
-    f._状态 = "账号已停用";
-  } else if (result.数据[0].密码 != cipher.md5(result.数据[0].随机码 + f.密码)) {
-    f._状态 = "密码错误";
-  } else {
-    f._状态 = "成功";
+  // 验证前台参数
+  if (f.data.用户名 == "" || f.data.用户名 == null) {
+    f._状态 = "请填写登录名";
+  } else if (f.data.密码 == "" || f.data.密码 == null) {
+    f._状态 = "请填写密码";
   }
+
+  sql = "select id,密码,权限组,权限id,随机码,状态 from 管_管理员表 where 登录名 = '" + f.data.用户名 + "' ";
+  var result_login = pgdb.query(pg, sql);
+
+  // 验证登陆信息
+  if (result_login.数据.length == 0) {
+    f._状态 = "账号不存在";
+  } else if (result_login.数据[0].状态 != "正常") {
+    f._状态 = "账号已停用";
+  } else if (
+    result_login.数据[0].密码 != cipher.md5(result_login.数据[0].随机码 + f.data.密码)
+  ) {
+    f._状态 = "密码错误";
+  }
+  if(f._状态 != '成功') {	
+    p.状态 = f._状态;
+    return common.removenull(p);
+	}
   //  else if (s.数据[0].权限id == "0") {
   //    f._状态 ="无设置权限";
   // }
-  p.状态 = f._状态;
-  return common.removenull(p);
+
+  // 权限查询
+  sql = "select id from 管_权限表 where id = '" + result_login.数据[0].权限id + "' ";
+  var result_power = pgdb.query(pg, sql);
+  if (result_power.数据.length == 0) {
+    f._状态 = "权限异常";
+  }
+  if (f._状态 != "成功") {
+    p.状态 = f._状态;
+    return common.removenull(p);
+  }else{
+    p.状态 = f._状态; 
+    body.session.user_name = f.data.用户名;
+    body.session.user_id = result_login.数据[0].id;
+    body.session.user_pid = result_power.数据[0].id;
+    // console.log(body);
+    // p.user_name = f.data.用户名;
+    // p.user_id = result_login.数据[0].id;
+    // p.user_pid = result_power.数据[0].id;
+    return common.removenull(p,body);
+  }
+ 
 };
