@@ -24,30 +24,22 @@
 			<button class="layui-btn" data-type="updateData">修改数据</button>
 
 		</div>
-		<div class="layui-form">
-			<div class="layui-inline">
-				<select name="city" lay-verify="required">
+		<div class="layui-form zwlAppend">
+			<div class="layui-inline" id="sectionAtt">
+				<select name="city" lay-verify="" >
 					<option value="">请选择您要查找的条件</option>
-					<option value="010">北京</option>
-					<option value="021">上海</option>
-					<option value="0571">杭州</option>
-				</select>
-				<div class="layui-unselect layui-form-select layui-form-selected">
-					<div class="layui-select-title"><input type="text" placeholder="请选择您要查找的条件" value="" readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div>
-					<dl class="layui-anim layui-anim-upbit" style="">
-						<dd lay-value="" class="layui-select-tips"></dd>
-						<dd lay-value="010" class="">北京</dd>
-						<dd lay-value="021" class="">上海</dd>
-						<dd lay-value="0571" class="">杭州</dd>
-					</dl>
-				</div>
-				
+					<option value="id">id</option>
+					<option value="账号">账号</option>
+					<option value="手机号">手机号</option>
+					<option value="录入人">录入人</option>
+					
+				</select>     
 			</div>
-			<div class="layui-input-inline">
-            	<input type="text" name="selectVal" required="" lay-verify="required" placeholder="请输入您要查找的内容" autocomplete="off" class="layui-input">
+			<div class="layui-inline">
+            	<input type="text" name="selectVal" required="" lay-verify="required" placeholder="请输入您要查找的内容" autocomplete="off" class="layui-input" id="souVal">
             </div>
-            <div class="layui-input-inline">
-            	<button class="layui-btn layui-bg-orange" data-type="">查询</button>
+            <div class="layui-inline">
+            	<button class="layui-btn layui-bg-orange" data-type="" id="seacherButton">查询</button>
             </div>
             
           
@@ -65,9 +57,11 @@
 		<script type="text/javascript" src="../../js/jquery.min.js"></script>
 		<script type="text/javascript" src="../../layui/layui.js"></script>
 		<script type="text/javascript" src="../../js/common.js"></script>
-		<script type="text/javascript" src="../../js/table.js"></script>
 		<script type="text/javascript" src="../../js/layFun.js"></script>
+		<script type="text/javascript" src="../../js/table.js"></script>
+		
 		<script>
+			  
 		</script>
 
 	</body>
