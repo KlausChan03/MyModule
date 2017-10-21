@@ -22,6 +22,8 @@ module.exports.run = function(body, pg, mo) {
   // var f = body.receive[0];
   var f = {};
   f.data = body.receive[0];
+  console.log("=========================")
+  console.log(f.data+"====llll")
   f.check = body.receive[1];
   var menu = config.get("menu");
   var table_name = "";
@@ -42,8 +44,16 @@ module.exports.run = function(body, pg, mo) {
   console.log(f);
 
   var sql = "";
+  if(f.data==""){
+  	sql = "select * from " + table_name + " where 1 =1";
+  }else{
+//	var arr1=f.data[0];
+//	console.log(arr1)
+	  sql = "select * from " + table_name + " where " +f.data[0] +"="+ "'" +f.data[1] + "'";
+	  console.log(sql)
+  }
 
-  sql = "select * from " + table_name + " where 1 =1";
+  
   var result = pgdb.query(pg, sql);
   if (result.数据.length == 0) {
     p.状态 = "获取列表异常";

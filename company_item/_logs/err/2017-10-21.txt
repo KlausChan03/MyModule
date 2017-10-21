@@ -1,0 +1,199 @@
+---2017-10-21 13:41:8【Error: connect EHOSTUNREACH 121.201.67.222:30103
+    at Object.exports._errnoException (util.js:1018:11)
+    at exports._exceptionWithHostPort (util.js:1041:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1090:14)】
+---2017-10-21 13:41:8【Error: connect EHOSTUNREACH 121.201.67.222:30103
+    at Object.exports._errnoException (util.js:1018:11)
+    at exports._exceptionWithHostPort (util.js:1041:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1090:14)】
+---2017-10-21 13:41:8【Error: connect EHOSTUNREACH 121.201.67.222:30103
+    at Object.exports._errnoException (util.js:1018:11)
+    at exports._exceptionWithHostPort (util.js:1041:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1090:14)】
+---2017-10-21 13:41:13【Error: connect EHOSTUNREACH 121.201.67.222:30103
+    at Object.exports._errnoException (util.js:1018:11)
+    at exports._exceptionWithHostPort (util.js:1041:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1090:14)】
+---2017-10-21 13:41:13【Error: connect EHOSTUNREACH 121.201.67.222:30103
+    at Object.exports._errnoException (util.js:1018:11)
+    at exports._exceptionWithHostPort (util.js:1041:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1090:14)】
+---2017-10-21 13:41:13【Error: connect EHOSTUNREACH 121.201.67.222:30103
+    at Object.exports._errnoException (util.js:1018:11)
+    at exports._exceptionWithHostPort (util.js:1041:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1090:14)】
+---2017-10-21 13:41:13【Error: connect EHOSTUNREACH 121.201.67.222:30103
+    at Object.exports._errnoException (util.js:1018:11)
+    at exports._exceptionWithHostPort (util.js:1041:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1090:14)】
+---2017-10-21 13:41:13【Error: connect EHOSTUNREACH 121.201.67.222:30103
+    at Object.exports._errnoException (util.js:1018:11)
+    at exports._exceptionWithHostPort (util.js:1041:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1090:14)】
+---2017-10-21 13:41:13【Error: connect EHOSTUNREACH 121.201.67.222:30103
+    at Object.exports._errnoException (util.js:1018:11)
+    at exports._exceptionWithHostPort (util.js:1041:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1090:14)】
+---2017-10-21 13:41:13【Error: connect EHOSTUNREACH 121.201.67.222:30103
+    at Object.exports._errnoException (util.js:1018:11)
+    at exports._exceptionWithHostPort (util.js:1041:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1090:14)】
+---2017-10-21 13:41:13【Error: Connection terminated
+    at Connection.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\client.js:183:17)
+    at Connection.g (events.js:291:16)
+    at emitNone (events.js:86:13)
+    at Connection.emit (events.js:185:7)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:66:10)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at TCP._handle.close [as _onclose] (net.js:501:12)】
+---2017-10-21 13:41:13【Error: Connection terminated
+    at Connection.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\client.js:183:17)
+    at Connection.g (events.js:291:16)
+    at emitNone (events.js:86:13)
+    at Connection.emit (events.js:185:7)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:66:10)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at TCP._handle.close [as _onclose] (net.js:501:12)】
+---2017-10-21 13:41:13【Error: Connection terminated
+    at Connection.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\client.js:183:17)
+    at Connection.g (events.js:291:16)
+    at emitNone (events.js:86:13)
+    at Connection.emit (events.js:185:7)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:66:10)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at TCP._handle.close [as _onclose] (net.js:501:12)】
+---2017-10-21 13:41:13【Error: Connection terminated
+    at Connection.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\client.js:183:17)
+    at Connection.g (events.js:291:16)
+    at emitNone (events.js:86:13)
+    at Connection.emit (events.js:185:7)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:66:10)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at TCP._handle.close [as _onclose] (net.js:501:12)】
+---2017-10-21 13:41:13【Error: Connection terminated
+    at Connection.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\client.js:183:17)
+    at Connection.g (events.js:291:16)
+    at emitNone (events.js:86:13)
+    at Connection.emit (events.js:185:7)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:66:10)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at TCP._handle.close [as _onclose] (net.js:501:12)】
+---2017-10-21 13:41:13【Error: Connection terminated
+    at Connection.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\client.js:183:17)
+    at Connection.g (events.js:291:16)
+    at emitNone (events.js:86:13)
+    at Connection.emit (events.js:185:7)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:66:10)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at TCP._handle.close [as _onclose] (net.js:501:12)】
+---2017-10-21 13:41:13【Error: Connection terminated
+    at Connection.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\client.js:183:17)
+    at Connection.g (events.js:291:16)
+    at emitNone (events.js:86:13)
+    at Connection.emit (events.js:185:7)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:66:10)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at TCP._handle.close [as _onclose] (net.js:501:12)】
+---2017-10-21 13:41:13【Error: Connection terminated
+    at Connection.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\client.js:183:17)
+    at Connection.g (events.js:291:16)
+    at emitNone (events.js:86:13)
+    at Connection.emit (events.js:185:7)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:66:10)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at TCP._handle.close [as _onclose] (net.js:501:12)】
+---2017-10-21 13:41:13【Error: Connection terminated
+    at Connection.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\client.js:183:17)
+    at Connection.g (events.js:291:16)
+    at emitNone (events.js:86:13)
+    at Connection.emit (events.js:185:7)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:66:10)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at TCP._handle.close [as _onclose] (net.js:501:12)】
+---2017-10-21 13:41:13【Error: Connection terminated
+    at Connection.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\client.js:183:17)
+    at Connection.g (events.js:291:16)
+    at emitNone (events.js:86:13)
+    at Connection.emit (events.js:185:7)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:66:10)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at TCP._handle.close [as _onclose] (net.js:501:12)】
+---2017-10-21 15:9:35【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:55:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:13:22【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:55:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:13:34【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:57:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:24:16【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:57:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:24:17【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:57:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:24:25【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:57:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:24:26【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:57:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:24:26【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:57:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:24:26【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:57:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:25:33【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:57:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:25:33【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:57:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:25:33【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:57:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:25:33【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:57:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:25:33【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:57:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:25:33【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:57:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:26:22【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:57:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:28:22【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:57:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:31:19【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:57:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:32:7【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:58:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:33:20【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:58:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:34:11【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:58:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:34:24【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:58:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】
+---2017-10-21 15:35:24【TypeError: Cannot read property 'length' of undefined
+    at Object.module.exports.run (D:\item\MyModule\company_item\ajax\BC_select_all.js:58:16)
+    at D:\item\MyModule\company_item\ajax\ajax.js:24:22】

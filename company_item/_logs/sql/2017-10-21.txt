@@ -1,18 +1,199 @@
+<<<<<<< HEAD
 ---2017-10-21 15:6:28【错误语句:select * from undefined where 1 =1错误信息:error: 关系 "undefined" 不存在
     at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
     at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
     at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+=======
+---2017-10-21 15:24:16【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+>>>>>>> cd6b58a57449abb986ff46e29744070f16458326
     at emitOne (events.js:96:13)
     at Socket.emit (events.js:188:7)
     at readableAddChunk (_stream_readable.js:176:18)
     at Socket.Readable.push (_stream_readable.js:134:10)
+<<<<<<< HEAD
     at TCP.onread (net.js:547:20)】
 ---2017-10-21 15:7:7【错误语句:select * from undefined where 1 =1错误信息:error: 关系 "undefined" 不存在
     at Connection.parseE (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
     at Connection.parseMessage (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
     at Socket.<anonymous> (E:\Klaus_items\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+=======
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:24:17【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+>>>>>>> cd6b58a57449abb986ff46e29744070f16458326
     at emitOne (events.js:96:13)
     at Socket.emit (events.js:188:7)
     at readableAddChunk (_stream_readable.js:176:18)
     at Socket.Readable.push (_stream_readable.js:134:10)
+<<<<<<< HEAD
     at TCP.onread (net.js:547:20)】
+=======
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:24:25【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:24:26【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:24:26【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:24:26【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:25:33【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:25:33【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:25:33【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:25:33【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:25:33【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:25:33【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:26:22【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:28:22【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:31:19【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:32:7【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:33:20【错误语句:select * from 全_套餐设置表 where 录入人="谢敏"错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:34:11【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:34:24【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+---2017-10-21 15:35:24【错误语句:select * from 全_套餐设置表 where 录入人=谢敏错误信息:error: 字段 "谢敏" 不存在
+    at Connection.parseE (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:539:11)
+    at Connection.parseMessage (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (D:\item\MyModule\company_item\node_modules\_pg@4.5.7@pg\lib\connection.js:105:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)】
+>>>>>>> cd6b58a57449abb986ff46e29744070f16458326
