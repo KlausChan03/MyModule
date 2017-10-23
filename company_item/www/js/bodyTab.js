@@ -22,12 +22,29 @@ layui.define(["element","jquery"],function(exports){
 	Tab.prototype.render = function() {
 		var url = this.tabConfig.url;
 
-		var obj_save = { datas: {}, func: "admin_control_test" };
-        var success_func = function(res) { };
-        var error_func = function(res) { };
-		ajax.ajax_common(obj_save, success_func, error_func);
+		
+
 
 		$.get(url,function(data){
+
+
+			var obj_save = { datas: {}, func: "admin_control_test" };
+			var success_func = function(res) {check(res)};
+			var error_func = function(res) { };
+			ajax.ajax_common(obj_save, success_func, error_func);
+	
+	
+			function check(res){
+				var listMenu = [];
+				var listNav = [];
+				var listMenuShow = [];
+				var listPower = [];
+				console.log(data,"roger")
+				console.log(res.listNav,"kkklllll")
+			}	
+
+
+
 			//显示左侧菜单
 			if($(".navBar").html() == ''){
 				var _this = this;

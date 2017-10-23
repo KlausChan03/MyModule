@@ -103,13 +103,13 @@ module.exports.run = function(body, pg, mo) {
     
     // console.log(p.listMenu,"ttt")
     // console.log(p.listNav,"ppp")
-    for (i in p.listMenu){
-        console.log()
-    }
+    // for (var i in p.listNav){
+    //     p.listNav+=p.listNav[i]
+    // }
     
-    console.log(p)
+    console.log(p.listNav,"long")
 
-
+    p.状态 = "成功";
 
 
     return common.removenull(p, body);
