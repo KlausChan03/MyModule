@@ -8,10 +8,10 @@ layui.use(['table','form'],function() {
   var $ = layui.jquery;
   var ifarme_func = window.top.document.getElementsByClassName("iframe_");
   
-  //查表编号
+  //查表编号相当于获取表的验证码
   var tb_id = GetRequest(ifarme_func).bc_id;
  
-  console.log(tb_id)
+  
   var data={};
   //存数据
   data.field = "";
@@ -22,91 +22,29 @@ layui.use(['table','form'],function() {
 
   var success_func = function(res) {
     // 数据处理
-    var bar_set = $(".layui-hide .layui-btn").length;
-    var th = [];
-    
-    
-   th.push(
-      { checkbox: true, fixed: true, align: "center" },
-      { title: "操作", toolbar: "#act-bar", width: 80 * bar_set, fixed: true, align: "center" }
-    );
-    for (var i in res.列表[0]) {
-    
-      th.push({ field: i, title: i, width: "120", align: "center" });
-      
-    }
-		
-    th[2].sort = true;
-
-    // 生成表格
-    window.demoTable = table.render({
-    	initSort: {
-			    field: 'id' //排序字段，对应 cols 设定的各字段名
-			    ,type: 'asc' //排序方式  asc: 升序、desc: 降序、null: 默认排序
-			},
-      elem: "#demo",
-      id: "test",
-      data: res.列表,
-      width: "auto",
-      cols: [th],
-      skin: "row", //表格风格
-      even: true,
-      page: true, //是否显示分页
-      limits: [10, 15, 20],
-      limit: 15 //每页默认显示的数量
-    });
+     var resAll=res;
+		 changeTableStutas(resAll)
 
     
     /**
      * 单条查询10/21 zhou
      */
     $("#seacherButton").on("click",function(){
+    	//获取查询的字段
     	  var syllable=$(".layui-select-title input").val();
+    	 //获取到查询字段的值
     	  var syllableVal=$("#souVal").val();
-    	  console.log(syllableVal);
-    	  console.log(syllable)
-    	
     	  var data={};
+    	  //把以上两个字段的值传给后台
 			  data.field = [syllable,syllableVal];
 			  data.tb_id = tb_id;
     	  var obj_save = { datas: [data.field,data.tb_id], func: GetRequest(ifarme_func).func };
     	  console.log(obj_save)
     	  var success_func=function(res){
     	  	  // 生成表格
-			    var bar_set = $(".layui-hide .layui-btn").length;
-			    var th = [];
-			    
-			    
-			   th.push(
-			      { checkbox: true, fixed: true, align: "center" },
-			      { title: "操作", toolbar: "#act-bar", width: 80 * bar_set, fixed: true, align: "center" }
-			    );
-			    for (var i in res.列表[0]) {
-			    
-			      th.push({ field: i, title: i, width: "120", align: "center" });
-			      
-			    }
-					
-			    th[2].sort = true;
-			
-			    // 生成表格
-			    window.demoTable = table.render({
-			    	initSort: {
-						    field: 'id' //排序字段，对应 cols 设定的各字段名
-						    ,type: 'asc' //排序方式  asc: 升序、desc: 降序、null: 默认排序
-						},
-			      elem: "#demo",
-			      id: "test",
-			      data: res.列表,
-			      width: "auto",
-			      cols: [th],
-			      skin: "row", //表格风格
-			      even: true,
-			      page: true, //是否显示分页
-			      limits: [10, 15, 20],
-			      limit: 15 //每页默认显示的数量
-			    });
-    	  }
+    	  var resSingle=res;
+			  changeTableStutas(resSingle)
+			 }
     	  ajax.ajax_common(obj_save, success_func);
     })
     
