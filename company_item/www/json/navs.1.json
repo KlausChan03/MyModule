@@ -1,0 +1,129 @@
+[
+  {
+    "title": "后台首页",
+    "icon": "icon-computer",
+    "href": "page/main.html",
+    "spread": false
+  },
+  {
+    "title": "系统",
+    "icon": "icon-zhanghu",
+    "href": "page/main.html",
+    "spread": false,
+    "children": [
+      {
+        "title": "用户信息",
+        "icon": "&#xe61c;",
+        "href": "page/user/user-list.html?func=user_list",
+        "spread": false
+      },
+      {
+        "title": "权限管理",
+        "icon": "&#xe61c;",
+        "href": "page/user/user-power.html?func=user_power",
+        "spread": false
+      },
+      {
+        "title": "后台日志",
+        "icon": "&#xe61c;",
+        "href": "page/user/user-backend-logs.html?func=user_backend_logs",
+        "spread": false
+      }
+    ]
+  },
+  {
+    "title": "测试的地方",
+    "icon": "&#xe635;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "id":"1",
+        "title": "全_套餐设置表",
+        "icon": "&#xe61c;",
+        "href": "page/test/test1.html?func=BC_select_all&bc_id=bc001",
+        "spread": false
+      },
+      {
+        "id":"2",
+        "title": "全_微信支付日志",
+        "icon": "&#xe609;",
+        "href": "page/test/test2.html?func=BC_select_all&bc_id=bc002",
+        "spread": false
+      },
+      {
+        "id":"3",
+        "title": "全_会员",
+        "icon": "&#xe609;",
+        "href": "page/test/test3.html?func=BC_select_all&bc_id=bc003",
+        "spread": false
+      },
+      {
+        "id":"1000",
+        "title": "联表查询",
+        "icon": "&#xe609;",
+        "href": "page/test/test_link.html?func=test_link",
+        "spread": false
+      }
+    ]
+  },
+  {
+    "title": "商学院",
+    "icon": "&#xe635;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "id":"1",
+        "title": "商_商学院表",
+        "icon": "&#xe61c;",
+        "href": "page/bc_items/bc_index.html?func=BC_select_all&bc_id=bc_index",
+        "spread": false
+      },
+      {
+        "id":"2",
+        "title": "商_商学院成员表",
+        "icon": "&#xe609;",
+        "href": "page/bc_items/bc_member.html?func=BC_select_all&bc_id=bc_member",
+        "spread": false
+      }
+    ]
+  },
+  {
+    "title": "商学院日志",
+    "icon": "&#xe635;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "id":"1",
+        "title": "商_基本日志表",
+        "icon": "&#xe61c;",
+        "href": "page/bc_items/bc_reward_log.html?func=BC_select_all&bc_id=bc_reward_log",
+        "spread": false
+      }
+     
+    ]
+  },
+  {
+    "title": "其他页面",
+    "icon": "&#xe630;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "title": "404页面",
+        "icon": "&#xe61c;",
+        "href": "page/404.html",
+        "spread": false
+      },
+      {
+        "title": "登录",
+        "icon": "&#xe609;",
+        "href": "page/login/login.html",
+        "spread": false,
+        "target": "_blank"
+      }
+    ]
+  }
+]

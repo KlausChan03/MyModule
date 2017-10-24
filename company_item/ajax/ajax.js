@@ -19,7 +19,7 @@ ajax.index = function(req, res, body) {
     }
     /**---------pg-------*/
     
-    console.log(body);
+    // console.log(body);
     
     var func = require("./" + body.func + ".js");
     body.send = func.run(body, obj.pg, obj.mongo);

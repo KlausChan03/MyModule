@@ -29,14 +29,14 @@ ajax.ajax_common = function(obj_save, success_func, error_func, type) {
     var func = obj_save.func;
     var datas = obj_save.datas;
     datas = JSON.stringify(datas);
-    console.log(func)
+    // console.log(func)
     
     $.ajax({
       type: "POST",
       url: "/ajax.post?func=" + func,
       data: "data=" + datas,
       success: function(res) {
-        console.log(res)
+        // console.log(res)
         if (res.状态 == "成功") { success_func(res); } else { error_func(res); }
         return false;      
       }

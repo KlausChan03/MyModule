@@ -18,7 +18,7 @@
 	"host":"121.201.67.222:30103",
 	"user":"postgres",
 	"pass":"qqpt123",
-	"db":"qqpt"
+	"db":"zyd_fgs"
 },
   "mysql": {
     "使用": "是",
