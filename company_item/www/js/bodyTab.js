@@ -48,6 +48,7 @@ layui.define(["element", "jquery"], function(exports) {
           // save_tb 暂存后台二级表格名称
           // save_ls 暂存前台二级表格名称
           // save_temp 暂存新二级菜单
+          console.log(res);
 
           for (i in res.listMenu) {
             for (j in data) {
@@ -80,8 +81,12 @@ layui.define(["element", "jquery"], function(exports) {
               }
             }
           }
-          console.log(data)
-          console.log(_data)
+          // 功能模块测试
+          // [
+
+          _data.push(data[6]);
+          // ]
+
           data = _data;
 
           var _this = this;

@@ -18,7 +18,7 @@
 .logo{ color: #fff; float: left; line-height:60px; font-size:20px; padding:0 25px; text-align: center; width:150px;}
 .hideMenu{ float:left; width:20px; height:20px; margin:15px 15px 0 0; font-size:17px; text-align:center; padding:5px 5px; color:#fff; background-color:#2B9CED; }
 .hideMenu:hover{ color:#fff; }
-.weather{ color:#fff; float:left; margin:15px 0 0 50px;}
+.weather{ color:#fff; float:left; margin:15px 0 0 15px;}
 .component{ float: left; width:200px; height:30px; margin-top: 15px; position: relative;}
 .component .layui-input{ height:30px; line-height: 30px; font-size:12px; border:none; transition: all 0.3s; }
 .component .layui-input:focus{ background:#fff; color:#000; }

@@ -6,11 +6,19 @@ layui.use(["table", "form"], function() {
   var form = layui.form;
   var $ = layui.jquery;
   var ifarme_func = window.top.document.getElementsByClassName("iframe_");
+  
+
+
+	// $.get("../../json/navs.json", function(data){
+  //   console.log(data)
+	// })
+
+
 
   //查表编号
   var tb_id = GetRequest(ifarme_func).bc_id;
 
-  console.log(tb_id);
+  // console.log(tb_id);
   var data = {};
   //存数据
   data.field = "";
@@ -20,10 +28,17 @@ layui.use(["table", "form"], function() {
     datas: [data.field, data.tb_id],
     func: GetRequest(ifarme_func).func
   };
-  console.log(obj_save);
+  // console.log(obj_save);
 
   var success_func = function(res) {
-    // 数据处理
+
+    //渲染标题
+    var tb_title = res.表格名称;
+   ;
+    tb_title = tb_title.replace("表",""). replace(/(?=_)/g, "");
+    $(".table-title").html(tb_title);
+
+    //数据处理
     var bar_set = $(".layui-hide .layui-btn").length;
     var th = [];
 
@@ -67,8 +82,8 @@ layui.use(["table", "form"], function() {
     $("#seacherButton").on("click", function() {
       var syllable = $(".layui-select-title input").val();
       var syllableVal = $("#souVal").val();
-      console.log(syllableVal);
-      console.log(syllable);
+      // console.log(syllableVal);
+      // console.log(syllable);
 
       var data = {};
       data.field = [syllable, syllableVal];
@@ -77,7 +92,7 @@ layui.use(["table", "form"], function() {
         datas: [data.field, data.tb_id],
         func: GetRequest(ifarme_func).func
       };
-      console.log(obj_save);
+      // console.log(obj_save);
       var success_func = function(res) {
         // 生成表格
         var bar_set = $(".layui-hide .layui-btn").length;
@@ -173,7 +188,7 @@ layui.use(["table", "form"], function() {
     });
   };
   var error_func = function(res) {
-    console.log(res);
+    // console.log(res);
     if(res.状态 == "获取列表异常"){
       $(".layui-form").append("<img class='no-data' src='../../images/no_data.png' />")
       // $(".no-data").css({"width":"100px","height":"100px"})
@@ -269,6 +284,7 @@ table_act.update = function(res, tb_id, data) {
   for (var j in data) {
     old_arr.push(data[j]);
   }
+  console.log(old_arr)
   var test = "";
 
   //赋给录入时期的的input的一个id名

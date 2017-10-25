@@ -22,7 +22,9 @@ module.exports.run = function(body, pg, mo) {
 
   //第二步：是否存有登陆状态
   if (!f.session.user_name || f.session.user_name == null) {
-    f._power = "当前未登陆";
+    f.verify = "当前未登陆";
+  }else{
+    f.verify = "当前已登录"
   }
   if (!f.session.user_pid) {
     return f;
@@ -93,7 +95,7 @@ module.exports.run = function(body, pg, mo) {
     }
   }
   
-
+  p.verify = f.verify;
   p.listMenu = listMenuShow;
   p.listNav = list_;
   console.log(p)
