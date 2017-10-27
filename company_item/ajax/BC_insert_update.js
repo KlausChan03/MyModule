@@ -23,8 +23,8 @@ module.exports.run = function(body, pg, mo) {
   var f ={};
   f.data = body.receive[0];
   f.check = body.receive[1];
-//   console.log(f);
-//   console.log(b);
+  console.log(f);
+  // console.log(b);
   var menu = config.get("menu");
   var table_name = "";
   var table_id = "";
@@ -43,7 +43,7 @@ module.exports.run = function(body, pg, mo) {
     }
   });
 
-  if (f.data.id == "") {
+  if (f.data.id == "" || f.data.id == null || f.data.id == undefined) {
     // 插入
     var insert_str_one = insert_arr.join(",");
     var insert_str_two = "";

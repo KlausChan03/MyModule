@@ -1,8 +1,15 @@
 .idea
+<<<<<<< HEAD
 .project
 node_modules
 _logs
 .vscode
+=======
+.vscode
+.project
+node_modules
+_logs
+>>>>>>> d0cd963b151f9392232d78d0ff2e2f2404bafd75
 mysql.db
 package.json
 start.json

@@ -24,6 +24,7 @@ ajax.ajax_depend_concurrent = function(obj_save, success_func, error_func, type)
 };
 
 ajax.ajax_common = function(obj_save, success_func, error_func, type) {
+
 	var ajax_type;
 
 	if(!arguments[2]) { error_func = function() {}; }
@@ -32,6 +33,16 @@ ajax.ajax_common = function(obj_save, success_func, error_func, type) {
 	var datas = obj_save.datas;
 	datas = JSON.stringify(datas);
 	console.log(func)
+
+    var ajax_type;
+    
+    if (!arguments[2]) { error_func = function() {}; }
+    if (!arguments[3]) { ajax_type = "POST"; }
+    var func = obj_save.func;
+    var datas = obj_save.datas;
+    datas = JSON.stringify(datas);
+    // console.log(func)
+
 
 	$.ajax({
 		type: "POST",

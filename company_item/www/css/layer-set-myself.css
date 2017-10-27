@@ -47,3 +47,12 @@
   line-height: 30px;
   padding: 0 10px;
 }
+
+.no-data{
+  width:150px;
+  height: 150px;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left:50%;
+  top:45%;
+}
