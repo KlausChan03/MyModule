@@ -7,15 +7,20 @@ layui.use(["table", "form"], function() {
   var $ = layui.jquery;
   var ifarme_func = window.top.document.getElementsByClassName("iframe_");
 
+<<<<<<< HEAD
+  //查表编号相当于获取表的验证码
+=======
   // $.get("../../json/navs.json", function(data){
   //   console.log(data)
   // })
 
   //查表编号
+>>>>>>> bb5fbf29675e59ccab994f3604160754d5473d38
   var tb_id = GetRequest(ifarme_func).bc_id;
+ 
+  
+  var data={};
 
-  // console.log(tb_id);
-  var data = {};
   //存数据
   data.field = "";
   //验证表名
@@ -30,6 +35,12 @@ layui.use(["table", "form"], function() {
   var success_func = function(res) {
     console.log(res);
 
+<<<<<<< HEAD
+    // 数据处理
+     var resAll=res;
+		 changeTableStutas(resAll)
+
+=======
     //渲染标题
     var tb_title = res.表格名称;
     tb_title = tb_title.replace("表", "");
@@ -74,10 +85,13 @@ layui.use(["table", "form"], function() {
       limits: [10, 15, 20],
       limit: 15 //每页默认显示的数量
     });
+>>>>>>> bb5fbf29675e59ccab994f3604160754d5473d38
 
     /**
      * 单条查询10/21 zhou
      */
+<<<<<<< HEAD
+=======
     // 搜索刷新列表
     form.render("select");
 
@@ -105,21 +119,30 @@ layui.use(["table", "form"], function() {
         // 生成表格
         var bar_set = $(".layui-hide .layui-btn").length;
         var th = [];
+>>>>>>> bb5fbf29675e59ccab994f3604160754d5473d38
 
-        th.push(
-          { checkbox: true, fixed: true, align: "center" },
-          {
-            title: "操作",
-            toolbar: "#act-bar",
-            width: 80 * bar_set,
-            fixed: true,
-            align: "center"
-          }
-        );
-        for (var i in res.列表[0]) {
-          th.push({ field: i, title: i, width: "120", align: "center" });
-        }
+    $("#seacherButton").on("click",function(){
+    	//获取查询的字段
+    	  var syllable=$(".layui-select-title input").val();
+    	 //获取到查询字段的值
+    	  var syllableVal=$("#souVal").val();
+    	  var data={};
+    	  //把以上两个字段的值传给后台
+			  data.field = [syllable,syllableVal];
+			  data.tb_id = tb_id;
+    	  var obj_save = { datas: [data.field,data.tb_id], func: GetRequest(ifarme_func).func };
+    	  console.log(obj_save)
+    	  var success_func=function(res){
+    	  	  // 生成表格
+    	  var resSingle=res;
+			  changeTableStutas(resSingle)
+			 }
+    	  ajax.ajax_common(obj_save, success_func);
+    })
+    
 
+<<<<<<< HEAD
+=======
         th[2].sort = true;
 
         // 生成表格
@@ -142,6 +165,7 @@ layui.use(["table", "form"], function() {
       };
       ajax.ajax_common(obj_save, success_func, error_func);
     });
+>>>>>>> bb5fbf29675e59ccab994f3604160754d5473d38
 
     //表格内功能工具条
     table.on("tool(demo)", function(obj) {
