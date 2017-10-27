@@ -6,14 +6,10 @@ layui.use(["table", "form"], function() {
   var form = layui.form;
   var $ = layui.jquery;
   var ifarme_func = window.top.document.getElementsByClassName("iframe_");
-  
 
-
-	// $.get("../../json/navs.json", function(data){
+  // $.get("../../json/navs.json", function(data){
   //   console.log(data)
-	// })
-
-
+  // })
 
   //查表编号
   var tb_id = GetRequest(ifarme_func).bc_id;
@@ -24,18 +20,19 @@ layui.use(["table", "form"], function() {
   data.field = "";
   //验证表名
   data.tb_id = tb_id;
+  data.type = "all";
   var obj_save = {
-    datas: [data.field, data.tb_id],
+    datas: [data.field, data.tb_id, data.type],
     func: GetRequest(ifarme_func).func
   };
   // console.log(obj_save);
 
   var success_func = function(res) {
+    console.log(res);
 
     //渲染标题
     var tb_title = res.表格名称;
-   ;
-    tb_title = tb_title.replace("表",""). replace(/(?=_)/g, "");
+    tb_title = tb_title.replace("表", "");
     $(".table-title").html(tb_title);
 
     //数据处理
@@ -54,6 +51,7 @@ layui.use(["table", "form"], function() {
     );
     for (var i in res.列表[0]) {
       th.push({ field: i, title: i, width: "120", align: "center" });
+      $(".select-test").append("<option value='" + i + "'>" + i + "</option>");
     }
 
     th[2].sort = true;
@@ -68,6 +66,7 @@ layui.use(["table", "form"], function() {
       id: "test",
       data: res.列表,
       width: "auto",
+      height: "full-130",
       cols: [th],
       skin: "row", //表格风格
       even: true,
@@ -79,20 +78,29 @@ layui.use(["table", "form"], function() {
     /**
      * 单条查询10/21 zhou
      */
+    // 搜索刷新列表
+    form.render("select");
+
     $("#seacherButton").on("click", function() {
       var syllable = $(".layui-select-title input").val();
       var syllableVal = $("#souVal").val();
-      // console.log(syllableVal);
-      // console.log(syllable);
 
       var data = {};
       data.field = [syllable, syllableVal];
       data.tb_id = tb_id;
+      data.type = "one";
       var obj_save = {
-        datas: [data.field, data.tb_id],
+        datas: [data.field, data.tb_id, data.type],
         func: GetRequest(ifarme_func).func
       };
-      // console.log(obj_save);
+
+      var error_func = function(res) {
+        if (res.状态 == "获取列表异常") {
+          layer.alert("查询无结果", { icon: 2 });
+        } else {
+          layer.alert(res.状态, { icon: 2 });
+        }
+      };
       var success_func = function(res) {
         // 生成表格
         var bar_set = $(".layui-hide .layui-btn").length;
@@ -132,7 +140,7 @@ layui.use(["table", "form"], function() {
           limit: 15 //每页默认显示的数量
         });
       };
-      ajax.ajax_common(obj_save, success_func);
+      ajax.ajax_common(obj_save, success_func, error_func);
     });
 
     //表格内功能工具条
@@ -188,11 +196,17 @@ layui.use(["table", "form"], function() {
     });
   };
   var error_func = function(res) {
-    // console.log(res);
-    if(res.状态 == "获取列表异常"){
-      $(".layui-form").append("<img class='no-data' src='../../images/no_data.png' />")
+    console.log(res);
+    if (res.状态 == "获取列表异常") {
+      //渲染标题
+      var tb_title = res.表格名称;
+      tb_title = tb_title.replace("表", "");
+      $(".table-title").html(tb_title);
+
+      $(".layui-form").append(
+        "<img class='no-data' src='../../images/no_data.png' />"
+      );
       // $(".no-data").css({"width":"100px","height":"100px"})
-      
     }
   };
   ajax.ajax_common(obj_save, success_func, error_func);
@@ -284,7 +298,7 @@ table_act.update = function(res, tb_id, data) {
   for (var j in data) {
     old_arr.push(data[j]);
   }
-  console.log(old_arr)
+  console.log(old_arr);
   var test = "";
 
   //赋给录入时期的的input的一个id名

@@ -1,10 +1,12 @@
 var $,tab,skyconsWeather;
 layui.config({
 	base : "js/"
-}).use(['bodyTab','form','element','layer','jquery'],function(){
+}).use(['bodyTab','form','element','layer','jquery','flow'],function(){
 	var form = layui.form,
 		layer = layui.layer,
-		element = layui.element;
+		element = layui.element,
+		flow = layui.flow;
+		
 		$ = layui.jquery;
 		tab = layui.bodyTab({
 			openTabNum : "50",  //最大可打开窗口数量
@@ -146,6 +148,7 @@ layui.config({
 	function lockPage(){
 		layer.open({
 			title : false,
+			skin: 'lock-layer',
 			type : 1,
 			content : '	<div class="admin-header-lock" id="lock-box">'+
 							'<div class="admin-header-lock-img"><img src="images/face.jpg"/></div>'+
@@ -156,7 +159,26 @@ layui.config({
 							'</div>'+
 						'</div>',
 			closeBtn : 0,
-			shade : 0.9
+			shade : 0.1,
+			offset: ["25%"],
+			success:function(){
+				flow.lazyimg(); 
+				
+				// $(".layui-layer-shade").css({"background":"url(images/bg-lock.jpg)","background-size":"cover","background-repeat":"no-repeat"});
+				// $(".now-time").css({"position":"absolute","left":"50%","top":"30%","transform":"translate(-50%,-50%)","font-size":"40px"});
+				$(".layui-layer-shade").append('<img class="bg-lock" src="images/bg-lock.jpg"/><div class="now-time"></div>');
+				
+				var currentTime=""
+				setInterval(function(){
+					var date = new Date();
+					date.date = date.getDate();
+					date.hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+					date.minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+					date.second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+					currentTime = date.hour + ":" + date.minute + ":" + date.second;
+					$(".now-time").html(currentTime);
+				},0);
+			}
 		})
 		$(".admin-header-lock-input").focus();
 	}
