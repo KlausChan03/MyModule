@@ -28,17 +28,23 @@
 				<input class="layui-input password" name="password" placeholder="密码" type="password" autocomplete="off">
 		    </div>
 		    <div class="layui-form-item form_code">
-				<input class="layui-input" name="code" placeholder="验证码" lay-verify="required" type="text" autocomplete="off">
-				<div class="code"><img src="../../images/code.jpg" width="116" height="36"></div>
+				<input class="layui-input" name="code" id="code_input" placeholder="验证码" lay-verify="required" type="text" autocomplete="off">
+				<div class="code" id="v_container" style="width: 116px;height: 36px;"></div>
 		    </div>
 			<button class="layui-btn login_btn" lay-submit="" lay-filter="login">登录</button>
 		</form>
 	</div>
 	<script type="text/javascript" src="../../js/jquery.min.js"></script>
-	
 	<script type="text/javascript" src="../../layui/layui.js"></script>
 	<script type="text/javascript" src="login.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../js/jquery.md5.js"></script>
+	<!-- <script>
+			var verifyCode = new GVerify("v_container");
+	
+			document.getElementById("my_button").onclick = function(){
+			
+			}
+		</script> -->
 </body>
 </html>
