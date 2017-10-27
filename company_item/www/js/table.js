@@ -6,9 +6,16 @@ layui.use(["table", "form"], function() {
   var form = layui.form;
   var $ = layui.jquery;
   var ifarme_func = window.top.document.getElementsByClassName("iframe_");
-  
 
+<<<<<<< HEAD
   //查表编号相当于获取表的验证码
+=======
+  // $.get("../../json/navs.json", function(data){
+  //   console.log(data)
+  // })
+
+  //查表编号
+>>>>>>> bb5fbf29675e59ccab994f3604160754d5473d38
   var tb_id = GetRequest(ifarme_func).bc_id;
  
   
@@ -18,22 +25,101 @@ layui.use(["table", "form"], function() {
   data.field = "";
   //验证表名
   data.tb_id = tb_id;
+  data.type = "all";
   var obj_save = {
-    datas: [data.field, data.tb_id],
+    datas: [data.field, data.tb_id, data.type],
     func: GetRequest(ifarme_func).func
   };
   // console.log(obj_save);
 
   var success_func = function(res) {
+    console.log(res);
 
+<<<<<<< HEAD
     // 数据处理
      var resAll=res;
 		 changeTableStutas(resAll)
 
+=======
+    //渲染标题
+    var tb_title = res.表格名称;
+    tb_title = tb_title.replace("表", "");
+    $(".table-title").html(tb_title);
+
+    //数据处理
+    var bar_set = $(".layui-hide .layui-btn").length;
+    var th = [];
+
+    th.push(
+      { checkbox: true, fixed: true, align: "center" },
+      {
+        title: "操作",
+        toolbar: "#act-bar",
+        width: 80 * bar_set,
+        fixed: true,
+        align: "center"
+      }
+    );
+    for (var i in res.列表[0]) {
+      th.push({ field: i, title: i, width: "120", align: "center" });
+      $(".select-test").append("<option value='" + i + "'>" + i + "</option>");
+    }
+
+    th[2].sort = true;
+
+    // 生成表格
+    window.demoTable = table.render({
+      initSort: {
+        field: "id", //排序字段，对应 cols 设定的各字段名
+        type: "asc" //排序方式  asc: 升序、desc: 降序、null: 默认排序
+      },
+      elem: "#demo",
+      id: "test",
+      data: res.列表,
+      width: "auto",
+      height: "full-130",
+      cols: [th],
+      skin: "row", //表格风格
+      even: true,
+      page: true, //是否显示分页
+      limits: [10, 15, 20],
+      limit: 15 //每页默认显示的数量
+    });
+>>>>>>> bb5fbf29675e59ccab994f3604160754d5473d38
 
     /**
      * 单条查询10/21 zhou
      */
+<<<<<<< HEAD
+=======
+    // 搜索刷新列表
+    form.render("select");
+
+    $("#seacherButton").on("click", function() {
+      var syllable = $(".layui-select-title input").val();
+      var syllableVal = $("#souVal").val();
+
+      var data = {};
+      data.field = [syllable, syllableVal];
+      data.tb_id = tb_id;
+      data.type = "one";
+      var obj_save = {
+        datas: [data.field, data.tb_id, data.type],
+        func: GetRequest(ifarme_func).func
+      };
+
+      var error_func = function(res) {
+        if (res.状态 == "获取列表异常") {
+          layer.alert("查询无结果", { icon: 2 });
+        } else {
+          layer.alert(res.状态, { icon: 2 });
+        }
+      };
+      var success_func = function(res) {
+        // 生成表格
+        var bar_set = $(".layui-hide .layui-btn").length;
+        var th = [];
+>>>>>>> bb5fbf29675e59ccab994f3604160754d5473d38
 
     $("#seacherButton").on("click",function(){
     	//获取查询的字段
@@ -55,6 +141,31 @@ layui.use(["table", "form"], function() {
     })
     
 
+<<<<<<< HEAD
+=======
+        th[2].sort = true;
+
+        // 生成表格
+        window.demoTable = table.render({
+          initSort: {
+            field: "id", //排序字段，对应 cols 设定的各字段名
+            type: "asc" //排序方式  asc: 升序、desc: 降序、null: 默认排序
+          },
+          elem: "#demo",
+          id: "test",
+          data: res.列表,
+          width: "auto",
+          cols: [th],
+          skin: "row", //表格风格
+          even: true,
+          page: true, //是否显示分页
+          limits: [10, 15, 20],
+          limit: 15 //每页默认显示的数量
+        });
+      };
+      ajax.ajax_common(obj_save, success_func, error_func);
+    });
+>>>>>>> bb5fbf29675e59ccab994f3604160754d5473d38
 
     //表格内功能工具条
     table.on("tool(demo)", function(obj) {
@@ -109,11 +220,17 @@ layui.use(["table", "form"], function() {
     });
   };
   var error_func = function(res) {
-    // console.log(res);
-    if(res.状态 == "获取列表异常"){
-      $(".layui-form").append("<img class='no-data' src='../../images/no_data.png' />")
+    console.log(res);
+    if (res.状态 == "获取列表异常") {
+      //渲染标题
+      var tb_title = res.表格名称;
+      tb_title = tb_title.replace("表", "");
+      $(".table-title").html(tb_title);
+
+      $(".layui-form").append(
+        "<img class='no-data' src='../../images/no_data.png' />"
+      );
       // $(".no-data").css({"width":"100px","height":"100px"})
-      
     }
   };
   ajax.ajax_common(obj_save, success_func, error_func);
@@ -205,7 +322,7 @@ table_act.update = function(res, tb_id, data) {
   for (var j in data) {
     old_arr.push(data[j]);
   }
-  console.log(old_arr)
+  console.log(old_arr);
   var test = "";
 
   //赋给录入时期的的input的一个id名

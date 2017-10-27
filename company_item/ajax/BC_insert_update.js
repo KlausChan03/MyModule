@@ -43,7 +43,7 @@ module.exports.run = function(body, pg, mo) {
     }
   });
 
-  if (f.data.id == "" || f.data.id == null || f.data.id == undefined) {
+  if (f.data.id == "" ) {
     // 插入
     var insert_str_one = insert_arr.join(",");
     var insert_str_two = "";

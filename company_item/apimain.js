@@ -12,6 +12,8 @@ var moment = require("moment");
 var config = require("./func/config.js"); //引用config目录内的config.js文件//执行读取缓存文件配置方法(必须在使用之前调用,缓存具体使用方法请参考config.js注释)
 
 var cipher = require("./func/cipher.js");
+var cipher = require("./func/gulpfile.js");
+
 var logs = require("./func/logs.js");
 
 var version = "1.9.0";
@@ -160,7 +162,7 @@ app.post("/ajax.post*", function(req, res) {
     .on("end", function() {
       try {
         console.log("-----------------接收参数-----------------");
-        console.log(req.url + body);
+        console.log(req.url + " & " + body);
         console.log("-----------------接收参数-----------------");
         var path = url.parse(req.url, true).query;
         body = querystring.parse(body);

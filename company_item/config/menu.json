@@ -187,7 +187,7 @@
 			},{
 				"id": 1666,
 				"菜单": "其他",					
-				"表格名称": "分_说明表",
+				"表格名称": "商_说明表",
 				"表格编号":"bc_explain",				
 				"func": "bc_explain",
 				"网址": "/Tpl/adminfunc/bc_explain.xhtml",
