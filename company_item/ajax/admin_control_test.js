@@ -16,6 +16,8 @@ module.exports.run = function(body, pg, mo) {
   // console.log(body)
   var p = {};
   var f = {};
+  p.状态 = "成功";
+  
 
   //第一步：获取参数
   f.session = body.session;
@@ -27,7 +29,8 @@ module.exports.run = function(body, pg, mo) {
     f.verify = "当前已登录"
   }
   if (!f.session.user_pid) {
-    return f;
+    p.verify = f.verify;
+    return p;
   }
 
   //第三步：控制可看页面
@@ -97,8 +100,6 @@ module.exports.run = function(body, pg, mo) {
   p.verify = f.verify;
   p.listMenu = listMenuShow;
   p.listNav = list_;
-
-  p.状态 = "成功";
 
   return common.removenull(p, body);
 };

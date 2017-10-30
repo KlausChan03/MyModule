@@ -1,6 +1,6 @@
 [{
     "newsId" : "1",
-    "newsName" : "判定当前状态、超过操作时间等跳回登录页（优先级高）",
+    "newsName" : "判定当前状态、超过操作时间等跳回登录页（优先级高）（完善中）",
     "newsAuthor" : "Klaus",
     "newsStatus" : "审核通过",
     "newsLook" : "开放浏览",
@@ -8,7 +8,7 @@
     "newsTime" : "2017-10-24"
 },{
     "newsId" : "2",
-    "newsName" : "权限模块代码优化及用户登陆模块完善（优先级高）",
+    "newsName" : "权限模块代码优化及用户登陆模块完善（优先级高）（完善中）",
     "newsAuthor" : "Klaus",
     "newsStatus" : "待审核",
     "newsLook" : "开放浏览",
@@ -16,7 +16,7 @@
     "newsTime" : "2017-10-24"
 },{
     "newsId" : "3",
-    "newsName" : "整理目录结构，清除原框架遗留文件及代码（优先级中）",
+    "newsName" : "整理目录结构，清除原框架遗留文件及代码（优先级中）（完善中）",
     "newsAuthor" : "admin",
     "newsStatus" : "审核通过",
     "newsLook" : "开放浏览",
@@ -24,7 +24,7 @@
     "newsTime" : "2017-10-24"
 },{
     "newsId" : "4",
-    "newsName" : "前后台json对比协同校验以及增删改接口优化（优先级中）",
+    "newsName" : "前后台json对比协同校验以及增删改接口优化（优先级中）（已完善）",
     "newsAuthor" : "admin",
     "newsStatus" : "审核通过",
     "newsLook" : "开放浏览",
@@ -32,7 +32,7 @@
     "newsTime" : "2017-10-24"
 },{
     "newsId" : "5",
-    "newsName" : "单条数据查询自动化完善并开放功能（优先级中）",
+    "newsName" : "单条数据查询自动化完善并开放功能（优先级中）（已完善）",
     "newsAuthor" : "Klaus",
     "newsStatus" : "待审核",
     "newsLook" : "开放浏览",

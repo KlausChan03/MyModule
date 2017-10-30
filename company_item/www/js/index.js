@@ -17,7 +17,22 @@ layui.config({
 	// 获取用户名
 	var obj_save = { datas: {}, func: "admin_control_test" };
 	var success_func = function(res) {
-		$(".userName").html(res.user)
+		// console.log(res.verify)
+		if(res.verify =="当前已登陆"){
+			$(".userName").html(res.user)
+			
+		}else if(res.verify =="当前未登陆"){
+			layer.open({
+				type: 1,
+				title: "信息",
+				area: '310px',
+				btn: ['确定'],
+				content: '<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p>登陆已超时</p></div>',
+				yes:function(){
+					window.location.href="page/login/login.html";					
+				}
+			});
+		}
 	};
 	ajax.ajax_common(obj_save, success_func);
 
