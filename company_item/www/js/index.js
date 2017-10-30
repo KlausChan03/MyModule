@@ -14,16 +14,17 @@ layui.config({
 		});
 
 
-	// 获取用户名
+	// 获取用户名和头像等信息
+	// 通过接口获取验证登陆信息
 	var obj_save = { datas: {}, func: "admin_control_test" };
 	var success_func = function(res) {
-		// console.log(res.verify)
-		if(res.verify =="当前已登陆"){
+		console.log(res.verify)
+		if(res.verify =="当前已登录"){
 			$(".userName").html(res.user);
 			$("#updateImg").attr("src",res.头像);
 			$("#updateImg1").attr("src",res.头像);
 			
-		}else if(res.verify =="当前未登陆"){
+		}else if(res.verify =="当前未登录"){
 			layer.open({
 				type: 1,
 				title: "信息",
