@@ -17,7 +17,10 @@ layui.config({
 	// 获取用户名
 	var obj_save = { datas: {}, func: "admin_control_test" };
 	var success_func = function(res) {
-		$(".userName").html(res.user)
+		$(".userName").html(res.user);
+		console.log(res.头像);
+		$("#updateImg").attr("src",res.头像);
+		$("#updateImg1").attr("src",res.头像);
 	};
 	ajax.ajax_common(obj_save, success_func);
 
@@ -42,12 +45,13 @@ layui.config({
 		"accessKeySecret": "ZASbh3Xg1RtSo6VxwLnNkSlNvXNMYJ",
 		"bucket": "zyk-temp"
 	});
-			
+	/**
+	 * zhou 上传头像
+	 */
 				
 	document.getElementById('putTou').addEventListener('change', function(e) {
 		var file = e.target.files[0];
 		var storeAs = (new Date()).getTime();
-		console.log(file.name + ' => ' + storeAs);
 		client.multipartUpload(file.name, file,{
 //			 progress: function*(p) {
 //			 	layui.use(['upload', 'element'], function() {
@@ -72,6 +76,8 @@ layui.config({
 				
 				success: function(json) {
 					console.log(json)
+					$("#updateImg").attr("src",json.头像);
+					$("#updateImg1").attr("src",json.头像);
 	
 						
 					}

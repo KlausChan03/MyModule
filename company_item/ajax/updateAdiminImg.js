@@ -29,5 +29,6 @@ module.exports.run = function(body, pg, mo) {
   sql="update 管_管理员表 set 头像 ='"+f.data.头像+"' where id = '"+f.session.user_id+"' ";
   var result_power = pgdb.query(pg, sql);
   p.状态="成功";
+  p.头像=f.data.头像;
   return common.removenull(p);
 };
