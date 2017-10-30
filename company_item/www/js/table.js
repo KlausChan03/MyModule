@@ -2,6 +2,7 @@
 
 // 新方法实现数据渲染
 layui.use(["table", "form"], function() {
+
   var table = layui.table;
   var form = layui.form;
   var $ = layui.jquery;
@@ -23,11 +24,40 @@ layui.use(["table", "form"], function() {
 
   var success_func = function(res) {
 
+
+
+   
+
+
+
+
+
     //渲染标题
     var tb_title = res.表格名称;
     tb_title = tb_title.replace("表", "");
     $(".table-title").html(tb_title);
-		changeTableStutas(res)
+    changeTableStutas(res)
+    
+    var obj_save = { datas: tb_id, func: "admin_control_test2" };
+    var success_func = function(res) {
+        if(res.keyPower!=""){
+          var key_arr =[];
+          for(var i in res.keyPower){
+            key_arr.push(res.keyPower[i]);
+          }
+        }
+        console.log(key_arr)
+        // $.each(key_arr, function(i) {
+        //   $(".layui-hide").append('<a class="layui-btn layui-btn-mini" lay-event="edit"><i class="layui-icon" style="font-size: 16px; color: #eee;">&#xe642;</i>编辑</a> ')    
+          
+        // })
+        for (var j in key_arr){
+          $(".layui-hide").append('<a class="layui-btn layui-btn-mini" lay-event="edit"><i class="layui-icon" style="font-size: 16px; color: #eee;">&#xe642;</i>编辑</a><a class="layui-btn layui-btn-mini" lay-event="edit"><i class="layui-icon" style="font-size: 16px; color: #eee;">&#xe642;</i>编辑</a> ')    
+          table.reload("test")   
+          
+        }
+      };
+    ajax.ajax_common(obj_save, success_func);
 
     /**
      * 单条查询10/21 zhou

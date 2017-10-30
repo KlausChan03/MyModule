@@ -38,7 +38,6 @@ ajax.ajax_common = function (obj_save, success_func, error_func, type) {
 	var func = obj_save.func;
 	var datas = obj_save.datas;
 	datas = JSON.stringify(datas);
-	console.log(func)
 
 	var ajax_type;
 
@@ -86,6 +85,8 @@ function changeTableStutas(res) {
 		var table = layui.table;
 		var bar_set = $(".layui-hide .layui-btn").length;
 		var th = [];
+		console.log(bar_set,"length")
+		
 
 		th.push({ checkbox: true, fixed: true, align: "center" }, { title: "操作", toolbar: "#act-bar", width: 80 * bar_set, fixed: true, align: "center" });
 		for (var i in res.列表[0]) {
