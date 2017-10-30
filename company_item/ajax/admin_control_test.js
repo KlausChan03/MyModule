@@ -69,7 +69,7 @@ module.exports.run = function(body, pg, mo) {
       listPower[f._权限[key]["字段"]] = "1";
     }
   }
-
+  console.log(listPower);
   menu.forEach(function(item) {
     if (item.菜单) {
       item.菜单.forEach(function(name) {
