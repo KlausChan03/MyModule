@@ -13,6 +13,14 @@ layui.config({
 			url : "json/navs.json" //获取菜单json地址
 		});
 
+
+	// 获取用户名
+	var obj_save = { datas: {}, func: "admin_control_test" };
+	var success_func = function(res) {
+		$(".userName").html(res.user)
+	};
+	ajax.ajax_common(obj_save, success_func);
+
 	//更换皮肤
 	function skins(){
 		var skin = window.sessionStorage.getItem("skin");
@@ -391,6 +399,15 @@ document.onkeyup = function (event) {
 function addTab(_this){
 	tab.tabAdd(_this);
 }
+
+
+
+
+
+
+
+
+
 
 //捐赠弹窗
 // function donation(){
