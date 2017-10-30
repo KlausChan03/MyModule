@@ -24,7 +24,8 @@ module.exports.run = function(body, pg, mo) {
   var f ={};
   f.data = body.receive;
    f.session = body.session;
-   console.log(f.session.id+"===================")
+   body.session.头像 = f.data.头像;
+  
   var sql="";
   sql="update 管_管理员表 set 头像 ='"+f.data.头像+"' where id = '"+f.session.user_id+"' ";
   var result_power = pgdb.query(pg, sql);
