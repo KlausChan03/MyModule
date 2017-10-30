@@ -19,7 +19,9 @@ layui.config({
 	var success_func = function(res) {
 		// console.log(res.verify)
 		if(res.verify =="当前已登陆"){
-			$(".userName").html(res.user)
+			$(".userName").html(res.user);
+			$("#updateImg").attr("src",res.头像);
+			$("#updateImg1").attr("src",res.头像);
 			
 		}else if(res.verify =="当前未登陆"){
 			layer.open({
@@ -33,6 +35,7 @@ layui.config({
 				}
 			});
 		}
+
 	};
 	ajax.ajax_common(obj_save, success_func);
 
@@ -50,6 +53,57 @@ layui.config({
 		}
 	}
 	skins();
+	
+	var client = new OSS.Wrapper({
+		"region": "oss-cn-shenzhen",
+		"accessKeyId": "LTAIRz4pA6Qeu12D",
+		"accessKeySecret": "ZASbh3Xg1RtSo6VxwLnNkSlNvXNMYJ",
+		"bucket": "zyk-temp"
+	});
+	/**
+	 * zhou 上传头像
+	 */
+				
+	document.getElementById('putTou').addEventListener('change', function(e) {
+		var file = e.target.files[0];
+		var storeAs = (new Date()).getTime();
+		client.multipartUpload(file.name, file,{
+//			 progress: function*(p) {
+//			 	layui.use(['upload', 'element'], function() {
+//			 		var $ = layui.jquery,
+//					upload = layui.upload,
+//					element = layui.element;
+//					element.progress('demo', (p * 100).toFixed(2) + '%');
+//			 	});
+//	            console.log('上传中: ' + (p * 100).toFixed(2) + '%');
+//	            
+//	
+//	        }
+		}).then(function(result) {
+			console.log(result);
+			var dataImg={};
+			dataImg.头像=result.url;
+			dataImg = JSON.stringify(dataImg);
+			$.ajax({
+				url: "/ajax.post?func=updateAdiminImg",
+				type: "POST",
+				data: "data="+dataImg,
+				
+				success: function(json) {
+					console.log(json)
+					$("#updateImg").attr("src",json.头像);
+					$("#updateImg1").attr("src",json.头像);
+	
+						
+					}
+				
+			})
+			
+		}).catch(function(err) {
+			console.log(err);
+		});
+	});
+	
 	$(".changeSkin").click(function(){
 		layer.open({
 			title : "更换皮肤",
@@ -204,7 +258,12 @@ layui.config({
 			}
 		})
 		$(".admin-header-lock-input").focus();
+		
 	}
+	
+	
+	
+	
 	$(".lockcms").on("click",function(){
 		window.sessionStorage.setItem("lockcms",true);
 		lockPage();
@@ -414,15 +473,6 @@ document.onkeyup = function (event) {
 function addTab(_this){
 	tab.tabAdd(_this);
 }
-
-
-
-
-
-
-
-
-
 
 //捐赠弹窗
 // function donation(){

@@ -35,7 +35,7 @@ module.exports.run = function(body, pg, mo) {
     f._状态 = "请填写密码";
   }
 
-  sql = "select id,密码,权限组,权限id,随机码,状态 from 管_管理员表 where 登录名 = '" + f.data.用户名 + "' ";
+  sql = "select id,密码,权限组,权限id,随机码,状态,头像  from 管_管理员表 where 登录名 = '" + f.data.用户名 + "' ";
   var result_login = pgdb.query(pg, sql);
 
   // 验证登陆信息
@@ -70,6 +70,8 @@ module.exports.run = function(body, pg, mo) {
     body.session.user_name = f.data.用户名;
     body.session.user_id = result_login.数据[0].id;
     body.session.user_pid = result_power.数据[0].id;
+     body.session.头像 = result_login.数据[0].头像;
+    
     // console.log(body);
     // p.user_name = f.data.用户名;
     // p.user_id = result_login.数据[0].id;

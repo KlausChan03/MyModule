@@ -21,6 +21,7 @@ module.exports.run = function(body, pg, mo) {
 
   //第一步：获取参数
   f.session = body.session;
+  console.log(body.session)
 
   //第二步：是否存有登陆状态
   if (!f.session.user_name || f.session.user_name == null) {
@@ -97,6 +98,7 @@ module.exports.run = function(body, pg, mo) {
     }
   }
   p.user = f.session.user_name;
+  p.头像=f.session.头像;
   p.verify = f.verify;
   p.listMenu = listMenuShow;
   p.listNav = list_;

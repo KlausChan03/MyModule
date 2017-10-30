@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/layer-set-myself.css" media="all" />
+		<link rel="stylesheet" href="../../css/flex.css" media="all" />
+
+		<style>
+
+		</style>
+	</head>
+
+	<body class="childrenBody">
+		
+		<input type="file" id="file" />
+		<div class="layui-progress layui-progress-big" lay-showpercent="true" lay-filter="demo" style="width: 50%;">
+			<div class="layui-progress-bar layui-bg-red" lay-percent="0%"></div>
+		</div>
+
+		<!--<div class="site-demo-button" style="margin-top: 20px; margin-bottom: 0;">
+			<button class="layui-btn site-demo-active" data-type="setPercent">设置50%</button>
+			<button class="layui-btn site-demo-active" data-type="loading">模拟loading</button>
+		</div>-->
+
+		<!--<script type="text/javascript" src="../../js/jquery.min.js"></script>-->
+		<script type="text/javascript" src="../../layui/layui.js"></script>
+		<!--<script type="text/javascript" src="../../js/common.js"></script>-->
+		<!--<script type="text/javascript" src="../../js/table.js"></script>-->
+		<!--<script type="text/javascript" src="../../js/layFun.js"></script>-->
+		<script src="http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"></script>
+		
+		<script type="text/javascript">
+			var client = new OSS.Wrapper({
+				"region": "oss-cn-shenzhen",
+				"accessKeyId": "LTAIRz4pA6Qeu12D",
+				"accessKeySecret": "ZASbh3Xg1RtSo6VxwLnNkSlNvXNMYJ",
+				"bucket": "zyk-temp"
+			});
+			
+				
+				document.getElementById('file').addEventListener('change', function(e) {
+					var file = e.target.files[0];
+					var storeAs = new Date();
+					console.log(file.name + ' => ' + storeAs);
+					client.multipartUpload(storeAs, file,{
+						 progress: function*(p) {
+						 	layui.use(['upload', 'element'], function() {
+						 		var $ = layui.jquery,
+								upload = layui.upload,
+								element = layui.element;
+								element.progress('demo', (p * 100).toFixed(2) + '%');
+						 	});
+			                console.log('上传中: ' + (p * 100).toFixed(2) + '%');
+			                
+			
+			            }
+					}).then(function(result) {
+						console.log(result);
+					}).catch(function(err) {
+						console.log(err);
+					});
+				});
+			
+		</script>	
+	</body>
+
+</html>
