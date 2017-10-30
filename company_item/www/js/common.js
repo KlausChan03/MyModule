@@ -91,8 +91,10 @@ function changeTableStutas(res) {
 		for (var i in res.列表[0]) {
 
 			th.push({ field: i, title: i, width: "120", align: "center" });
+			$(".select-test").append("<option value='" + i + "'>" + i + "</option>");
 
 		}
+		
 
 		th[2].sort = true;
 

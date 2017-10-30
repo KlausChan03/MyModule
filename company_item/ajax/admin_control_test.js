@@ -25,7 +25,7 @@ module.exports.run = function(body, pg, mo) {
 
   //第二步：是否存有登陆状态
   if (!f.session.user_name || f.session.user_name == null) {
-    f.verify = "当前未登陆";
+    f.verify = "当前未登录";
   }else{
     f.verify = "当前已登录"
   }
