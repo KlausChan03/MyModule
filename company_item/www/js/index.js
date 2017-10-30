@@ -93,9 +93,7 @@ layui.config({
 					console.log(json)
 					$("#updateImg").attr("src",json.头像);
 					$("#updateImg1").attr("src",json.头像);
-	
-						
-					}
+				}
 				
 			})
 			
