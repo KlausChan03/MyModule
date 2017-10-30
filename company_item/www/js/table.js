@@ -7,15 +7,11 @@ layui.use(["table", "form"], function() {
   var $ = layui.jquery;
   var ifarme_func = window.top.document.getElementsByClassName("iframe_");
 
-<<<<<<< HEAD
-  //查表编号相当于获取表的验证码
-=======
   // $.get("../../json/navs.json", function(data){
   //   console.log(data)
   // })
 
   //查表编号
->>>>>>> bb5fbf29675e59ccab994f3604160754d5473d38
   var tb_id = GetRequest(ifarme_func).bc_id;
  
   
@@ -35,12 +31,6 @@ layui.use(["table", "form"], function() {
   var success_func = function(res) {
     console.log(res);
 
-<<<<<<< HEAD
-    // 数据处理
-     var resAll=res;
-		 changeTableStutas(resAll)
-
-=======
     //渲染标题
     var tb_title = res.表格名称;
     tb_title = tb_title.replace("表", "");
@@ -85,13 +75,10 @@ layui.use(["table", "form"], function() {
       limits: [10, 15, 20],
       limit: 15 //每页默认显示的数量
     });
->>>>>>> bb5fbf29675e59ccab994f3604160754d5473d38
 
     /**
      * 单条查询10/21 zhou
      */
-<<<<<<< HEAD
-=======
     // 搜索刷新列表
     form.render("select");
 
@@ -119,7 +106,6 @@ layui.use(["table", "form"], function() {
         // 生成表格
         var bar_set = $(".layui-hide .layui-btn").length;
         var th = [];
->>>>>>> bb5fbf29675e59ccab994f3604160754d5473d38
 
     $("#seacherButton").on("click",function(){
     	//获取查询的字段
@@ -141,8 +127,6 @@ layui.use(["table", "form"], function() {
     })
     
 
-<<<<<<< HEAD
-=======
         th[2].sort = true;
 
         // 生成表格
@@ -165,7 +149,6 @@ layui.use(["table", "form"], function() {
       };
       ajax.ajax_common(obj_save, success_func, error_func);
     });
->>>>>>> bb5fbf29675e59ccab994f3604160754d5473d38
 
     //表格内功能工具条
     table.on("tool(demo)", function(obj) {
@@ -220,7 +203,7 @@ layui.use(["table", "form"], function() {
     });
   };
   var error_func = function(res) {
-    console.log(res);
+    // console.log(res);
     if (res.状态 == "获取列表异常") {
       //渲染标题
       var tb_title = res.表格名称;
