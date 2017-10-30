@@ -70,6 +70,8 @@ module.exports.run = function(body, pg, mo) {
     body.session.user_name = f.data.用户名;
     body.session.user_id = result_login.数据[0].id;
     body.session.user_pid = result_power.数据[0].id;
+     body.session.头像 = result_power.数据[0].头像;
+    
     // console.log(body);
     // p.user_name = f.data.用户名;
     // p.user_id = result_login.数据[0].id;

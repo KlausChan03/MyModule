@@ -80,7 +80,7 @@
 		<!-- 左侧导航 -->
 		<div class="layui-side layui-bg-black">
 			<div class="user-photo">
-				<a class="img" title="我的头像" ><img src="images/face.jpg"></a>
+				<a class="img" title="我的头像" ><img src="images/face.jpg" onclick="getPic()" ><input type="file" name="putTou" id="putTou" value="" style="display: none;" /></a>
 				<p>你好！<span class="userName">用户/管理员</span>, 欢迎登录</p>
 			</div>
 			<div class="navBar layui-side-scroll"></div>
@@ -117,11 +117,19 @@
 	<!-- 移动导航 -->
 	<div class="site-tree-mobile layui-hide"><i class="layui-icon">&#xe602;</i></div>
 	<div class="site-mobile-shade"></div>
-
+	<script src="http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"></script>
 	<script type="text/javascript" src="layui/layui.js"></script>
 	<script type="text/javascript" src="js/leftNav.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
 	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript">
+		/**
+	 * 修改管理员头像 2017-10-30  zhou
+	 */
+	function getPic(){
+		$("#putTou").click();
+	}
 	
+	</script>
 </body>
 </html>

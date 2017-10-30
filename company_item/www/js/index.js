@@ -27,6 +27,54 @@ layui.config({
 		}
 	}
 	skins();
+	
+	var client = new OSS.Wrapper({
+		"region": "oss-cn-shenzhen",
+		"accessKeyId": "LTAIRz4pA6Qeu12D",
+		"accessKeySecret": "ZASbh3Xg1RtSo6VxwLnNkSlNvXNMYJ",
+		"bucket": "zyk-temp"
+	});
+			
+				
+	document.getElementById('putTou').addEventListener('change', function(e) {
+		var file = e.target.files[0];
+		var storeAs = (new Date()).getTime();
+		console.log(file.name + ' => ' + storeAs);
+		client.multipartUpload(file.name, file,{
+//			 progress: function*(p) {
+//			 	layui.use(['upload', 'element'], function() {
+//			 		var $ = layui.jquery,
+//					upload = layui.upload,
+//					element = layui.element;
+//					element.progress('demo', (p * 100).toFixed(2) + '%');
+//			 	});
+//	            console.log('上传中: ' + (p * 100).toFixed(2) + '%');
+//	            
+//	
+//	        }
+		}).then(function(result) {
+			console.log(result);
+			var dataImg={};
+			dataImg.头像=result.url;
+			dataImg = JSON.stringify(dataImg);
+			$.ajax({
+				url: "/ajax.post?func=updateAdiminImg",
+				type: "POST",
+				data: "data="+dataImg,
+				
+				success: function(json) {
+					console.log(json)
+	
+						
+					}
+				
+			})
+			
+		}).catch(function(err) {
+			console.log(err);
+		});
+	});
+	
 	$(".changeSkin").click(function(){
 		layer.open({
 			title : "更换皮肤",
@@ -181,7 +229,12 @@ layui.config({
 			}
 		})
 		$(".admin-header-lock-input").focus();
+		
 	}
+	
+	
+	
+	
 	$(".lockcms").on("click",function(){
 		window.sessionStorage.setItem("lockcms",true);
 		lockPage();
@@ -391,6 +444,10 @@ document.onkeyup = function (event) {
 function addTab(_this){
 	tab.tabAdd(_this);
 }
+
+
+
+
 
 //捐赠弹窗
 // function donation(){
