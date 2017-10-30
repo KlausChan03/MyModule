@@ -54,6 +54,7 @@ module.exports.run = function(body, pg, mo) {
 	}
 	var sql = "";
 	if(f.type == "all" && f.verify == "审核通过") {
+    
 		sql = "select * from " + f.tb_name + " where 1 = 1 ";
 		var result = pgdb.query(pg, sql);
 

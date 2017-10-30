@@ -59,7 +59,6 @@ module.exports.run = function(body, pg, mo) {
   // 权限列表
   var listPower = [];
 
-  // console.log(f,"klldlf")
 
   for (var key in f._权限) {
     if (f._权限[key]["查看"] == "1") {
@@ -94,11 +93,10 @@ module.exports.run = function(body, pg, mo) {
         list_.push({[i]:listNav[i][j]})
     }
   }
-  
+  p.user = f.session.user_name;
   p.verify = f.verify;
   p.listMenu = listMenuShow;
   p.listNav = list_;
-  console.log(p)
 
   p.状态 = "成功";
 

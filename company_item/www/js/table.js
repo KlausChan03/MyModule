@@ -7,15 +7,11 @@ layui.use(["table", "form"], function() {
   var $ = layui.jquery;
   var ifarme_func = window.top.document.getElementsByClassName("iframe_");
 
-<<<<<<< HEAD
-  //查表编号相当于获取表的验证码
-=======
   // $.get("../../json/navs.json", function(data){
   //   console.log(data)
   // })
 
   //查表编号
->>>>>>> bb5fbf29675e59ccab994f3604160754d5473d38
   var tb_id = GetRequest(ifarme_func).bc_id;
  
   
@@ -35,12 +31,6 @@ layui.use(["table", "form"], function() {
   var success_func = function(res) {
     console.log(res);
 
-<<<<<<< HEAD
-    // 数据处理
-     var resAll=res;
-		 changeTableStutas(resAll)
-
-=======
     //渲染标题
     var tb_title = res.表格名称;
     tb_title = tb_title.replace("表", "");
@@ -85,13 +75,10 @@ layui.use(["table", "form"], function() {
       limits: [10, 15, 20],
       limit: 15 //每页默认显示的数量
     });
->>>>>>> bb5fbf29675e59ccab994f3604160754d5473d38
 
     /**
      * 单条查询10/21 zhou
      */
-<<<<<<< HEAD
-=======
     // 搜索刷新列表
     form.render("select");
 
@@ -119,7 +106,6 @@ layui.use(["table", "form"], function() {
         // 生成表格
         var bar_set = $(".layui-hide .layui-btn").length;
         var th = [];
->>>>>>> bb5fbf29675e59ccab994f3604160754d5473d38
 
     $("#seacherButton").on("click",function(){
     	//获取查询的字段
@@ -141,8 +127,6 @@ layui.use(["table", "form"], function() {
     })
     
 
-<<<<<<< HEAD
-=======
         th[2].sort = true;
 
         // 生成表格
@@ -165,7 +149,6 @@ layui.use(["table", "form"], function() {
       };
       ajax.ajax_common(obj_save, success_func, error_func);
     });
->>>>>>> bb5fbf29675e59ccab994f3604160754d5473d38
 
     //表格内功能工具条
     table.on("tool(demo)", function(obj) {
@@ -317,43 +300,44 @@ table_act.update = function(res, tb_id, data) {
   for (i in res.列表[0]) {
     test_arr.push(i);
   }
-
+  console.log(test_arr,"111")
   //循环字段名所对应的值
+  console.log(data,"666")
   for (var j in data) {
     old_arr.push(data[j]);
   }
-  console.log(old_arr);
   var test = "";
-
+  console.log(old_arr,"222")
+  
   //赋给录入时期的的input的一个id名
   var classTest = "";
   test_arr.pop();
   for (var i = 0; i < test_arr.length; i++) {
     // 特殊编码转义
-    old_arr[i] = old_arr[i]
-      .replace(/'/g, "&#39;")
-      .replace(/"/g, "&quot;")
-      .replace(/>/g, "&gt;")
-      .replace(/</g, "&lt;");
-    if (test_arr[i] == "录入时间") {
-      classTest = "dateClass";
-    }
+    // old_arr[i] = old_arr[i]
+    //   .replace(/'/g, "&#39;")
+    //   .replace(/"/g, "&quot;")
+    //   .replace(/>/g, "&gt;")
+    //   .replace(/</g, "&lt;");
+
     test +=
       '<div class="layui-form-item"><label class="layui-form-label">' +
       test_arr[i] +
-      '</label> <div class="layui-input-block"> <input type="text" id="' +
-      classTest +
-      '" name="' +
+      '</label> <div class="layui-input-block"> <input type="text"  name="' +
       test_arr[i] +
       '" autocomplete="off" value="' +
       old_arr[i] +
       '" class="layui-input insert-input"> </div> </div>';
   }
 
+  
+  console.log(test,"333")
+  
   var success_func = function() {
     $("*[name='id']").attr("disabled", "true");
     $("*[name='id']").attr("placeholder", "");
-
+    $("*[name='录入时间']").addClass("dateClass");
+  
     layui.use("form", function() {
       var form = layui.form;
       form.on("submit(formDemo)", function(data) {
@@ -388,7 +372,7 @@ table_act.update = function(res, tb_id, data) {
       //执行一个laydate实例
       laydate.render({
         type: "datetime",
-        elem: "#dateClass" //指定元素
+        elem: ".dateClass" //指定元素
       });
     });
   };
