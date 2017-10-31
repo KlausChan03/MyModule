@@ -18,7 +18,7 @@ layui.config({
 
   //登录按钮事件
   form.on("submit(login)", function (e) {
-    stopDefault(e);
+//  stopDefault(e);
     var flag = verifyCode.validate(document.getElementById("code_input").value);
     var username = $(".username").val();
     var password_o = $(".password").val();
@@ -42,11 +42,11 @@ layui.config({
       var success_func = function (res) {
         // layer.alert(res.状态, { icon: 6, title: "登陆" });
         window.location.href = "../../index.html";
-        return false;
+//      return false;
       };
       var error_func = function (res) {
         layer.alert(res.状态, { icon: 5, title: "登陆" });
-        return false;
+//      return false;
       };
       ajax.ajax_common(obj_save, success_func, error_func);
       
@@ -55,7 +55,7 @@ layui.config({
       // console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
       //阻止表单跳转。如果需要表单跳转，去掉这段即可。
       // window.location.href = "../../index.html";
-      // return false;
+         return false;
     }
   });
 });

@@ -117,24 +117,26 @@ function changeTableStutas(res,toolbar) {
 
 }
 
-//阻止事件冒泡
-function stopBubble(e) {
-	//如果提供了事件对象，则这是一个非IE浏览器 
-	if (e && e.stopPropagation)
-		//因此它支持W3C的stopPropagation()方法 
-		e.stopPropagation();
-	else
-		//否则，我们需要使用IE的方式来取消事件冒泡 
-		window.event.cancelBubble = true;
+//阻止冒泡的兼容性写法
+function stopBubble(e){
+    e = e ? e : (window.event ? window.event :null);
+    if(e&&e.stopPropagation){
+        e.stopPropagation()
+    }else if(window.event){
+        window.event.cancelBubble=true;
+    }
 }
 
-//阻止浏览器的默认行为 
-function stopDefault(e) {
-	//阻止默认浏览器动作(W3C) 
-	if (e && e.preventDefault)
-		e.preventDefault();
-	//IE中阻止函数器默认动作的方式 
-	else
-		window.event.returnValue = false;
-	return false;
+
+//阻止浏览器默认行为的兼容性写法
+function stopDefault(e){
+    e = e ? e : (window.event ? window.event :null);
+    //阻止默认浏览器动作(W3C)
+    if(e&&e.preventDefault){
+        e.preventDefault();
+    }else{
+        //IE中阻止函数默认动作的方式
+        window.event.returnValue=false;      
+    }
+    return false;
 }

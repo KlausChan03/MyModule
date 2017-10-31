@@ -60,7 +60,12 @@ module.exports.run = function(body, pg, mo) {
         f.状态 = '上传失败';
     }
     var address=(信息.res.requestUrls)[0].split("?")[0];
-        sql = "insert into 外卖黑名单表 (id,类别) values (556,'"+ address+"')";
+    sql = "select nextval('外卖黑名单表_id_seq') as id";
+    var idreult=pgdb.query(pg, sql);
+    var idfirst=idreult.数据[0]
+    f.id=idfirst.id;
+    sql = "insert into 外卖黑名单表 (id,类别) values ('"+ f.id+"','"+ address+"')";
+    
 	var reslutPgdb= pgdb.query(pg, sql);
 	if(reslutPgdb.状态!="成功"){
 		p.状态="上传失败";
