@@ -62,7 +62,7 @@ layui.define(["element", "jquery"], function(exports) {
                   for (l in res.listNav[k]) {
                     save_tb.push(res.listNav[k][l].表格名称);
                     save_key.push(res.listNav[k][l].表格名称);
-                    console.log(save_tb)
+                    
                   }
                 }
                 for (a in _data) {

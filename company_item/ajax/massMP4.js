@@ -36,13 +36,14 @@ module.exports.run = function(body, pg, mo) {
     });
     var fiber = Fiber.current;
     var data = {};
+    var timeArr=[];
     co(function*() {
         client.useBucket('zyk-temp');
 		
         data.result = yield client.multipartUpload(f.时间, f.img_list,{
         	progress: function*(p) {
                 console.log('上传中: ' + (p * 100).toFixed(2) + '%');
-
+				timeArr.push((p * 100).toFixed(2));
             }
         });
         fiber.run();
@@ -59,11 +60,17 @@ module.exports.run = function(body, pg, mo) {
         f.状态 = '上传失败';
     }
     var address=(信息.res.requestUrls)[0].split("?")[0];
-        sql = "insert into 外卖黑名单表 (id,类别) values (390,'"+ address+"')";
-		 pgdb.query(pg, sql);
-    p.状态 = f.状态;
-    p.name = 信息.name;
-    p.地址 = (信息.res.requestUrls)[0].split("?")[0];
+        sql = "insert into 外卖黑名单表 (id,类别) values (556,'"+ address+"')";
+	var reslutPgdb= pgdb.query(pg, sql);
+	if(reslutPgdb.状态!="成功"){
+		p.状态="上传失败";
+	}else{
+		p.状态 = f.状态;
+	    p.name = 信息.name;
+	    p.上传时间=timeArr;
+	    p.地址 = (信息.res.requestUrls)[0].split("?")[0];
+	}
+    
     console.log(p)
     return common.removenull(p);
 
