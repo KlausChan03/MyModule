@@ -29,20 +29,20 @@
 .layui-layer-title {
   font-size: 16px!important;
 }
-.layui-layer-content .layui-form {
+.layui-layer-content .layui-form.form-insert-update {
   padding: 20px 30px;
 }
 
-.layui-layer-content .layui-form-label {
+.layui-layer-content .form-insert-update .layui-form-label {
   width: 85px;
   padding: 9px 20px 9px 0px;
 }
 
-.layui-layer-content .layui-input-block {
+.layui-layer-content .form-insert-update .layui-input-block {
   margin-left: 105px;
 }
 
-.layui-layer-content .layui-btn {
+.layui-layer-content .form-insert-update .layui-btn {
   height: 30px;
   line-height: 30px;
   padding: 0 10px;
