@@ -161,7 +161,7 @@ layui.use(["table", "form"], function() {
    
   };
   var error_func = function(res) {
-    console.log(res);
+    // console.log(res);
     if (res.状态 == "获取列表异常") {
       //渲染标题
       var tb_title = res.表格名称;
