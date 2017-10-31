@@ -62,7 +62,6 @@ layui.define(["element", "jquery"], function(exports) {
                   for (l in res.listNav[k]) {
                     save_tb.push(res.listNav[k][l].表格名称);
                     save_key.push(res.listNav[k][l].表格名称);
-                    console.log(save_tb)
                   }
                 }
                 for (a in _data) {
@@ -92,9 +91,7 @@ layui.define(["element", "jquery"], function(exports) {
           data = _data;
 
           var _this = this;
-          $(".navBar")
-            .html(navBar(data))
-            .height($(window).height() - 245);
+          $(".navBar").html(navBar(data)).height($(window).height() - 245);
           element.init(); //初始化页面元素
           $(window).resize(function() {
             $(".navBar").height($(window).height() - 245);
@@ -115,9 +112,7 @@ layui.define(["element", "jquery"], function(exports) {
   Tab.prototype.getLayId = function(title) {
     $(".layui-tab-title.top_tab li").each(function() {
       if (
-        $(this)
-          .find("cite")
-          .text() == title
+        $(this).find("cite").text() == title
       ) {
         layId = $(this).attr("lay-id");
       }

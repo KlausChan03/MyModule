@@ -38,7 +38,6 @@ ajax.ajax_common = function (obj_save, success_func, error_func, type) {
 	var func = obj_save.func;
 	var datas = obj_save.datas;
 	datas = JSON.stringify(datas);
-	console.log(func)
 
 	var ajax_type;
 
@@ -81,28 +80,26 @@ function GetRequest() {
  * 封装渲染表格
  * @param {Object} res
  */
-function changeTableStutas(res) {
+function changeTableStutas(res,toolbar) {
 	layui.use(['table', 'form'], function () {
 		var table = layui.table;
 		var bar_set = $(".layui-hide .layui-btn").length;
 		var th = [];
-
-		th.push({ checkbox: true, fixed: true, align: "center" }, { title: "操作", toolbar: "#act-bar", width: 80 * bar_set, fixed: true, align: "center" });
+		if(toolbar == "flase"){
+			th.push({ checkbox: true, fixed: true, align: "center" });		
+		}else{
+			th.push({ checkbox: true, fixed: true, align: "center" }, { title: "操作", toolbar: "#act-bar", width: 180, fixed: true, align: "center" });				
+		}
 		for (var i in res.列表[0]) {
-
 			th.push({ field: i, title: i, width: "120", align: "center" });
 			$(".select-test").append("<option value='" + i + "'>" + i + "</option>");
-
-		}
-		
-
+		}		
 		th[2].sort = true;
 
 		// 生成表格
 		window.demoTable = table.render({
 			initSort: {
-				field: 'id' //排序字段，对应 cols 设定的各字段名
-				,
+				field: 'id', //排序字段，对应 cols 设定的各字段名				
 				type: 'asc' //排序方式  asc: 升序、desc: 降序、null: 默认排序
 			},
 			elem: "#demo",
@@ -118,26 +115,4 @@ function changeTableStutas(res) {
 		});
 	});
 
-}
-
-//阻止事件冒泡
-function stopBubble(e) {
-	//如果提供了事件对象，则这是一个非IE浏览器 
-	if (e && e.stopPropagation)
-		//因此它支持W3C的stopPropagation()方法 
-		e.stopPropagation();
-	else
-		//否则，我们需要使用IE的方式来取消事件冒泡 
-		window.event.cancelBubble = true;
-}
-
-//阻止浏览器的默认行为 
-function stopDefault(e) {
-	//阻止默认浏览器动作(W3C) 
-	if (e && e.preventDefault)
-		e.preventDefault();
-	//IE中阻止函数器默认动作的方式 
-	else
-		window.event.returnValue = false;
-	return false;
 }

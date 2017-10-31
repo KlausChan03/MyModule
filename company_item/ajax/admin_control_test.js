@@ -13,14 +13,15 @@ var fs = require("fs");
 
 module.exports.run = function(body, pg, mo) {
   var server = config.get("server");
-  // console.log(body)
   var p = {};
   var f = {};
+
   p.状态 = "成功";
   
 
   //第一步：获取参数
   f.session = body.session;
+  // console.log(body.session)
 
   //第二步：是否存有登陆状态
   if (!f.session.user_name || f.session.user_name == null) {
@@ -37,7 +38,22 @@ module.exports.run = function(body, pg, mo) {
   var isPower = false;
   sql = "select id,权限 from 管_权限表 where id = '" + f.session.user_pid + "'";
   var power = pgdb.query(pg, sql).数据;
-  // console.log(power);
+  // console.log(power,"111");
+
+  f._权限 = JSON.parse(power[0].权限);
+  // console.log(f._权限,"222");
+  for(var key in f._权限) {
+    // if(f._权限[key]['字段'] == f._n) { //列表页
+      if(f._权限[key]['查看'] == '1') {
+        if(f._权限[key]['按钮'] != null && f._权限[key]['按钮'] != '') {
+          f._按钮权限 = f._权限[key]['按钮'];
+          // console.log(f._按钮权限,"333");
+        }
+        isPower = true;
+        break;
+      }
+    // }
+  }
 
   if (power.length == 0) {
     f._power = "无此权限";
@@ -68,7 +84,7 @@ module.exports.run = function(body, pg, mo) {
       listPower[f._权限[key]["字段"]] = "1";
     }
   }
-
+  // console.log(listPower);
   menu.forEach(function(item) {
     if (item.菜单) {
       item.菜单.forEach(function(name) {
@@ -102,24 +118,20 @@ module.exports.run = function(body, pg, mo) {
   p.listMenu = listMenuShow;
   p.listNav = list_;
 
-  return common.removenull(p, body);
-
-  // //用户姓名，解锁密码存入sessionStorage
-  // var p1 = {};
-  // var t = {};
-
-  // sql1 = "select id,姓名,密码,权限组,权限id,随机码,状态,解锁密码 from 管_管理员表 where 登录名 = '" + f.session.user_name + "' ";
-  // var result1 = pgdb.query(pg, sql1);
-  // if (result1.数据.length == 0) {
-  //   p1.状态 = "获取数据异常";
-  //   return p1;
-  // } else {
-  //   t.姓名 = result1.数据[0].姓名;
-  //   t.解锁密码 = result1.数据[0].解锁密码;
-  // }
-  // p1.状态 = "成功";
-  // window.sessionStorage.setItem("name",f.姓名);
-  // window.sessionStorage.setItem("password",f.解锁密码);
+  //用户姓名，解锁密码
+  sql = "select id,姓名,密码,权限组,权限id,随机码,状态,解锁密码 from 管_管理员表 where 登录名 = '" + f.session.user_name + "' ";
+  var result = pgdb.query(pg, sql);
   
-  // return common.removenull(p1,body);
+  if (result.数据.length == 0) {
+    p.状态 = "获取数据异常";
+    return p;
+  } else {
+    f.姓名 = result.数据[0].姓名;
+    f.解锁密码 = result.数据[0].解锁密码;
+  }
+  p.状态 = "成功";
+  p.姓名 = f.姓名;
+  p.解锁密码 = f.解锁密码;
+
+  return common.removenull(p, body);
 };

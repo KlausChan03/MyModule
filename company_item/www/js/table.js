@@ -2,6 +2,7 @@
 
 // 新方法实现数据渲染
 layui.use(["table", "form"], function() {
+
   var table = layui.table;
   var form = layui.form;
   var $ = layui.jquery;
@@ -10,6 +11,7 @@ layui.use(["table", "form"], function() {
   //查表编号
   var tb_id = GetRequest(ifarme_func).bc_id;
   var data={};
+  var toolbar = true;
 
   //存数据
   data.field = "";
@@ -22,12 +24,57 @@ layui.use(["table", "form"], function() {
   };
 
   var success_func = function(res) {
-
     //渲染标题
     var tb_title = res.表格名称;
     tb_title = tb_title.replace("表", "");
     $(".table-title").html(tb_title);
-		changeTableStutas(res)
+
+    changeTableStutas(res,toolbar)
+    
+    var obj_save = { datas: tb_id, func: "admin_control_test2" };
+    var success_func = function(res) {
+        if(res.keyPower!=""){
+          var key_arr =[];
+          for(var i in res.keyPower){
+            key_arr.push(res.keyPower[i]);
+          }
+        }
+        if(key_arr!=""){
+          for (var j in key_arr){
+            if(key_arr[j] == "删除" || key_arr[j] == "修改"){
+              switch (key_arr[j])
+              {
+                case "修改":
+                $(".layui-hide").append('<a class="layui-btn layui-btn-mini" lay-event="edit"><i class="layui-icon" style="font-size: 16px; color: #eee;">&#xe642;</i>'+key_arr[j]+'</a>') 
+                break;
+                case "删除":
+                $(".layui-hide").append('<a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del"><i class="layui-icon" style="font-size: 16px; color: #eee;">&#xe640;</i>'+key_arr[j]+'</a>') 
+                break;
+              }                
+            } else if (key_arr[j] == "新增"){    
+              switch (key_arr[j])
+              {
+                case "新增":
+                $(".layui-btn-group").append('<button class="layui-btn layui-btn-normal layui-btn-mini" data-type="insertData"> <i class="layui-icon">&#xe654;</i>'+key_arr[j]+' </button>')                          
+                break;            
+              }        
+            }
+          }
+        } else{
+          toolbar = false;
+        }
+        
+        // 获取按钮后表格内按钮重载
+        table.reload("test");
+
+        // 获取按钮后表格外按钮重载
+        $(".layui-btn").on("click", function() {
+          var type = $(this).data("type");
+          active[type] ? active[type].call(this) : "";
+        });
+        
+      };
+    ajax.ajax_common(obj_save, success_func);
 
     /**
      * 单条查询10/21 zhou
@@ -49,8 +96,10 @@ layui.use(["table", "form"], function() {
       };
 			var success_func=function(res){
 		    	  	  // 生成表格
-	    	  var resSingle=res;
-				  changeTableStutas(resSingle)
+          var resSingle=res;
+          toolbar = true;
+          changeTableStutas(resSingle,toolbar)
+
 			}
       var error_func = function(res) {
         if (res.状态 == "获取列表异常") {
@@ -109,10 +158,7 @@ layui.use(["table", "form"], function() {
       }
     };
 
-    $(".layui-btn").on("click", function() {
-      var type = $(this).data("type");
-      active[type] ? active[type].call(this) : "";
-    });
+   
   };
   var error_func = function(res) {
     // console.log(res);
