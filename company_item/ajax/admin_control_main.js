@@ -116,5 +116,20 @@ module.exports.run = function(body, pg, mo) {
   p.listMenu = listMenuShow;
   p.listNav = list_;
 
+  //用户姓名，解锁密码
+  sql = "select id,姓名,密码,权限组,权限id,随机码,状态,解锁密码 from 管_管理员表 where 登录名 = '" + f.session.user_name + "' ";
+  var result = pgdb.query(pg, sql);
+  
+  if (result.数据.length == 0) {
+    p.状态 = "获取数据异常";
+    return p;
+  } else {
+    f.姓名 = result.数据[0].姓名;
+    f.解锁密码 = result.数据[0].解锁密码;
+  }
+  p.状态 = "成功";
+  p.姓名 = f.姓名;
+  p.解锁密码 = f.解锁密码;
+
   return common.removenull(p, body);
 };
