@@ -16,18 +16,21 @@ module.exports.run = function(body, pg, mo) {
   // console.log(body)
   var p = {};
   var f = {};
+  p.状态 = "成功";
+  
 
   //第一步：获取参数
   f.session = body.session;
 
   //第二步：是否存有登陆状态
   if (!f.session.user_name || f.session.user_name == null) {
-    f.verify = "当前未登陆";
+    f.verify = "当前未登录";
   }else{
     f.verify = "当前已登录"
   }
   if (!f.session.user_pid) {
-    return f;
+    p.verify = f.verify;
+    return p;
   }
 
   //第三步：控制可看页面
@@ -59,7 +62,6 @@ module.exports.run = function(body, pg, mo) {
   // 权限列表
   var listPower = [];
 
-  // console.log(f,"klldlf")
 
   for (var key in f._权限) {
     if (f._权限[key]["查看"] == "1") {
@@ -94,13 +96,30 @@ module.exports.run = function(body, pg, mo) {
         list_.push({[i]:listNav[i][j]})
     }
   }
-  
+  p.user = f.session.user_name;
+  p.头像=f.session.头像;
   p.verify = f.verify;
   p.listMenu = listMenuShow;
   p.listNav = list_;
-  console.log(p)
-
-  p.状态 = "成功";
 
   return common.removenull(p, body);
+
+  // //用户姓名，解锁密码存入sessionStorage
+  // var p1 = {};
+  // var t = {};
+
+  // sql1 = "select id,姓名,密码,权限组,权限id,随机码,状态,解锁密码 from 管_管理员表 where 登录名 = '" + f.session.user_name + "' ";
+  // var result1 = pgdb.query(pg, sql1);
+  // if (result1.数据.length == 0) {
+  //   p1.状态 = "获取数据异常";
+  //   return p1;
+  // } else {
+  //   t.姓名 = result1.数据[0].姓名;
+  //   t.解锁密码 = result1.数据[0].解锁密码;
+  // }
+  // p1.状态 = "成功";
+  // window.sessionStorage.setItem("name",f.姓名);
+  // window.sessionStorage.setItem("password",f.解锁密码);
+  
+  // return common.removenull(p1,body);
 };

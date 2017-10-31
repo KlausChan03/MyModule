@@ -15,6 +15,33 @@ layui.config({
 			url : "json/navs.json" //获取菜单json地址
 		});
 
+
+	// 获取用户名和头像等信息
+	// 通过接口获取验证登陆信息
+	var obj_save = { datas: {}, func: "admin_control_test" };
+	var success_func = function(res) {
+		console.log(res.verify)
+		if(res.verify =="当前已登录"){
+			$(".userName").html(res.user);
+			$("#updateImg").attr("src",res.头像);
+			$("#updateImg1").attr("src",res.头像);
+			
+		}else if(res.verify =="当前未登录"){
+			layer.open({
+				type: 1,
+				title: "信息",
+				area: '310px',
+				btn: ['确定'],
+				content: '<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p>登陆已超时</p></div>',
+				yes:function(){
+					window.location.href="page/login/login.html";					
+				}
+			});
+		}
+
+	};
+	ajax.ajax_common(obj_save, success_func);
+
 	//更换皮肤
 	function skins(){
 		var skin = window.sessionStorage.getItem("skin");
@@ -29,6 +56,55 @@ layui.config({
 		}
 	}
 	skins();
+	
+	var client = new OSS.Wrapper({
+		"region": "oss-cn-shenzhen",
+		"accessKeyId": "LTAIRz4pA6Qeu12D",
+		"accessKeySecret": "ZASbh3Xg1RtSo6VxwLnNkSlNvXNMYJ",
+		"bucket": "zyk-temp"
+	});
+	/**
+	 * zhou 上传头像
+	 */
+				
+	document.getElementById('putTou').addEventListener('change', function(e) {
+		var file = e.target.files[0];
+		var storeAs = (new Date()).getTime();
+		client.multipartUpload(file.name, file,{
+//			 progress: function*(p) {
+//			 	layui.use(['upload', 'element'], function() {
+//			 		var $ = layui.jquery,
+//					upload = layui.upload,
+//					element = layui.element;
+//					element.progress('demo', (p * 100).toFixed(2) + '%');
+//			 	});
+//	            console.log('上传中: ' + (p * 100).toFixed(2) + '%');
+//	            
+//	
+//	        }
+		}).then(function(result) {
+			console.log(result);
+			var dataImg={};
+			dataImg.头像=result.url;
+			dataImg = JSON.stringify(dataImg);
+			$.ajax({
+				url: "/ajax.post?func=updateAdiminImg",
+				type: "POST",
+				data: "data="+dataImg,
+				
+				success: function(json) {
+					console.log(json)
+					$("#updateImg").attr("src",json.头像);
+					$("#updateImg1").attr("src",json.头像);
+				}
+				
+			})
+			
+		}).catch(function(err) {
+			console.log(err);
+		});
+	});
+	
 	$(".changeSkin").click(function(){
 		layer.open({
 			title : "更换皮肤",
@@ -183,7 +259,12 @@ layui.config({
 			}
 		})
 		$(".admin-header-lock-input").focus();
+		
 	}
+	
+	
+	
+	
 	$(".lockcms").on("click",function(){
 		window.sessionStorage.setItem("lockcms",true);
 		lockPage();

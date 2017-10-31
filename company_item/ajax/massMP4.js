@@ -59,7 +59,7 @@ module.exports.run = function(body, pg, mo) {
         f.状态 = '上传失败';
     }
     var address=(信息.res.requestUrls)[0].split("?")[0];
-        sql = "insert into 外卖黑名单表 (id,类别) values (311,'"+ address+"')";
+        sql = "insert into 外卖黑名单表 (id,类别) values (390,'"+ address+"')";
 		 pgdb.query(pg, sql);
     p.状态 = f.状态;
     p.name = 信息.name;

@@ -48,7 +48,8 @@ layui.define(["element", "jquery"], function(exports) {
           // save_tb 暂存后台二级表格名称
           // save_ls 暂存前台二级表格名称
           // save_temp 暂存新二级菜单
-          console.log(res);
+          // console.log(res);
+
 
           for (i in res.listMenu) {
             for (j in data) {
@@ -56,10 +57,12 @@ layui.define(["element", "jquery"], function(exports) {
                 _data.push(data[j]);
                 var save_tb = [];
                 var save_ls = [];
+                var save_key = [];
                 for (k in res.listNav) {
                   for (l in res.listNav[k]) {
                     save_tb.push(res.listNav[k][l].表格名称);
-                    // console.log(save_tb)
+                    save_key.push(res.listNav[k][l].表格名称);
+                    console.log(save_tb)
                   }
                 }
                 for (a in _data) {
