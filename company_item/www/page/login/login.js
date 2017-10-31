@@ -17,13 +17,13 @@ layui.config({
   }).resize();
 
   //登录按钮事件
-  form.on("submit(login)", function () {
+  form.on("submit(login)", function (e) {
+    // stopDefault(e);
     var flag = verifyCode.validate(document.getElementById("code_input").value);
     var username = $(".username").val();
     var password_o = $(".password").val();
     var password = $.md5(password_o);    
     var code_input = $("#code_input").val();
-    console.log(password,"llkk")
     if (username == "" || password_o == "") {
       layer.alert("账号和密码不能为空", { icon: 5, title: "登陆" });  
       return false;
@@ -35,26 +35,18 @@ layui.config({
       $("#code_input").val("");
       return false;
     } else if (flag) {
-      var obj_save = {
-        datas: { 用户名: username, 密码: password },
-        func: "login"
-      };
+      var obj_save = {datas: { 用户名: username, 密码: password },func: "login"};
+      // 成功回调
       var success_func = function (res) {
-        // layer.alert(res.状态, { icon: 6, title: "登陆" });
         window.location.href = "../../index.html";
-        // return false;
       };
+      // 失败回调      
       var error_func = function (res) {
         layer.alert(res.状态, { icon: 5, title: "登陆" });
-        return false;
       };
       ajax.ajax_common(obj_save, success_func, error_func);
-      
-      // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
-      // console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
-      // console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
-      //阻止表单跳转。如果需要表单跳转，去掉这段即可。
-      // window.location.href = "../../index.html";
+
+      //阻止表单跳转
       return false;
     }
   });
