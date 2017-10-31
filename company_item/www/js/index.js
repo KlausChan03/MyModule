@@ -16,7 +16,7 @@ layui.config({
 
 	// 获取用户名和头像等信息
 	// 通过接口获取验证登陆信息
-	var obj_save = { datas: {}, func: "admin_control_test" };
+	var obj_save = { datas: {}, func: "admin_control_main" };
 	var success_func = function(res) {
 		if(res.verify =="当前已登录"){
 			$(".userName").html(res.user);

@@ -12,24 +12,22 @@ var transliteration = require("transliteration");
 var fs = require("fs");
 
 module.exports.run = function(body, pg, mo) {
-  var server = config.get("server");
-  console.log(body)
+  //第一步：获取参数
+  //定义对象p和f分别用作接收后台和返回前台
   var p = {};
   var f = {};
-
-
   p.状态 = "成功";
-  
 
-  //第一步：获取参数
+  //前台传参获取表格名称
+  body.receive = JSON.parse(body.data);
+  f.data = body.receive;
   f.session = body.session;
-  // console.log(body.session)
 
   //第二步：是否存有登陆状态
   if (!f.session.user_name || f.session.user_name == null) {
     f.verify = "当前未登录";
-  }else{
-    f.verify = "当前已登录"
+  } else {
+    f.verify = "当前已登录";
   }
   if (!f.session.user_pid) {
     p.verify = f.verify;
@@ -40,20 +38,20 @@ module.exports.run = function(body, pg, mo) {
   var isPower = false;
   sql = "select id,权限 from 管_权限表 where id = '" + f.session.user_pid + "'";
   var power = pgdb.query(pg, sql).数据;
-  console.log(power,"111");
+  console.log(power, "111");
 
   f._权限 = JSON.parse(power[0].权限);
-  console.log(f._权限,"222");
-  for(var key in f._权限) {
+  console.log(f._权限, "222");
+  for (var key in f._权限) {
     // if(f._权限[key]['字段'] == f._n) { //列表页
-      if(f._权限[key]['查看'] == '1') {
-        if(f._权限[key]['按钮'] != null && f._权限[key]['按钮'] != '') {
-          f._按钮权限 = f._权限[key]['按钮'];
-          console.log(f._按钮权限,"333");
-        }
-        isPower = true;
-        break;
+    if (f._权限[key]["查看"] == "1") {
+      if (f._权限[key]["按钮"] != null && f._权限[key]["按钮"] != "") {
+        f._按钮权限 = f._权限[key]["按钮"];
+        console.log(f._按钮权限, "333");
       }
+      isPower = true;
+      break;
+    }
     // }
   }
 
@@ -69,7 +67,6 @@ module.exports.run = function(body, pg, mo) {
   }
 
   //第三步：权限分配
-
   var menu = config.get("menu");
   // 菜单（一级）
   var listMenu = [];
@@ -79,7 +76,6 @@ module.exports.run = function(body, pg, mo) {
   var listMenuShow = [];
   // 权限列表
   var listPower = [];
-
 
   for (var key in f._权限) {
     if (f._权限[key]["查看"] == "1") {
@@ -109,13 +105,13 @@ module.exports.run = function(body, pg, mo) {
   });
 
   var list_ = [];
-  for (i in listNav){
-    for (j in listNav[i]){
-        list_.push({[i]:listNav[i][j]})
+  for (i in listNav) {
+    for (j in listNav[i]) {
+      list_.push({ [i]: listNav[i][j] });
     }
   }
   p.user = f.session.user_name;
-  p.头像=f.session.头像;
+  p.头像 = f.session.头像;
   p.verify = f.verify;
   p.listMenu = listMenuShow;
   p.listNav = list_;

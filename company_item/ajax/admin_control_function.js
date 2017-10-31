@@ -10,55 +10,52 @@ var moment = require("moment");
 var sign = require("../func/sign.js");
 var transliteration = require("transliteration");
 var fs = require("fs");
+var server = config.get("server");
 
 module.exports.run = function(body, pg, mo) {
-  var server = config.get("server");
-  console.log(body)
+  // 定义对象p和f分别用作接收后台和返回前台
   var p = {};
   var f = {};
+  p.状态 = "成功";
 
   // 前台传参获取表格名称
   body.receive = JSON.parse(body.data);
   f.data = body.receive;
 
-  p.状态 = "成功";
+  //第一步：获取参数
+  f.session = body.session;
 
-   //第一步：获取参数
-   f.session = body.session;
-   // console.log(body.session)
- 
-   //第二步：是否存有登陆状态
-   if (!f.session.user_name || f.session.user_name == null) {
-     f.verify = "当前未登录";
-   }else{
-     f.verify = "当前已登录"
-   }
-   if (!f.session.user_pid) {
-     p.verify = f.verify;
-     return p;
-   }
-
-
+  //第二步：是否存有登陆状态
+  if (!f.session.user_name || f.session.user_name == null) {
+    f.verify = "当前未登录";
+  } else {
+    f.verify = "当前已登录";
+  }
+  if (!f.session.user_pid) {
+    p.verify = f.verify;
+    return p;
+  }
 
   //第三步：控制可看页面
   var isPower = false;
   sql = "select id,权限 from 管_权限表 where id = '" + f.session.user_pid + "'";
   var power = pgdb.query(pg, sql).数据;
-  console.log(power,"111");
+  console.log(power, "111");
 
   f._权限 = JSON.parse(power[0].权限);
-  console.log(f._权限,"222");
-  for(var key in f._权限) {
-    if(f._权限[key]['字段'] == f.data) { //列表页
-      if(f._权限[key]['查看'] == '1') {
-        if(f._权限[key]['按钮'] != null && f._权限[key]['按钮'] != '') {
-          f._按钮权限 = f._权限[key]['按钮'];
+  console.log(f._权限, "222");
+  for (var key in f._权限) {
+    if (f._权限[key]["字段"] == f.data) {
+      //列表页
+      if (f._权限[key]["查看"] == "1") {
+        if (f._权限[key]["按钮"] != null && f._权限[key]["按钮"] != "") {
+          f._按钮权限 = f._权限[key]["按钮"];
         }
         isPower = true;
         break;
       }
-    }else{
-      console.log("oh no")
+    } else {
+      console.log("oh no");
     }
   }
 

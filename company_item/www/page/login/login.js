@@ -5,6 +5,7 @@ layui.config({
   var form = layui.form,
     layer = parent.layer === undefined ? layui.layer : parent.layer,
     $ = layui.jquery;
+    
   //video背景
   $(window).resize(function () {
     // console.log($(window).width())

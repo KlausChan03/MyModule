@@ -2,16 +2,14 @@ var cipher = require("../func/cipher.js");
 var config = require("../func/config.js");
 var share = require("../ajax/public/share.js");
 var logs = require("../func/logs.js");
-var mongo = require("../func/mongo.js");
 var pgdb = require("../func/pgdb.js");
 var common = require("../func/common.js");
 var request = require("../func/request.js");
-var txsms = require("../func/txsms.js");
-// var rongcloud = require('../func/rongcloud.js');
 var moment = require("moment");
-var transliteration = require("transliteration");
-var sign = require("../func/sign.js");
 var fs = require("fs");
+
+// var txsms = require("../func/txsms.js");
+
 
 config.readfile();
 

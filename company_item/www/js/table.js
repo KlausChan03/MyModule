@@ -31,7 +31,7 @@ layui.use(["table", "form"], function() {
 
     changeTableStutas(res,toolbar)
     
-    var obj_save = { datas: tb_id, func: "admin_control_test2" };
+    var obj_save = { datas: tb_id, func: "admin_control_function" };
     var success_func = function(res) {
         if(res.keyPower!=""){
           var key_arr =[];
