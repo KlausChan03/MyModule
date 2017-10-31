@@ -18,7 +18,6 @@ layui.config({
 	// 通过接口获取验证登陆信息
 	var obj_save = { datas: {}, func: "admin_control_test" };
 	var success_func = function(res) {
-		console.log(res.verify)
 		if(res.verify =="当前已登录"){
 			$(".userName").html(res.user);
 			$("#updateImg").attr("src",res.头像);
@@ -39,6 +38,8 @@ layui.config({
 
 	};
 	ajax.ajax_common(obj_save, success_func);
+
+
 
 	//更换皮肤
 	function skins(){

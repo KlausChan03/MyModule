@@ -20,7 +20,9 @@
             <a class="table-title" name="table-title"></a>
         </legend>
     </fieldset>
-    <div class="layui-btn-group button-out-table"></div>
+    <div class="layui-btn-group">
+        <button class="layui-btn" data-type="insertData">新增数据</button>
+    </div>
     <div class="layui-form zwlAppend">
         <div class="layui-inline" id="sectionAtt">
             <select name="city" lay-verify="" class="select-test" lay-filter="search">
@@ -32,9 +34,34 @@
         </div>
         <div class="layui-inline">
             <button class="layui-btn layui-bg-orange" data-type="" id="seacherButton" lay-filter="formSearch">查询</button>
-        </div>    
+        </div>
+        
+      
     </div>
     <div class="layui-form table-container">
-        <table class="layui-table  button-in-table" id="demo" lay-filter="demo"> </table>
-        <div class="layui-hide" id="act-bar"> </div>
+        <table class="layui-table" id="demo" lay-filter="demo">
+            <!-- <thead></thead>
+            <tbody></tbody> -->
+        </table>
+        <div class="layui-hide" id="act-bar">
+            <a class="layui-btn layui-btn-mini" lay-event="edit">
+                <i class="layui-icon" style="font-size: 16px; color: #eee;">&#xe642;</i>编辑</a>
+            <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">
+                <i class="layui-icon" style="font-size: 16px; color: #eee;">&#xe640;</i>删除</a>
+        </div>
     </div>
+
+    <script>     </script>
+
+ <script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/table.js"></script>
+<script type="text/javascript" src="../../js/layFun.js"></script>
+<script>
+
+</script>
+
+</body>
+
+</html>
