@@ -21,19 +21,18 @@ layui.config({
     stopDefault(e);
     var flag = verifyCode.validate(document.getElementById("code_input").value);
     var username = $(".username").val();
+    var password_o = $(".password").val();
+    var password = $.md5(password_o);    
     var code_input = $("#code_input").val();
-    var password = $.md5($(".password").val());
-    if (username == "") {
-      alert("账号不能为空");
-      return false;
-    } else if (password == "") {
-      alert("密码不能为空");
+    console.log(password,"llkk")
+    if (username == "" || password_o == "") {
+      layer.alert("账号和密码不能为空", { icon: 5, title: "登陆" });  
       return false;
     } else if (code_input == "") {
-      alert('验证码不能为空');
+      layer.alert("验证码不能为空", { icon: 5, title: "登陆" });     
       return false;
     } else if (!flag) {
-      alert('验证码错误');
+      layer.alert("验证码错误", { icon: 5, title: "登陆" });  
       return false;
     } else if (flag) {
       var obj_save = {
