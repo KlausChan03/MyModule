@@ -89,6 +89,7 @@ layui.define(["element", "jquery"], function(exports) {
           // ]
 
           data = _data;
+          console.log(data)
 
           var _this = this;
           $(".navBar").html(navBar(data)).height($(window).height() - 245);

@@ -4,7 +4,6 @@ var share = require("../ajax/public/share.js");
 var logs = require("../func/logs.js");
 var pgdb = require("../func/pgdb.js");
 
-
 var public = {};
 
 public.all = function(body) {
