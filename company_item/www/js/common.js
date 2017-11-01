@@ -55,7 +55,22 @@ ajax.ajax_common = function (obj_save, success_func, error_func, type) {
 		data: "data=" + datas,
 		success: function (res) {
 			console.log(res)
-			if (res.状态 == "成功") { success_func(res); } else { error_func(res); }
+			if (res.状态 == "成功") {
+				success_func(res);
+			} else if(res.状态 == "当前未登录"){ 
+				layer.open({
+					type: 1,
+					title: "信息",
+					area: '310px',
+					btn: ['确定'],
+					content: '<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p>登陆已超时</p></div>',
+					yes:function(){
+						window.location.href="page/login/login.html";					
+					}
+				});
+			} else {
+				error_func(res);			
+			}
 			return false;
 		}
 	});

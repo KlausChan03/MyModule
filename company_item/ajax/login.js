@@ -18,8 +18,6 @@ module.exports.run = function(body, pg, mo) {
   var p = {};
   var f = {};
 
-  // console.log(body.receive,"llllll");
-
   // 初始化部分参数
   f.data = body.receive;
   f._状态 = "成功";
@@ -35,7 +33,10 @@ module.exports.run = function(body, pg, mo) {
     f._状态 = "请填写密码";
   }
 
-  sql = "select id,姓名,密码,权限组,权限id,随机码,状态,头像,解锁密码  from 管_管理员表 where 登录名 = '" + f.data.用户名 + "' ";
+  sql =
+    "select id,姓名,密码,权限组,权限id,随机码,状态,头像,解锁密码  from 管_管理员表 where 登录名 = '" +
+    f.data.用户名 +
+    "' ";
   var result_login = pgdb.query(pg, sql);
 
   // 验证登陆信息
@@ -48,13 +49,10 @@ module.exports.run = function(body, pg, mo) {
   ) {
     f._状态 = "密码错误";
   }
-  if(f._状态 != '成功') {	
+  if (f._状态 != "成功") {
     p.状态 = f._状态;
     return common.removenull(p);
-	}
-  //  else if (s.数据[0].权限id == "0") {
-  //    f._状态 ="无设置权限";
-  // }
+  }
 
   // 权限查询
   sql = "select id from 管_权限表 where id = '" + result_login.数据[0].权限id + "' ";
@@ -65,22 +63,14 @@ module.exports.run = function(body, pg, mo) {
   if (f._状态 != "成功") {
     p.状态 = f._状态;
     return common.removenull(p);
-  }else{
-    p.状态 = f._状态; 
+  } else {
+    p.状态 = f._状态;
     body.session.user_name = f.data.用户名;
     body.session.user_showname = result_login.数据[0].姓名;
     body.session.头像 = result_login.数据[0].头像;
     body.session.解锁密码 = result_login.数据[0].解锁密码;
-
     body.session.user_id = result_login.数据[0].id;
     body.session.user_pid = result_power.数据[0].id;
-
-    
-    // console.log(body);
-    // p.user_name = f.data.用户名;
-    // p.user_id = result_login.数据[0].id;
-    // p.user_pid = result_power.数据[0].id;
-    return common.removenull(p,body);
   }
- 
+  return common.removenull(p, body);
 };
