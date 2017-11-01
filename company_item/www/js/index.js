@@ -16,16 +16,24 @@ layui.config({
 		});
 
 
-	// 获取用户名和头像等信息
+	
+
 	// 通过接口获取验证登陆信息
 	var obj_save = { datas: {}, func: "admin_control_main" };
 	var success_func = function(res) {
 		if(res.verify =="当前已登录"){
-			$(".userName").html(res.user);
-			$("#updateImg").attr("src",res.头像);
-			$("#updateImg1").attr("src",res.头像);
-			window.sessionStorage.setItem("name",res.姓名);
-			window.sessionStorage.setItem("password",res.解锁密码);
+			// 获取用户名和头像等信息
+			var obj_save = { datas: {}, func: "admin_control_getUserInfo" };
+			var success_func = function(res) {
+					$(".userName").html(res.姓名);
+					$("#updateImg").attr("src",res.头像);
+					$("#updateImg1").attr("src",res.头像);
+					window.sessionStorage.setItem("name",res.姓名);
+					window.sessionStorage.setItem("password",res.解锁密码);
+
+			};
+			ajax.ajax_common(obj_save, success_func);
+
 		}else if(res.verify =="当前未登录"){
 			layer.open({
 				type: 1,

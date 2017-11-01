@@ -29,7 +29,7 @@ layui.define(["element", "jquery"], function(exports) {
     $.get(url, function(data) {
       //显示左侧菜单
       if ($(".navBar").html() == "") {
-        var obj_save = { datas: {}, func: "admin_control_main" };
+        var obj_save = { datas: {}, func: "admin_control_page" };
         var success_func = function(res) {
           check(res);
         };
