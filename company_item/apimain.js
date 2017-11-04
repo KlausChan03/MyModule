@@ -179,7 +179,7 @@ app.post("/ajax.post*", function(req, res) {
         body.date = moment().format("YYYY-MM-DD HH:mm:ss");
         body.ip = req.ip;
         body.uuid = uuid.v4();
-        var ajax = require("./ajax/ajax.js");
+        var ajax = require("./ajax/public/ajax.js");
         var bool = ajax.searchfile(body.func);
         if (bool) {
           ajax.index(req, res, body);
