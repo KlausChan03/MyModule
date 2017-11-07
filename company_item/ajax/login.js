@@ -32,12 +32,14 @@ module.exports.run = function(body, pg, mo) {
   } else if (f.data.密码 == "" || f.data.密码 == null) {
     f._状态 = "请填写密码";
   }
+  console.log(f.data)
 
   sql =
     "select id,姓名,密码,权限组,权限id,随机码,状态,头像,解锁密码  from 管_管理员表 where 登录名 = '" +
     f.data.用户名 +
     "' ";
   var result_login = pgdb.query(pg, sql);
+  console.log(result_login)
 
   // 验证登陆信息
   if (result_login.数据.length == 0) {
