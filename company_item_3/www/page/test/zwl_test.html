@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>视频上传</title>
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/layer-set-myself.css" media="all" />
+		<link rel="stylesheet" href="../../css/flex.css" media="all" />
+	</head>
+
+	<body class="childrenBody">
+		<blockquote class="layui-elem-quote">为节省服务器开销，上传缓慢纯属正常现象。</blockquote>
+
+		<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+			<legend>指定允许上传的文件类型</legend>
+		</fieldset>
+		<div class="layui-upload">
+			<button type="button" class="layui-btn layui-btn-normal" id="test8">选择文件</button>
+			<button type="button" class="layui-btn site-demo-active" id="test9" data-type="loading">开始上传</button>
+		</div>
+		<div class="layui-upload-list">
+			<div class="layui-upload-list" id="demo6">
+			</div>
+			<p id="demoText"></p>
+		</div>
+
+		<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			<legend>上传进度条</legend>
+		</fieldset>
+
+		<div class="layui-progress layui-progress-big" lay-showpercent="true" lay-filter="demo" style="width: 50%;">
+			<div class="layui-progress-bar layui-bg-green" lay-percent="0%"></div>
+		</div>
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../../layui/layui.js"></script>
+		<script>
+			
+			/**
+			 * 第二种后台传
+			 */
+			layui.use(['upload', 'element','layer'], function() {
+				var $ = layui.jquery,
+					upload = layui.upload,
+					element = layui.element;
+					 var layer = layui.layer;
+				
+				//选完文件后不自动上传
+				upload.render({
+					elem: '#test8',
+					url: '/temp/',
+					accept: 'video',
+					auto: false
+						//,multiple: true   是否多个视频上传
+						,
+					bindAction: '#test9',
+					before: function(obj) {
+						//预读本地文件示例，不支持ie8
+						obj.preview(function(index, file, result) {
+							console.log(index+"============="+file+"========="+result)
+							$('#demo6').append('<video width="800" height=""><source src="'+result+'" type="video/mp4"></source><source src="'+result+'" type="video/ogg"></source><source src="'+result+'" type="video/webm"></source><object width="" height="" type="application/x-shockwave-flash" data="myvideo.swf"><param name="movie" value="myvideo.swf" /><param name="flashvars" value="autostart=true&amp;file=myvideo.swf" /></object>当前浏览器不支持 video直接播放，点击这里下载视频： <a href="myvideo.webm">下载视频</a></video>')
+						});
+					},
+					done: function(res) {
+//						$('#demo6').append('<video width="800" height=""><source src="'+res.newpath+'" type="video/mp4"></source><source src="'+res.newpath+'" type="video/ogg"></source><source src="'+res.newpath+'" type="video/webm"></source><object width="" height="" type="application/x-shockwave-flash" data="myvideo.swf"><param name="movie" value="myvideo.swf" /><param name="flashvars" value="autostart=true&amp;file=myvideo.swf" /></object>当前浏览器不支持 video直接播放，点击这里下载视频： <a href="myvideo.webm">下载视频</a></video>')
+						var datas = {};
+						datas.img_list = res.newpath;
+						datas = JSON.stringify(datas);
+						console.log(datas)
+						$.ajax({
+							url: "/ajax.post?func=massMP4",
+							type: "POST",
+							data: "data=" + datas,
+							beforeSend: function () {
+								element.progress('demo', '10%');
+						    },
+							success: function(json) {
+								if(json.状态=="上传成功"){
+									for(var i=0;i<json.上传时间.length;i++){
+										element.progress('demo', ''+json.上传时间[i]+'');
+									}
+									layer.msg('wonderful 上传成功');
+								}else{
+									element.progress('demo', '10%');
+									layer.msg('网络可能出了问题，上传失败了！');
+								}
+							}
+						});
+					}
+				});
+			});
+		</script>
+
+	</body>
+
+</html>
