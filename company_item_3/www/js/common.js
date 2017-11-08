@@ -148,7 +148,7 @@ function getTime(){
 }
 
 
-document.onkeyup = function (event) {
+$(document).keydown(function (event) {
 	var e = event || window.event;
 	var keyCode = e.keyCode || e.which;
 	switch (keyCode) {
@@ -162,7 +162,21 @@ document.onkeyup = function (event) {
 			// 监听F4键
 			history.go(0)
 			break;
+		case 13:
+		$("*").blur();//去掉焦点
+		if ($(".layui-layer-btn0").length > 0)
+			layer.closeAll();
+			break;
 		default:
 			break;
 	}
-}
+});
+
+
+// $(document).keydown(function (event) {
+// 	if (event.keyCode == 13) {
+// 		$("*").blur();//去掉焦点
+// 		if ($(".layui-layer-btn0").length > 0)
+// 			layer.closeAll();
+// 	}
+// });
