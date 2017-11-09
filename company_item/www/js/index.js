@@ -1,4 +1,6 @@
 var $,tab,skyconsWeather;
+var name = window.sessionStorage.getItem("name");
+var password = window.sessionStorage.getItem("password");
 layui.config({
 	base : "js/"
 }).use(['bodyTab','form','element','layer','jquery','flow'],function(){
@@ -12,6 +14,44 @@ layui.config({
 			openTabNum : "50",  //最大可打开窗口数量
 			url : "json/navs.json" //获取菜单json地址
 		});
+
+	// 获取用户名和头像等信息
+	var obj_save = { datas: {}, func: "admin_control_getUserInfo" };
+	var success_func = function(res) {
+		console.log(res)
+			$(".userName").html(res.姓名);
+			$("#updateImg").attr("src",res.头像);
+			$("#updateImg1").attr("src",res.头像);
+			window.sessionStorage.setItem("name",res.姓名);
+			window.sessionStorage.setItem("password",res.解锁密码);
+
+	};
+	ajax.ajax_common(obj_save, success_func);
+	
+
+	// 通过接口获取验证登陆信息
+	// var obj_save = { datas: {}, func: "admin_control_main" };
+	// var success_func = function(res) {
+	// 	if(res.verify =="当前已登录"){
+			
+
+	// 	}else if(res.verify =="当前未登录"){
+	// 		layer.open({
+	// 			type: 1,
+	// 			title: "信息",
+	// 			area: '310px',
+	// 			btn: ['确定'],
+	// 			content: '<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p>登陆已超时</p></div>',
+	// 			yes:function(){
+	// 				window.location.href="page/login/login.html";					
+	// 			}
+	// 		});
+	// 	}
+
+	// };
+	// ajax.ajax_common(obj_save, success_func);
+
+
 
 	//更换皮肤
 	function skins(){
@@ -27,6 +67,55 @@ layui.config({
 		}
 	}
 	skins();
+	
+	var client = new OSS.Wrapper({
+		"region": "oss-cn-shenzhen",
+		"accessKeyId": "LTAIRz4pA6Qeu12D",
+		"accessKeySecret": "ZASbh3Xg1RtSo6VxwLnNkSlNvXNMYJ",
+		"bucket": "zyk-temp"
+	});
+	/**
+	 * zhou 上传头像
+	 */
+				
+	document.getElementById('putTou').addEventListener('change', function(e) {
+		var file = e.target.files[0];
+		var storeAs = (new Date()).getTime();
+		client.multipartUpload(file.name, file,{
+//			 progress: function*(p) {
+//			 	layui.use(['upload', 'element'], function() {
+//			 		var $ = layui.jquery,
+//					upload = layui.upload,
+//					element = layui.element;
+//					element.progress('demo', (p * 100).toFixed(2) + '%');
+//			 	});
+//	            console.log('上传中: ' + (p * 100).toFixed(2) + '%');
+//	            
+//	
+//	        }
+		}).then(function(result) {
+			console.log(result);
+			var dataImg={};
+			dataImg.头像=result.url;
+			dataImg = JSON.stringify(dataImg);
+			$.ajax({
+				url: "/ajax.post?func=updateAdiminImg",
+				type: "POST",
+				data: "data="+dataImg,
+				
+				success: function(json) {
+					console.log(json)
+					$("#updateImg").attr("src",json.头像);
+					$("#updateImg1").attr("src",json.头像);
+				}
+				
+			})
+			
+		}).catch(function(err) {
+			console.log(err);
+		});
+	});
+	
 	$(".changeSkin").click(function(){
 		layer.open({
 			title : "更换皮肤",
@@ -146,13 +235,14 @@ layui.config({
 
 	//锁屏
 	function lockPage(){
+		var name = window.sessionStorage.getItem("name");
 		layer.open({
 			title : false,
 			skin: 'lock-layer',
 			type : 1,
 			content : '	<div class="admin-header-lock" id="lock-box">'+
 							'<div class="admin-header-lock-img"><img src="images/face.jpg"/></div>'+
-							'<div class="admin-header-lock-name" id="lockUserName">请叫我马哥</div>'+
+							'<div class="admin-header-lock-name" id="lockUserName">'+name+'</div>'+
 							'<div class="input_btn">'+
 								'<input type="password" class="admin-header-lock-input layui-input" autocomplete="off" placeholder="请输入密码解锁.." name="lockPwd" id="lockPwd" />'+
 								'<button class="layui-btn" id="unlock">解锁</button>'+
@@ -181,7 +271,12 @@ layui.config({
 			}
 		})
 		$(".admin-header-lock-input").focus();
+		
 	}
+	
+	
+	
+	
 	$(".lockcms").on("click",function(){
 		window.sessionStorage.setItem("lockcms",true);
 		lockPage();
@@ -192,11 +287,12 @@ layui.config({
 	}
 	// 解锁
 	$("body").on("click","#unlock",function(){
+		var password = window.sessionStorage.getItem("password");
 		if($(this).siblings(".admin-header-lock-input").val() == ''){
 			layer.msg("请输入解锁密码！");
 			$(this).siblings(".admin-header-lock-input").focus();
 		}else{
-			if($(this).siblings(".admin-header-lock-input").val() == "123456"){
+			if($(this).siblings(".admin-header-lock-input").val() == password ){
 				window.sessionStorage.setItem("lockcms",false);
 				$(this).siblings(".admin-header-lock-input").val('');
 				layer.closeAll("page");

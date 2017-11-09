@@ -5,6 +5,7 @@ layui.config({
   var form = layui.form,
     layer = parent.layer === undefined ? layui.layer : parent.layer,
     $ = layui.jquery;
+    
   //video背景
   $(window).resize(function () {
     // console.log($(window).width())
@@ -18,22 +19,21 @@ layui.config({
 
   //登录按钮事件
   form.on("submit(login)", function (e) {
-    stopDefault(e);
+//  stopDefault(e);
     var flag = verifyCode.validate(document.getElementById("code_input").value);
     var username = $(".username").val();
+    var password_o = $(".password").val();
+    var password = $.md5(password_o);    
     var code_input = $("#code_input").val();
-    var password = $.md5($(".password").val());
-    if (username == "") {
-      alert("账号不能为空");
-      return false;
-    } else if (password == "") {
-      alert("密码不能为空");
+    console.log(password,"llkk")
+    if (username == "" || password_o == "") {
+      layer.alert("账号和密码不能为空", { icon: 5, title: "登陆" });  
       return false;
     } else if (code_input == "") {
-      alert('验证码不能为空');
+      layer.alert("验证码不能为空", { icon: 5, title: "登陆" });     
       return false;
     } else if (!flag) {
-      alert('验证码错误');
+      layer.alert("验证码错误", { icon: 5, title: "登陆" });  
       return false;
     } else if (flag) {
       var obj_save = {
@@ -43,11 +43,11 @@ layui.config({
       var success_func = function (res) {
         // layer.alert(res.状态, { icon: 6, title: "登陆" });
         window.location.href = "../../index.html";
-        return false;
+//      return false;
       };
       var error_func = function (res) {
         layer.alert(res.状态, { icon: 5, title: "登陆" });
-        return false;
+//      return false;
       };
       ajax.ajax_common(obj_save, success_func, error_func);
       
@@ -56,7 +56,7 @@ layui.config({
       // console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
       //阻止表单跳转。如果需要表单跳转，去掉这段即可。
       // window.location.href = "../../index.html";
-      // return false;
+         return false;
     }
   });
 });

@@ -29,7 +29,7 @@ layui.define(["element", "jquery"], function(exports) {
     $.get(url, function(data) {
       //显示左侧菜单
       if ($(".navBar").html() == "") {
-        var obj_save = { datas: {}, func: "admin_control_test" };
+        var obj_save = { datas: {}, func: "admin_control_page" };
         var success_func = function(res) {
           check(res);
         };
@@ -48,7 +48,8 @@ layui.define(["element", "jquery"], function(exports) {
           // save_tb 暂存后台二级表格名称
           // save_ls 暂存前台二级表格名称
           // save_temp 暂存新二级菜单
-          console.log(res);
+          // console.log(res);
+
 
           for (i in res.listMenu) {
             for (j in data) {
@@ -56,10 +57,11 @@ layui.define(["element", "jquery"], function(exports) {
                 _data.push(data[j]);
                 var save_tb = [];
                 var save_ls = [];
+                var save_key = [];
                 for (k in res.listNav) {
                   for (l in res.listNav[k]) {
                     save_tb.push(res.listNav[k][l].表格名称);
-                    // console.log(save_tb)
+                    save_key.push(res.listNav[k][l].表格名称);
                   }
                 }
                 for (a in _data) {
@@ -87,11 +89,10 @@ layui.define(["element", "jquery"], function(exports) {
           // ]
 
           data = _data;
+          console.log(data)
 
           var _this = this;
-          $(".navBar")
-            .html(navBar(data))
-            .height($(window).height() - 245);
+          $(".navBar").html(navBar(data)).height($(window).height() - 245);
           element.init(); //初始化页面元素
           $(window).resize(function() {
             $(".navBar").height($(window).height() - 245);
@@ -112,9 +113,7 @@ layui.define(["element", "jquery"], function(exports) {
   Tab.prototype.getLayId = function(title) {
     $(".layui-tab-title.top_tab li").each(function() {
       if (
-        $(this)
-          .find("cite")
-          .text() == title
+        $(this).find("cite").text() == title
       ) {
         layId = $(this).attr("lay-id");
       }

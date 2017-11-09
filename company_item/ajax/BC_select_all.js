@@ -5,11 +5,11 @@ var logs = require("../func/logs.js");
 var pgdb = require("../func/pgdb.js");
 var common = require("../func/common.js");
 var request = require("../func/request.js");
-var txsms = require("../func/txsms.js");
 var moment = require("moment");
-var sign = require("../func/sign.js");
-var transliteration = require("transliteration");
 var fs = require("fs");
+
+// var txsms = require("../func/txsms.js");
+
 
 config.readfile();
 
@@ -54,6 +54,7 @@ module.exports.run = function(body, pg, mo) {
 	}
 	var sql = "";
 	if(f.type == "all" && f.verify == "审核通过") {
+    
 		sql = "select * from " + f.tb_name + " where 1 = 1 ";
 		var result = pgdb.query(pg, sql);
 

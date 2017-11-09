@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>视频上传</title>
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../../css/layer-set-myself.css" media="all" />
+	<link rel="stylesheet" href="../../css/flex.css" media="all" />
+
+</head>
+
+<body class="childrenBody">
+	<div id="editor"></div>
+	<hr/>
+	<button id="btn1" class="layui-btn layui-btn-small">
+		<i class="layui-icon" style="font-size: 18px; color: #eee;">&#xe600;</i> 获取HTML </button>
+	<button id="btn2" class="layui-btn layui-btn-small">
+		<i class="layui-icon" style="font-size: 18px; color: #eee;">&#xe600;</i> 获取TEXT </button>
+	<button id="btn3" class="layui-btn layui-btn-small">
+		<i class="layui-icon" style="font-size: 18px; color: #eee;">&#xe600;</i> 生成HTML </button>
+
+
+	<!-- <textarea id="demo" style="display: none;"></textarea> -->
+	<script type="text/javascript" src="../../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script src="http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"></script>
+	<!-- <script type="text/javascript">
+		layui.use('layedit', function () {
+			var layedit = layui.layedit;
+			layedit.build('demo'); //建立编辑器
+		});
+
+	</script> -->
+	<script type="text/javascript" src="../../js/wangediter/wangEditor.min.js"></script>
+
+	<script type="text/javascript">
+		layui.use(["table", "form", "upload", "layer"], function () {
+			var table = layui.table;
+			var form = layui.form;
+			var upload = layui.upload;
+			var $ = layui.jquery;
+			var layer = layui.layer;
+			
+			var E = window.wangEditor
+			var editor = new E('#editor')
+			// 或者 var editor = new E( document.getElementById('#editor') )
+			editor.create()
+			document.getElementById('btn1').addEventListener('click', function () {
+				// 读取 html
+				layer.alert(editor.txt.html())
+			}, false)
+
+			document.getElementById('btn2').addEventListener('click', function () {
+				// 读取 text
+				layer.alert(editor.txt.text())
+			}, false)
+
+			document.getElementById('btn3').addEventListener('click', function () {
+				// layer.alert("oh,you click me!")
+				var data = editor.txt.html();
+				var obj_save = { datas: data, func: "export_html" };
+				var success_func = function(res) {};
+				ajax.ajax_common(obj_save,success_func)	
+			})
+		});
+
+	</script>
+</body>
+
+</html>
