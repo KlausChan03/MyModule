@@ -76,7 +76,6 @@ module.exports.run = function(body, pg, mo) {
 
     p.状态 = f.状态;
     p.name = 信息.name;
-    p.上传时间 = timeArr;
     p.地址 = (信息.res.requestUrls)[0].split("?")[0];
     return common.removenull(p);
 
