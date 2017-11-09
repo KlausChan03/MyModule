@@ -1,9 +1,11 @@
 [
   {
+    "version": "# v1.0.0（优化） - 2017-11-9",
+    "function": ["login页面引入canvas动画"]
+  },
+  {
     "version": "# v1.0.0（优化） - 2017-11-6",
-    "function": [
-      "封装多图和单图上传，通过url截取pic_type判定类型"
-    ]
+    "function": ["封装多图和单图上传，通过url截取pic_type判定类型"]
   },
   {
     "version": "# v1.0.0（优化） - 2017-11-3",
