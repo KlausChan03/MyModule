@@ -29,14 +29,18 @@ layui.config({
     if (username == "" || password_o == "") {
       layer.alert("账号和密码不能为空", { icon: 5, title: "登陆" });  
       return false;
-    } else if (code_input == "") {
-      layer.alert("验证码不能为空", { icon: 5, title: "登陆" });     
-      return false;
-    } else if (!flag) {
-      layer.alert("验证码错误", { icon: 5, title: "登陆" }); 
-      $("#code_input").val(""); 
-      return false;
-    } else if (flag) {
+    } 
+    // else if (code_input == "") {
+    //   layer.alert("验证码不能为空", { icon: 5, title: "登陆" });     
+    //   return false;
+    // } 
+    // else if (!flag) {
+    //   layer.alert("验证码错误", { icon: 5, title: "登陆" }); 
+    //   $("#code_input").val(""); 
+    //   return false;
+    // } 
+    // else if (flag) {
+    else{
       var obj_save = {
         datas: { 用户名: username, 密码: password },
         func: "login"
@@ -82,7 +86,7 @@ layui.config({
     }
 
     this.options.numArr = "0,1,2,3,4,5,6,7,8,9".split(",");
-    this.options.letterArr = getAllLetter();
+    // this.options.letterArr = getAllLetter();
 
     this._init();
     this.refresh();
@@ -125,12 +129,17 @@ layui.config({
       ctx.fillStyle = randomColor(180, 240);
       ctx.fillRect(0, 0, this.options.width, this.options.height);
 
-      if (this.options.type == "blend") { //判断验证码类型
-        var txtArr = this.options.numArr.concat(this.options.letterArr);
-      } else if (this.options.type == "number") {
+      // if (this.options.type == "blend") { //判断验证码类型
+      //   var txtArr = this.options.numArr.concat(this.options.letterArr);
+      // } else if (this.options.type == "number") {
+      //   var txtArr = this.options.numArr;
+      // } else {
+      //   var txtArr = this.options.letterArr;
+      // }
+      if (this.options.type == "blend"){
         var txtArr = this.options.numArr;
-      } else {
-        var txtArr = this.options.letterArr;
+      }else{
+        var txtArr = this.options.numArr;
       }
 
       for (var i = 1; i <= 4; i++) {
@@ -183,10 +192,10 @@ layui.config({
     }
   }
   /**生成字母数组**/
-  function getAllLetter() {
-    var letterStr = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,U,V,W,X,Y,Z";
-    return letterStr.split(",");
-  }
+  // function getAllLetter() {
+  //   var letterStr = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,U,V,W,X,Y,Z";
+  //   return letterStr.split(",");
+  // }
   /**生成一个随机数**/
   function randomNum(min, max) {
     return Math.floor(Math.random() * (max - min) + min);

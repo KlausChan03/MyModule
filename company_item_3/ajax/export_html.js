@@ -18,9 +18,9 @@ module.exports.run = function(body, pg, mo) {
   var f ={};
   var p ={};
   var sql = "";
-  
-  body.receive = JSON.parse(body.data);  
-  f.data = body.receive;
+  console.log(body.data)
+  // body.receive = JSON.parse(body.data);  
+  f.data = body.data;
 
   // console.log("准备写入文件");
   // fs.writeFile('test.html', f.data,  function(err) {
@@ -41,7 +41,12 @@ module.exports.run = function(body, pg, mo) {
 
  
 
-
+  // console.log(f.data)
+  // f.data = f.data.replace(/'/g, "&#39;").replace(/"/g, "&quot;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/&/g, "&amp;");
+  // f.data = f.data.replace(/\'/g, "\'").replace(/\"/g, "\"");
+  
+  console.log(f.data)
+  
   // sql = "insert into 全_首页信息表 (备注) values ('"+f.data+"') where id = '3'";
   sql = "update 全_首页信息表 set 备注 = '"+f.data+"' where id = '5'"
   var result = pgdb.query(pg, sql);

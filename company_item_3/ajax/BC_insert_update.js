@@ -76,8 +76,10 @@ module.exports.run = function(body, pg, mo) {
     sql = "update " + table_name + " set " + update_str + " where id = " + f.data.id;
   }
 
+  // console.log()
+
   var result = pgdb.query(pg, sql);
-  //console.log(result);
+  console.log(result,"push");
   if (result.状态 != "成功") {
     p.状态 = "提交失败";
     return p;
