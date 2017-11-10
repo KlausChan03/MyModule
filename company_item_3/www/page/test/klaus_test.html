@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>视频上传</title>
+	<script src="../../js/init.js" ></script>
+	
 	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
 	<link rel="stylesheet" href="../../css/layer-set-myself.css" media="all" />
 	<link rel="stylesheet" href="../../css/flex.css" media="all" />
@@ -21,6 +23,8 @@
 		<i class="layui-icon" style="font-size: 18px; color: #eee;">&#xe600;</i> 获取TEXT </button>
 	<button id="btn3" class="layui-btn layui-btn-small">
 		<i class="layui-icon" style="font-size: 18px; color: #eee;">&#xe600;</i> 生成HTML </button>
+	<button id="btn4" class="layui-btn layui-btn-small">
+		<i class="layui-icon" style="font-size: 18px; color: #eee;">&#xe600;</i> 预览HTML </button>
 
 
 	<!-- <textarea id="demo" style="display: none;"></textarea> -->
@@ -60,11 +64,31 @@
 			}, false)
 
 			document.getElementById('btn3').addEventListener('click', function () {
-				// layer.alert("oh,you click me!")
-				var data = editor.txt.html();
+				var data = editor.txt.html().replace(/&nbsp;/ig,"");
+				console.log(data,"fuck all")
 				var obj_save = { datas: data, func: "export_html" };
 				var success_func = function(res) {};
 				ajax.ajax_common(obj_save,success_func)	
+			})
+			document.getElementById('btn4').addEventListener('click', function () {
+
+				var data = "";
+				var obj_save = {datas:data,func:"get_html"};
+				var success_func = function(res){
+					console.log(res.数据)
+					var all_html = res.数据.replace(/"?/,"").replace(/"$/,"").replace(/\\"/ig,"\"").replace(/\\'/ig,"\'")
+					layer.open({
+						id:"pre-watch",
+						type:1,              
+						title:"预览",
+						closeBtn: 1, //不显示关闭按钮
+						content:'<style>*{box-sizing: border-box}body{overflow-x: hidden;padding: .1rem .28rem}h2{font-size:.24rem;line-height: 2}h3{font-size:.2rem;line-height: 2}p{font-size:.3rem;line-height: 1.5}</style><body>'+all_html+'</body>',
+						area:["360px","800px"],
+					  })
+					// $("body").html(res.数据)
+				}
+				ajax.ajax_common(obj_save,success_func)
+
 			})
 		});
 

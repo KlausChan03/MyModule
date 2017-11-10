@@ -436,7 +436,7 @@ function add_video_pic(pic_type) {
           title:"上传进度",
           closeBtn: 0, //不显示关闭按钮
           content:'<div class="flex-hc-vc" style="width: 100%; height: 100%; padding: 0 30px; box-sizing: border-box;"><div class="layui-progress layui-progress-big" lay-showPercent="true" lay-filter="demo" style="width: 100%;"> <div class="layui-progress-bar layui-bg-green" lay-percent="0%"></div> </div></div>',
-          area:["250px","200px"],
+          area:["250px","150px"],
           success:function(){
             element.init();
           },
@@ -461,12 +461,12 @@ function add_video_pic(pic_type) {
               // t= 0;
               // clearInterval();            
               element.progress('demo', '100%');              
-              // setTimeout(function(){                
+              setTimeout(function(){                
                 layer.close(layer.index);
                 var video_url = res.地址.split("?uploadId")[0]
                 $(".video-input").val(video_url)
                 layer.msg('上传成功');
-              // },1000)
+              },1000)
 							// $(".loading-icon").hide();
 						} else {
 							layer.msg('上传失败');
@@ -529,6 +529,46 @@ function add_video_pic(pic_type) {
           // }
         });
 
+      }
+      if($("*[name='内容']")) {
+        var $text = $("*[name='内容']");
+        $text.addClass("text-input")
+        $text.parent().append('<button type="button" class="layui-btn layui-btn-mini" id="text-button" style="float:right"> <i class="layui-icon">&#xe61a;</i>展开编辑 </button><button type="button" class="layui-btn layui-btn-mini" id="commit-button" style="display:none;float:right;margin-right:10px"> <i class="layui-icon">&#xe605;</i>确认编辑 </button>');
+        $text.css({ "display": "none" });
+        // $text.parent().addClass("flex flex-hr-vc")
+        $text.parent().prepend('<div id="editor" style="display:none"></div>')
+        var $button_turn = $("#text-button");
+        var $button_commit = $("#commit-button");
+        
+        var E = window.wangEditor
+        var editor = new E('#editor')
+        // 或者 var editor = new E( document.getElementById('#editor') )
+        editor.create()
+
+        var flag = 1;
+        $button_turn.click(function(){
+          if(flag ==1){
+            flag = 0;
+            $("#editor").show()
+            $button_commit.show().css({"margin-top":"10px"})
+            $button_turn.html('<i class="layui-icon">&#xe619;</i>收起编辑').css({"margin-top":"10px"});
+            $button_commit.click(function(){
+              var final_text =  editor.txt.html().replace(/&nbsp;/ig,"");
+              console.log(final_text)
+              // $("*[name='内容']").val("'"+final_text+"'")
+              $("*[name='内容']").val('"'+final_text+'"')
+              console.log($("*[name='内容']"))
+            })
+
+          }else{
+            flag = 1;
+            $("#editor").hide()
+            $button_commit.hide().css({"margin-top":"0px"})            
+            $button_turn.html('<i class="layui-icon">&#xe61a;</i>展开编辑').css({"margin-top":"10px"})
+          }
+
+
+        })
       }
 	})
 }

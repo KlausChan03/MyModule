@@ -87,6 +87,40 @@ ajax.ajax_upload = function (obj_save, success_func, error_func, type) {
 	
 	};
 
+
+	ajax.ajax_html = function (obj_save, success_func, error_func, type) {
+		
+			var ajax_type;
+			if (!arguments[2]) { error_func = function () { }; }
+			if (!arguments[3]) { ajax_type = "POST"; }
+			var func = obj_save.func;
+			var datas = obj_save.datas;
+			// datas = JSON.stringify(datas);
+		
+			$.ajax({
+				type: "POST",
+				url: "/ajax.post?func=" + func,
+				timeout : 1000, //超时时间设置，单位毫秒
+				data: "data=" + datas,
+				datatype: "html",
+				success: function (res) {
+					if (res.状态 == "成功") {
+						success_func(res);
+					} else {
+						error_func(res);			
+					}
+					return false;
+				},　
+				complete : function(XMLHttpRequest,status){ //请求完成后最终执行参数
+			　　　　if(status=='timeout'){//超时,status还有success,error等值的情况
+				　　　　　 ajaxTimeoutTest.abort();
+			　　　　　  alert("超时");
+			　　　　}
+			　　}
+			});
+		
+		};
+
 function GetRequest() {
 	var url = location.search; //获取url中"?"符后的字串
 	var theRequest = new Object();

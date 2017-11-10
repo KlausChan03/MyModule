@@ -1,7 +1,7 @@
 [
   {
     "version": "# v1.0.0（优化） - 2017-11-9",
-    "function": ["login页面引入canvas动画"]
+    "function": ["login页面引入canvas动画", "登录验证码设置为仅有数字", "弹出层回车禁用"]
   },
   {
     "version": "# v1.0.0（优化） - 2017-11-6",
