@@ -547,17 +547,17 @@ function add_video_pic(pic_type) {
 
         var flag = 1;
         $button_turn.click(function(){
+          if($("*[name='内容']").val()!=""){
+            editor.txt.html($("*[name='内容']").val());
+          }
           if(flag ==1){
             flag = 0;
             $("#editor").show()
             $button_commit.show().css({"margin-top":"10px"})
             $button_turn.html('<i class="layui-icon">&#xe619;</i>收起编辑').css({"margin-top":"10px"});
             $button_commit.click(function(){
-              var final_text =  editor.txt.html().replace(/&nbsp;/ig,"");
-              console.log(final_text)
-              // $("*[name='内容']").val("'"+final_text+"'")
-              $("*[name='内容']").val('"'+final_text+'"')
-              console.log($("*[name='内容']"))
+              var final_text =  editor.txt.html().replace(/&nbsp;/ig,"_空格_");
+              $("*[name='内容']").val(final_text)
             })
 
           }else{

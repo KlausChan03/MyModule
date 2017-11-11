@@ -23,6 +23,9 @@ module.exports.run = function(body, pg, mo) {
   f.check = body.receive[1];
   console.log(f);
   // console.log(b);
+  if(f.data.内容){
+    f.data.内容 = f.data.内容.replace(/_空格_/g,"&nbsp;")
+  }
   var menu = config.get("menu");
   var table_name = "";
   var table_id = "";
