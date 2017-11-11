@@ -11,6 +11,8 @@ var sign = require("../func/sign.js");
 var transliteration = require("transliteration");
 var fs = require("fs");
 
+var sqlite = require('../func/sqlite.js');
+
 module.exports.run = function(body, pg, mo) {
   var server = config.get("server");
   body.receive = JSON.parse(body.data);
@@ -21,6 +23,8 @@ module.exports.run = function(body, pg, mo) {
   // 初始化部分参数
   f.data = body.receive;
   f._状态 = "成功";
+
+  var db = sqlite.connect();
 
   var sql = "";
   var 时间 = moment().format("YYYY-MM-DD HH:mm:ss");
@@ -33,11 +37,8 @@ module.exports.run = function(body, pg, mo) {
     f._状态 = "请填写密码";
   }
 
-  sql =
-    "select id,姓名,密码,权限组,权限id,随机码,状态,头像,解锁密码  from 管_管理员表 where 登录名 = '" +
-    f.data.用户名 +
-    "' ";
-  var result_login = pgdb.query(pg, sql);
+  sql ="select id,姓名,密码,权限组,权限id,随机码,状态,头像,解锁密码  from 管_管理员表 where 登录名 = '" +f.data.用户名 +"' ";
+  var result_login = sqlite.query(db, sql);
 
   // 验证登陆信息
   if (result_login.数据.length == 0) {
@@ -56,7 +57,7 @@ module.exports.run = function(body, pg, mo) {
 
   // 权限查询
   sql = "select id from 管_权限表 where id = '" + result_login.数据[0].权限id + "' ";
-  var result_power = pgdb.query(pg, sql);
+  var result_power = sqlite.query(db, sql);
   if (result_power.数据.length == 0) {
     f._状态 = "权限异常";
   }

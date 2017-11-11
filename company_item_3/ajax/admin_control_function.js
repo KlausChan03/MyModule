@@ -4,7 +4,7 @@ var share = require("../ajax/public/share.js");
 var logs = require("../func/logs.js");
 var pgdb = require("../func/pgdb.js");
 var common = require("../func/common.js");
-
+var sqlite = require('../func/sqlite.js');
 var public = require("../ajax/admin_control");
 
 
@@ -19,7 +19,7 @@ module.exports.run = function(body, pg, mo) {
     p.状态 = testing.verify;
     return p ;
   }
-
+  var db = sqlite.connect();
   //前台传参获取表格名称
   body.receive = JSON.parse(body.data);
   f.data = body.receive;
@@ -29,7 +29,7 @@ module.exports.run = function(body, pg, mo) {
   //第三步：控制可用按钮
   var isPower = false;
   sql = "select id,权限 from 管_权限表 where id = '" + f.session.user_pid + "'";
-  var power = pgdb.query(pg, sql).数据;
+  var power = sqlite.query(db, sql).数据;
 
   f._权限 = JSON.parse(power[0].权限);
   for (var key in f._权限) {

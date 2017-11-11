@@ -4,7 +4,7 @@ var share = require("../ajax/public/share.js");
 var logs = require("../func/logs.js");
 var pgdb = require("../func/pgdb.js");
 var common = require("../func/common.js");
-
+var sqlite = require('../func/sqlite.js');
 var public = require("../ajax/admin_control");
 
 
