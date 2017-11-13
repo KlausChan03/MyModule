@@ -7,15 +7,15 @@ layui.use(["table", "form", "upload"], function() {
 	var form = layui.form;
 	var upload = layui.upload;
 	var $ = layui.jquery;
-	var ifarme_func = window.top.document.getElementsByClassName("iframe_");
 
 	//获取iframe url的参数信息
+	var ifarme_func = window.top.document.getElementsByClassName("iframe_");	
 	var tb_id = GetRequest(ifarme_func).bc_id;
 	var pic_type = GetRequest(ifarme_func).pic_type;
-	console.log(pic_type)
 	var data = {};
 	var toolbar = true;
 
+	
 	//存数据
 	data.field = "";
 	//验证表名
@@ -27,13 +27,14 @@ layui.use(["table", "form", "upload"], function() {
 	};
 
 	var success_func = function(res) {
-		//渲染标题
+		// 表格标题渲染
 		var tb_title = res.表格名称;
 		tb_title = tb_title.replace("表", "");
 		$(".table-title").html(tb_title);
 
 		changeTableStutas(res, toolbar)
 
+		// 功能按钮渲染
 		var obj_save = { datas: tb_id, func: "admin_control_function" };
 		var success_func = function(res) {
 			if(res.keyPower != "") {
@@ -80,7 +81,7 @@ layui.use(["table", "form", "upload"], function() {
 		};
 		var error_func = function(res) {
 			if(res.状态 == "当前未登录") {
-				layer.open({
+				parent.layer.open({
 					type: 1,
 					title: "信息",
 					area: '310px',
@@ -199,356 +200,7 @@ layui.use(["table", "form", "upload"], function() {
 	};
 	ajax.ajax_common(obj_save, success_func, error_func);
 
-	var table_act = {};
-	// 删除功能
-	table_act.delete = function(res, tb_id, select_id) {
-		var data = {};
-		data.tb_id = tb_id;
-		data.select_id = { id: select_id };
-		var obj_save = { datas: [data.select_id, data.tb_id], func: "BC_delete" };
-		var success_func = function(res) {
-			layer.alert(res.状态, function() {
-				layer.closeAll();
-				history.go(0);
-			});
-		};
-		var error_func = function(res) {
-			layer.alert(res.状态, function() {
-				layer.closeAll();
-				history.go(0);
-			});
-		};
-		ajax.ajax_common(obj_save, success_func, error_func);
-	};
-	// 新增功能
-	table_act.insert = function(res, tb_id) {
-		var test_arr = [];
-		for(i in res.列表[0]) {
-			test_arr.push(i);
-		}
-		var test = "";
-		test_arr.pop();
-		console.log(test_arr);
-		for(var i = 0; i < test_arr.length; i++) {
-			test +=
-				'<div class="layui-form-item"><label class="layui-form-label">' +
-				test_arr[i] +
-				'</label> <div class="layui-input-block"> <input type="text" name="' +
-				test_arr[i] +
-				'"   placeholder="请输入' +
-				test_arr[i] +
-				'" autocomplete="off" class="layui-input insert-input"> </div> </div>';
-		}
-
-		var success_func = function() {
-			var insert_name = window.sessionStorage.getItem("name");
-			var insert_time = getTime();
-
-			$("*[name='录入人']").attr("readonly", "readonly");
-			$("*[name='录入时间']").attr("readonly", "readonly");
-
-			$("*[name='录入人']").val(insert_name);
-			$("*[name='录入时间']").val(insert_time);
-
-			$("*[name='id']").attr("readonly", "readonly");
-			$("*[name='id']").attr("placeholder", "");
-
-			if($("*[name='视频地址']") || $("*[name='图片地址']")) {
-				add_video_pic(pic_type)
-			}
-
-			$("*[name='权限']").click(function() {
-				var obj_save = { datas: "", func: "" }
-				var success_func = function() { console.log(res) }
-				var error_func = function() { console.log(res) }
-				ajax.ajax_common(obj_save, success_func, error_func)
-			})
-
-			layui.use("form", function() {
-				form.on("submit(formDemo)", function(data) {
-					data.tb_id = tb_id;
-					if("file" in data.field) {
-						delete data.field.file
-					}
-					console.log(data.field)
-					var obj_save = {
-						datas: [data.field, data.tb_id],
-						func: "BC_insert_update"
-					};
-					var success_func = function(res) {
-						layer.alert(res.状态, function() {
-							layer.closeAll();
-							history.go(0);
-						});
-					};
-					var error_func = function(res) {
-						layer.alert(res.状态, function() {
-							layer.closeAll();
-							history.go(0);
-						});
-					};
-					ajax.ajax_common(obj_save, success_func, error_func);
-					return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
-				});
-			});
-		};
-		layObj.form("新增", success_func, test, tb_id);
-	};
-	// 编辑功能
-	table_act.update = function(res, tb_id, data) {
-		var test_arr = [];
-		var old_arr = [];
-
-		//循环字段名
-		for(i in res.列表[0]) {
-			test_arr.push(i);
-		}
-		//循环字段名所对应的值
-		for(var j in data) {
-			old_arr.push(data[j]);
-		}
-		console.log(old_arr)
-		var test = "";
-
-		//赋给录入时期的的input的一个id名
-		var classTest = "";
-		test_arr.pop();
-		for(var i = 0; i < test_arr.length; i++) {
-
-			// 特殊编码转义
-			if(typeof(old_arr[i]) == "string") {
-				old_arr[i] = old_arr[i].replace(/'/g, "&#39;").replace(/"/g, "&quot;").replace(/>/g, "&gt;").replace(/</g, "&lt;");
-			}
-			// input[type="text"]的遍历生成html
-			test +=
-				'<div class="layui-form-item"><label class="layui-form-label">' +
-				test_arr[i] +
-				'</label> <div class="layui-input-block"> <input type="text"  name="' +
-				test_arr[i] +
-				'" autocomplete="off" value="' +
-				old_arr[i] +
-				'" class="layui-input insert-input"> </div> </div>';
-		}
-
-		var success_func = function() {
-
-			var insert_name = window.sessionStorage.getItem("name");
-			var insert_time = getTime();
-
-			$("*[name='录入人']").attr("readonly", "readonly");
-			$("*[name='录入时间']").attr("readonly", "readonly");
-
-			$("*[name='录入人']").val(insert_name);
-			$("*[name='录入时间']").val(insert_time);
-
-			$("*[name='id']").attr("disabled", "true");
-			$("*[name='id']").attr("placeholder", "");
-			$("*[name='录入时间']").addClass("dateClass");
-			if($("*[name='视频地址']") || $("*[name='图片地址']")) {
-				add_video_pic(pic_type)
-			}
-
-			layui.use("form", function() {
-				form.on("submit(formDemo)", function(data) {
-					data.tb_id = tb_id;
-					if("file" in data.field) {
-						delete data.field.file
-					}
-					var obj_save = {
-						datas: [data.field, data.tb_id],
-						func: "BC_insert_update"
-					};
-					var success_func = function(res) {
-						layer.alert(res.状态, function() {
-							layer.closeAll();
-							history.go(0);
-						});
-					};
-					var error_func = function(res) {
-						layer.alert(res.状态, function() {
-							layer.closeAll();
-							history.go(0);
-						});
-					};
-					ajax.ajax_common(obj_save, success_func, error_func);
-					return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
-				});
-			});
-
-			/**
-			 * 更改录入时间
-			 */
-			layui.use("laydate", function() {
-				var laydate = layui.laydate;
-				//执行一个laydate实例
-				laydate.render({
-					type: "datetime",
-					elem: ".dateClass" //指定元素
-				});
-			});
-
-		};
-		layObj.form("编辑", success_func, test, tb_id);
-	};
+	
 
 });
 
-function add_video_pic(pic_type) {
-	$("*[name='图片地址']").attr({ "readonly": "readonly", "required": "required" });
-	$("*[name='视频地址']").attr({ "readonly": "readonly", "required": "required" });
-
-	layui.use(['upload', 'element', 'layer'], function() {
-		var $ = layui.jquery,
-			upload = layui.upload,
-			element = layui.element,
-			layer = layui.layer;
-
-		var $video = $("*[name='视频地址']");
-		$video.addClass("video-input");
-		$video.css({ "width": "80%" });
-		$video.parent().addClass("flex flex-hb-vc")
-
-		$video.parent().append('<button type="button" class="layui-btn layui-btn-mini" id="video-input"> <i class="layui-icon">&#xe67c;</i>上传视频 </button><p class="loading-icon" style="display:none"></p>');
-		var uploadInst = upload.render({
-			elem: '#video-input',
-			url: '/temp',
-			accept: 'video',
-			auto: true,
-			done: function(res) {
-				var datas = {};
-				datas.img_list = res.newpath;
-				datas = JSON.stringify(datas);
-				console.log(datas)
-				layer.open({
-					id: "upload",
-					type: 1,
-					title: "上传进度",
-					closeBtn: 0, //不显示关闭按钮
-					content: '<div class="flex-hc-vc" style="width: 100%; height: 100%; padding: 0 30px; box-sizing: border-box;"><div class="layui-progress layui-progress-big" lay-showPercent="true" lay-filter="demo" style="width: 100%;"> <div class="layui-progress-bar layui-bg-green" lay-percent="0%"></div> </div></div>',
-					area: ["250px", "150px"],
-					success: function() {
-						element.init();
-					},
-				})
-				element.progress('demo', '0%');
-
-				// var t = 0;
-				// setInterval(function(){      
-				//   t = t+20;
-				//   element.progress('demo', t+'%');        
-				// },10000)
-
-				// $(".loading-icon").show().html('<i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop loading">&#xe63d;</i>')
-				$.ajax({
-					url: "/ajax.post?func=massMP4",
-					type: "POST",
-					data: "data=" + datas,
-					beforeSend: function() {},
-					success: function(res) {
-						if(res.状态 == "上传成功") {
-							// console.log(t)
-							// t= 0;
-							// clearInterval();            
-							element.progress('demo', '100%');
-							setTimeout(function() {
-								layer.close(layer.index);
-								var video_url = res.地址.split("?uploadId")[0]
-								$(".video-input").val(video_url)
-								layer.msg('上传成功');
-							}, 1000)
-							// $(".loading-icon").hide();
-						} else {
-							layer.msg('上传失败');
-						}
-					}
-
-				});
-			}
-		});
-
-		if($("*[name='图片地址']")) {
-			var pic_arr = [];
-			var multiple = "";
-			var $pic = $("*[name='图片地址']");
-			$pic.addClass("pic-input");
-			$pic.css({ "width": "80%" });
-			$pic.parent().addClass("flex flex-hb-vc")
-
-			if(pic_type == "all") {
-				$pic.parent().append('<button type="button" class="layui-btn layui-btn-mini" id="pic-input"> <i class="layui-icon">&#xe67c;</i>上传多图 </button>');
-				multiple = true;
-			} else if(pic_type == "one") {
-				$pic.parent().append('<button type="button" class="layui-btn layui-btn-mini" id="pic-input"> <i class="layui-icon">&#xe67c;</i>上传图片 </button>');
-				multiple = false;
-			}
-			var uploadInst = upload.render({
-				elem: '#pic-input',
-				url: '/temp',
-				auto: true,
-				multiple: multiple,
-				done: function(res) {
-					console.log(res)
-					var datas = {};
-					datas.img_list = res.newpath;
-					datas = JSON.stringify(datas);
-					console.log(datas)
-					$.ajax({
-						url: "/ajax.post?func=massMP4",
-						type: "POST",
-						data: "data=" + datas,
-						success: function(res) {
-							console.log(res.地址)
-							if(res.状态 == "上传成功") {
-								pic_arr.push(res.地址);
-								$(".pic-input").val(pic_arr);
-								layer.msg('上传成功');
-							} else {
-								layer.msg('上传失败');
-							}
-						}
-					});
-				},
-			});
-
-		}
-		if($("*[name='内容']")) {
-			var $text = $("*[name='内容']");
-			$text.addClass("text-input")
-			$text.parent().append('<button type="button" class="layui-btn layui-btn-mini" id="text-button" style="float:right"> <i class="layui-icon">&#xe61a;</i>展开编辑 </button><button type="button" class="layui-btn layui-btn-mini" id="commit-button" style="display:none;float:right;margin-right:10px"> <i class="layui-icon">&#xe605;</i>确认编辑 </button>');
-			$text.css({ "display": "none" });
-			// $text.parent().addClass("flex flex-hr-vc")
-			$text.parent().prepend('<div id="editor" style="display:none"></div>')
-			var $button_turn = $("#text-button");
-			var $button_commit = $("#commit-button");
-
-			var E = window.wangEditor
-			var editor = new E('#editor')
-			// 或者 var editor = new E( document.getElementById('#editor') )
-			editor.create()
-
-			var flag = 1;
-			$button_turn.click(function() {
-				if($("*[name='内容']").val() != "") {
-					editor.txt.html($("*[name='内容']").val());
-				}
-				if(flag == 1) {
-					flag = 0;
-					$("#editor").show()
-					$button_commit.show().css({ "margin-top": "10px" })
-					$button_turn.html('<i class="layui-icon">&#xe619;</i>收起编辑').css({ "margin-top": "10px" });
-					$button_commit.click(function() {
-						var final_text = editor.txt.html().replace(/&nbsp;/ig, "_空格_");
-						$("*[name='内容']").val(final_text)
-					})
-
-				} else {
-					flag = 1;
-					$("#editor").hide()
-					$button_commit.hide().css({ "margin-top": "0px" })
-					$button_turn.html('<i class="layui-icon">&#xe61a;</i>展开编辑').css({ "margin-top": "10px" })
-				}
-
-			})
-		}
-	})
-}

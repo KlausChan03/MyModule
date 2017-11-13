@@ -140,10 +140,13 @@ function GetRequest() {
  * @param {Object} res
  */
 function changeTableStutas(res,toolbar) {
+	console.log(res.列表,("llljkdjfkdjkf"))
 	layui.use(['table', 'form'], function () {
 		var table = layui.table;
 		var bar_set = $(".layui-hide .layui-btn").length;
 		var th = [];
+
+		// 引入工具条
 		if(toolbar == "flase"){
 			th.push({ checkbox: true, fixed: true, align: "center" });		
 		}else{
@@ -152,11 +155,22 @@ function changeTableStutas(res,toolbar) {
 		for (var i in res.列表[0]) {
 			th.push({ field: i, title: i, width: "120", align: "center" });
 			$(".select-test").append("<option value='" + i + "'>" + i + "</option>");
-		}		
+		}	
+		// 引入正序和倒序排序(sort)	
 		th[2].sort = true;
+		for (i in th){
+			if(th[i].field == "录入时间"){
+				var that = th[i]
+				function getsort(arg1){
+					this.sort = true;
+					console.log(this)
+				}
+				getsort.apply(that)
+			}
+		}
 
 		// 生成表格
-		window.demoTable = table.render({
+		table.render({
 			initSort: {
 				field: 'id', //排序字段，对应 cols 设定的各字段名				
 				type: 'asc' //排序方式  asc: 升序、desc: 降序、null: 默认排序
@@ -169,8 +183,8 @@ function changeTableStutas(res,toolbar) {
 			skin: "row", //表格风格
 			even: true,
 			page: true, //是否显示分页
-			limits: [10, 15, 20],
-			limit: 15 //每页默认显示的数量
+			limits: [10, 15, 20, 50,100],
+			limit: 15, //每页默认显示的数量
 		});
 	});
 
@@ -228,21 +242,20 @@ $(document).keydown(function (event) {
 			// 监听F4键
 			history.go(0)
 			break;
-		// case 13:
-		// $("*").blur();//去掉焦点
-		// if ($(".layui-layer-btn0").length > 0)
-		// 	layer.closeAll();
-		// 	break;
+		case 13:
+			if(layer){
+				console.log(layer)
+				$("*").blur();//去掉焦点
+				if ($(".layui-layer-btn0").length > 0){
+					layer.closeAll();					
+				} else if($(".layer-commit")){
+					$(".layer-commit").click()
+				}
+			}			
+			break;
 		default:
 			break;
 	}
 });
 
 
-// $(document).keydown(function (event) {
-// 	if (event.keyCode == 13) {
-// 		$("*").blur();//去掉焦点
-// 		if ($(".layui-layer-btn0").length > 0)
-// 			layer.closeAll();
-// 	}
-// });
