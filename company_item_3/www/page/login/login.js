@@ -5,17 +5,17 @@ layui.config({
   var form = layui.form,
     layer = parent.layer === undefined ? layui.layer : parent.layer,
     $ = layui.jquery;
-    
+
   //video背景
-  $(window).resize(function () {
-    // console.log($(window).width())
-    // console.log($(".video-player").width())
-    if ($(".video-player").width() > $(window).width()) {
-      $(".video-player").css({ "height": $(window).height(), "width": "auto" });
-    } else {
-      $(".video-player").css({ "width": $(window).width(), "height": "auto" });
-    }
-  }).resize();
+  // $(window).resize(function () {
+  //   // console.log($(window).width())
+  //   // console.log($(".video-player").width())
+  //   if ($(".video-player").width() > $(window).width()) {
+  //     $(".video-player").css({ "height": $(window).height(), "width": "auto" });
+  //   } else {
+  //     $(".video-player").css({ "width": $(window).width(), "height": "auto" });
+  //   }
+  // }).resize();
 
   //登录按钮事件
   form.on("submit(login)", function (e) {

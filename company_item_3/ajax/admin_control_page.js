@@ -4,7 +4,7 @@ var share = require("../ajax/public/share.js");
 var logs = require("../func/logs.js");
 var pgdb = require("../func/pgdb.js");
 var common = require("../func/common.js");
-
+var sqlite = require('../func/sqlite.js');
 var public = require("../ajax/admin_control");
 
 module.exports.run = function(body, pg, mo) {
@@ -24,12 +24,15 @@ module.exports.run = function(body, pg, mo) {
   f.data = body.receive;
   f.session = body.session;
 
-
+  var db = sqlite.connect();
   //第三步：控制可看页面
   var isPower = false;
   sql = "select id,权限 from 管_权限表 where id = '" + f.session.user_pid + "'";
-  var power = pgdb.query(pg, sql).数据;
+  var power = sqlite.query(db, sql).数据;
+  // console.log(power)
 
+  sqlite.close(db);
+  
   f._权限 = JSON.parse(power[0].权限);
   if (power.length == 0) {
     f._power = "无此权限";
