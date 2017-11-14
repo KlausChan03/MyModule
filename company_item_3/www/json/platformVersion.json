@@ -1,5 +1,13 @@
 [
   {
+    "version": "# v1.0.0（优化） - 2017-11-14",
+    "function": [
+      "table.js重构，划分为[function_tableButton][function_formControl][table]三个文件",
+      "权限、用户表相关连接由pg换为sqlite，数据存储在本地mysql.db",
+      "新增批量删除功能按钮"
+    ]
+  },
+  {
     "version": "# v1.0.0（优化） - 2017-11-9",
     "function": ["login页面引入canvas动画", "登录验证码设置为仅有数字", "弹出层回车禁用"]
   },

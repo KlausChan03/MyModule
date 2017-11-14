@@ -14,6 +14,8 @@ var sign = require("../func/sign.js");
 var fs = require("fs");
 var Fiber = require('fibers');
 var alioss = require('../func/alioss.js');
+// var gm = require('gm');
+
 
 
 config.readfile();
@@ -21,11 +23,31 @@ var co = require('co');
 
 
 module.exports.run = function(body, pg, mo) {
+
     var p = {};
     var f = {};
     body.receive = JSON.parse(body.data);
     f.data = body.receive;
     //f.session = body.session;
+
+    // console.log(f.data.img_list,"ro")
+    // var path = f.data.img_list;
+    // path = path.split("company_item_3")[1];
+    // console.log(path)
+    // path = path.replace(/\\/g,"/");
+    // console.log(path)
+    
+
+    // gm(path)
+    // .resize(200,0)     //设置压缩后的w/h
+    // .setFormat('JPEG')
+    // .quality(70)       //设置压缩质量: 0-100
+    // .strip()
+    // .autoOrient()
+    // .write("压缩后保存路径" , 
+    // function(err){console.log("err: " + err);})
+
+
 
     f.时间 = moment().format('YYYYMMDDHHmmss');
     var conf = config.get("alicloud").阿里云参数1;
@@ -76,7 +98,10 @@ module.exports.run = function(body, pg, mo) {
 
     p.状态 = f.状态;
     p.name = 信息.name;
-    p.地址 = (信息.res.requestUrls)[0].split("?")[0];
+    console.log((信息.res.requestUrls)[0],"aaa")
+    p.地址 = (信息.res.requestUrls)[0].split("?")[0] + "?x-oss-process=image/resize,m_fill,h_100,w_300";
+    console.log(p.地址,"bbb")
+    
     return common.removenull(p);
 
 }

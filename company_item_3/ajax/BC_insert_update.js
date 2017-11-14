@@ -21,8 +21,7 @@ module.exports.run = function(body, pg, mo) {
   var f ={};
   f.data = body.receive[0];
   f.check = body.receive[1];
-  console.log(f);
-  // console.log(b);
+
   if(f.data.内容){
     f.data.内容 = f.data.内容.replace(/_空格_/g,"&nbsp;")
   }
@@ -79,10 +78,10 @@ module.exports.run = function(body, pg, mo) {
     sql = "update " + table_name + " set " + update_str + " where id = " + f.data.id;
   }
 
-  // console.log()
+
 
   var result = pgdb.query(pg, sql);
-  console.log(result,"push");
+
   if (result.状态 != "成功") {
     p.状态 = "提交失败";
     return p;
