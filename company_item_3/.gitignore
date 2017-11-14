@@ -3,8 +3,6 @@
 node_modules
 _logs
 .vscode
-mysql.db
-package.json
 start.json
 temp
 1.backup
