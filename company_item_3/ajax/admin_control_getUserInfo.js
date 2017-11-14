@@ -9,12 +9,15 @@ var public = require("../ajax/admin_control");
 
 
 module.exports.run = function(body, pg, mo) {
+  
   //第一步：获取参数
   //定义对象p和f分别用作接收后台和返回前台
   var p = {};
   var f = {};
   p.状态 = "成功";
+
   var testing = public.all(body);
+
   if(testing.verify != "当前已登录"){
     p.状态 = testing.verify;
     return p ;

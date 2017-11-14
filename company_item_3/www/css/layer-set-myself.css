@@ -58,10 +58,14 @@
   height: 32px;
   line-height: 32px;
 }
+.layui-input.required{
+  border-left:3px solid #2B9CED;
+}
 
 .layui-btn-mini i{
   font-size: 15px!important;
 }
+
 
 /* 弹窗样式 */
 .layui-layer-diy[type="page"].w520 {

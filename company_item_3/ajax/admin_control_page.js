@@ -4,19 +4,21 @@ var share = require("../ajax/public/share.js");
 var logs = require("../func/logs.js");
 var pgdb = require("../func/pgdb.js");
 var common = require("../func/common.js");
-var sqlite = require('../func/sqlite.js');
+var sqlite = require("../func/sqlite.js");
 var public = require("../ajax/admin_control");
 
 module.exports.run = function(body, pg, mo) {
+  
   //第一步：获取参数
-  //定义对象p和f分别用作接收后台和返回前台
   var p = {};
   var f = {};
   p.状态 = "成功";
+  
   var testing = public.all(body);
-  if(testing.verify != "当前已登录"){
+
+  if (testing.verify != "当前已登录") {
     p.状态 = testing.verify;
-    return p ;
+    return p;
   }
 
   //前台传参获取表格名称
@@ -25,14 +27,14 @@ module.exports.run = function(body, pg, mo) {
   f.session = body.session;
 
   var db = sqlite.connect();
+
   //第三步：控制可看页面
   var isPower = false;
   sql = "select id,权限 from 管_权限表 where id = '" + f.session.user_pid + "'";
   var power = sqlite.query(db, sql).数据;
-  // console.log(power)
 
   sqlite.close(db);
-  
+
   f._权限 = JSON.parse(power[0].权限);
   if (power.length == 0) {
     f._power = "无此权限";
@@ -91,8 +93,6 @@ module.exports.run = function(body, pg, mo) {
 
   p.listMenu = listMenuShow;
   p.listNav = list_;
-  
-
 
   return common.removenull(p);
 };

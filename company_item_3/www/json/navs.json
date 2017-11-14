@@ -48,7 +48,7 @@
         "id":"2",
         "title": "全_首页信息表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/qq_indexNews.html?func=BC_select_all&bc_id=qq_indexNews&pic_type=all",
+        "href": "page/qq_items/qq_indexNews.html?func=BC_select_all&bc_id=qq_indexNews&pic_type=all&rich_open=true",
         "spread": false
       },{
         "id":"3",

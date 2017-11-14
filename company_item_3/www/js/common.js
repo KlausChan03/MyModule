@@ -243,14 +243,16 @@ $(document).keydown(function (event) {
 			history.go(0)
 			break;
 		case 13:
+			console.log( document.activeElement)
 			if(layer){
 				console.log(layer)
-				$("*").blur();//去掉焦点
+				// $("*").blur();//去掉焦点
 				if ($(".layui-layer-btn0").length > 0){
 					layer.closeAll();					
-				} else if($(".layer-commit")){
-					$(".layer-commit").click()
-				}
+				} 
+				// else if($(".layer-commit")){
+				// 	$(".layer-commit").click()
+				// }
 			}			
 			break;
 		default:
