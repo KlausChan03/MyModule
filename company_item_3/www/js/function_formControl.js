@@ -55,7 +55,7 @@ form_act.add_video_pic = function(pic_type) {
 
         $(".loading-icon").show().html('<i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop loading">&#xe63d;</i>')
         $.ajax({
-          url: "/ajax.post?func=massMP4",
+          url: "/ajax.post?func=upload_video",
           type: "POST",
           data: "data=" + datas,
           beforeSend: function() {},
@@ -82,6 +82,7 @@ form_act.add_video_pic = function(pic_type) {
 
     if ($("*[name='图片地址']")) {
       var pic_arr = [];
+      var pic_str = "";
       var multiple = "";
       var $pic = $("*[name='图片地址']");
       $pic.addClass("pic-input");
@@ -112,14 +113,16 @@ form_act.add_video_pic = function(pic_type) {
           datas = JSON.stringify(datas);
           console.log(datas);
           $.ajax({
-            url: "/ajax.post?func=massMP4",
+            url: "/ajax.post?func=upload_pic",
             type: "POST",
             data: "data=" + datas,
             success: function(res) {
               console.log(res.地址);
               if (res.状态 == "上传成功") {
-                pic_arr.push(res.地址);
-                $(".pic-input").val(pic_arr);
+                pic_arr.push(res.地址+"@split@");
+                pic_str = pic_arr.toString();
+                pic_str= pic_str.replace(/@split@,/g,"@split@").replace(/@split@$/,"")
+                $(".pic-input").val(pic_str);
                 layer.msg("上传成功");
               } else {
                 layer.msg("上传失败");
@@ -159,6 +162,7 @@ form_act.editor = function(rich_open) {
       $button_turn.click(function() {
         if ($("*[name='内容']").val() != "") {
           editor.txt.html($("*[name='内容']").val());
+          console.log($("*[name='内容']").val(),"test")
         }
         if (flag == 1) {
           flag = 0;

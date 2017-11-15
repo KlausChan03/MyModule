@@ -53,6 +53,17 @@ table_act.insert = function(res, tb_id) {
 
     $("*[name='id']").attr({"readonly":"readonly","placeholder":""});
 
+
+    $("*[name='关键字']").attr("oninput","if(value.length>16)value=value.slice(0,16)")
+    $("*[name='标题']").attr("oninput","if(value.length>16)value=value.slice(0,16)")
+
+    // var len_testing = document.getElementsByName("关键字")[0];
+    // len_testing.addEventListener("blur",function(){
+    //   if($("*[name='关键字']").val().length>5){
+    //     layer.msg("too long")
+    //   }
+    // })
+
     if ($("*[name='视频地址']") || $("*[name='图片地址']")) {
       form_act.add_video_pic(pic_type);
     }
@@ -131,6 +142,7 @@ table_act.update = function(res, tb_id, data) {
         .replace(/>/g, "&gt;")
         .replace(/</g, "&lt;");
     }
+    console.log(test_arr,"test2")
     // input[type="text"]的遍历生成html
     test +=
       '<div class="layui-form-item"><label class="layui-form-label">' +
@@ -155,6 +167,9 @@ table_act.update = function(res, tb_id, data) {
     $("*[name='id']").attr({"readonly":"readonly","placeholder":""});
     
     $("*[name='录入时间']").addClass("dateClass");
+
+    $("*[name='关键字']").attr("oninput","if(value.length>16)value=value.slice(0,16)")
+    $("*[name='标题']").attr("oninput","if(value.length>16)value=value.slice(0,16)")
 
     if ($("*[name='视频地址']") || $("*[name='图片地址']")) {
       form_act.add_video_pic(pic_type);
