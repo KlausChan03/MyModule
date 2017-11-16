@@ -1,5 +1,14 @@
 [
   {
+    "version": "# v1.0.0（优化） - 2017-11-16",
+    "function": [
+      "通过前台二次编码、后台解码修复ajax上传大字段中文乱码",
+      "修复替换头像接口bug",
+      "更新前端底层框架layui至2.11，调整部分样式",
+      "★版本更新至正式"
+    ]
+  },
+  {
     "version": "# v1.0.0（优化） - 2017-11-14",
     "function": [
       "table.js重构，划分为[function_tableButton][function_formControl][table]三个文件",

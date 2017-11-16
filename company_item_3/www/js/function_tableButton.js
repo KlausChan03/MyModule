@@ -54,8 +54,8 @@ table_act.insert = function(res, tb_id) {
     $("*[name='id']").attr({"readonly":"readonly","placeholder":""});
 
 
-    $("*[name='关键字']").attr("oninput","if(value.length>16)value=value.slice(0,16)")
-    $("*[name='标题']").attr("oninput","if(value.length>16)value=value.slice(0,16)")
+    $("*[name='关键字']").attr("oninput","if(value.length>20)value=value.slice(0,20)")
+    $("*[name='标题']").attr("oninput","if(value.length>30)value=value.slice(0,30)")
 
     // var len_testing = document.getElementsByName("关键字")[0];
     // len_testing.addEventListener("blur",function(){
@@ -86,11 +86,18 @@ table_act.insert = function(res, tb_id) {
     layui.use("form", function() {
       var form = layui.form;
       form.on("submit(formDemo)", function(data) {
+
+        // 取值、在封装ajax传参前对部分字段处理        
         data.tb_id = tb_id;
         if ("file" in data.field) {
           delete data.field.file;
         }
+
+        // 对内容字段进行二次编码        
+        data.field.内容 = encodeURIComponent(encodeURIComponent(data.field.内容))
         console.log(data.field);
+        
+        
         var obj_save = {
           datas: [data.field, data.tb_id],
           func: "BC_insert_update"
@@ -168,8 +175,8 @@ table_act.update = function(res, tb_id, data) {
     
     $("*[name='录入时间']").addClass("dateClass");
 
-    $("*[name='关键字']").attr("oninput","if(value.length>16)value=value.slice(0,16)")
-    $("*[name='标题']").attr("oninput","if(value.length>16)value=value.slice(0,16)")
+    $("*[name='关键字']").attr("oninput","if(value.length>20)value=value.slice(0,20)")
+    $("*[name='标题']").attr("oninput","if(value.length>30)value=value.slice(0,30)")
 
     if ($("*[name='视频地址']") || $("*[name='图片地址']")) {
       form_act.add_video_pic(pic_type);
@@ -181,9 +188,16 @@ table_act.update = function(res, tb_id, data) {
     layui.use("form", function() {
       var form = layui.form;
       form.on("submit(formDemo)", function(data) {
+
+        // 取值、在封装ajax传参前对部分字段处理
         data.tb_id = tb_id;
         if ("file" in data.field) {
           delete data.field.file;
+        }
+
+        // 对内容字段进行二次编码
+        if(data.field.内容){
+          data.field.内容 = encodeURIComponent(encodeURIComponent(data.field.内容))          
         }
         var obj_save = {
           datas: [data.field, data.tb_id],

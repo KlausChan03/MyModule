@@ -158,21 +158,35 @@ function changeTableStutas(res, toolbar) {
         } else {
             th.push({ checkbox: true, fixed: true, align: "center" }, { title: "操作", toolbar: "#act-bar", width: 180, fixed: true, align: "center" });
         }
+        // 插入表格头部
         for (var i in res.列表[0]) {
-            th.push({ field: i, title: i, width: "120", align: "center" });
+            th.push({ field: i, title: i,  minWidth:150, align: "center" });
             $(".select-test").append("<option value='" + i + "'>" + i + "</option>");
         }
+        // 头部单独处理
+
         // 引入正序和倒序排序(sort)	
         th[2].sort = true;
         for (i in th) {
             if (th[i].field == "录入时间") {
                 var that = th[i]
 
-                function getsort(arg1) {
+                function get_sort(arg1) {
                     this.sort = true;
-                    console.log(this)
+                    this.minWidth = 200;
+                    
+                    console.log(this);
                 }
-                getsort.apply(that)
+                get_sort.apply(that)
+            }
+            if(th[i].field == "id") {
+                var that = th[i]
+
+                function set_width(arg1) {
+                    this.minWidth = 80;
+                    console.log(this);
+                }
+                set_width.apply(that)
             }
         }
 

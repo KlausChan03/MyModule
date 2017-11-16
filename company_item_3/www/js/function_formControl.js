@@ -149,7 +149,7 @@ form_act.editor = function(rich_open) {
         .append('<button type="button" class="layui-btn layui-btn-mini" id="text-button" style="float:right"> <i class="layui-icon">&#xe61a;</i>展开编辑 </button><button type="button" class="layui-btn layui-btn-mini" id="commit-button" style="display:none;float:right;margin-right:10px"> <i class="layui-icon">&#xe605;</i>确认编辑 </button>');
       $text.css({ display: "none" });
       // $text.parent().addClass("flex flex-hr-vc")
-      $text.parent().prepend('<div id="editor" style="display:none"></div>');
+      $text.parent().prepend('<div id="editor" style="display:none"><input type="text" placeholder="请输入标题" value="" class="editor-title" style=" font-size: 22px; height: 46px; line-height: 46px; width: 100%; background-color: transparent; border: 0; outline: 0; "></p><input type="text" class="editor-info" placeholder="请输入时间和作者" style=" font-size: 16px; /* height: 46px; */ height: 22px; margin: 4px 0; line-height: 22px; width: 100%; background-color: transparent; border: 0; outline: 0; "></div>');
       var $button_turn = $("#text-button");
       var $button_commit = $("#commit-button");
 
@@ -172,7 +172,9 @@ form_act.editor = function(rich_open) {
             .html('<i class="layui-icon">&#xe619;</i>收起编辑')
             .css({ "margin-top": "10px" });
           $button_commit.click(function() {
-            var final_text = editor.txt.html().replace(/&nbsp;/gi, "_空格_");
+            // var final_text = editor.txt.html().replace(/&nbsp;/gi, "_空格_");
+            console.log(editor.txt.html())
+            var final_text = editor.txt.html();
             $("*[name='内容']").val(final_text);
             if ($("*[name='内容']").val() == final_text) {
               layer.msg("编辑成功", { icon: 1, time: 2000 });

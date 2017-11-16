@@ -34,6 +34,47 @@
   height: 10px;
 }
 
+
+.layui-tab-title li .layui-tab-close {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  margin-left: 15px;
+  top: 1px;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+  transition: all .2s;
+  -webkit-transition: all .2s;
+  background-color: #999;
+  border-radius: 50%;
+  padding: .5px;
+}
+
+.layui-tab-title li .layui-tab-close:hover {
+  background-color: #393D49;
+  color: #fff;
+}
+
+.layui-btn-mini{
+  padding: 0 5px;
+  font-size: 12px;
+}
+
+
+.childrenBody{
+  margin: 10px 10px 0;
+}
+.layui-inline{
+  margin: 5px 5px 5px 0;
+}
+
+.layui-table-tips-c{
+  cursor: zoom-out;
+}
+
 /* 底部显示与否 */
 .layui-layout-admin .layui-body{
   bottom:0;

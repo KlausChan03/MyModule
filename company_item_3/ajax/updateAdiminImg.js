@@ -13,6 +13,9 @@ var transliteration = require("transliteration");
 var sign = require("../func/sign.js");
 var fs = require("fs");
 
+var sqlite = require("../func/sqlite.js");
+var public = require("../ajax/admin_control");
+
 config.readfile();
 
 module.exports.run = function(body, pg, mo) {
@@ -20,16 +23,26 @@ module.exports.run = function(body, pg, mo) {
   body.receive = JSON.parse(body.data);
   var 时间 = moment().format("YYYY-MM-DD HH:mm:ss");
   var 日期 = moment().format("YYYY-MM-DD");
-  
-  var f ={};
+
+  var f = {};
   f.data = body.receive;
-   f.session = body.session;
-   body.session.头像 = f.data.头像;
+  f.session = body.session;
+
+  var db = sqlite.connect();
+  var sql = "";
+
+  sql = "update 管_管理员表 set 头像 ='" + f.data.头像 + "' where id = '" + f.session.user_id + "' ";
   
-  var sql="";
-  sql="update 管_管理员表 set 头像 ='"+f.data.头像+"' where id = '"+f.session.user_id+"' ";
-  var result_power = pgdb.query(pg, sql);
-  p.状态="成功";
-  p.头像=f.data.头像;
+  var result = sqlite.query(db, sql);
+
+  if(result.状态 == "成功"){
+    p.头像 = f.data.头像;
+    body.session.头像  = f.data.头像;
+  }
+
+  
+  p.状态 = "成功";
+  sqlite.close(db);
+
   return common.removenull(p);
 };

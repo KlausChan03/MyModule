@@ -15,16 +15,20 @@ config.readfile();
 
 module.exports.run = function(body, pg, mo) {
   var p = {};
+  
   body.receive = JSON.parse(body.data);
   var 时间 = moment().format("YYYY-MM-DD HH:mm:ss");
   var 日期 = moment().format("YYYY-MM-DD");
   var f ={};
-  f.data = body.receive[0];
-  f.check = body.receive[1];
 
-  if(f.data.内容){
-    f.data.内容 = f.data.内容.replace(/_空格_/g,"&nbsp;")
-  }
+  f.data = body.receive[0];
+  f.data.内容 = decodeURIComponent(f.data.内容);
+  f.check = body.receive[1];
+  console.log(f.data,"kkkkkkllll")
+  
+  // if(f.data.内容){
+  //   f.data.内容 = f.data.内容.replace(/_空格_/g,"&nbsp;")
+  // }
   var menu = config.get("menu");
   var table_name = "";
   var table_id = "";
