@@ -92,11 +92,8 @@ table_act.insert = function(res, tb_id) {
         if ("file" in data.field) {
           delete data.field.file;
         }
-
         // 对内容字段进行二次编码        
         data.field.内容 = encodeURIComponent(encodeURIComponent(data.field.内容))
-        console.log(data.field);
-        
         
         var obj_save = {
           datas: [data.field, data.tb_id],
@@ -199,6 +196,7 @@ table_act.update = function(res, tb_id, data) {
         if(data.field.内容){
           data.field.内容 = encodeURIComponent(encodeURIComponent(data.field.内容))          
         }
+        
         var obj_save = {
           datas: [data.field, data.tb_id],
           func: "BC_insert_update"

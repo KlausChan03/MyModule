@@ -229,3 +229,75 @@ layui.use(["table", "form", "upload"], function() {
   };
   ajax.ajax_common(obj_save, success_func, error_func);
 });
+
+
+/**
+ * 2017/10/23 write by zhou
+ * 封装渲染表格
+ * @param {Object} res
+ */
+function changeTableStutas(res, toolbar) {
+  console.log(res.列表, ("llljkdjfkdjkf"))
+  layui.use(['table', 'form'], function() {
+      var table = layui.table;
+      var bar_set = $(".layui-hide .layui-btn").length;
+      var th = [];
+
+      // 引入工具条
+      if (toolbar == "flase") {
+          th.push({ checkbox: true, fixed: true, align: "center" });
+      } else {
+          th.push({ checkbox: true, fixed: true, align: "center" }, { title: "操作", toolbar: "#act-bar", width: 180, fixed: true, align: "center" });
+      }
+      // 插入表格头部
+      for (var i in res.列表[0]) {
+          th.push({ field: i, title: i,  minWidth:150, align: "center" });
+          $(".select-test").append("<option value='" + i + "'>" + i + "</option>");
+      }
+      // 头部单独处理
+
+      // 引入正序和倒序排序(sort)	
+      th[2].sort = true;
+      for (i in th) {
+          if (th[i].field == "录入时间") {
+              var that = th[i]
+
+              function get_sort(arg1) {
+                  this.sort = true;
+                  this.minWidth = 200;
+                  
+                  console.log(this);
+              }
+              get_sort.apply(that)
+          }
+          if(th[i].field == "id") {
+              var that = th[i]
+
+              function set_width(arg1) {
+                  this.minWidth = 80;
+                  console.log(this);
+              }
+              set_width.apply(that)
+          }
+      }
+
+      // 生成表格
+      table.render({
+          initSort: {
+              field: 'id', //排序字段，对应 cols 设定的各字段名				
+              type: 'asc' //排序方式  asc: 升序、desc: 降序、null: 默认排序
+          },
+          elem: "#demo",
+          id: "test",
+          data: res.列表,
+          width: "auto",
+          cols: [th],
+          skin: "row", //表格风格
+          even: true,
+          page: true, //是否显示分页
+          limits: [10, 15, 20, 50, 100],
+          limit: 15, //每页默认显示的数量
+      });
+  });
+
+}

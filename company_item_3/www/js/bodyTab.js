@@ -101,7 +101,7 @@ layui.define(["element", "jquery"], function(exports) {
           }
           // 功能模块测试
           // [
-          // _data.push(data[3]);
+          _data.push(data[3]);
           // ]
 
           data = _data;
