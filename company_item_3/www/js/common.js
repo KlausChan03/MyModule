@@ -167,7 +167,7 @@ function stopDefault(e) {
 }
 
 // 获取当前时间函数
-function getTime() {
+function getTime(n) {
     var date = new Date();
     date.year = date.getFullYear();
     date.month = date.getMonth() + 1 < 10 ? "0" + String(date.getMonth() + 1) : String(date.getMonth() + 1);
@@ -175,10 +175,28 @@ function getTime() {
     date.hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
     date.minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
     date.second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-    var currentTime = date.year + "-" + date.month + "-" + date.date + " " + date.hour + ":" + date.minute + ":" + date.second;
+    var currentTime = "";
+    if(n==1){
+        currentTime = date.year + date.month + date.date + date.hour + date.minute + date.minute;    
+    }else{
+        currentTime = date.year + "-" + date.month + "-" + date.date + " " + date.hour + ":" + date.minute + ":" + date.minute;        
+        
+    }
     return currentTime;
 }
 
+
+// 生成随机数
+
+    function generateMixed(n) {
+        var chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+        var res = "";
+        for (var i = 0; i < n; i++) {
+            var id = Math.ceil(Math.random() * 35);
+            res += chars[id];
+        }
+        return res;
+    }
 
 $(document).keydown(function(event) {
     var e = event || window.event;

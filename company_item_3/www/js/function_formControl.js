@@ -13,75 +13,133 @@ form_act.add_video_pic = function(pic_type) {
     //   .attr({ readonly: "readonly", "lay-verify": "required" })
     //   .addClass("required");
 
+    // var client = new OSS.Wrapper({
+    //   region: "oss-cn-shenzhen",
+    //   accessKeyId: "LTAIRz4pA6Qeu12D",
+    //   accessKeySecret: "ZASbh3Xg1RtSo6VxwLnNkSlNvXNMYJ",
+    //   bucket: "zyk-temp"
+    // });
+
+    //直接上传
     var $video = $("*[name='视频地址']");
     $video.addClass("video-input");
-    $video.css({ width: "80%" });
+    $video.css({ width: "85%" });
     $video.parent().addClass("flex flex-hb-vc");
 
     $video
       .parent()
       .append(
-        '<button type="button" class="layui-btn layui-btn-mini" id="video-input"> <i class="layui-icon">&#xe67c;</i>上传视频 </button><p class="loading-icon" style="display:none"></p>'
+        '<div><button type="button" class="layui-btn layui-btn-mini" id="video-input"> <i class="layui-icon">&#xe67c;</i>上传视频 </button><input type="file" name="file" id="file" value="" style="display: none;" /><p class="loading-icon" style="display:none"></p><div class="video-progress layui-progress layui-progress" lay-showpercent="true" lay-filter="demo" style="width: 85px;margin-top: 20px;display:none"><div class="layui-progress-bar layui-bg-red" lay-percent="0%"></div></div></div>'
       );
-    var uploadInst = upload.render({
-      elem: "#video-input",
-      url: "/temp",
-      accept: "video",
-      auto: true,
-      done: function(res) {
-        var datas = {};
-        datas.img_list = res.newpath;
-        datas = JSON.stringify(datas);
-        console.log(datas);
-        // layer.open({
-        //   id: "upload",
-        //   type: 1,
-        //   title: "上传进度",
-        //   closeBtn: 0, //不显示关闭按钮
-        //   content:'<div class="flex-hc-vc" style="width: 100%; height: 100%; padding: 0 30px; box-sizing: border-box;"><div class="layui-progress layui-progress-big" lay-showPercent="true" lay-filter="demo" style="width: 100%;"> <div class="layui-progress-bar layui-bg-green" lay-percent="0%"></div> </div></div>',
-        //   area: ["250px", "150px"],
-        //   success: function() {
-        //     element.init();
-        //   }
-        // });
-        // element.progress("demo", "0%");
 
-        // var t = 0;
-        // setInterval(function(){
-        //   t = t+20;
-        //   element.progress('demo', t+'%');
-        // },10000)
+    $("#video-input").click(function() {
+      $("#file").click();
+      document.getElementById("file").addEventListener("change", function(e) {
+        // 初始化设置
+        var file = e.target.files[0];
+        console.log(file);
+        var obj_save = {
+          datas: "",
+          func: "get_alicloudConfig"
+        };
+        var success_func = function(res) {
+          var client = new OSS.Wrapper({
+            region: res.conf.region,
+            accessKeyId: res.conf.accessKeyId,
+            accessKeySecret: res.conf.accessKeySecret,
+            bucket: res.conf.bucket
+          });
 
-        $(".loading-icon")
-          .show()
-          .html(
-            '<i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop loading">&#xe63d;</i>'
-          );
-        $.ajax({
-          url: "/ajax.post?func=upload_video",
-          type: "POST",
-          data: "data=" + datas,
-          beforeSend: function() {},
-          success: function(res) {
-            if (res.状态 == "上传成功") {
-              // console.log(t)
-              // t= 0;
-              // clearInterval();
-              //   element.progress("demo", "100%");
-              setTimeout(function() {
-                // layer.close(layer.index);
-                var video_url = res.地址.split("?uploadId")[0];
-                $(".video-input").val(video_url);
-                layer.msg("上传成功");
-              }, 1000);
-              $(".loading-icon").hide();
-            } else {
-              layer.msg("上传失败");
-            }
-          }
-        });
-      }
+          element.init();
+          $(".video-progress").show(1000);
+          // 定义MP4文件名
+          var video_name = getTime(1) + generateMixed(4) + ".mp4";
+          console.log(client, "hehe");
+          client
+            .multipartUpload(video_name, file, {
+              progress: function*(p) {
+                element.progress("demo", (p * 100).toFixed(2) + "%");
+                if (p * 100 == 100) {
+                  $(".video-progress").hide(1000);
+                  layer.msg("上传成功");
+                }
+              }
+            })
+            .then(function(result) {
+              console.log(result);
+              var video_url = result.res.requestUrls[0].split("?")[0];
+              $(".video-input").val(video_url);
+            })
+            .catch(function(err) {
+              console.log(err);
+            });
+        };
+        var error_func = function(res) {
+          console.log(res);
+        };
+        ajax.ajax_common(obj_save, success_func, error_func);
+      });
     });
+
+    // var uploadInst = upload.render({
+    //   elem: "#video-input",
+    //   url: "/temp",
+    //   accept: "video",
+    //   auto: true,
+    //   done: function(res) {
+    //     var datas = {};
+    //     datas.img_list = res.newpath;
+    //     datas = JSON.stringify(datas);
+    //     console.log(datas);
+    //     // layer.open({
+    //     //   id: "upload",
+    //     //   type: 1,
+    //     //   title: "上传进度",
+    //     //   closeBtn: 0, //不显示关闭按钮
+    //     //   content:'<div class="flex-hc-vc" style="width: 100%; height: 100%; padding: 0 30px; box-sizing: border-box;"><div class="layui-progress layui-progress-big" lay-showPercent="true" lay-filter="demo" style="width: 100%;"> <div class="layui-progress-bar layui-bg-green" lay-percent="0%"></div> </div></div>',
+    //     //   area: ["250px", "150px"],
+    //     //   success: function() {
+    //     //     element.init();
+    //     //   }
+    //     // });
+    //     // element.progress("demo", "0%");
+
+    //     // var t = 0;
+    //     // setInterval(function(){
+    //     //   t = t+20;
+    //     //   element.progress('demo', t+'%');
+    //     // },10000)
+
+    //     $(".loading-icon")
+    //       .show()
+    //       .html(
+    //         '<i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop loading">&#xe63d;</i>'
+    //       );
+    //     $.ajax({
+    //       url: "/ajax.post?func=upload_video",
+    //       type: "POST",
+    //       data: "data=" + datas,
+    //       beforeSend: function() {},
+    //       success: function(res) {
+    //         if (res.状态 == "上传成功") {
+    //           // console.log(t)
+    //           // t= 0;
+    //           // clearInterval();
+    //           //   element.progress("demo", "100%");
+    //           setTimeout(function() {
+    //             // layer.close(layer.index);
+    //             var video_url = res.地址.split("?uploadId")[0];
+    //             $(".video-input").val(video_url);
+    //             layer.msg("上传成功");
+    //           }, 1000);
+    //           $(".loading-icon").hide();
+    //         } else {
+    //           layer.msg("上传失败");
+    //         }
+    //       }
+    //     });
+    //   }
+    // });
 
     if ($("*[name='图片地址']")) {
       var pic_arr = [];
@@ -89,7 +147,7 @@ form_act.add_video_pic = function(pic_type) {
       var multiple = "";
       var $pic = $("*[name='图片地址']");
       $pic.addClass("pic-input");
-      $pic.css({ width: "80%" });
+      $pic.css({ width: "85%" });
       $pic.parent().addClass("flex flex-hb-vc");
 
       if (pic_type == "all") {
