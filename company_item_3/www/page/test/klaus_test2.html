@@ -1,62 +1,61 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-	<head>
-		<meta charset="utf-8">
-		<title>新闻资讯</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=no" />
-		<script type="text/javascript" src="../../js/init.js" ></script>
-		<link rel="stylesheet" href="../../css/flex.css" media="all" />
-		<link rel="stylesheet" href="../../css/common.css" media="all" />
-		<style>
-			*{box-sizing: border-box}
-			body{overflow-x: hidden;padding: .1rem .3rem}
-			h2{font-size:.36rem;line-height: 2}
-			h3{font-size:.32rem;line-height: 2}
-			p{font-size:.3rem;line-height: 1.5}
-			
-			.toolbar {
-				border: 1px solid #ccc;
-			}
-			.text {
-				border: 1px solid #ccc;
-				height: 400px;
-			}
-		</style>
-	
-	</head>
+<head>
+    <meta name="robots" content="all" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>点击图片直接把图片地址复制到粘贴板</title>
+    <style type="text/css">
+        #www_jb51_net_hidden {
+            position: absolute;
+            /* visibility: hidden; */
+        }
 
-	<body class="main_body">
+        img {
+            cursor: pointer;
+        }
+    </style>
+</head>
 
-		<div id="div1" class="toolbar"></div>
+<body>
+    点击下面的图片直接获取得地址。
+    <div id="jb51_net">
+        <img src="../../images/face.jpg">
+        <img src="../../images/face.jpg">
+        <br />
+    </div>
 
-		<div class="editor-top" style="position:absolute;z-index:10001">
-			<input type="text" class="editor-title" placeholder="请输入标题" value=""  style=" font-size: 22px; height: 46px; line-height: 46px; width: 100%; background-color: transparent; border: 0; outline: 0; ">
-			<input type="text" class="editor-info" placeholder="请输入时间和作者" style=" font-size: 16px; /* height: 46px; */ height: 22px; margin: 4px 0; line-height: 22px; width: 100%; background-color: transparent; border: 0; outline: 0; ">
-		</div>
-		<div id="div2" class="text" style="padding-top: 80px"><p>请输入内容</p></div>
-		<script type="text/javascript" src="../../js/wangediter/wangEditor.min.js"></script>
-		
-	
-			<script type="text/javascript" src="../../js/jquery.min.js"></script>
-			<script type="text/javascript" src="../../js/common.js"></script>
-			<script type="text/javascript" src="../../layui/layui.js"></script>
-		<!-- <script type="text/javascript" src="/wangEditor.min.js"></script> -->
-		<script type="text/javascript">
-			var E = window.wangEditor
-			var editor1 = new E('#div1', '#div2')  // 两个参数也可以传入 elem 对象，class 选择器
-			editor1.create()
-		</script>
+    <span id="www_jb51_net_hidden"></span>
+    <span onclick="copyText()">llllll</span>
+</body>
+<script type="text/javascript">
 
-		<!-- <script>
-			var data = "";
-			var obj_save = {datas:data,func:"get_html"};
-			var success_func = function(res){
-				console.log(res)
-				$("body").html(res.数据)
-			}
-			ajax.ajax_common(obj_save,success_func)
-		</script> -->
-	</body>
+    // $id = function (id) {
+    //     return document.getElementById(id);
+    // }
+    // var objs = $id("jb51_net").getElementsByTagName("img");
+    // console.log(objs)
+    // for (var i = 0; i < objs.length; i++) {
+    //     objs[i].onclick = function () {
+    //         $id("www_jb51_net_hidden").innerHTML = this.src;
+    //         var my_range = document.body.createTextRange();
+    //         my_range.moveToElementText($id("www_jb51_net_hidden"));
+    //         my_range.execCommand("copy");
+    //         alert("图片地址已经复制到剪贴板");
+    //         return false;
+    //     }
+    // }
+
+    function copyText(obj) {
+        var rng = document.body.createTextRange();
+        rng.moveToElementText(obj);
+        rng.scrollIntoView();
+        rng.select();
+        rng.execCommand("Copy");
+        rng.collapse(false);
+        alert("复制成功!");
+    }
+
+</script>
 
 </html>

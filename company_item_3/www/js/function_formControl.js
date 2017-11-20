@@ -6,12 +6,12 @@ form_act.add_video_pic = function(pic_type) {
       element = layui.element,
       layer = layui.layer;
 
-    // $("*[name='图片地址']")
-    //   .attr({ readonly: "readonly", "lay-verify": "required" })
-    //   .addClass("required");
-    // $("*[name='视频地址']")
-    //   .attr({ readonly: "readonly", "lay-verify": "required" })
-    //   .addClass("required");
+    $("*[name='图片地址']")
+      .attr({ readonly: "readonly", "lay-verify": "required" })
+      .addClass("required");
+    $("*[name='视频地址']")
+      .attr({ readonly: "readonly", "lay-verify": "required" })
+      .addClass("required");
 
     // var client = new OSS.Wrapper({
     //   region: "oss-cn-shenzhen",
@@ -23,7 +23,7 @@ form_act.add_video_pic = function(pic_type) {
     //直接上传
     var $video = $("*[name='视频地址']");
     $video.addClass("video-input");
-    $video.css({ width: "85%" });
+    $video.css({ width: "100%" });
     $video.parent().addClass("flex flex-hb-vc");
 
     $video
@@ -33,53 +33,56 @@ form_act.add_video_pic = function(pic_type) {
       );
 
     $("#video-input").click(function() {
+      console.log($("#file"))
       $("#file").click();
-      document.getElementById("file").addEventListener("change", function(e) {
-        // 初始化设置
-        var file = e.target.files[0];
-        console.log(file);
-        var obj_save = {
-          datas: "",
-          func: "get_alicloudConfig"
-        };
-        var success_func = function(res) {
-          var client = new OSS.Wrapper({
-            region: res.conf.region,
-            accessKeyId: res.conf.accessKeyId,
-            accessKeySecret: res.conf.accessKeySecret,
-            bucket: res.conf.bucket
-          });
-
-          element.init();
-          $(".video-progress").show(1000);
-          // 定义MP4文件名
-          var video_name = getTime(1) + generateMixed(4) + ".mp4";
-          console.log(client, "hehe");
-          client
-            .multipartUpload(video_name, file, {
-              progress: function*(p) {
-                element.progress("demo", (p * 100).toFixed(2) + "%");
-                if (p * 100 == 100) {
-                  $(".video-progress").hide(1000);
-                  layer.msg("上传成功");
-                }
-              }
-            })
-            .then(function(result) {
-              console.log(result);
-              var video_url = result.res.requestUrls[0].split("?")[0];
-              $(".video-input").val(video_url);
-            })
-            .catch(function(err) {
-              console.log(err);
-            });
-        };
-        var error_func = function(res) {
-          console.log(res);
-        };
-        ajax.ajax_common(obj_save, success_func, error_func);
-      });
+      
     });
+    // if($("#file").val()){}
+    // document.getElementById("file").addEventListener("change", function(e) {
+    //   // 初始化设置
+    //   var file = e.target.files[0];
+    //   console.log(file);
+    //   var obj_save = {
+    //     datas: "",
+    //     func: "get_alicloudConfig"
+    //   };
+    //   var success_func = function(res) {
+    //     var client = new OSS.Wrapper({
+    //       region: res.conf.region,
+    //       accessKeyId: res.conf.accessKeyId,
+    //       accessKeySecret: res.conf.accessKeySecret,
+    //       bucket: res.conf.bucket
+    //     });
+
+    //     element.init();
+    //     $(".video-progress").show(1000);
+    //     // 定义MP4文件名
+    //     var video_name = getTime(1) + generateMixed(4) + ".mp4";
+    //     console.log(client, "hehe");
+    //     client
+    //       .multipartUpload(video_name, file, {
+    //         progress: function*(p) {
+    //           element.progress("demo", (p * 100).toFixed(2) + "%");
+    //           if (p * 100 == 100) {
+    //             $(".video-progress").hide(1000);
+    //             layer.msg("上传成功");
+    //           }
+    //         }
+    //       })
+    //       .then(function(result) {
+    //         console.log(result);
+    //         var video_url = result.res.requestUrls[0].split("?")[0];
+    //         $(".video-input").val(video_url);
+    //       })
+    //       .catch(function(err) {
+    //         console.log(err);
+    //       });
+    //   };
+    //   var error_func = function(res) {
+    //     console.log(res);
+    //   };
+    //   ajax.ajax_common(obj_save, success_func, error_func);
+    // });
 
     // var uploadInst = upload.render({
     //   elem: "#video-input",
@@ -147,24 +150,29 @@ form_act.add_video_pic = function(pic_type) {
       var multiple = "";
       var $pic = $("*[name='图片地址']");
       $pic.addClass("pic-input");
-      $pic.css({ width: "85%" });
+      $pic.css({ width: "100%" });
       $pic.parent().addClass("flex flex-hb-vc");
+      $pic.parent().parent().append('<div class="show-block" id="show-block"></div>');
+
 
       if (pic_type == "all") {
         $pic
           .parent()
           .append(
-            '<button type="button" class="layui-btn layui-btn-mini" id="pic-input"> <i class="layui-icon">&#xe67c;</i>上传多图 </button>'
+            '<button type="button" class="layui-btn layui-btn-mini" id="pic-input"  style="margin-left:10px"> <i class="layui-icon">&#xe67c;</i>上传多图 </button><button type="button" class="layui-btn layui-btn-mini" id="pic-reset" style="margin-left:10px"> <i class="layui-icon">&#x1006;</i>清空图片 </button>'
           );
         multiple = true;
       } else if (pic_type == "one") {
         $pic
           .parent()
           .append(
-            '<button type="button" class="layui-btn layui-btn-mini" id="pic-input"> <i class="layui-icon">&#xe67c;</i>上传图片 </button>'
+            '<button type="button" class="layui-btn layui-btn-mini" id="pic-input"  style="margin-left:10px"> <i class="layui-icon">&#xe67c;</i>上传图片 </button><button type="button" class="layui-btn layui-btn-mini" id="pic-reset" style="margin-left:10px"> <i class="layui-icon">&#x1006;</i>清空图片 </button>'
           );
         multiple = false;
       }
+
+      var $show = $(".show-block");
+
       var uploadInst = upload.render({
         elem: "#pic-input",
         url: "/temp",
@@ -182,15 +190,52 @@ form_act.add_video_pic = function(pic_type) {
             type: "POST",
             data: "data=" + datas,
             success: function(res) {
-              console.log(res.地址);
+              // console.log(res.地址);
+              layer.msg("上传成功");
+              
               if (res.状态 == "上传成功") {
+               
                 pic_arr.push(res.地址 + "@split@");
                 pic_str = pic_arr.toString();
                 pic_str = pic_str
                   .replace(/@split@,/g, "@split@")
                   .replace(/@split@$/, "");
-                $(".pic-input").val(pic_str);
-                layer.msg("上传成功");
+                  $pic.val(pic_str);
+
+                  $show.append('<div class="show-pic"><img class="show-pic-main" title="右键可复制复制地址" src="'+ res.地址 +'"><span class="show-pic-close"><i class="layui-icon" style="font-size:24px">&#x1007;</i></span></div>');
+                  
+                              
+
+                  
+                  var $close = $(".show-pic-close");                  
+                  $close.off("click").on("click",function(){
+                    var $index = $(this).parent().index();
+                    console.log($index)
+                    $show.find($(".show-pic:eq("+$index+")")).remove()
+                    var pic_arr_ = pic_arr;
+                    var pic_arr_new = [];
+                    pic_arr = pic_arr.splice($index,1);
+                    for(i in pic_arr_){
+                        console.log(pic_arr_)
+                        if(pic_arr_[i]!=pic_arr){
+                          pic_arr_new.push(pic_arr_[i])
+                        }
+                    }
+                    var pic_str_new = pic_arr_new.toString();
+                    pic_str_new = pic_str_new
+                    .replace(/@split@,/g, "@split@")
+                    .replace(/@split@$/, "");
+                    $pic.val(pic_str_new);                  
+                      
+                  })
+
+                  var $reset = $("#pic-reset")
+                  $reset.off("click").on("click",function(){
+                    pic_arr=[];
+                    $pic.val("");
+                    $show.empty();
+                  })
+
               } else {
                 layer.msg("上传失败");
               }

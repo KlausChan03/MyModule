@@ -60,6 +60,21 @@
     ]
   },
   {
+    "title": "全球",
+    "icon": "&#xe635;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "id":"1",
+        "title": "全_会员表",
+        "icon": "&#xe609;",
+        "href": "page/qq_items/global_member.html?func=BC_select_all&bc_id=global_member&pic_type=all",
+        "spread": false
+      }
+    ]
+  },
+  {
     "title": "功能开发",
     "icon": "&#xe630;",
     "href": "",
