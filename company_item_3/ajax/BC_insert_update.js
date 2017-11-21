@@ -22,7 +22,10 @@ module.exports.run = function(body, pg, mo) {
   var f ={};
 
   f.data = body.receive[0];
-  f.data.内容 = decodeURIComponent(f.data.内容);
+  if(f.data.内容){
+    f.data.内容 = decodeURIComponent(f.data.内容);
+    
+  }
   f.check = body.receive[1];
   console.log(f.data,"kkkkkkllll")
   

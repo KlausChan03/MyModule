@@ -5,9 +5,11 @@ var ifarme_func = window.top.document.getElementsByClassName("iframe_");
 var tb_id = GetRequest(ifarme_func).bc_id;
 var pic_type = GetRequest(ifarme_func).pic_type;
 var rich_open = GetRequest(ifarme_func).rich_open;
+var video_open = GetRequest(ifarme_func).video_open;
 var data = {};
 var toolbar = true;
 console.log(rich_open)
+console.log(video_open)
 
 // 新方法实现数据渲染
 layui.use(["table", "form", "upload"], function() {
@@ -237,7 +239,7 @@ layui.use(["table", "form", "upload"], function() {
  * @param {Object} res
  */
 function changeTableStutas(res, toolbar) {
-  console.log(res.列表, ("llljkdjfkdjkf"))
+
   layui.use(['table', 'form'], function() {
       var table = layui.table;
       var bar_set = $(".layui-hide .layui-btn").length;

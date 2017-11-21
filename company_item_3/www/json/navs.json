@@ -41,20 +41,20 @@
         "id":"1",
         "title": "全_首页模版表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/qq_indexTemplate.html?func=BC_select_all&bc_id=qq_indexTemplate&pic_type=all",
+        "href": "page/qq_items/qq_indexTemplate.html?func=BC_select_all&bc_id=qq_indexTemplate&pic_type=all&rich_open=false&video_open=false",
         "spread": false
       },
       {
         "id":"2",
         "title": "全_首页信息表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/qq_indexNews.html?func=BC_select_all&bc_id=qq_indexNews&pic_type=all&rich_open=true",
+        "href": "page/qq_items/qq_indexNews.html?func=BC_select_all&bc_id=qq_indexNews&pic_type=all&rich_open=true&video_open=false",
         "spread": false
       },{
         "id":"3",
         "title": "全_首页视频表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/qq_indexVideo.html?func=BC_select_all&bc_id=qq_indexVideo&pic_type=one",
+        "href": "page/qq_items/qq_indexVideo.html?func=BC_select_all&bc_id=qq_indexVideo&pic_type=one&rich_open=false&video_open=true",
         "spread": false
       }
     ]

@@ -27,7 +27,7 @@ table_act.insert = function(res, tb_id) {
   }
   var test = "";
   test_arr.pop();
-  console.log(test_arr);
+  // console.log(test_arr);
   for (var i = 0; i < test_arr.length; i++) {
     test +=
       '<div class="layui-form-item"><label class="layui-form-label">' +
@@ -65,23 +65,23 @@ table_act.insert = function(res, tb_id) {
     // })
 
     if ($("*[name='视频地址']") || $("*[name='图片地址']")) {
-      form_act.add_video_pic(pic_type);
+      form_act.add_video_pic(pic_type,video_open);
     }
     if($("*[name='内容']")){
       form_act.editor(rich_open);
     }
 
 
-    $("*[name='权限']").click(function() {
-      var obj_save = { datas: "", func: "" };
-      var success_func = function() {
-        console.log(res);
-      };
-      var error_func = function() {
-        console.log(res);
-      };
-      ajax.ajax_common(obj_save, success_func, error_func);
-    });
+    // $("*[name='权限']").click(function() {
+    //   var obj_save = { datas: "", func: "" };
+    //   var success_func = function() {
+    //     console.log(res);
+    //   };
+    //   var error_func = function() {
+    //     console.log(res);
+    //   };
+    //   ajax.ajax_common(obj_save, success_func, error_func);
+    // });
 
     layui.use("form", function() {
       var form = layui.form;
@@ -92,8 +92,10 @@ table_act.insert = function(res, tb_id) {
         if ("file" in data.field) {
           delete data.field.file;
         }
-        // 对内容字段进行二次编码        
-        data.field.内容 = encodeURIComponent(encodeURIComponent(data.field.内容))
+        // 对内容字段进行二次编码 
+        if(data.field.内容){
+          data.field.内容 = encodeURIComponent(encodeURIComponent(data.field.内容))          
+        }      
         
         var obj_save = {
           datas: [data.field, data.tb_id],
@@ -131,7 +133,7 @@ table_act.update = function(res, tb_id, data) {
   for (var j in data) {
     old_arr.push(data[j]);
   }
-  console.log(old_arr);
+  // console.log(old_arr);
   var test = "";
 
   //赋给录入时期的的input的一个id名
@@ -146,7 +148,6 @@ table_act.update = function(res, tb_id, data) {
         .replace(/>/g, "&gt;")
         .replace(/</g, "&lt;");
     }
-    console.log(test_arr,"test2")
     // input[type="text"]的遍历生成html
     test +=
       '<div class="layui-form-item"><label class="layui-form-label">' +
@@ -176,9 +177,9 @@ table_act.update = function(res, tb_id, data) {
     $("*[name='标题']").attr("oninput","if(value.length>30)value=value.slice(0,30)")
 
     if ($("*[name='视频地址']") || $("*[name='图片地址']")) {
-      form_act.add_video_pic(pic_type);
+      form_act.add_video_pic(pic_type,video_open);
     }
-     if($("*[name='内容']")){
+    if($("*[name='内容']")){
       form_act.editor(rich_open);
     }
 
