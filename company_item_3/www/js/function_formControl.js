@@ -46,7 +46,7 @@ form_act.add_video_pic = function(pic_type,video_open) {
           datas: "",
           func: "get_alicloudConfig"
         };
-        var success_func = function(res) {
+        var success_func = function(res) {        
           var client = new OSS.Wrapper({
             region: res.conf.region,
             accessKeyId: res.conf.accessKeyId,
@@ -155,7 +155,8 @@ form_act.add_video_pic = function(pic_type,video_open) {
         .parent()
         .parent()
         .append('<div class="show-block" id="show-block"></div>');
-
+      var $show = $(".show-block");
+        
       
 
       if (pic_type == "all") {
@@ -173,11 +174,14 @@ form_act.add_video_pic = function(pic_type,video_open) {
           );
         multiple = false;
       }
+      
 
       if ($("*[name='图片地址']").val() != "" && pic_type == "all") {
         var msg = {};
         msg.地址 = $("*[name='图片地址']").val();
         pic_arr = msg.地址.split("@split@")
+        console.log(pic_arr,"111")
+        
         pic_show(msg,pic_arr);
       } else if( $("*[name='图片地址']").val() != "" && pic_type == "one"){
         var msg = {};
@@ -188,7 +192,6 @@ form_act.add_video_pic = function(pic_type,video_open) {
       }
 
       function pic_show(res,pic_arr) {
-        var $show = $(".show-block");
         if(pic_type=="all"){
           res.地址 =  res.地址.split("@split@")
           console.log(res.地址)
@@ -205,45 +208,43 @@ form_act.add_video_pic = function(pic_type,video_open) {
               res.地址 +
               '"><span class="show-pic-close"><i class="layui-icon" style="font-size:24px">&#x1007;</i></span></div>'
           );
-        }
-        
-
-        var $close = $(".show-pic-close");
-        $close.off("click").on("click", function() {
-          if(pic_type=="one"){
-            $("#pic-input").attr({"title":"可以上传"}).removeAttr("disabled").css({"background":"#2b9ced"})
-            
-          }
-          var $index = $(this)
-            .parent()
-            .index();
-          $show.find($(".show-pic:eq(" + $index + ")")).remove();
-          var pic_arr_ = pic_arr;
-          var pic_arr_new = [];
-          pic_arr = pic_arr.splice($index, 1);
-          for (i in pic_arr_) {
-            if (pic_arr_[i] != pic_arr) {
-              pic_arr_new.push(pic_arr_[i]);
-            }
-          }
-          var pic_str_new = pic_arr_new.toString();
-          pic_str_new = pic_str_new
-            .replace(/@split@,/g, "@split@")
-            .replace(/@split@$/, "");
-          console.log(pic_str_new)
-          $pic.val(pic_str_new);
-        });
-
-        var $reset = $("#pic-reset");
-        $reset.off("click").on("click", function() {
-          pic_arr = [];
-          res.地址 ="";
-          console.log(pic_arr)
-          $pic.val("");
-          $show.empty();
-          $("#pic-input").attr({"title":"可以上传"}).removeAttr("disabled").css({"background":"#2b9ced"})
-        });
+        }     
       }
+
+      var $close = $(".show-pic-close");
+      $close.off("click").on("click", function() {
+        console.log(pic_arr,"222")
+        if(pic_type=="one"){
+          $("#pic-input").attr({"title":"可以上传"}).removeAttr("disabled").css({"background":"#2b9ced"})          
+        }
+        var $index = $(this)
+          .parent()
+          .index();
+          console.log($(this))
+        $show.find($(".show-pic:eq(" + $index + ")")).remove();
+        var pic_arr_ = pic_arr;
+        
+        var pic_arr_new = [];
+        pic_arr = pic_arr.splice($index, 1);
+        for (i in pic_arr_) {
+          if (pic_arr_[i] != pic_arr) {
+            pic_arr_new.push(pic_arr_[i]);
+          }
+        }
+        var pic_str_new = pic_arr_new.toString();
+        pic_str_new = pic_str_new
+          .replace(/@split@,/g, "@split@")
+          .replace(/@split@$/, "");
+        // console.log(pic_str_new)
+        $pic.val(pic_str_new);
+      });
+      var $reset = $("#pic-reset");
+      $reset.off("click").on("click", function() {
+        pic_arr = [];
+        $pic.val("");
+        $show.empty();
+        $("#pic-input").attr({"title":"可以上传"}).removeAttr("disabled").css({"background":"#2b9ced"})
+      });
 
       var uploadInst = upload.render({
         elem: "#pic-input",
@@ -266,6 +267,8 @@ form_act.add_video_pic = function(pic_type,video_open) {
                 
               }
               if (res.状态 == "上传成功") {
+                console.log(res.地址,"pull")
+                
                 pic_arr.push(res.地址 + "@split@");
                 console.log(pic_arr,"push")
                 
@@ -276,6 +279,38 @@ form_act.add_video_pic = function(pic_type,video_open) {
                 $pic.val(pic_str);
 
                 pic_show(res,pic_arr);
+                var $close = $(".show-pic-close");
+                $close.off("click").on("click", function() {
+                  if(pic_type=="one"){
+                    $("#pic-input").attr({"title":"可以上传"}).removeAttr("disabled").css({"background":"#2b9ced"})                    
+                  }
+                  var $index = $(this)
+                    .parent()
+                    .index();
+                    // console.log($(this))
+                  $show.find($(".show-pic:eq(" + $index + ")")).remove();
+                  var pic_arr_ = pic_arr;
+                  var pic_arr_new = [];
+                  pic_arr = pic_arr.splice($index, 1);
+                  for (i in pic_arr_) {
+                    if (pic_arr_[i] != pic_arr) {
+                      pic_arr_new.push(pic_arr_[i]);
+                    }
+                  }
+                  var pic_str_new = pic_arr_new.toString();
+                  pic_str_new = pic_str_new
+                    .replace(/@split@,/g, "@split@")
+                    .replace(/@split@$/, "");
+                  console.log(pic_str_new)
+                  $pic.val(pic_str_new);
+                });
+                var $reset = $("#pic-reset");
+                $reset.off("click").on("click", function() {
+                  pic_arr = [];
+                  $pic.val("");
+                  $show.empty();
+                  $("#pic-input").attr({"title":"可以上传"}).removeAttr("disabled").css({"background":"#2b9ced"})
+                });
               } else {
                 layer.msg("上传失败");
               }
@@ -371,3 +406,4 @@ form_act.editor = function(rich_open) {
     }
   });
 };
+
