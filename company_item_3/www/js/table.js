@@ -8,15 +8,14 @@ var rich_open = GetRequest(ifarme_func).rich_open;
 var video_open = GetRequest(ifarme_func).video_open;
 var data = {};
 var toolbar = true;
-console.log(rich_open)
-console.log(video_open)
 
 // 新方法实现数据渲染
 layui.use(["table", "form", "upload"], function() {
   var table = layui.table;
   var form = layui.form;
   var upload = layui.upload;
-  var $ = layui.jquery;
+  var $ = layui.jquery;  
+
 
   //存数据
   data.field = "";

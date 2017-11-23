@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="../layui/css/layui.css" media="all" />
 	<link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
 	<link rel="stylesheet" href="../css/main.css" media="all" />
+	<link rel="stylesheet" href="../css/flex.css" media="all" />
 	<link rel="stylesheet" href="../css/layer-set-myself.css" media="all" />
 	
 </head>
@@ -20,8 +21,12 @@
 
 	<div class="row">
 		<div class="sysNotice col">
-			<blockquote class="layui-elem-quote title">平台功能</blockquote>
-			<div class="layui-elem-quote layui-quote-nm version-msg">
+			<div class="platform-function">
+
+				<blockquote class="layui-elem-quote title flex-hb-vc"><span>平台功能</span><span class="more-msg" >更多<i class="layui-icon more">&#xe602;</i><i class="layui-icon less">&#xe61a;</i></span></blockquote>
+				<div class="layui-elem-quote layui-quote-nm version-msg">
+				</div>
+							
 			</div>
 		</div>
 		<div class="sysNotice col">
@@ -62,14 +67,17 @@
 					</tr>
 				</tbody>
 			</table>
-			<blockquote class="layui-elem-quote title">下期需求<i class="iconfont icon-new1"></i></blockquote>
-			<table class="layui-table" lay-skin="line">
-				<colgroup>
-					<col>
-					<col width="110">
-				</colgroup>
-				<tbody class="hot_news"></tbody>
-			</table> 
+			<div class="next-requirement">
+				<blockquote class="layui-elem-quote title flex-hb-vc"><span>下期需求<i class="iconfont icon-new1"></i></span><span class="more-msg" >更多<i class="layui-icon more">&#xe602;</i><i class="layui-icon less">&#xe61a;</i></span></blockquote>
+				<table class="layui-table" lay-skin="line">
+					<colgroup>
+						<col>
+						<col width="110">
+					</colgroup>
+					<tbody class="hot_news"></tbody>
+				</table> 
+			</div>
+			
 		</div>
 	</div>
 

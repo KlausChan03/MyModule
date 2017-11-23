@@ -5,6 +5,8 @@ layui.config({
 		layer = parent.layer === undefined ? layui.layer : parent.layer,
 		element = layui.element,
 		$ = layui.jquery;
+	var flag = 1;
+	var flag_ = 1;
 
 	$(".panel a").on("click",function(){
 		window.parent.addTab($(this));
@@ -13,35 +15,38 @@ layui.config({
 	//动态获取首页信息
 	$.get("../json/newsList.json",
 		function(data){
-			var waitNews = [];
-			$(".allNews span").text(data.length);  //文章总数
-			for(var i=0;i<data.length;i++){
-				var newsStr = data[i];
-				if(newsStr["newsStatus"] == "待审核"){
-					waitNews.push(newsStr);
-				}
-			}
-			$(".waitNews span").text(waitNews.length);  //待审核文章
-			//加载最新文章
+			//加载最新需求
 			var hotNewsHtml = '';
-			for(var i=0;i<6;i++){
-				hotNewsHtml += '<tr>'
-		    	+'<td align="left">'+data[i].newsName+'</td>'
-		    	+'<td>'+data[i].newsTime+'</td>'
-		    	+'</tr>';
+			
+			
+			data.sort(function (o1, o2) { return o2.newsId - o1.newsId; });
+			function show_requirement(n){
+				hotNewsHtml="";
+				for(var i=0;i<n;i++){
+					hotNewsHtml += '<tr>'
+					+'<td align="left">'+data[i].newsName+'</td>'
+					+'<td>'+data[i].newsTime+'</td>'
+					+'</tr>';
+				}
+				$(".hot_news").html(hotNewsHtml);
 			}
-			$(".hot_news").html(hotNewsHtml);
+			show_requirement(6)		
+			
+			$(".next-requirement .more-msg").click(function(){		
+				if(flag==1){
+					flag=0;
+					show_requirement(data.length)
+					$(".next-requirement .less").show()
+					$(".next-requirement .more").hide()	
+				}else{
+					flag=1;					
+					show_requirement(6)		
+					$(".next-requirement .more").show()						
+					$(".next-requirement .less").hide()
+				}				
+			})
 		}
 	)
-
-
-
-
-	//数字格式化
-	$(".panel span").each(function(){
-		$(this).html($(this).text()>9999 ? ($(this).text()/10000).toFixed(2) + "<em>万</em>" : $(this).text());	
-	})
-
 	//系统基本参数
 	if(window.sessionStorage.getItem("systemParameter")){
 		var systemParameter = JSON.parse(window.sessionStorage.getItem("systemParameter"));
@@ -63,7 +68,18 @@ layui.config({
 		type : "get",
 		dataType : "json",
 		success : function(data){
-			platformVersion(data);
+			var all = data.length
+			platformVersion(data,1);
+			$(".platform-function .more-msg").click(function(){
+				if(flag_ ==1){
+					flag_=0;
+					platformVersion(data,1);
+				}else{
+					flag_=1;				
+					platformVersion(data,3);				
+				}
+			})
+			
 		}
 	})
 
@@ -86,12 +102,11 @@ layui.config({
 		$(".userRights").text(nullData(data.userRights));//当前用户权限
 	 }
 	 
- 	function platformVersion(data){
-		for (j in data){
-
+ 	function platformVersion(data,num){
+		for (var j=0; j<data.length; j++){
 			$(".version-msg").append('<div class="version-main"><h4 class="version-title"></h4><ul class="version-list"></ul></div>')
 			$(".version-msg .version-title:eq("+(j)+")").html(data[j].version);
-			for (i in data[j].function){
+			for (var i=0;i<data[j].function.length;i++){
 				$(".version-main:eq("+(j)+")").append('<p>*&nbsp;&nbsp;'+data[j].function[i]+'</p>')
 			}
 		}

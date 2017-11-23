@@ -52,6 +52,13 @@
 			var E = window.wangEditor
 			var editor = new E('#editor')
 			// 或者 var editor = new E( document.getElementById('#editor') )
+
+			editor.customConfig.pasteFilterStyle = false
+			// 自定义处理粘贴的文本内容
+			editor.customConfig.pasteTextHandle = function (content) {
+				// content 即粘贴过来的内容（html 或 纯文本），可进行自定义处理然后返回
+				return content + '<p>在粘贴内容后面追加一行</p>'
+			}
 			editor.create()
 			document.getElementById('btn1').addEventListener('click', function () {
 				// 读取 html

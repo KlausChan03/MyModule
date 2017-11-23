@@ -1,4 +1,8 @@
 var table_act = {};
+
+table_act.insert_name = window.sessionStorage.getItem("name");
+table_act.insert_time = getTime();
+
 // 删除功能
 table_act.delete = function(res, tb_id, select_id) {
   var data = {};
@@ -40,63 +44,24 @@ table_act.insert = function(res, tb_id) {
   }
 
   var success_func = function() {
-    var insert_name = window.sessionStorage.getItem("name");
-    var insert_time = getTime();
-
-    $("*[name='录入人']").attr("readonly", "readonly");
-    $("*[name='录入时间']").attr("readonly", "readonly");
-
-
-    $("*[name='录入人']").val(insert_name);
-    $("*[name='录入时间']").val(insert_time);
-
-
-    $("*[name='id']").attr({"readonly":"readonly","placeholder":""});
-
-
-    $("*[name='关键字']").attr("oninput","if(value.length>20)value=value.slice(0,20)")
-    $("*[name='标题']").attr("oninput","if(value.length>30)value=value.slice(0,30)")
-
-    // var len_testing = document.getElementsByName("关键字")[0];
-    // len_testing.addEventListener("blur",function(){
-    //   if($("*[name='关键字']").val().length>5){
-    //     layer.msg("too long")
-    //   }
-    // })
-
-    if ($("*[name='视频地址']") || $("*[name='图片地址']")) {
-      form_act.add_video_pic(pic_type,video_open);
-    }
-    if($("*[name='内容']")){
-      form_act.editor(rich_open);
-    }
-
-
-    // $("*[name='权限']").click(function() {
-    //   var obj_save = { datas: "", func: "" };
-    //   var success_func = function() {
-    //     console.log(res);
-    //   };
-    //   var error_func = function() {
-    //     console.log(res);
-    //   };
-    //   ajax.ajax_common(obj_save, success_func, error_func);
-    // });
+    local_process();
+    common_progress();
 
     layui.use("form", function() {
       var form = layui.form;
       form.on("submit(formDemo)", function(data) {
-
-        // 取值、在封装ajax传参前对部分字段处理        
+        // 取值、在封装ajax传参前对部分字段处理
         data.tb_id = tb_id;
         if ("file" in data.field) {
           delete data.field.file;
         }
-        // 对内容字段进行二次编码 
-        if(data.field.内容){
-          data.field.内容 = encodeURIComponent(encodeURIComponent(data.field.内容))          
-        }      
-        
+        // 对内容字段进行二次编码
+        if (data.field.内容) {
+          data.field.内容 = encodeURIComponent(
+            encodeURIComponent(data.field.内容)
+          );
+        }
+
         var obj_save = {
           datas: [data.field, data.tb_id],
           func: "BC_insert_update"
@@ -160,33 +125,19 @@ table_act.update = function(res, tb_id, data) {
   }
 
   var success_func = function() {
-    var insert_name = window.sessionStorage.getItem("name");
-    var insert_time = getTime();
+    local_process();
+    common_progress();
 
-    $("*[name='录入人']").attr("readonly", "readonly");
-    $("*[name='录入时间']").attr("readonly", "readonly");
-
-    $("*[name='录入人']").val(insert_name);
-    $("*[name='录入时间']").val(insert_time);
-
-    $("*[name='id']").attr({"readonly":"readonly","placeholder":""});
-    
-    $("*[name='录入时间']").addClass("dateClass");
-
-    $("*[name='关键字']").attr("oninput","if(value.length>20)value=value.slice(0,20)")
-    $("*[name='标题']").attr("oninput","if(value.length>30)value=value.slice(0,30)")
-
-    if ($("*[name='视频地址']") || $("*[name='图片地址']")) {
-      form_act.add_video_pic(pic_type,video_open);
-    }
-    if($("*[name='内容']")){
-      form_act.editor(rich_open);
-    }
-
-    layui.use("form", function() {
+    layui.use(["form","laydate"], function() {
       var form = layui.form;
+      var laydate = layui.laydate;
+      
+      laydate.render({
+        type: "datetime",
+        elem: ".dateClass" //指定元素
+      });
+      
       form.on("submit(formDemo)", function(data) {
-
         // 取值、在封装ajax传参前对部分字段处理
         data.tb_id = tb_id;
         if ("file" in data.field) {
@@ -194,10 +145,12 @@ table_act.update = function(res, tb_id, data) {
         }
 
         // 对内容字段进行二次编码
-        if(data.field.内容){
-          data.field.内容 = encodeURIComponent(encodeURIComponent(data.field.内容))          
+        if (data.field.内容) {
+          data.field.内容 = encodeURIComponent(
+            encodeURIComponent(data.field.内容)
+          );
         }
-        
+
         var obj_save = {
           datas: [data.field, data.tb_id],
           func: "BC_insert_update"
@@ -205,32 +158,7 @@ table_act.update = function(res, tb_id, data) {
         var success_func = function(res) {
           layer.alert(res.状态, function() {
             layer.closeAll();
-
-            // var now_page = $(".layui-laypage-skip input").val()
-            // console.log(now_page)
-
             window.location.reload();
-            // for ()
-            // $(".layui-laypage-skip .layui-input").val(now_page)
-
-            // $(".layui-laypage a:eq("+(now_page-1)+")").click()
-            // console.log($(".layui-laypage-skip input").val())
-
-            // console.log($(".layui-laypage-curr"))
-            // console.log($(".laytable-cell-2-录入时间:eq(0) .layui-table-sort-desc"))
-            // $(".layui-laypage-btn").click() ;
-            // setTimeout(function(){
-
-            // },1000)
-            // history.go(0)
-            // $(".laytable-cell-2-录入时间:eq(0) .layui-table-sort-desc").click();
-
-            // table.reload('test', {
-            // 	initSort: {
-            // 		field: '录入时间', //排序字段，对应 cols 设定的各字段名
-            // 		type: 'desc' //排序方式  asc: 升序、desc: 降序、null: 默认排序
-            // 	},
-            // });
           });
         };
         var error_func = function(res) {
@@ -244,17 +172,66 @@ table_act.update = function(res, tb_id, data) {
       });
     });
 
-    /**
-         * 更改录入时间
-         */
-    layui.use("laydate", function() {
-      var laydate = layui.laydate;
-      //执行一个laydate实例
-      laydate.render({
-        type: "datetime",
-        elem: ".dateClass" //指定元素
-      });
-    });
+
   };
   layObj.form("编辑", success_func, test, tb_id);
 };
+
+for (i in table_act) {
+  switch (i) {
+    case "insert":
+      function local_process() {
+        $("*[name='录入人']").attr("readonly", "readonly");
+        $("*[name='录入时间']").attr("readonly", "readonly");
+        $("*[name='录入人']").val(table_act.insert_name);
+        $("*[name='录入时间']").val(table_act.insert_time);
+        $("*[name='id']").attr({ readonly: "readonly", placeholder: "" });
+
+        $("*[name='关键字']").attr(
+          "oninput",
+          "if(value.length>20)value=value.slice(0,20)"
+        );
+        $("*[name='标题']").attr(
+          "oninput",
+          "if(value.length>30)value=value.slice(0,30)"
+        );
+      }
+      break;
+    case "update":
+      function local_process() {
+        $("*[name='录入人']").attr("readonly", "readonly");
+        $("*[name='录入时间']").attr("readonly", "readonly");
+
+        $("*[name='录入人']").val(table_act.insert_name);
+        $("*[name='录入时间']").val(table_act.insert_time);
+
+        $("*[name='id']").attr({ readonly: "readonly", placeholder: "" });
+
+        $("*[name='录入时间']").addClass("dateClass");
+
+        $("*[name='关键字']").attr(
+          "oninput",
+          "if(value.length>20)value=value.slice(0,20)"
+        );
+        $("*[name='标题']").attr(
+          "oninput",
+          "if(value.length>30)value=value.slice(0,30)"
+        );
+      }
+      break;
+  }
+  switch (i) {
+    case "update":
+    case "insert":
+      function common_progress() {
+        // 视频、图片、富文本编辑 等引入
+        if ($("*[name='视频地址']") || $("*[name='图片地址']")) {
+          form_act.add_video_pic(pic_type, video_open);
+        }
+        if ($("*[name='内容']")) {
+          form_act.editor(rich_open);
+        }
+      }
+      break;
+  }
+}

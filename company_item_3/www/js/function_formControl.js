@@ -1,5 +1,5 @@
 var form_act = {};
-form_act.add_video_pic = function(pic_type,video_open) {
+form_act.add_video_pic = function(pic_type, video_open) {
   layui.use(["upload", "element", "layer"], function() {
     var $ = layui.jquery,
       upload = layui.upload,
@@ -20,7 +20,7 @@ form_act.add_video_pic = function(pic_type,video_open) {
     //   bucket: "zyk-temp"
     // });
 
-    if ($("*[name='视频地址']") && video_open=="true") {
+    if ($("*[name='视频地址']") && video_open == "true") {
       console.log($("*[name='视频地址']"));
       //直接上传
       var $video = $("*[name='视频地址']");
@@ -46,7 +46,7 @@ form_act.add_video_pic = function(pic_type,video_open) {
           datas: "",
           func: "get_alicloudConfig"
         };
-        var success_func = function(res) {        
+        var success_func = function(res) {
           var client = new OSS.Wrapper({
             region: res.conf.region,
             accessKeyId: res.conf.accessKeyId,
@@ -156,8 +156,6 @@ form_act.add_video_pic = function(pic_type,video_open) {
         .parent()
         .append('<div class="show-block" id="show-block"></div>');
       var $show = $(".show-block");
-        
-      
 
       if (pic_type == "all") {
         $pic
@@ -170,81 +168,88 @@ form_act.add_video_pic = function(pic_type,video_open) {
         $pic
           .parent()
           .append(
-            '<button type="button" class="layui-btn layui-btn-mini" id="pic-input"  style="margin-left:10px"> <i class="layui-icon">&#xe67c;</i>上传图片 </button><button type="button" class="layui-btn layui-btn-mini" id="pic-reset" style="margin-left:10px"> <i class="layui-icon">&#x1006;</i>清空图片 </button>'
+            '<button type="button" class="layui-btn layui-btn-mini" id="pic-input"  style="margin-left:10px"> <i class="layui-icon">&#xe67c;</i>上传图片 </button>'
           );
         multiple = false;
       }
-      
 
       if ($("*[name='图片地址']").val() != "" && pic_type == "all") {
         var msg = {};
         msg.地址 = $("*[name='图片地址']").val();
-        pic_arr = msg.地址.split("@split@")
-        console.log(pic_arr,"111")
-        
-        pic_show(msg,pic_arr);
-      } else if( $("*[name='图片地址']").val() != "" && pic_type == "one"){
+        pic_arr = msg.地址.split("@split@");
+        for (i in pic_arr) {
+          pic_arr[i] += "@split@";
+        }
+        pic_show(msg);
+      } else if ($("*[name='图片地址']").val() != "" && pic_type == "one") {
         var msg = {};
         msg.地址 = $("*[name='图片地址']").val();
-        pic_arr = msg.地址.split("@split@")
-        pic_show(msg,pic_arr);
-        $("#pic-input").attr({"disabled":"disabled","title":"请先删除之前上传的图片"}).css({"background":"#999"})
+        pic_arr = msg.地址.split("@split@");
+        pic_show(msg);
+        $("#pic-input")
+          .attr({ disabled: "disabled", title: "请先删除之前上传的图片" })
+          .css({ background: "#999" });
       }
 
-      function pic_show(res,pic_arr) {
-        if(pic_type=="all"){
-          res.地址 =  res.地址.split("@split@")
-          console.log(res.地址)
-          for (i in res.地址){
+      function pic_show(res) {
+        if (pic_type == "all") {
+          res.地址 = res.地址.split("@split@");
+          for (i in res.地址) {
             $show.append(
               '<div class="show-pic"><img class="show-pic-main" title="右键可复制地址" src="' +
                 res.地址[i] +
                 '"><span class="show-pic-close"><i class="layui-icon" style="font-size:24px">&#x1007;</i></span></div>'
             );
           }
-        }else{
+        } else {
           $show.append(
             '<div class="show-pic"><img class="show-pic-main" title="右键可复制地址" src="' +
               res.地址 +
               '"><span class="show-pic-close"><i class="layui-icon" style="font-size:24px">&#x1007;</i></span></div>'
           );
-        }     
-      }
-
-      var $close = $(".show-pic-close");
-      $close.off("click").on("click", function() {
-        console.log(pic_arr,"222")
-        if(pic_type=="one"){
-          $("#pic-input").attr({"title":"可以上传"}).removeAttr("disabled").css({"background":"#2b9ced"})          
         }
-        var $index = $(this)
-          .parent()
-          .index();
-          console.log($(this))
-        $show.find($(".show-pic:eq(" + $index + ")")).remove();
-        var pic_arr_ = pic_arr;
-        
-        var pic_arr_new = [];
-        pic_arr = pic_arr.splice($index, 1);
-        for (i in pic_arr_) {
-          if (pic_arr_[i] != pic_arr) {
+      }
+      function pic_show_act() {
+        var $close = $(".show-pic-close");
+        var $reset = $("#pic-reset");
+
+        $close.off("click").on("click", function() {
+          if (pic_type == "one") {
+            $("#pic-input")
+              .attr({ title: "可以上传" })
+              .removeAttr("disabled")
+              .css({ background: "#2b9ced" });
+          }
+          var $index = $(this)
+            .parent()
+            .index();
+          $show.find($(".show-pic:eq(" + $index + ")")).remove();
+          var pic_arr_ = pic_arr;
+
+          var pic_arr_new = [];
+          pic_arr.splice($index, 1);
+          for (i in pic_arr_) {
             pic_arr_new.push(pic_arr_[i]);
           }
-        }
-        var pic_str_new = pic_arr_new.toString();
-        pic_str_new = pic_str_new
-          .replace(/@split@,/g, "@split@")
-          .replace(/@split@$/, "");
-        // console.log(pic_str_new)
-        $pic.val(pic_str_new);
-      });
-      var $reset = $("#pic-reset");
-      $reset.off("click").on("click", function() {
-        pic_arr = [];
-        $pic.val("");
-        $show.empty();
-        $("#pic-input").attr({"title":"可以上传"}).removeAttr("disabled").css({"background":"#2b9ced"})
-      });
+          var pic_str_new = pic_arr_new.toString();
+          pic_str_new = pic_str_new
+            .replace(/@split@,/g, "@split@")
+            .replace(/@split@$/, "");
+          $pic.val(pic_str_new);
+        });
+
+        $reset.off("click").on("click", function() {
+          pic_arr = [];
+          $pic.val("");
+          $show.empty();
+          $("#pic-input")
+            .attr({ title: "可以上传" })
+            .removeAttr("disabled")
+            .css({ background: "#2b9ced" });
+        });
+      }
+
+      pic_show_act();
 
       var uploadInst = upload.render({
         elem: "#pic-input",
@@ -262,55 +267,24 @@ form_act.add_video_pic = function(pic_type,video_open) {
             data: "data=" + datas,
             success: function(res) {
               layer.msg("上传成功");
-              if(pic_type=="one"){
-                $("#pic-input").attr({"disabled":"disabled","title":"请先删除之前上传的图片"}).css({"background":"#999"})
-                
+              if (pic_type == "one") {
+                $("#pic-input")
+                  .attr({
+                    disabled: "disabled",
+                    title: "请先删除之前上传的图片"
+                  })
+                  .css({ background: "#999" });
               }
               if (res.状态 == "上传成功") {
-                console.log(res.地址,"pull")
-                
                 pic_arr.push(res.地址 + "@split@");
-                console.log(pic_arr,"push")
-                
                 pic_str = pic_arr.toString();
                 pic_str = pic_str
                   .replace(/@split@,/g, "@split@")
                   .replace(/@split@$/, "");
                 $pic.val(pic_str);
 
-                pic_show(res,pic_arr);
-                var $close = $(".show-pic-close");
-                $close.off("click").on("click", function() {
-                  if(pic_type=="one"){
-                    $("#pic-input").attr({"title":"可以上传"}).removeAttr("disabled").css({"background":"#2b9ced"})                    
-                  }
-                  var $index = $(this)
-                    .parent()
-                    .index();
-                    // console.log($(this))
-                  $show.find($(".show-pic:eq(" + $index + ")")).remove();
-                  var pic_arr_ = pic_arr;
-                  var pic_arr_new = [];
-                  pic_arr = pic_arr.splice($index, 1);
-                  for (i in pic_arr_) {
-                    if (pic_arr_[i] != pic_arr) {
-                      pic_arr_new.push(pic_arr_[i]);
-                    }
-                  }
-                  var pic_str_new = pic_arr_new.toString();
-                  pic_str_new = pic_str_new
-                    .replace(/@split@,/g, "@split@")
-                    .replace(/@split@$/, "");
-                  console.log(pic_str_new)
-                  $pic.val(pic_str_new);
-                });
-                var $reset = $("#pic-reset");
-                $reset.off("click").on("click", function() {
-                  pic_arr = [];
-                  $pic.val("");
-                  $show.empty();
-                  $("#pic-input").attr({"title":"可以上传"}).removeAttr("disabled").css({"background":"#2b9ced"})
-                });
+                pic_show(res);
+                pic_show_act();
               } else {
                 layer.msg("上传失败");
               }
@@ -348,16 +322,13 @@ form_act.editor = function(rich_open) {
 
       var E = window.wangEditor;
       var editor = new E("#div1", "#div2");
-      editor.customConfig.onfocus = function () {
-        console.log('onfocus')
-        $(".editor-top").css({"z-index":"10000"});
-      }
-      editor.customConfig.onblur = function () {
-        console.log('onblur')
-        $(".editor-top").css({"z-index":"10001"});
-    }
+      editor.customConfig.onfocus = function() {
+        $(".editor-top").css({ "z-index": "10000" });
+      };
+      editor.customConfig.onblur = function() {
+        $(".editor-top").css({ "z-index": "10001" });
+      };
       editor.create();
-
 
       var flag = 1;
       $button_turn.click(function() {
@@ -390,9 +361,9 @@ form_act.editor = function(rich_open) {
             var final_text = e_title + e_info + editor.txt.html();
             console.log(final_text);
             $("*[name='内容']").val(final_text);
-            if ($("*[name='内容']").val() == final_text) {
+            // if ($("*[name='内容']").val() == final_text) {
               layer.msg("编辑成功", { icon: 1, time: 2000 });
-            }
+            // }
           });
         } else {
           flag = 1;
@@ -406,4 +377,3 @@ form_act.editor = function(rich_open) {
     }
   });
 };
-
