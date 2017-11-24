@@ -44,11 +44,13 @@ table_act.insert = function(res, tb_id) {
   }
 
   var success_func = function() {
-    local_process();
+    insert_local_process();
     common_progress();
 
     layui.use("form", function() {
       var form = layui.form;
+
+      form.render();
       form.on("submit(formDemo)", function(data) {
         // 取值、在封装ajax传参前对部分字段处理
         data.tb_id = tb_id;
@@ -125,18 +127,19 @@ table_act.update = function(res, tb_id, data) {
   }
 
   var success_func = function() {
-    local_process();
+    update_local_process();
     common_progress();
 
-    layui.use(["form","laydate"], function() {
+    layui.use(["form", "laydate"], function() {
       var form = layui.form;
       var laydate = layui.laydate;
-      
+      form.render();
+
       laydate.render({
         type: "datetime",
         elem: ".dateClass" //指定元素
       });
-      
+
       form.on("submit(formDemo)", function(data) {
         // 取值、在封装ajax传参前对部分字段处理
         data.tb_id = tb_id;
@@ -171,8 +174,6 @@ table_act.update = function(res, tb_id, data) {
         return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
       });
     });
-
-
   };
   layObj.form("编辑", success_func, test, tb_id);
 };
@@ -180,43 +181,14 @@ table_act.update = function(res, tb_id, data) {
 for (i in table_act) {
   switch (i) {
     case "insert":
-      function local_process() {
-        $("*[name='录入人']").attr("readonly", "readonly");
-        $("*[name='录入时间']").attr("readonly", "readonly");
-        $("*[name='录入人']").val(table_act.insert_name);
-        $("*[name='录入时间']").val(table_act.insert_time);
-        $("*[name='id']").attr({ readonly: "readonly", placeholder: "" });
-
-        $("*[name='关键字']").attr(
-          "oninput",
-          "if(value.length>20)value=value.slice(0,20)"
-        );
-        $("*[name='标题']").attr(
-          "oninput",
-          "if(value.length>30)value=value.slice(0,30)"
-        );
+      function insert_local_process() {
+        console.log("lll");
       }
       break;
     case "update":
-      function local_process() {
-        $("*[name='录入人']").attr("readonly", "readonly");
-        $("*[name='录入时间']").attr("readonly", "readonly");
-
-        $("*[name='录入人']").val(table_act.insert_name);
-        $("*[name='录入时间']").val(table_act.insert_time);
-
-        $("*[name='id']").attr({ readonly: "readonly", placeholder: "" });
-
+      function update_local_process() {
+        console.log("kkk");
         $("*[name='录入时间']").addClass("dateClass");
-
-        $("*[name='关键字']").attr(
-          "oninput",
-          "if(value.length>20)value=value.slice(0,20)"
-        );
-        $("*[name='标题']").attr(
-          "oninput",
-          "if(value.length>30)value=value.slice(0,30)"
-        );
       }
       break;
   }
@@ -224,6 +196,7 @@ for (i in table_act) {
     case "update":
     case "insert":
       function common_progress() {
+        console.log(form_special_control)
         // 视频、图片、富文本编辑 等引入
         if ($("*[name='视频地址']") || $("*[name='图片地址']")) {
           form_act.add_video_pic(pic_type, video_open);
@@ -231,6 +204,55 @@ for (i in table_act) {
         if ($("*[name='内容']")) {
           form_act.editor(rich_open);
         }
+        if ($("*[name='状态']") && form_special_control.state!="")  {
+        }
+
+          function test() {
+            if ($("*[name='状态']").val() == "") {
+              $("*[name='状态']")
+                .parent()
+                .empty()
+                .append(
+                  '<input type="radio" name="状态" value="显示" title="显示" checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>显示</span></div><input type="radio" name="状态" value="不显示" title="不显示" ><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i><span>不显示</span></div>'
+                );
+            } else if ($("*[name='状态']").val() == "显示") {
+              $("*[name='状态']")
+              .parent()
+              .empty()
+              .append(
+                '<input type="radio" name="状态" value="显示" title="显示" checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>显示</span></div><input type="radio" name="状态" value="不显示" title="不显示" ><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i><span>不显示</span></div>'
+              );
+              
+            } else if ($("*[name='状态']").val() == "不显示") {
+              $("*[name='状态']")
+              .parent()
+              .empty()
+              .append(
+                '<input type="radio" name="状态" value="显示" title="显示"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>显示</span></div><input type="radio" name="状态" value="不显示" title="不显示" checked=""><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i><span>不显示</span></div>'
+              );
+            }
+          }
+ 
+        if ($("*[name='权限']")) {
+          console.log("hello,权限")
+        }
+
+        $("*[name='录入人']").attr("readonly", "readonly");
+        $("*[name='录入时间']").attr("readonly", "readonly");
+
+        $("*[name='录入人']").val(table_act.insert_name);
+        $("*[name='录入时间']").val(table_act.insert_time);
+
+        $("*[name='id']").attr({ readonly: "readonly", placeholder: "" });
+
+        $("*[name='关键字']").attr(
+          "oninput",
+          "if(value.length>20)value=value.slice(0,20)"
+        );
+        $("*[name='标题']").attr(
+          "oninput",
+          "if(value.length>30)value=value.slice(0,30)"
+        );
       }
       break;
   }

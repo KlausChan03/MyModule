@@ -65,7 +65,7 @@ layui.define(["element", "jquery"], function(exports) {
           // save_ls 暂存前台二级表格名称
           // save_temp 暂存新二级菜单
           // console.log(res);
-
+          console.log(res.listMenu)
 
           for (i in res.listMenu) {
             for (j in data) {
@@ -101,11 +101,11 @@ layui.define(["element", "jquery"], function(exports) {
           }
           // 功能模块测试
           // [
-          _data.push(data[4]);
+          // _data.push(data[4]);
           // ]
 
           data = _data;
-   
+          console.log(data)
 
           var _this = this;
           $(".navBar").html(navBar(data)).height($(window).height() - 245);

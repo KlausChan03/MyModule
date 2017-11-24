@@ -69,14 +69,18 @@ layui.config({
 		dataType : "json",
 		success : function(data){
 			var all = data.length
-			platformVersion(data,1);
+			platformVersion(data,3);
 			$(".platform-function .more-msg").click(function(){
 				if(flag_ ==1){
 					flag_=0;
-					platformVersion(data,1);
+					platformVersion(data,data.length);
+					$(".platform-function .less").show()
+					$(".platform-function .more").hide()	
 				}else{
 					flag_=1;				
-					platformVersion(data,3);				
+					platformVersion(data,3);
+					$(".platform-function .more").show()					
+					$(".platform-function .less").hide()
 				}
 			})
 			
@@ -103,7 +107,8 @@ layui.config({
 	 }
 	 
  	function platformVersion(data,num){
-		for (var j=0; j<data.length; j++){
+		$(".version-msg").html("")
+		for (var j=0; j<num; j++){
 			$(".version-msg").append('<div class="version-main"><h4 class="version-title"></h4><ul class="version-list"></ul></div>')
 			$(".version-msg .version-title:eq("+(j)+")").html(data[j].version);
 			for (var i=0;i<data[j].function.length;i++){

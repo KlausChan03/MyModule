@@ -14,13 +14,13 @@
       {
         "title": "管_管理员表",
         "icon": "&#xe609;",
-        "href": "page/user/user_list.html?func=BC_select_all&bc_id=user_list",
+        "href": "page/user/user_list.html?func=user_list&bc_id=user_list",
         "spread": false
       },
       {
         "title": "管_权限表",
         "icon": "&#xe609;",
-        "href": "page/user/user_power.html?func=BC_select_all&bc_id=user_power",
+        "href": "page/user/user_power.html?func=user_power&bc_id=user_power",
         "spread": false
       },
       {
@@ -60,7 +60,7 @@
     ]
   },
   {
-    "title": "全球",
+    "title": "个人信息",
     "icon": "&#xe635;",
     "href": "",
     "spread": false,
@@ -69,7 +69,40 @@
         "id":"1",
         "title": "全_会员表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_member.html?func=BC_select_all&bc_id=global_member&pic_type=all",
+        "href": "page/qq_items/global_member.html?func=BC_select_all&bc_id=global_member",
+        "spread": false
+      },{
+        "id":"1",
+        "title": "全_账号表",
+        "icon": "&#xe609;",
+        "href": "page/qq_items/global_account.html?func=BC_select_all&bc_id=global_account",
+        "spread": false
+      }
+    ]
+  },
+  {
+    "title": "充值全球币",
+    "icon": "&#xe635;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "id":"1",
+        "title": "全_支付下单表",
+        "icon": "&#xe609;",
+        "href": "page/qq_items/global_rechargeOrders.html?func=BC_select_all&bc_id=global_rechargeOrders",
+        "spread": false
+      },{
+        "id":"1",
+        "title": "全_支付宝支付日志表",
+        "icon": "&#xe609;",
+        "href": "page/qq_items/global_rechargeAlipay_logs.html?func=BC_select_all&bc_id=global_rechargeAlipay_logs",
+        "spread": false
+      },{
+        "id":"1",
+        "title": "全_微信支付日志",
+        "icon": "&#xe609;",
+        "href": "page/qq_items/global_rechargeWechat_logs.html?func=BC_select_all&bc_id=global_rechargeWechat_logs",
         "spread": false
       }
     ]
