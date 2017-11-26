@@ -5,255 +5,260 @@ table_act.insert_time = getTime();
 
 // 删除功能
 table_act.delete = function(res, tb_id, select_id) {
-  var data = {};
-  data.tb_id = tb_id;
-  data.select_id = { id: select_id };
-  var obj_save = { datas: [data.select_id, data.tb_id], func: "BC_delete" };
-  var success_func = function(res) {
-    layer.alert(res.状态, function() {
-      layer.closeAll();
-      history.go(0);
-    });
-  };
-  var error_func = function(res) {
-    layer.alert(res.状态, function() {
-      layer.closeAll();
-      history.go(0);
-    });
-  };
-  ajax.ajax_common(obj_save, success_func, error_func);
+    var data = {};
+    data.tb_id = tb_id;
+    data.select_id = { id: select_id };
+    var obj_save = { datas: [data.select_id, data.tb_id], func: "BC_delete" };
+    var success_func = function(res) {
+        layer.alert(res.状态, function() {
+            layer.closeAll();
+            history.go(0);
+        });
+    };
+    var error_func = function(res) {
+        layer.alert(res.状态, function() {
+            layer.closeAll();
+            history.go(0);
+        });
+    };
+    ajax.ajax_common(obj_save, success_func, error_func);
 };
 // 新增功能
 table_act.insert = function(res, tb_id) {
-  var test_arr = [];
-  for (i in res.列表[0]) {
-    test_arr.push(i);
-  }
-  var test = "";
-  test_arr.pop();
-  // console.log(test_arr);
-  for (var i = 0; i < test_arr.length; i++) {
-    test +=
-      '<div class="layui-form-item"><label class="layui-form-label">' +
-      test_arr[i] +
-      '</label> <div class="layui-input-block"> <input type="text"  name="' +
-      test_arr[i] +
-      '"   placeholder="请输入' +
-      test_arr[i] +
-      '" autocomplete="off" class="layui-input insert-input"> </div> </div>';
-  }
+    var test_arr = [];
+    for (i in res.列表[0]) {
+        test_arr.push(i);
+    }
+    var test = "";
+    test_arr.pop();
+    // console.log(test_arr);
+    for (var i = 0; i < test_arr.length; i++) {
+        test +=
+            '<div class="layui-form-item"><label class="layui-form-label">' +
+            test_arr[i] +
+            '</label> <div class="layui-input-block"> <input type="text"  name="' +
+            test_arr[i] +
+            '"   placeholder="请输入' +
+            test_arr[i] +
+            '" autocomplete="off" class="layui-input insert-input"> </div> </div>';
+    }
 
-  var success_func = function() {
-    insert_local_process();
-    common_progress();
+    var success_func = function() {
+        insert_local_process();
+        common_progress();
 
-    layui.use("form", function() {
-      var form = layui.form;
+        layui.use("form", function() {
+            var form = layui.form;
 
-      form.render();
-      form.on("submit(formDemo)", function(data) {
-        // 取值、在封装ajax传参前对部分字段处理
-        data.tb_id = tb_id;
-        if ("file" in data.field) {
-          delete data.field.file;
-        }
-        // 对内容字段进行二次编码
-        if (data.field.内容) {
-          data.field.内容 = encodeURIComponent(
-            encodeURIComponent(data.field.内容)
-          );
-        }
+            form.render();
+            form.on("submit(formDemo)", function(data) {
+                // 取值、在封装ajax传参前对部分字段处理
+                data.tb_id = tb_id;
+                if ("file" in data.field) {
+                    delete data.field.file;
+                }
+                // 对内容字段进行二次编码
+                if (data.field.内容) {
+                    data.field.内容 = encodeURIComponent(
+                        encodeURIComponent(data.field.内容)
+                    );
+                }
 
-        var obj_save = {
-          datas: [data.field, data.tb_id],
-          func: "BC_insert_update"
-        };
-        var success_func = function(res) {
-          layer.alert(res.状态, function() {
-            layer.closeAll();
-            history.go(0);
-          });
-        };
-        var error_func = function(res) {
-          layer.alert(res.状态, function() {
-            layer.closeAll();
-            history.go(0);
-          });
-        };
-        ajax.ajax_common(obj_save, success_func, error_func);
-        return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
-      });
-    });
-  };
-  layObj.form("新增", success_func, test, tb_id);
+                var obj_save = {
+                    datas: [data.field, data.tb_id],
+                    func: "BC_insert_update"
+                };
+                var success_func = function(res) {
+                    layer.alert(res.状态, function() {
+                        layer.closeAll();
+                        history.go(0);
+                    });
+                };
+                var error_func = function(res) {
+                    layer.alert(res.状态, function() {
+                        layer.closeAll();
+                        history.go(0);
+                    });
+                };
+                ajax.ajax_common(obj_save, success_func, error_func);
+                return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+            });
+        });
+    };
+    layObj.form("新增", success_func, test, tb_id);
 };
 // 编辑功能
 table_act.update = function(res, tb_id, data) {
-  var test_arr = [];
-  var old_arr = [];
+    var test_arr = [];
+    var old_arr = [];
 
-  //循环字段名
-  for (i in res.列表[0]) {
-    test_arr.push(i);
-  }
-  //循环字段名所对应的值
-  for (var j in data) {
-    old_arr.push(data[j]);
-  }
-  // console.log(old_arr);
-  var test = "";
-
-  //赋给录入时期的的input的一个id名
-  var classTest = "";
-  test_arr.pop();
-  for (var i = 0; i < test_arr.length; i++) {
-    // 特殊编码转义
-    if (typeof old_arr[i] == "string") {
-      old_arr[i] = old_arr[i]
-        .replace(/'/g, "&#39;")
-        .replace(/"/g, "&quot;")
-        .replace(/>/g, "&gt;")
-        .replace(/</g, "&lt;");
+    //循环字段名
+    for (i in res.列表[0]) {
+        test_arr.push(i);
     }
-    // input[type="text"]的遍历生成html
-    test +=
-      '<div class="layui-form-item"><label class="layui-form-label">' +
-      test_arr[i] +
-      '</label> <div class="layui-input-block"> <input type="text"  name="' +
-      test_arr[i] +
-      '" autocomplete="off" value="' +
-      old_arr[i] +
-      '" class="layui-input insert-input"> </div> </div>';
-  }
+    //循环字段名所对应的值
+    for (var j in data) {
+        old_arr.push(data[j]);
+    }
+    // console.log(old_arr);
+    var test = "";
 
-  var success_func = function() {
-    update_local_process();
-    common_progress();
-
-    layui.use(["form", "laydate"], function() {
-      var form = layui.form;
-      var laydate = layui.laydate;
-      form.render();
-
-      laydate.render({
-        type: "datetime",
-        elem: ".dateClass" //指定元素
-      });
-
-      form.on("submit(formDemo)", function(data) {
-        // 取值、在封装ajax传参前对部分字段处理
-        data.tb_id = tb_id;
-        if ("file" in data.field) {
-          delete data.field.file;
+    //赋给录入时期的的input的一个id名
+    var classTest = "";
+    test_arr.pop();
+    for (var i = 0; i < test_arr.length; i++) {
+        // 特殊编码转义
+        if (typeof old_arr[i] == "string") {
+            old_arr[i] = old_arr[i]
+                .replace(/'/g, "&#39;")
+                .replace(/"/g, "&quot;")
+                .replace(/>/g, "&gt;")
+                .replace(/</g, "&lt;");
         }
+        // input[type="text"]的遍历生成html
+        test +=
+            '<div class="layui-form-item"><label class="layui-form-label">' +
+            test_arr[i] +
+            '</label> <div class="layui-input-block"> <input type="text"  name="' +
+            test_arr[i] +
+            '" autocomplete="off" value="' +
+            old_arr[i] +
+            '" class="layui-input insert-input"> </div> </div>';
+    }
 
-        // 对内容字段进行二次编码
-        if (data.field.内容) {
-          data.field.内容 = encodeURIComponent(
-            encodeURIComponent(data.field.内容)
-          );
-        }
+    var success_func = function() {
+        update_local_process();
+        common_progress();
 
-        var obj_save = {
-          datas: [data.field, data.tb_id],
-          func: "BC_insert_update"
-        };
-        var success_func = function(res) {
-          layer.alert(res.状态, function() {
-            layer.closeAll();
-            window.location.reload();
-          });
-        };
-        var error_func = function(res) {
-          layer.alert(res.状态, function() {
-            layer.closeAll();
-            history.go(0);
-          });
-        };
-        ajax.ajax_common(obj_save, success_func, error_func);
-        return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
-      });
-    });
-  };
-  layObj.form("编辑", success_func, test, tb_id);
+        layui.use(["form", "laydate"], function() {
+            var form = layui.form;
+            var laydate = layui.laydate;
+            form.render();
+
+            laydate.render({
+                type: "datetime",
+                elem: ".dateClass" //指定元素
+            });
+
+            form.on("submit(formDemo)", function(data) {
+                // 取值、在封装ajax传参前对部分字段处理
+                data.tb_id = tb_id;
+                if ("file" in data.field) {
+                    delete data.field.file;
+                }
+
+                // 对内容字段进行二次编码
+                if (data.field.内容) {
+                    data.field.内容 = encodeURIComponent(
+                        encodeURIComponent(data.field.内容)
+                    );
+                }
+
+                var obj_save = {
+                    datas: [data.field, data.tb_id],
+                    func: "BC_insert_update"
+                };
+                var success_func = function(res) {
+                    layer.alert(res.状态, function() {
+                        layer.closeAll();
+                        window.location.reload();
+                    });
+                };
+                var error_func = function(res) {
+                    layer.alert(res.状态, function() {
+                        layer.closeAll();
+                        history.go(0);
+                    });
+                };
+                ajax.ajax_common(obj_save, success_func, error_func);
+                return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+            });
+        });
+    };
+    layObj.form("编辑", success_func, test, tb_id);
 };
 
 for (i in table_act) {
-  switch (i) {
-    case "insert":
-      function insert_local_process() {
-        console.log("lll");
-      }
-      break;
-    case "update":
-      function update_local_process() {
-        console.log("kkk");
-        $("*[name='录入时间']").addClass("dateClass");
-      }
-      break;
-  }
-  switch (i) {
-    case "update":
-    case "insert":
-      function common_progress() {
-        console.log(form_special_control)
-        // 视频、图片、富文本编辑 等引入
-        if ($("*[name='视频地址']") || $("*[name='图片地址']")) {
-          form_act.add_video_pic(pic_type, video_open);
-        }
-        if ($("*[name='内容']")) {
-          form_act.editor(rich_open);
-        }
-        if ($("*[name='状态']") && form_special_control.state!="")  {
-        }
-
-          function test() {
-            if ($("*[name='状态']").val() == "") {
-              $("*[name='状态']")
-                .parent()
-                .empty()
-                .append(
-                  '<input type="radio" name="状态" value="显示" title="显示" checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>显示</span></div><input type="radio" name="状态" value="不显示" title="不显示" ><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i><span>不显示</span></div>'
-                );
-            } else if ($("*[name='状态']").val() == "显示") {
-              $("*[name='状态']")
-              .parent()
-              .empty()
-              .append(
-                '<input type="radio" name="状态" value="显示" title="显示" checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>显示</span></div><input type="radio" name="状态" value="不显示" title="不显示" ><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i><span>不显示</span></div>'
-              );
-              
-            } else if ($("*[name='状态']").val() == "不显示") {
-              $("*[name='状态']")
-              .parent()
-              .empty()
-              .append(
-                '<input type="radio" name="状态" value="显示" title="显示"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>显示</span></div><input type="radio" name="状态" value="不显示" title="不显示" checked=""><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i><span>不显示</span></div>'
-              );
+    switch (i) {
+        case "insert":
+            function insert_local_process() {}
+            break;
+        case "update":
+            function update_local_process() {
+                $("*[name='录入时间']").addClass("dateClass");
             }
-          }
- 
-        if ($("*[name='权限']")) {
-          console.log("hello,权限")
-        }
+            break;
+    }
+    switch (i) {
+        case "update":
+        case "insert":
+            function common_progress() {
+                // 视频、图片、富文本编辑 等引入
+                if ($("*[name='视频地址']") || $("*[name='图片地址']")) {
+                    form_act.add_video_pic(pic_type, video_open);
+                }
+                if ($("*[name='内容']")) {
+                    form_act.editor(rich_open);
+                }
+                if ($("*[name='状态']") && form_special_control.id != "") {
 
-        $("*[name='录入人']").attr("readonly", "readonly");
-        $("*[name='录入时间']").attr("readonly", "readonly");
+                    switch (form_special_control.id) {
+                        case 1:
+                            test('显示', '不显示')
+                            break;
+                        case 2:
+                            test('啓用', '停用')
+                            break;
+                    }
+                }
 
-        $("*[name='录入人']").val(table_act.insert_name);
-        $("*[name='录入时间']").val(table_act.insert_time);
+                function test(a, b) {
+                    if ($("*[name='状态']").val() == "") {
+                        $("*[name='状态']")
+                            .parent()
+                            .empty()
+                            .append(
+                                '<input type="radio" name="状态" value=' + a + ' title=' + a + ' checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>a</span></div><input type="radio" name="状态" value=' + b + ' title=' + b + ' ><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i><span>b</span></div>'
+                            );
+                    } else if ($("*[name='状态']").val() == a) {
+                        $("*[name='状态']")
+                            .parent()
+                            .empty()
+                            .append(
+                                '<input type="radio" name="状态" value=' + a + ' title=' + a + ' checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>a</span></div><input type="radio" name="状态" value=' + b + ' title=' + b + ' ><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i><span>b</span></div>'
+                            );
 
-        $("*[name='id']").attr({ readonly: "readonly", placeholder: "" });
+                    } else if ($("*[name='状态']").val() == b) {
+                        $("*[name='状态']")
+                            .parent()
+                            .empty()
+                            .append(
+                                '<input type="radio" name="状态" value=' + a + ' title=' + a + '><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>a</span></div><input type="radio" name="状态" value=' + b + ' title=' + b + ' checked=""><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i><span>b</span></div>'
+                            );
+                    }
+                }
 
-        $("*[name='关键字']").attr(
-          "oninput",
-          "if(value.length>20)value=value.slice(0,20)"
-        );
-        $("*[name='标题']").attr(
-          "oninput",
-          "if(value.length>30)value=value.slice(0,30)"
-        );
-      }
-      break;
-  }
+                if ($("*[name='权限']")) {
+                    console.log("hello,权限")
+                }
+
+                $("*[name='录入人']").attr("readonly", "readonly");
+                $("*[name='录入时间']").attr("readonly", "readonly");
+
+                $("*[name='录入人']").val(table_act.insert_name);
+                $("*[name='录入时间']").val(table_act.insert_time);
+
+                $("*[name='id']").attr({ readonly: "readonly", placeholder: "" });
+
+                $("*[name='关键字']").attr(
+                    "oninput",
+                    "if(value.length>20)value=value.slice(0,20)"
+                );
+                $("*[name='标题']").attr(
+                    "oninput",
+                    "if(value.length>30)value=value.slice(0,30)"
+                );
+            }
+            break;
+    }
 }
