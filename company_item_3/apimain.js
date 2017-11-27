@@ -72,7 +72,7 @@ if (config.get("app").redis.使用 == "是") {
       resave: true,
       secret: uuid.v4(), //secret的值建议使用随机字符串
       saveUninitialized: true,
-      cookie: { maxAge: 3600000 } // 过期时间（毫秒）
+      cookie: { maxAge: 7200000 } // 过期时间（毫秒）
     })
   );
 }
@@ -179,6 +179,7 @@ app.post("/ajax.post*", function(req, res) {
         body.uuid = uuid.v4();
         var ajax = require("./ajax/ajax.js");
         var bool = ajax.searchfile(body.func);
+        console.log(body,"hahah")
         if (bool) {
           ajax.index(req, res, body);
         } else {

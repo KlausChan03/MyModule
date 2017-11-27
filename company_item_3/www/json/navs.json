@@ -73,7 +73,7 @@
         "spread": false
       },{
         "id":"1",
-        "title": "全_账号表",
+        "title": "全_账户表",
         "icon": "&#xe609;",
         "href": "page/qq_items/global_account.html?func=BC_select_all&bc_id=global_account",
         "spread": false

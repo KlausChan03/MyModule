@@ -206,5 +206,25 @@
   right: 5px;
   cursor: pointer;
 }
+.power-title{
+  line-height: 38px;
+}
+.power-row-1,.power-row-2{
+  padding: 0 5px;
+  margin-right: 10px;
+  height: 25px;
+  line-height: 23px;  
+  border: 1px dashed #999;
+  display: inline-block;
+  box-sizing: border-box;
+}
 
+.layui-form-checkbox{
+  height: 26px;
+  line-height: 24px;
+  /* margin-top: 0px!important; */
+}
 
+.layui-form-radio{
+  /* margin-top: 0px!important; */
+}

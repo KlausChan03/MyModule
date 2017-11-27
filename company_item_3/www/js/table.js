@@ -6,6 +6,7 @@ var tb_id = GetRequest(ifarme_func).bc_id;
 var pic_type = GetRequest(ifarme_func).pic_type;
 var rich_open = GetRequest(ifarme_func).rich_open;
 var video_open = GetRequest(ifarme_func).video_open;
+var form_special_control={};
 var data = {};
 var toolbar = true;
 
@@ -28,7 +29,7 @@ layui.use(["table", "form", "upload"], function() {
   var success_func = function(res) {
     // 表格标题渲染
     var tb_title = res.表格名称;
-    tb_title = tb_title.replace("表", "");
+    tb_title = tb_title.replace("表", "").replace(/^[\u2E80-\u9FFF]_/,"");
     $(".table-title").html(tb_title);
 
     changeTableStutas(res, toolbar);
@@ -270,8 +271,6 @@ function changeTableStutas(res, toolbar) {
         function get_sort(arg1) {
           this.sort = true;
           this.minWidth = 200;
-
-          console.log(this);
         }
         get_sort.apply(that);
       }
@@ -280,7 +279,6 @@ function changeTableStutas(res, toolbar) {
 
         function set_width(arg1) {
           this.minWidth = 80;
-          console.log(this);
         }
         set_width.apply(that);
       }

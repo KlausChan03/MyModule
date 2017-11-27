@@ -200,47 +200,65 @@ for (i in table_act) {
                 if ($("*[name='内容']")) {
                     form_act.editor(rich_open);
                 }
-                if ($("*[name='状态']") && form_special_control.id != "") {
-
+                if ($("*[name='状态']") && form_special_control.id != "") {                    
                     switch (form_special_control.id) {
                         case 1:
-                            test('显示', '不显示')
+                        control_state(form_special_control.state)
                             break;
                         case 2:
-                            test('啓用', '停用')
+                        control_state(form_special_control.state)
                             break;
                     }
                 }
-
-                function test(a, b) {
+                
+                function control_state(state) {
                     if ($("*[name='状态']").val() == "") {
                         $("*[name='状态']")
                             .parent()
                             .empty()
                             .append(
-                                '<input type="radio" name="状态" value=' + a + ' title=' + a + ' checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>a</span></div><input type="radio" name="状态" value=' + b + ' title=' + b + ' ><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i><span>b</span></div>'
+                                '<input type="radio" name="状态" value=' + state[0] + ' title=' + state[0] + ' checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>a</span></div><input type="radio" name="状态" value=' + state[1] + ' title=' + state[1] + ' ><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i><span>b</span></div>'
                             );
-                    } else if ($("*[name='状态']").val() == a) {
+                    } else if ($("*[name='状态']").val() == state[0]) {
                         $("*[name='状态']")
                             .parent()
                             .empty()
                             .append(
-                                '<input type="radio" name="状态" value=' + a + ' title=' + a + ' checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>a</span></div><input type="radio" name="状态" value=' + b + ' title=' + b + ' ><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i><span>b</span></div>'
+                                '<input type="radio" name="状态" value=' + state[0] + ' title=' + state[0] + ' checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i></div><input type="radio" name="状态" value=' + state[1] + ' title=' + state[1] + ' ><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i></div>'
                             );
 
-                    } else if ($("*[name='状态']").val() == b) {
+                    } else if ($("*[name='状态']").val() == state[1]) {
                         $("*[name='状态']")
                             .parent()
                             .empty()
                             .append(
-                                '<input type="radio" name="状态" value=' + a + ' title=' + a + '><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>a</span></div><input type="radio" name="状态" value=' + b + ' title=' + b + ' checked=""><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i><span>b</span></div>'
+                                '<input type="radio" name="状态" value=' + state[0] + ' title=' + state[0] + '><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i></div><input type="radio" name="状态" value=' + state[1] + ' title=' + state[1] + ' checked=""><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i></div>'
                             );
                     }
                 }
 
-                if ($("*[name='权限']")) {
-                    console.log("hello,权限")
-                }
+                // if ($("*[name='权限']")) {
+                //     var control_power = JSON.parse($("*[name='权限']").val());
+                //     var control_content = [];            
+                   
+
+                //     for (var i in control_power){
+                //       control_content.push('<p class="power-title">' + control_power[i].字段 + '</p>'
+                //       + ' <p class="power-row-1">查看</p><input type="radio" name="查看['+control_power[i].字段+']" value="显示" title="显示"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i></div><input type="radio" name="查看['+control_power[i].字段+']"  value="不显示" title="不显示" checked=""><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i></div>'
+                //       + ' <p class="power-row-2">按钮</p>');
+                //       for (var j in control_power[i].按钮){
+                //         control_content.push('<input type="checkbox" name="按钮['+control_power[i].字段+']" value=' + control_power[i].按钮[j]  + ' title=' + control_power[i].按钮[j]  + '>');
+                //       }
+                //     }
+
+                //     $("*[name='权限']")
+                //     .parent()
+                //     .empty()
+                //     .append(
+                //       control_content
+                //     );
+
+                // }
 
                 $("*[name='录入人']").attr("readonly", "readonly");
                 $("*[name='录入时间']").attr("readonly", "readonly");
