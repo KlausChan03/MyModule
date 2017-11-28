@@ -50,7 +50,7 @@ if (config.get("app").redis.使用 == "是") {
       port: config.get("app").redis.port,
       pass: config.get("app").redis.password,
       db: config.get("app").redis.sessionDB,
-      ttl: 1800,
+      ttl: 3600,
       logErrors: true
     }
   };
@@ -72,7 +72,7 @@ if (config.get("app").redis.使用 == "是") {
       resave: true,
       secret: uuid.v4(), //secret的值建议使用随机字符串
       saveUninitialized: true,
-      cookie: { maxAge: 7200000 } // 过期时间（毫秒）
+      cookie: { maxAge: 3600000 } // 过期时间（毫秒）
     })
   );
 }

@@ -66,6 +66,7 @@ layui.define(["element", "jquery"], function(exports) {
           // save_temp 暂存新二级菜单
           // console.log(res);
           console.log(res.listMenu)
+          console.log(res)
 
           for (i in res.listMenu) {
             for (j in data) {
