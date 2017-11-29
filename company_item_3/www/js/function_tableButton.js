@@ -237,28 +237,28 @@ for (i in table_act) {
                     }
                 }
 
-                if ($("*[name='权限']")) {
-                    var control_power = JSON.parse($("*[name='权限']").val());
-                    var control_content = [];            
+                // if ($("*[name='权限']")) {
+                //     var control_power = JSON.parse($("*[name='权限']").val());
+                //     var control_content = [];            
                    
 
-                    for (var i in control_power){
-                      control_content.push('<p class="power-title">' + control_power[i].字段 + '</p>'
-                      + ' <p class="power-row-1">查看</p><input type="radio" name="查看['+control_power[i].字段+']" value="显示" title="显示"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i></div><input type="radio" name="查看['+control_power[i].字段+']"  value="不显示" title="不显示" checked=""><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i></div>'
-                      + ' <p class="power-row-2">按钮</p>');
-                      for (var j in control_power[i].按钮){
-                        control_content.push('<input type="checkbox" name="按钮['+control_power[i].字段+']" value=' + control_power[i].按钮[j]  + ' title=' + control_power[i].按钮[j]  + '>');
-                      }
-                    }
+                //     for (var i in control_power){
+                //       control_content.push('<p class="power-title">' + control_power[i].字段 + '</p>'
+                //       + ' <p class="power-row-1">查看</p><input type="radio" name="查看['+control_power[i].字段+']" value="显示" title="显示"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i></div><input type="radio" name="查看['+control_power[i].字段+']"  value="不显示" title="不显示" checked=""><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i></div>'
+                //       + ' <p class="power-row-2">按钮</p>');
+                //       for (var j in control_power[i].按钮){
+                //         control_content.push('<input type="checkbox" name="按钮['+control_power[i].字段+']" value=' + control_power[i].按钮[j]  + ' title=' + control_power[i].按钮[j]  + '>');
+                //       }
+                //     }
 
-                    $("*[name='权限']")
-                    .parent()
-                    .empty()
-                    .append(
-                      control_content
-                    );
+                //     $("*[name='权限']")
+                //     .parent()
+                //     .empty()
+                //     .append(
+                //       control_content
+                //     );
 
-                }
+                // }
 
                 $("*[name='录入人']").attr("readonly", "readonly");
                 $("*[name='录入时间']").attr("readonly", "readonly");
