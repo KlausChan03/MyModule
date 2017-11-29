@@ -13,13 +13,6 @@ form_act.add_video_pic = function(pic_type, video_open) {
       .attr({ readonly: "readonly", "lay-verify": "required" })
       .addClass("required");
 
-    // var client = new OSS.Wrapper({
-    //   region: "oss-cn-shenzhen",
-    //   accessKeyId: "LTAIRz4pA6Qeu12D",
-    //   accessKeySecret: "ZASbh3Xg1RtSo6VxwLnNkSlNvXNMYJ",
-    //   bucket: "zyk-temp"
-    // });
-
     if ($("*[name='视频地址']") && video_open == "true") {
       console.log($("*[name='视频地址']"));
       //直接上传
@@ -31,7 +24,10 @@ form_act.add_video_pic = function(pic_type, video_open) {
       $video
         .parent()
         .append(
-          '<div style="margin-left:10px;"><button type="button" class="layui-btn layui-btn-mini" id="video-input"> <i class="layui-icon">&#xe67c;</i>上传视频 </button><input type="file" name="file" id="file" value="" style="display: none;" /><p class="loading-icon" style="display:none"></p><div class="video-progress layui-progress layui-progress" lay-showpercent="true" lay-filter="demo" style="width: 85px;margin-top: 20px;display:none"><div class="layui-progress-bar layui-bg-red" lay-percent="0%"></div></div></div>'
+          '<div style="margin-left:10px;">'+
+          '<button type="button" class="layui-btn layui-btn-mini" id="video-input"> <i class="layui-icon">&#xe67c;</i>上传视频 </button>'+
+          '<input type="file" name="file" id="file" accept=".mp4" value="" style="display: none;" /><p class="loading-icon" style="display:none"></p>'+
+          '<div class="video-progress layui-progress layui-progress" lay-showpercent="true" lay-filter="demo" style="width: 85px;margin-top: 20px;display:none"><div class="layui-progress-bar layui-bg-red" lay-percent="0%"></div></div></div>'
         );
 
       $("#video-input").click(function() {
@@ -39,9 +35,36 @@ form_act.add_video_pic = function(pic_type, video_open) {
         $("#file").click();
       });
       document.getElementById("file").addEventListener("change", function(e) {
+
         // 初始化设置
+        var isIE = /msie/i.test(navigator.userAgent) && !window.opera;        
         var file = e.target.files[0];
-        // console.log(file);
+        var fileSize = 0;    
+        var size = fileSize / 1024;    
+        var name=e.target.value;
+        var fileName = name.substring(name.lastIndexOf(".")+1).toLowerCase();
+
+        if (isIE && !e.target.files) {     
+          var filePath = e.target.value;     
+          var fileSystem = new ActiveXObject("Scripting.FileSystemObject");        
+          var file = fileSystem.GetFile (filePath);     
+          fileSize = file.Size;    
+        } else {    
+          fileSize = e.target.files[0].size;     
+        }   
+        if(size>20000){  
+        layer.msg("附件不能大于20M");
+          e.target.value="";
+          return
+        }
+
+        if(fileName !="mp4"){
+        layer.msg("请选择mp4格式文件上传！");
+          e.target.value="";
+          return
+        }
+
+        // ajax请求配置文件以及上传
         var obj_save = {
           datas: "",
           func: "get_alicloudConfig"
