@@ -228,3 +228,7 @@
 .layui-form-radio{
   /* margin-top: 0px!important; */
 }
+
+.layui-table[lay-even] tr:nth-child(even){
+  background-color: #f0f0f0!important;
+}

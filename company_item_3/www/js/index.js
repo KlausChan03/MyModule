@@ -1,3 +1,24 @@
+// 获取用户名和头像等信息
+var obj_save = { datas: {}, func: "admin_control_getUserInfo" };
+var success_func = function(res) {
+    console.log(res)
+    $(".userName").html(res.姓名);
+    $("#updateImg").attr("src", res.头像);
+    $("#updateImg1").attr("src", res.头像);
+    window.sessionStorage.setItem("name", res.姓名);
+    window.sessionStorage.setItem("password", res.解锁密码);
+    window.sessionStorage.setItem("avatar", res.头像);
+
+};
+var error_func = function(res) {     
+    if (res.状态 == "当前未登录") {
+        window.location.href = "page/login/login.html";       
+    }
+}
+ajax.ajax_common(obj_save, success_func);
+
+
+
 var $, tab, skyconsWeather;
 var name = window.sessionStorage.getItem("name");
 var password = window.sessionStorage.getItem("password");
@@ -15,34 +36,7 @@ layui.config({
         url: "json/navs.json" //获取菜单json地址
     });
 
-    // 获取用户名和头像等信息
-    var obj_save = { datas: {}, func: "admin_control_getUserInfo" };
-    var success_func = function(res) {
-        console.log(res)
-        $(".userName").html(res.姓名);
-        $("#updateImg").attr("src", res.头像);
-        $("#updateImg1").attr("src", res.头像);
-        window.sessionStorage.setItem("name", res.姓名);
-        window.sessionStorage.setItem("password", res.解锁密码);
-        window.sessionStorage.setItem("avatar", res.头像);
-
-    };
-    var error_func = function(res) {
-        if (res.状态 == "当前未登录") {
-            layer.open({
-                type: 1,
-                title: "信息",
-                area: '310px',
-                id: 'LAY_layuipro',
-                btn: ['确定'],
-                content: '<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p>登陆已超时</p></div>',
-                yes: function() {
-                    window.location.href = "page/login/login.html";
-                }
-            });
-        }
-    }
-    ajax.ajax_common(obj_save, success_func);
+    
 
 
     // 通过接口获取验证登陆信息

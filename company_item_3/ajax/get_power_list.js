@@ -14,29 +14,15 @@ module.exports.run = function(body, pg, mo) {
   var f = body.receive;
 
   var menu = config.get("menu");
-  
-  var db = sqlite.connect();
-  var sql = "select * from 管_权限表 where 1 =1";
-
-  var result = sqlite.query(db, sql);
-  console.log(result)
-  console.log(menu)
-  
-  if (result.数据.length == 0) {
-    p.状态 = "获取列表异常";
-    return p;
-  } else {
-    f.列表 = result.数据;
-    f.条数 = result.数据.length;
-  }
-
+  var arr = [];
+  menu.forEach(function(item) {
+    for (i in item.导航) {
+        arr.push([item.导航[i].菜单,item.导航[i].表格名称,item.导航[i].功能按钮])
+    }
+  });
+  p.数据 = arr;
   p.状态 = "成功";
-  p.表格名称 = "管_权限表";
-  p.列表 = f.列表;
-  p.条数 = f.条数;
-
-
-  sqlite.close(db);
+  console.log(p.数据)
 
   return common.removenull(p);
 };
