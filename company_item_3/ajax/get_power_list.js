@@ -17,7 +17,7 @@ module.exports.run = function(body, pg, mo) {
   var arr = [];
   menu.forEach(function(item) {
     for (i in item.导航) {
-        arr.push([item.导航[i].菜单,item.导航[i].表格名称,item.导航[i].功能按钮])
+        arr.push({"菜单":item.导航[i].菜单,"编号":item.导航[i].表格编号,"字段":item.导航[i].表格名称,"按钮":item.导航[i].功能按钮})
     }
   });
   p.数据 = arr;

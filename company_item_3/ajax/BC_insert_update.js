@@ -52,9 +52,9 @@ module.exports.run = function(body, pg, mo) {
   console.log(table_type)
   switch(table_type){
     case "系统":
-    sqlite_func();
-    
+    sqlite_func();    
     break;
+
     default:
     pg_func();
   }
@@ -104,11 +104,38 @@ module.exports.run = function(body, pg, mo) {
     }
   }
   function sqlite_func(){
-    console.log(button_arr,"lk")
-    // var db = sqlite.connect();
-    // var sql = "select * from 管_权限表 where 1 =1";
-  
-    // var result = sqlite.query(db, sql);
+    console.log(f,"i know")
+
+    var db = sqlite.connect();
+    // var sql = "select * from 管_权限表 where 1 =1";  
+    var result = sqlite.query(db, sql);
+
+    var a = {};
+    f.data.字段.forEach(function(item, key) {
+      con
+      a[key] = {};
+      a[key]['字段'] = item;
+      a[key]['查看'] = check_null(f, '查看', item);
+      a[key]['按钮'] = button_null(f, '按钮', item);
+      //console.log(typeof (a[key]['按钮']));
+      if(typeof(a[key]['按钮']) != 'object' && a[key]['按钮'] != '') {
+        a[key]['按钮'][0] = a[key]['按钮'];
+      }
+    });
+
+    function check_null(f,type,name){
+      var r = '0';
+      if(eval('f.data.node_'+type+'_'+name) == null) r = '0';
+      else r = '1';	
+       return r;
+    }
+    
+    function button_null(f,type,name){
+      var r = '';
+      if(eval('f.data.node_'+type+'_'+name) == null) r = '';
+      else r = eval('f.data.node_'+type+'_'+name);	
+       return r;
+    }
   }
   return common.removenull(p);
   
