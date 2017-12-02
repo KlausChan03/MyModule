@@ -251,8 +251,8 @@ for (i in table_act) {
                             var control_power = res.数据;
                             var control_content = [];
                             for (var i in control_power){
-                                control_content.push('<p class="power-title"></p><input type="radio" name="字段" value=' + control_power[i].字段 +' title=' + control_power[i].字段 +'>'
-                                + ' <p class="power-row-1">查看</p><input type="radio" name="查看['+control_power[i].编号+']" value="显示" title="显示"><input type="radio" name="查看['+control_power[i].编号+']"  value="不显示" title="不显示" checked="">'
+                                control_content.push('<p class="power-title">'+control_power[i].编号+'</p>'
+                                + ' <p class="power-row-1">查看</p><input type="checkbox" name="查看['+control_power[i].编号+']" value="显示" title="显示">'
                                 + ' <p class="power-row-2">按钮</p>');
                                 for (var j in control_power[i].按钮){
                                 control_content.push('<input type="checkbox" name="按钮'+ control_power[i].按钮[j] +'['+control_power[i].编号+ ']" value=' + control_power[i].按钮[j]  + ' title=' + control_power[i].按钮[j]  + '>');

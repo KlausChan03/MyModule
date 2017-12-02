@@ -105,22 +105,30 @@ module.exports.run = function(body, pg, mo) {
   }
   function sqlite_func(){
     console.log(f,"i know")
-
-    var db = sqlite.connect();
-    // var sql = "select * from 管_权限表 where 1 =1";  
-    var result = sqlite.query(db, sql);
-
-    var a = {};
-    f.data.字段.forEach(function(item, key) {
-      con
-      a[key] = {};
-      a[key]['字段'] = item;
-      a[key]['查看'] = check_null(f, '查看', item);
-      a[key]['按钮'] = button_null(f, '按钮', item);
-      //console.log(typeof (a[key]['按钮']));
-      if(typeof(a[key]['按钮']) != 'object' && a[key]['按钮'] != '') {
-        a[key]['按钮'][0] = a[key]['按钮'];
+    var power_ls = f.data;   
+    var check_arr = [];
+    var button_arr = [];
+    for ( var i in power_ls ){
+      if( i.indexOf("查看") != -1) {
+        check_arr.push(i)
       }
+      if( i.indexOf("按钮") != -1) {
+        button_arr.push(i)
+      }
+    }
+    console.log(check_arr,"hah");
+    console.log(button_arr,"bu");
+    
+    var a = {};
+    check_arr.forEach(function(item, key) {
+      // console.log(item,"---",key,"0--")
+      // a[key] = {};
+      // a[key]['字段'] = item.split(;
+      // a[key]['查看'] = check_null(f, '查看', item);
+      // a[key]['按钮'] = button_null(f, '按钮', item);
+      // if(typeof(a[key]['按钮']) != 'object' && a[key]['按钮'] != '') {
+      //   a[key]['按钮'][0] = a[key]['按钮'];
+      // }
     });
 
     function check_null(f,type,name){
@@ -136,6 +144,10 @@ module.exports.run = function(body, pg, mo) {
       else r = eval('f.data.node_'+type+'_'+name);	
        return r;
     }
+
+    // var db = sqlite.connect();
+    // var sql = "select * from 管_权限表 where 1 =1";  
+    // var result = sqlite.query(db, sql);
   }
   return common.removenull(p);
   
