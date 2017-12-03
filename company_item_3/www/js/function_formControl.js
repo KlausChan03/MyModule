@@ -345,18 +345,44 @@ form_act.editor = function(rich_open) {
 
       var E = window.wangEditor;
       var editor = new E("#div1", "#div2");
+
+      editor.customConfig.menus = [
+        'head',  // 标题
+        'bold',  // 粗体
+        'italic',  // 斜体
+        'underline',  // 下划线
+        'foreColor',  // 文字颜色
+        'backColor',  // 背景颜色
+        'link',  // 插入链接
+        'list',  // 列表
+        'justify',  // 对齐方式
+        'emoticon',  // 表情
+        'image',  // 插入图片
+        'table',  // 表格
+        'video',  // 插入视频
+        'undo',  // 撤销
+        'redo'  // 重复
+      ]
       editor.customConfig.onfocus = function() {
-        $(".editor-top").css({ "z-index": "10000" });
+        $(".editor-top").css({ "z-index": "10000" });        
       };
-      editor.customConfig.onblur = function() {
+      $("#div1").mouseenter(function(){
+        $(".editor-top").css({ "z-index": "10000" });   
+      })
+      $("#div1").mouseleave(function(){
+        $(".editor-top").css({ "z-index": "10001" });   
+      })
+
+      editor.customConfig.onblur = function() {    
+        console.log("hello")        
         $(".editor-top").css({ "z-index": "10001" });
       };
+
       editor.create();
 
       var flag = 1;
       $button_turn.click(function() {
         if ($("*[name='内容']").val() != "") {
-          console.log($("*[name='内容']").val());
           var editor_arr = $("*[name='内容']")
             .val()
             .replace("</h1><h5>", "</h1>__占位__<h5>")

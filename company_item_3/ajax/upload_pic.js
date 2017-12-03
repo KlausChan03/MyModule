@@ -93,12 +93,8 @@ module.exports.run = function(body, pg, mo) {
     } else {
         f.状态 = '上传失败';
     }
-
-
-
     p.状态 = f.状态;
     p.name = 信息.name;
-    console.log((信息.res.requestUrls)[0],"aaa")
     p.地址 = (信息.res.requestUrls)[0].split("?")[0] + "?x-oss-process=image/resize,m_fixed,h_310,w_680";
     console.log(p.地址,"bbb")
     

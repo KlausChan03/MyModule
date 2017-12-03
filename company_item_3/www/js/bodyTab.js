@@ -1,9 +1,3 @@
-/*
-	@Author: 请叫我马哥
-	@Time: 2017-04
-	@Tittle: tab
-	@Description: 点击对应按钮添加新窗口
-*/
 var tabFilter,
   menu = [],
   liIndex,
@@ -36,17 +30,18 @@ layui.define(["element", "jquery"], function(exports) {
         };
         var error_func = function (res) {
           if(res.状态 == "当前未登录"){ 
-            layer.open({
-              type: 1,
-              title: "信息",
-              area: '310px',
-              id: 'LAY_layuipro',
-              btn: ['确定'],
-              content: '<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p>登陆已超时</p></div>',
-              yes:function(){
-                window.location.href="page/login/login.html";					
-              }
-            });
+            // layer.open({
+            //   type: 1,
+            //   title: "信息",
+            //   area: '310px',
+            //   id: 'LAY_layuipro',
+            //   btn: ['确定'],
+            //   content: '<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p>登陆已超时</p></div>',
+            //   yes:function(){
+            //     window.location.href="page/login/login.html";					
+            //   }
+            // });
+            window.location.href="page/login/login.html";	
           }
         }
         ajax.ajax_common(obj_save, success_func, error_func);

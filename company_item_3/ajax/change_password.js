@@ -11,6 +11,9 @@ var sign = require("../func/sign.js");
 var transliteration = require("transliteration");
 var fs = require("fs");
 
+var sqlite = require("../func/sqlite.js");
+var public = require("../ajax/admin_control");
+
 module.exports.run = function(body, pg, mo) {
   var server = config.get("server");
   body.receive = JSON.parse(body.data);
@@ -30,6 +33,10 @@ module.exports.run = function(body, pg, mo) {
   var 日期 = moment().format("YYYY-MM-DD");
 
   
+
+  var db = sqlite.connect();
+  
+
   // 验证前台参数
   if (f.data.旧密码== "" || f.data.旧密码 == null) {
     f.状态 = "请填写旧密码";
@@ -41,7 +48,7 @@ module.exports.run = function(body, pg, mo) {
   }
 
   sql = "select id,密码,随机码 from 管_管理员表 where 登录名 = '" +f.session.user_name +"' ";
-  result = pgdb.query(pg, sql);
+  result = sqlite.query(db, sql);
 
 
   if(result.数据[0].密码 != cipher.md5(result.数据[0].随机码 + f.data.旧密码)){
@@ -51,9 +58,10 @@ module.exports.run = function(body, pg, mo) {
   }else{
     f.新密码 = cipher.md5(result.数据[0].随机码 + f.data.新密码);
     sql = "update 管_管理员表 set 密码=  '" + f.新密码 + "'  where 登录名 = '" +f.session.user_name +"' ";
-    result = pgdb.query(pg, sql);
+    result = sqlite.query(db, sql);
   }
 
+  sqlite.close(db);
 
   p.状态 = f.状态;
 
