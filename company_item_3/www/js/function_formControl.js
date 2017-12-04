@@ -363,20 +363,27 @@ form_act.editor = function(rich_open) {
         'undo',  // 撤销
         'redo'  // 重复
       ]
-      editor.customConfig.onfocus = function() {
-        $(".editor-top").css({ "z-index": "10000" });        
-      };
-      $("#div1").mouseenter(function(){
-        $(".editor-top").css({ "z-index": "10000" });   
+      $(".editor-top").mouseover(function(){
+        console.log("llll")
+        $(".editor-top").css({ "z-index": "10001" });  
       })
-      $("#div1").mouseleave(function(){
-        $(".editor-top").css({ "z-index": "10001" });   
+      $(".editor-top").mouseleave(function(){
+        console.log("kkkk")
+        $(".editor-top").css({ "z-index": "10000" });  
       })
-
-      editor.customConfig.onblur = function() {    
-        console.log("hello")        
-        $(".editor-top").css({ "z-index": "10001" });
-      };
+      // $("#div1").mouseenter(function(){
+      //   $(".editor-top").css({ "z-index": "10000" });   
+      // })
+      // $("#div1").mouseleave(function(){
+      //   $(".editor-top").css({ "z-index": "10001" });   
+      // })
+      // editor.customConfig.onfocus = function() {
+      //   $(".editor-top").css({ "z-index": "10000" });        
+      // };
+      // editor.customConfig.onblur = function() {    
+      //   console.log("hello")        
+      //   $(".editor-top").css({ "z-index": "10001" });
+      // };
 
       editor.create();
 
