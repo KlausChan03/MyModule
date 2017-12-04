@@ -72,3 +72,10 @@ require.config({
     ]
   }
 });
+
+// require(['wangEditor','jquery'], function(){
+// 	$(function(){
+//       var E = window.wangEditor;
+//       var editor = new E("#div1", "#div2");
+// 	});
+// });
