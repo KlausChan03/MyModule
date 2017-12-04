@@ -84,10 +84,12 @@ module.exports.run = function(body, pg, mo) {
 
 	if(result) {
 		// 通过数组的sort方法以id排序
-		console.log(f.type)
+		console.log(f.列表,"lll")
 		if(f.type == "all"){
-			f.列表.sort(function (o1, o2) { return o1.id - o2.id; });			
+			f.列表.sort(function (o1, o2) { return o2.录入时间 - o1.录入时间; });			
 		}
+		console.log(f.列表,"kkk")
+		
 		p.表格名称 = f.tb_name;
 		p.列表 = f.列表;
 		p.条数 = f.条数;

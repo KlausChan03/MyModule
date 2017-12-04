@@ -72,19 +72,19 @@
         "href": "page/qq_items/global_member.html?func=BC_select_all&bc_id=global_member",
         "spread": false
       },{
-        "id":"1",
+        "id":"2",
         "title": "全_账户表",
         "icon": "&#xe609;",
         "href": "page/qq_items/global_account.html?func=BC_select_all&bc_id=global_account",
         "spread": false
       },{
-        "id":"1",
+        "id":"3",
         "title": "全_会员资料表",
         "icon": "&#xe609;",
         "href": "page/qq_items/global_memberInformation.html?func=BC_select_all&bc_id=global_memberInformation",
         "spread": false
       },{
-        "id":"1",
+        "id":"4",
         "title": "全_设备管理表",
         "icon": "&#xe609;",
         "href": "page/qq_items/global_deviceManagement.html?func=BC_select_all&bc_id=global_deviceManagement",

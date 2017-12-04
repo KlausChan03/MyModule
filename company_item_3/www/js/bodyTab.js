@@ -60,8 +60,8 @@ layui.define(["element", "jquery"], function(exports) {
           // save_ls 暂存前台二级表格名称
           // save_temp 暂存新二级菜单
           // console.log(res);
-          console.log(res.listMenu)
-          console.log(res)
+          // console.log(res.listMenu)
+          // console.log(res.listNav)
 
           for (i in res.listMenu) {
             for (j in data) {
@@ -79,18 +79,24 @@ layui.define(["element", "jquery"], function(exports) {
                 for (a in _data) {
                   var save_temp = [];
                   for (b in _data[a].children) {
-                    save_ls.push(_data[a].children[b].title);
-                    if (save_tb[b] == save_ls[b]) {
-                      // _data[a].children.splice(0,_data[a].children.length,_data[a].children[b]);
-                      // _data[a].children.push(_data[a].children[b]);
+                    save_ls.push(_data[a].children[b].title); 
+                    console.log(save_tb)                   
+                    console.log(save_ls)                   
+                    // if (save_tb == save_ls) {
+                      // console.log(save_tb)
+                      // console.log(save_tb)
                       save_temp.push(_data[a].children[b]);
-                    }
+                    // }
+                    // console.log(save_temp)
+                    
                   }
                 }
               }
               if (_data[i] != undefined && _data[i] != null && _data[i] != "") {
                 if (_data[i].children.length != 0) {
                   _data[i].children = save_temp;
+                  // console.log(_data[i].children)
+                  
                 }
               }
             }
