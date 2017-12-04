@@ -69,19 +69,25 @@ module.exports.run = function(body, pg, mo) {
 	}
 
 	if(result) {
-		if(result.数据.length == 0) {
-			p.状态 = "获取列表异常";
-
-		} else {
-			p.状态 = "成功";
-			f.列表 = result.数据;
-			f.条数 = result.数据.length;
+		if(result.数据){
+			if(result.数据.length == 0) {
+				p.状态 = "获取列表异常";
+	
+			} else {
+				p.状态 = "成功";
+				f.列表 = result.数据;
+				f.条数 = result.数据.length;
+			}
 		}
+		
 	}
 
 	if(result) {
 		// 通过数组的sort方法以id排序
-		f.列表.sort(function (o1, o2) { return o1.id - o2.id; });
+		console.log(f.type)
+		if(f.type == "all"){
+			f.列表.sort(function (o1, o2) { return o1.id - o2.id; });			
+		}
 		p.表格名称 = f.tb_name;
 		p.列表 = f.列表;
 		p.条数 = f.条数;
