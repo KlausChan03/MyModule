@@ -125,12 +125,14 @@
 }
 
 .layui-layer-content .form-insert-update .layui-form-label {
-  width: 85px;
-  padding: 9px 20px 9px 0px;
+  width: 130px;
+  padding: 0;
+  padding-right:10px;
+  line-height: 30px;
 }
 
 .layui-layer-content .form-insert-update .layui-input-block {
-  margin-left: 105px;
+  margin-left: 140px;
 }
 
 .layui-layer-content .form-insert-update .layui-btn {
@@ -179,7 +181,7 @@
 }
 .show-block{
   margin: 10px 0;  
-  margin-left: 105px;
+  margin-left: 140px;
   display: flex;
   flex-wrap: wrap;
 }

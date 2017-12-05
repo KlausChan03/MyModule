@@ -62,44 +62,33 @@ layui.define(["element", "jquery"], function(exports) {
           // console.log(res);
           // console.log(res.listMenu)
           // console.log(res.listNav)
+          var save_tb = [];
 
+          for (k in res.listNav) {
+              for (l in res.listNav[k]) {
+                  save_tb.push(res.listNav[k][l].表格名称);
+              }
+          }
           for (i in res.listMenu) {
-            for (j in data) {
-              if (res.listMenu[i].名称 == data[j].title) {
-                _data.push(data[j]);
-                var save_tb = [];
-                var save_ls = [];
-                var save_key = [];
-                for (k in res.listNav) {
-                  for (l in res.listNav[k]) {
-                    save_tb.push(res.listNav[k][l].表格名称);
-                    save_key.push(res.listNav[k][l].表格名称);
+              for (j in data) {
+                  if (res.listMenu[i].名称 == data[j].title) {
+                      _data.push(data[j]);
+                      var save_temp = [];
+                      for (b in _data[i].children) {
+                          var save_ls = [];
+                          if (save_tb.includes(_data[i].children[b].title)) {
+                              save_temp.push(_data[i].children[b]);
+                          }
+                      }
+
                   }
-                }
-                for (a in _data) {
-                  var save_temp = [];
-                  for (b in _data[a].children) {
-                    save_ls.push(_data[a].children[b].title); 
-                    console.log(save_tb)                   
-                    console.log(save_ls)                   
-                    // if (save_tb == save_ls) {
-                      // console.log(save_tb)
-                      // console.log(save_tb)
-                      save_temp.push(_data[a].children[b]);
-                    // }
-                    // console.log(save_temp)
-                    
-                  }
-                }
+
               }
               if (_data[i] != undefined && _data[i] != null && _data[i] != "") {
-                if (_data[i].children.length != 0) {
-                  _data[i].children = save_temp;
-                  // console.log(_data[i].children)
-                  
-                }
+                  if (_data[i].children.length != 0) {
+                      _data[i].children = save_temp;
+                  }
               }
-            }
           }
           // 功能模块测试
           // [
