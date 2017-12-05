@@ -51,8 +51,8 @@ form_act.add_video_pic = function(pic_type, video_open) {
         } else {
           fileSize = e.target.files[0].size;
         }
-        if (size > 20000) {
-          layer.msg("附件不能大于20M");
+        if (size > 40000) {
+          layer.msg("附件不能大于40M");
           e.target.value = "";
           return;
         }

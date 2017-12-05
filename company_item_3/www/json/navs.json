@@ -22,12 +22,6 @@
         "icon": "&#xe609;",
         "href": "page/user/user_power.html?func=user_power&page_id=user_power",
         "spread": false
-      },
-      {
-        "title": "管_后台日志表",
-        "icon": "&#xe609;",
-        "href": "page/user/user_backendLog.html?func=page_select_all&page_id=user_backendLog",
-        "spread": false
       }
     ]
   },

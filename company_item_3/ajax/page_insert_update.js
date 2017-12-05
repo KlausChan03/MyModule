@@ -133,9 +133,6 @@ module.exports.run = function(body, pg, mo) {
         button_arr.push(i);
       }
     }
-    console.log(all_arr, "nnn");
-    console.log(check_arr, "hah");
-    console.log(button_arr, "bu");
 
     function button_concat(f,button_arr){
         for (i in button_arr){
@@ -166,14 +163,15 @@ module.exports.run = function(body, pg, mo) {
     }
     function button_null(f, type, name) {
       var r = [];
-      if (eval("f.data." + type + "_" + name + "_新增") == null);
+      if (eval("f.data." + type + "_" + name + "_新增") == null) r.push("0");
       else r.push("新增");
-      if (eval("f.data." + type + "_" + name + "_编辑") == null);
+      if (eval("f.data." + type + "_" + name + "_编辑") == null)  r.push("0");
       else r.push("编辑");
-      if (eval("f.data." + type + "_" + name + "_删除") == null);
+      if (eval("f.data." + type + "_" + name + "_删除") == null)  r.push("0");
       else r.push("删除");
-      if (eval("f.data." + type + "_" + name + "_批量删除") == null);
+      if (eval("f.data." + type + "_" + name + "_批量删除") == null)  r.push("0");
       else r.push("批量删除");
+      console.log(r)
       return r;
     }
  

@@ -320,8 +320,8 @@ function changeTableStutas(res, toolbar) {
       skin: "row", //表格风格
       even: true,
       page: true, //是否显示分页
-      limits: [10, 15, 20, 50, 100],
-      limit: 15 //每页默认显示的数量
+      limits: [10, 15, 20, 50, 100, 500],
+      limit: 20 //每页默认显示的数量
     });
   });
 }
