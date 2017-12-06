@@ -261,14 +261,13 @@ function changeTableStutas(res, toolbar) {
       th.push({ field: i, title: i, minWidth: 150, align: "center" });
       $(".select-test").append("<option value='" + i + "'>" + i + "</option>");
     }
-    // 头部单独处理
 
+    // 头部单独处理
     // 引入正序和倒序排序(sort)
-    // th[2].sort = true;
+    th[2].sort = true;
     for (i in th) {
       if (th[i].field == "录入时间") {
         var that = th[i];
-
         function get_sort(arg1) {
           this.sort = true;
           this.minWidth = 200;
@@ -276,10 +275,8 @@ function changeTableStutas(res, toolbar) {
         get_sort.apply(that);
       }
 
-
       if (th[i].field == "id") {
         var that = th[i];
-
         function set_width(arg1) {
           this.minWidth = 80;
           this.sort = true;
@@ -287,18 +284,16 @@ function changeTableStutas(res, toolbar) {
         set_width.apply(that);
       }
 
-
       if (th[i].field == "状态") {
         var that = th[i];
-
         function set_width(arg1) {
           this.sort = true;
         }
         set_width.apply(that);
       }
+
       if (th[i].field == "排序") {
         var that = th[i];
-
         function set_width(arg1) {
           this.sort = true;
         }
@@ -316,6 +311,7 @@ function changeTableStutas(res, toolbar) {
       id: "test",
       data: res.列表,
       width: "auto",
+      height: "full-155",
       cols: [th],
       skin: "row", //表格风格
       even: true,

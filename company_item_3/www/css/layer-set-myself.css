@@ -1,3 +1,33 @@
+
+.childrenBody{
+  margin: 10px 10px 0;
+  background-color: #f0f0f0;
+}
+
+section{
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  padding: 0 15px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,.1);
+  background-color: #ffffff;
+}
+
+section:first-child{
+  margin-top: 0px;
+}
+
+.layui-field-title{
+  margin-bottom: 5px;
+}
+
+.layui-elem-quote{
+  background-color: #fff;
+}
+
+.layui-quote-nm{
+  background-color: #fff;
+}
+
 /* .layui-layer-diy[type=page].w16 {
 	width: 6.4rem;
 	border-radius: .15rem;
@@ -64,9 +94,6 @@
 }
 
 
-.childrenBody{
-  margin: 10px 10px 0;
-}
 .layui-inline{
   margin: 5px 5px 5px 0;
 }
@@ -177,7 +204,8 @@
 
 
 .zwlAppend{
-  margin: 10px 0;
+  margin: 5px 0;
+  margin-left: 10px;
 }
 .show-block{
   margin: 10px 0;  

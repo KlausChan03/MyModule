@@ -45,6 +45,7 @@ ajax.ajax_common = function(obj_save, success_func, error_func, type) {
         data: "data=" + datas,
         success: function(res) {
             if (res.状态 == "成功") {
+                console.log(res.条数)
                 success_func(res);
             } else {
                 error_func(res);

@@ -33,12 +33,13 @@ module.exports.run = function(body, pg, mo) {
 			for(i in item.导航) {
 				if(item.导航[i].表格编号 == f.check) {
 					table_name = item.导航[i].表格名称;
+					select_arr = item.导航[i].查询语句;
 					f.tb_name = table_name;
-					console.log(f.tb_name)
 				}
 			}
 		}
 	});
+	console.log(select_arr,"roger");
 	if(f.type == "all") {
 		if(f.data == "") {
 			f.verify = "审核通过";
@@ -61,7 +62,11 @@ module.exports.run = function(body, pg, mo) {
 	}
 	var sql = "";
 	if(f.type == "all" && f.verify == "审核通过") {
-		sql = "select * from " + f.tb_name + " where 1 = 1 ";
+		if(select_arr == "" || select_arr == undefined){
+			sql = "select * from " + f.tb_name + " where 1 = 1 ";		
+		}else{
+			sql = "select " + select_arr + " from " + f.tb_name + " where 1 = 1 ";			
+		}
 		var result = pgdb.query(pg, sql);
 	} else if(f.type == "one" && f.verify == "审核通过") {
 		sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "'";
@@ -86,7 +91,7 @@ module.exports.run = function(body, pg, mo) {
 	if(result) {
 		// 通过数组的sort方法以id排序
 		if(f.type == "all"){
-			f.列表.sort(function (o1, o2) { return o2.录入时间 - o1.录入时间; });			
+			f.列表.sort(function (o1, o2) { return parseInt(o2.录入时间) - parseInt(o1.录入时间); });			
 		}
 		p.表格名称 = f.tb_name;
 		p.列表 = f.列表;
@@ -96,6 +101,5 @@ module.exports.run = function(body, pg, mo) {
 		p.状态 = f.状态;
 	}
 
-
-	return common.removenull(p);
+	return p;
 };

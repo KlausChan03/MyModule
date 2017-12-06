@@ -246,21 +246,48 @@ for (i in table_act) {
                         func: "get_power_list"
                     };
                     var success_func = function(res) {
-                        console.log($("[name='权限']").val())
+                        
                         layui.use("form", function() {
                             var form = layui.form;
                             var control_power = res.数据;
                             var control_content = [];
+                            var control_get_show = "";
+                            var control_check = "";
+                            
+                            if($("[name='权限']").val() != ""){ 
+                                var control_get = JSON.parse($("[name='权限']").val());
+                            }
+                            
                             for (var i in control_power){
-                                control_content.push('<p class="power-title">'+control_power[i].字段+'</p>'
-                                + ' <input type="hidden" name="字段_'+control_power[i].编号+'" value="'+control_power[i].编号+'" />'
-                                + ' <p class="power-row-1">查看</p><input type="checkbox" name="查看_'+control_power[i].编号+'" value="显示" title="显示">'
-                                + ' <p class="power-row-2">按钮</p>');
-                                for (var j in control_power[i].按钮){
-                                control_content.push('<input type="checkbox" name="按钮'+ '_' + control_power[i].编号 + '_' + control_power[i].按钮[j] +'" value=' + control_power[i].按钮[j]  + ' title=' + control_power[i].按钮[j]  + '>');
+                                if($("[name='权限']").val() != ""){    
+                                    if(control_get[i] != undefined){
+                                        control_get_show = control_get[i].查看 == 1 ? "显示":"不显示";   
+                                        control_check =  control_get[i].查看 == 1 ? "checked":""                                                              
+                                    }
+                                    control_content.push('<p class="power-title">'+ i +'、' + control_power[i].字段+'</p>'
+                                    + ' <input type="hidden" name="字段_'+control_power[i].编号+'" value="'+control_power[i].编号+'" />'
+                                    + ' <p class="power-row-1">查看</p><input type="checkbox" name="查看_'+control_power[i].编号+'" value="'+control_get_show+'"  '+ control_check +'  title="显示">'
+                                    + ' <p class="power-row-2">按钮</p>');
+                                    for (var j in control_power[i].按钮){
+                                        if(control_get[i] != undefined){ 
+                                            control_button = control_get[i].按钮[j] != "0"  ? "checked":"" 
+                                            control_content.push('<input type="checkbox" name="按钮'+ '_' + control_power[i].编号 + '_' + control_power[i].按钮[j] +'" value="' + control_power[i].按钮[j]  + '" '+ control_button +'  title="' + control_power[i].按钮[j]  + '">');                                     
+                                        }
+                                    }
+
+                                }else{
+                                    control_content.push('<p class="power-title">'+ i +'、'+ control_power[i].字段 +'</p>'
+                                    + ' <input type="hidden" name="字段_'+control_power[i].编号+'" value="'+control_power[i].编号+'" />'
+                                    + ' <p class="power-row-1">查看</p><input type="checkbox" name="查看_'+control_power[i].编号+'" value="显示" title="显示">'
+                                    + ' <p class="power-row-2">按钮</p>');
+                                    for (var j in control_power[i].按钮){
+                                    control_content.push('<input type="checkbox" name="按钮'+ '_' + control_power[i].编号 + '_' + control_power[i].按钮[j] +'" value=' + control_power[i].按钮[j]  + ' title=' + control_power[i].按钮[j]  + '>');
+                                    }
                                 }
                             }
-                            $("[name='权限']").parent().empty().addClass("power-main").append(control_content);
+
+                            $("[name='权限']").parent().empty().addClass("power-main").append(control_content); 
+                            
                             form.render()
                         })
                     };                    

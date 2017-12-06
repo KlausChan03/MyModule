@@ -265,53 +265,53 @@ function changeTableStutas(res, toolbar) {
 
     // 引入正序和倒序排序(sort)
     // th[2].sort = true;
-    for (i in th) {
-      if (th[i].field == "录入时间") {
-        var that = th[i];
+    // for (i in th) {
+    //   if (th[i].field == "录入时间") {
+    //     var that = th[i];
 
-        function get_sort(arg1) {
-          this.sort = true;
-          this.minWidth = 200;
-        }
-        get_sort.apply(that);
-      }
-
-
-      if (th[i].field == "id") {
-        var that = th[i];
-
-        function set_width(arg1) {
-          this.minWidth = 80;
-          this.sort = true;
-        }
-        set_width.apply(that);
-      }
+    //     function get_sort(arg1) {
+    //       this.sort = true;
+    //       this.minWidth = 200;
+    //     }
+    //     get_sort.apply(that);
+    //   }
 
 
-      if (th[i].field == "状态") {
-        var that = th[i];
+    //   if (th[i].field == "id") {
+    //     var that = th[i];
 
-        function set_width(arg1) {
-          this.sort = true;
-        }
-        set_width.apply(that);
-      }
-      if (th[i].field == "排序") {
-        var that = th[i];
+    //     function set_width(arg1) {
+    //       this.minWidth = 80;
+    //       this.sort = true;
+    //     }
+    //     set_width.apply(that);
+    //   }
 
-        function set_width(arg1) {
-          this.sort = true;
-        }
-        set_width.apply(that);
-      }
-    }
+
+    //   if (th[i].field == "状态") {
+    //     var that = th[i];
+
+    //     function set_width(arg1) {
+    //       this.sort = true;
+    //     }
+    //     set_width.apply(that);
+    //   }
+    //   if (th[i].field == "排序") {
+    //     var that = th[i];
+
+    //     function set_width(arg1) {
+    //       this.sort = true;
+    //     }
+    //     set_width.apply(that);
+    //   }
+    // }
 
     // 生成表格
     table.render({
-      initSort: {
-        field: "录入时间", //排序字段，对应 cols 设定的各字段名
-        type: "desc" //排序方式  asc: 升序、desc: 降序、null: 默认排序
-      },
+      // initSort: {
+      //   field: "录入时间", //排序字段，对应 cols 设定的各字段名
+      //   type: "desc" //排序方式  asc: 升序、desc: 降序、null: 默认排序
+      // },
       elem: "#demo",
       id: "test",
       data: res.列表,

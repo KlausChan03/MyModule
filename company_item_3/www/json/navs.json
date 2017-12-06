@@ -27,7 +27,7 @@
   },
   {
     "title": "首页",
-    "icon": "&#xe635;",
+    "icon": "&#xe68e;",
     "href": "",
     "spread": false,
     "children": [
@@ -88,7 +88,7 @@
   },
   {
     "title": "好友和群",
-    "icon": "&#xe635;",
+    "icon": "&#xe613;",
     "href": "",
     "spread": false,
     "children": [
@@ -133,7 +133,7 @@
   },
   {
     "title": "充值全球币",
-    "icon": "&#xe635;",
+    "icon": "&#xe659;",
     "href": "",
     "spread": false,
     "children": [
@@ -171,7 +171,7 @@
     ]
   },{
     "title": "银行提现",
-    "icon": "&#xe635;",
+    "icon": "&#xe65e;",
     "href": "",
     "spread": false,
     "children": [
@@ -203,7 +203,7 @@
     ]
   },{
     "title": "商学院直播",
-    "icon": "&#xe635;",
+    "icon": "&#xe652;",
     "href": "",
     "spread": false,
     "children": [
@@ -241,7 +241,7 @@
     ]
   },{
     "title": "群直播",
-    "icon": "&#xe635;",
+    "icon": "&#xe6ed;",
     "href": "",
     "spread": false,
     "children": [
@@ -291,7 +291,7 @@
     ]
   },{
     "title": "礼物",
-    "icon": "&#xe635;",
+    "icon": "&#xe735;",
     "href": "",
     "spread": false,
     "children": [
@@ -307,11 +307,17 @@
         "icon": "&#xe609;",
         "href": "page/qq_items/global_giftListing.html?func=page_select_all&page_id=global_giftListing",
         "spread": false
+      },{
+        "id":"1",
+        "title": "全_礼物兑换记录表",
+        "icon": "&#xe609;",
+        "href": "page/qq_items/global_giftExchangeRecord.html?func=page_select_all&page_id=global_giftExchangeRecord",
+        "spread": false
       }
     ]
   },{
     "title": "短信与群发",
-    "icon": "&#xe635;",
+    "icon": "&#xe63a;",
     "href": "",
     "spread": false,
     "children": [
@@ -336,8 +342,28 @@
       }
     ]
   },{
+    "title": "日志",
+    "icon": "&#xe63c;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "id":"1",
+        "title": "全_日志_钱表",
+        "icon": "&#xe609;",
+        "href": "page/qq_items/global_logMoney.html?func=page_select_all&page_id=global_logMoney",
+        "spread": false
+      },{
+        "id":"1",
+        "title": "全_日志_非钱表",
+        "icon": "&#xe609;",
+        "href": "page/qq_items/global_logNoMoney.html?func=page_select_all&page_id=global_logNoMoney",
+        "spread": false
+      }
+    ]
+  },{
     "title": "管理和设置",
-    "icon": "&#xe635;",
+    "icon": "&#xe620;",
     "href": "",
     "spread": false,
     "children": [
@@ -369,7 +395,7 @@
     ]
   },{
     "title": "其他",
-    "icon": "&#xe635;",
+    "icon": "&#xe857;",
     "href": "",
     "spread": false,
     "children": [
