@@ -26,13 +26,13 @@ table_act.delete = function(res, tb_id, select_id) {
 // 新增功能
 table_act.insert = function(res, tb_id) {
     var test_arr = [];
-    for (i in res.列表[0]) {
+    for (let i in res.列表[0]) {
         test_arr.push(i);
     }
     var test = "";
     test_arr.pop();
     // console.log(test_arr);
-    for (var i = 0; i < test_arr.length; i++) {
+    for (let i = 0; i < test_arr.length; i++) {
         test +=
             '<div class="layui-form-item"><label class="layui-form-label">' +
             test_arr[i] +
@@ -93,11 +93,11 @@ table_act.update = function(res, tb_id, data) {
     var old_arr = [];
 
     //循环字段名
-    for (i in res.列表[0]) {
+    for (let i in res.列表[0]) {
         test_arr.push(i);
     }
     //循环字段名所对应的值
-    for (var j in data) {
+    for (let j in data) {
         old_arr.push(data[j]);
     }
     // console.log(old_arr);
@@ -106,7 +106,7 @@ table_act.update = function(res, tb_id, data) {
     //赋给录入时期的的input的一个id名
     var classTest = "";
     test_arr.pop();
-    for (var i = 0; i < test_arr.length; i++) {
+    for (let i = 0; i < test_arr.length; i++) {
         // 特殊编码转义
         if (typeof old_arr[i] == "string") {
             old_arr[i] = old_arr[i]
@@ -178,7 +178,7 @@ table_act.update = function(res, tb_id, data) {
     layObj.form("编辑", success_func, test, tb_id);
 };
 
-for (i in table_act) {
+for (let i in table_act) {
     switch (i) {
         case "insert":
             function insert_local_process() {}
@@ -258,7 +258,7 @@ for (i in table_act) {
                                 var control_get = JSON.parse($("[name='权限']").val());
                             }
                             
-                            for (var i in control_power){
+                            for (let i in control_power){
                                 if($("[name='权限']").val() != ""){    
                                     if(control_get[i] != undefined){
                                         control_get_show = control_get[i].查看 == 1 ? "显示":"不显示";   
@@ -268,7 +268,7 @@ for (i in table_act) {
                                     + ' <input type="hidden" name="字段_'+control_power[i].编号+'" value="'+control_power[i].编号+'" />'
                                     + ' <p class="power-row-1">查看</p><input type="checkbox" name="查看_'+control_power[i].编号+'" value="'+control_get_show+'"  '+ control_check +'  title="显示">'
                                     + ' <p class="power-row-2">按钮</p>');
-                                    for (var j in control_power[i].按钮){
+                                    for (let j in control_power[i].按钮){
                                         if(control_get[i] != undefined){ 
                                             control_button = control_get[i].按钮[j] != "0"  ? "checked":"" 
                                             control_content.push('<input type="checkbox" name="按钮'+ '_' + control_power[i].编号 + '_' + control_power[i].按钮[j] +'" value="' + control_power[i].按钮[j]  + '" '+ control_button +'  title="' + control_power[i].按钮[j]  + '">');                                     
@@ -280,7 +280,7 @@ for (i in table_act) {
                                     + ' <input type="hidden" name="字段_'+control_power[i].编号+'" value="'+control_power[i].编号+'" />'
                                     + ' <p class="power-row-1">查看</p><input type="checkbox" name="查看_'+control_power[i].编号+'" value="显示" title="显示">'
                                     + ' <p class="power-row-2">按钮</p>');
-                                    for (var j in control_power[i].按钮){
+                                    for (let j in control_power[i].按钮){
                                     control_content.push('<input type="checkbox" name="按钮'+ '_' + control_power[i].编号 + '_' + control_power[i].按钮[j] +'" value=' + control_power[i].按钮[j]  + ' title=' + control_power[i].按钮[j]  + '>');
                                     }
                                 }

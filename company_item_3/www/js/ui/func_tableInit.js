@@ -40,12 +40,12 @@ layui.use(["table", "form", "upload"], function() {
     var success_func = function(res) {
       if (res.keyPower != "") {
         var key_arr = [];
-        for (var i in res.keyPower) {
+        for (let i in res.keyPower) {
           key_arr.push(res.keyPower[i]);
         }
       }
       if (key_arr != "") {
-        for (var j in key_arr) {
+        for (let j in key_arr) {
           if (key_arr[j] == "删除" || key_arr[j] == "编辑") {
             switch (key_arr[j]) {
               case "编辑":
@@ -199,7 +199,7 @@ layui.use(["table", "form", "upload"], function() {
         var checkStatus = table.checkStatus("test"),
           data = checkStatus.data;
         var select_id = [];
-        for (var i in checkStatus.data) {
+        for (let i in checkStatus.data) {
           select_id.push(checkStatus.data[i].id);
         }
         if (select_id.length > 1) {
@@ -257,7 +257,7 @@ function changeTableStutas(res, toolbar) {
       );
     }
     // 插入表格头部
-    for (var i in res.列表[0]) {
+    for (let i in res.列表[0]) {
       th.push({ field: i, title: i, minWidth: 150, align: "center" });
       $(".select-test").append("<option value='" + i + "'>" + i + "</option>");
     }
@@ -265,7 +265,7 @@ function changeTableStutas(res, toolbar) {
     // 头部单独处理
     // 引入正序和倒序排序(sort)
     th[2].sort = true;
-    for (i in th) {
+    for (let i in th) {
       if (th[i].field == "录入时间") {
         var that = th[i];
         function get_sort(arg1) {

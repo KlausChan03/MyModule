@@ -199,7 +199,7 @@ form_act.add_video_pic = function(pic_type, video_open) {
         var msg = {};
         msg.地址 = $("*[name='图片地址']").val();
         pic_arr = msg.地址.split("@split@");
-        for (i in pic_arr) {
+        for (let i in pic_arr) {
           pic_arr[i] += "@split@";
         }
         pic_show(msg);
@@ -216,7 +216,7 @@ form_act.add_video_pic = function(pic_type, video_open) {
       function pic_show(res) {
         if (pic_type == "all") {
           res.地址 = res.地址.split("@split@");
-          for (i in res.地址) {
+          for (let i in res.地址) {
             $show.append(
               '<div class="show-pic"><img class="show-pic-main" title="右键可复制地址" src="' +
                 res.地址[i] +
@@ -250,7 +250,7 @@ form_act.add_video_pic = function(pic_type, video_open) {
 
           var pic_arr_new = [];
           pic_arr.splice($index, 1);
-          for (i in pic_arr_) {
+          for (let i in pic_arr_) {
             pic_arr_new.push(pic_arr_[i]);
           }
           var pic_str_new = pic_arr_new.toString();
@@ -342,6 +342,7 @@ form_act.editor = function(rich_open) {
       var $button_turn = $("#text-button");
       var $button_commit = $("#commit-button");
 
+      
       var E = window.wangEditor;
       var editor = new E("#div1", "#div2");
 

@@ -380,7 +380,7 @@ layui.config({
         menu = JSON.parse(window.sessionStorage.getItem("menu"));
         curmenu = window.sessionStorage.getItem("curmenu");
         var openTitle = '';
-        for (var i = 0; i < menu.length; i++) {
+        for (let i = 0; i < menu.length; i++) {
             openTitle = '';
             if (menu[i].icon) {
                 if (menu[i].icon.split("-")[0] == 'icon') {
@@ -432,7 +432,7 @@ layui.config({
                     if ($(this).attr("lay-id") != '' && !$(this).hasClass("layui-this")) {
                         element.tabDelete("bodyTab", $(this).attr("lay-id")).init();
                         //此处将当前窗口重新获取放入session，避免一个个删除来回循环造成的不必要工作量
-                        for (var i = 0; i < menu.length; i++) {
+                        for (let i = 0; i < menu.length; i++) {
                             if ($("#top_tabs li.layui-this cite").text() == menu[i].title) {
                                 menu.splice(0, menu.length, menu[i]);
                                 window.sessionStorage.setItem("menu", JSON.stringify(menu));

@@ -111,7 +111,7 @@ layui.config({
 		for (var j=0; j<num; j++){
 			$(".version-msg").append('<div class="version-main"><h4 class="version-title"></h4><ul class="version-list"></ul></div>')
 			$(".version-msg .version-title:eq("+(j)+")").html(data[j].version);
-			for (var i=0;i<data[j].function.length;i++){
+			for (let i=0;i<data[j].function.length;i++){
 				$(".version-main:eq("+(j)+")").append('<p>*&nbsp;&nbsp;'+data[j].function[i]+'</p>')
 			}
 		}

@@ -259,6 +259,12 @@ section:first-child{
   margin-top: 0px!important;
 }
 
+.layui-form-radio{
+  height: 30px;
+  line-height: 30px;
+  margin-top: 0px;
+}
+
 /* .layui-table[lay-even] tr:nth-child(even){
   background-color: #f0f0f0!important;
 } */

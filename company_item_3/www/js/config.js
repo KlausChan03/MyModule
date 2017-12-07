@@ -113,8 +113,8 @@ require.config({
     user_list: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     user_power: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
 
-    global_indexNews: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer", "wangEditor" ],
-    global_indexVideo: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer", "oss" ],
+    global_indexNews: [ "wangEditor","layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer"],
+    global_indexVideo: [ "oss","layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer"],
     global_indexTemplate: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_member: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_account: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
@@ -171,9 +171,6 @@ require.config({
   }
 });
 
-// require(['wangEditor','jquery'], function(){
-// 	$(function(){
+// require(['wangEditor','jquery'], function(wangEditor,$){
 //       var E = window.wangEditor;
-//       var editor = new E("#div1", "#div2");
-// 	});
 // });
