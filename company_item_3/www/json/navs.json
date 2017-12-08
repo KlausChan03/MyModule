@@ -14,13 +14,13 @@
       {
         "title": "管_管理员表",
         "icon": "&#xe609;",
-        "href": "page/user/user_list.html?func=user_list&page_id=user_list",
+        "href": "page/user/user_list.html?func=user_list+user_list_InsertUpdate+user_list_delete&page_id=user_list",
         "spread": false
       },
       {
         "title": "管_权限表",
         "icon": "&#xe609;",
-        "href": "page/user/user_power.html?func=user_power&page_id=user_power",
+        "href": "page/user/user_power.html?func=user_power+user_power_InsertUpdate+user_power_delete&page_id=user_power",
         "spread": false
       }
     ]
@@ -35,20 +35,20 @@
         "id":"1",
         "title": "全_首页模版表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_indexTemplate.html?func=page_select_all&page_id=global_indexTemplate&pic_type=all&rich_open=false&video_open=false",
+        "href": "page/qq_items/global_indexTemplate.html?func=page_select_all+page_insert_update+page_delete&page_id=global_indexTemplate&pic_type=all&rich_open=false&video_open=false",
         "spread": false
       },
       {
         "id":"2",
         "title": "全_首页信息表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_indexNews.html?func=page_select_all&page_id=global_indexNews&pic_type=all&rich_open=true&video_open=false",
+        "href": "page/qq_items/global_indexNews.html?func=page_select_all+page_insert_update+page_delete&page_id=global_indexNews&pic_type=all&rich_open=true&video_open=false",
         "spread": false
       },{
         "id":"3",
         "title": "全_首页视频表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_indexVideo.html?func=page_select_all&page_id=global_indexVideo&pic_type=one&rich_open=false&video_open=true",
+        "href": "page/qq_items/global_indexVideo.html?func=page_select_all+page_insert_update+page_delete&page_id=global_indexVideo&pic_type=one&rich_open=false&video_open=true",
         "spread": false
       }
     ]
@@ -63,25 +63,25 @@
         "id":"1",
         "title": "全_会员表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_member.html?func=page_select_all&page_id=global_member",
+        "href": "page/qq_items/global_member.html?func=page_select_all+page_insert_update+page_delete&page_id=global_member",
         "spread": false
       },{
         "id":"2",
         "title": "全_账户表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_account.html?func=page_select_all&page_id=global_account",
+        "href": "page/qq_items/global_account.html?func=page_select_all+page_insert_update+page_delete&page_id=global_account",
         "spread": false
       },{
         "id":"3",
         "title": "全_会员资料表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_memberInformation.html?func=page_select_all&page_id=global_memberInformation",
+        "href": "page/qq_items/global_memberInformation.html?func=page_select_all+page_insert_update+page_delete&page_id=global_memberInformation",
         "spread": false
       },{
         "id":"4",
         "title": "全_设备管理表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_deviceManagement.html?func=page_select_all&page_id=global_deviceManagement",
+        "href": "page/qq_items/global_deviceManagement.html?func=page_select_all+page_insert_update+page_delete&page_id=global_deviceManagement",
         "spread": false
       }
     ]
@@ -96,37 +96,37 @@
         "id":"1",
         "title": "全_群聊表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_groupChat.html?func=page_select_all&page_id=global_groupChat",
+        "href": "page/qq_items/global_groupChat.html?func=page_select_all+page_insert_update+page_delete&page_id=global_groupChat",
         "spread": false
       },{
         "id":"1",
         "title": "全_群成员表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_groupMember.html?func=page_select_all&page_id=global_groupMember",
+        "href": "page/qq_items/global_groupMember.html?func=page_select_all+page_insert_update+page_delete&page_id=global_groupMember",
         "spread": false
       },{
         "id":"1",
         "title": "全_联系人表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_contact.html?func=page_select_all&page_id=global_contact",
+        "href": "page/qq_items/global_contact.html?func=page_select_all+page_insert_update+page_delete&page_id=global_contact",
         "spread": false
       },{
         "id":"1",
         "title": "全_群申请表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_groupLiveRight_Apply.html?func=page_select_all&page_id=global_groupLiveRight_Apply",
+        "href": "page/qq_items/global_groupLiveRight_Apply.html?func=page_select_all+page_insert_update+page_delete&page_id=global_groupLiveRight_Apply",
         "spread": false
       },{
         "id":"1",
         "title": "全_申请记录表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_groupApplyRecord.html?func=page_select_all&page_id=global_groupApplyRecord",
+        "href": "page/qq_items/global_groupApplyRecord.html?func=page_select_all+page_insert_update+page_delete&page_id=global_groupApplyRecord",
         "spread": false
       },{
         "id":"1",
         "title": "全_群操作记录表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_groupOperationRecord.html?func=page_select_all&page_id=global_groupOperationRecord",
+        "href": "page/qq_items/global_groupOperationRecord.html?func=page_select_all+page_insert_update+page_delete&page_id=global_groupOperationRecord",
         "spread": false
       }
     ]
@@ -141,31 +141,31 @@
         "id":"1",
         "title": "全_套餐设置表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_planSetting.html?func=page_select_all&page_id=global_planSetting",
+        "href": "page/qq_items/global_planSetting.html?func=page_select_all+page_insert_update+page_delete&page_id=global_planSetting",
         "spread": false
       },{
         "id":"1",
         "title": "全_充值订单表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_rechangeOrders.html?func=page_select_all&page_id=global_rechangeOrders",
+        "href": "page/qq_items/global_rechangeOrders.html?func=page_select_all+page_insert_update+page_delete&page_id=global_rechangeOrders",
         "spread": false
       },{
         "id":"1",
         "title": "全_支付下单表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_payOrders.html?func=page_select_all&page_id=global_payOrders",
+        "href": "page/qq_items/global_payOrders.html?func=page_select_all+page_insert_update+page_delete&page_id=global_payOrders",
         "spread": false
       },{
         "id":"1",
         "title": "全_支付宝支付日志表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_rechargeAlipay_logs.html?func=page_select_all&page_id=global_rechargeAlipay_logs",
+        "href": "page/qq_items/global_rechargeAlipay_logs.html?func=page_select_all+page_insert_update+page_delete&page_id=global_rechargeAlipay_logs",
         "spread": false
       },{
         "id":"1",
         "title": "全_微信支付日志",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_rechargeWechat_logs.html?func=page_select_all&page_id=global_rechargeWechat_logs",
+        "href": "page/qq_items/global_rechargeWechat_logs.html?func=page_select_all+page_insert_update+page_delete&page_id=global_rechargeWechat_logs",
         "spread": false
       }
     ]
@@ -179,25 +179,25 @@
         "id":"1",
         "title": "全_银行卡名称表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_bankName.html?func=page_select_all&page_id=global_bankName",
+        "href": "page/qq_items/global_bankName.html?func=page_select_all+page_insert_update+page_delete&page_id=global_bankName",
         "spread": false
       },{
         "id":"1",
         "title": "全_银行信息表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_bankInfo.html?func=page_select_all&page_id=global_bankInfo",
+        "href": "page/qq_items/global_bankInfo.html?func=page_select_all+page_insert_update+page_delete&page_id=global_bankInfo",
         "spread": false
       },{
         "id":"1",
         "title": "全_提现银行处理表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_withdrawBankProcess.html?func=page_select_all&page_id=global_withdrawBankProcess",
+        "href": "page/qq_items/global_withdrawBankProcess.html?func=page_select_all+page_insert_update+page_delete&page_id=global_withdrawBankProcess",
         "spread": false
       },{
         "id":"1",
         "title": "全_兑换提现下单表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_changeOrder.html?func=page_select_all&page_id=global_changeOrder",
+        "href": "page/qq_items/global_changeOrder.html?func=page_select_all+page_insert_update+page_delete&page_id=global_changeOrder",
         "spread": false
       }
     ]
@@ -211,31 +211,31 @@
         "id":"1",
         "title": "播_直播记录表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/spread_liveRecording.html?func=page_select_all&page_id=spread_liveRecording",
+        "href": "page/qq_items/spread_liveRecording.html?func=page_select_all+page_insert_update+page_delete&page_id=spread_liveRecording",
         "spread": false
       },{
         "id":"1",
         "title": "播_观看记录表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/spread_watchRecording.html?func=page_select_all&page_id=spread_watchRecording",
+        "href": "page/qq_items/spread_watchRecording.html?func=page_select_all+page_insert_update+page_delete&page_id=spread_watchRecording",
         "spread": false
       },{
         "id":"1",
         "title": "播_直播间关注表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/spread_liveAttention.html?func=page_select_all&page_id=spread_liveAttention",
+        "href": "page/qq_items/spread_liveAttention.html?func=page_select_all+page_insert_update+page_delete&page_id=spread_liveAttention",
         "spread": false
       },{
         "id":"1",
         "title": "播_直播间表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/spread_directBroadcast.html?func=page_select_all&page_id=spread_directBroadcast",
+        "href": "page/qq_items/spread_directBroadcast.html?func=page_select_all+page_insert_update+page_delete&page_id=spread_directBroadcast",
         "spread": false
       },{
         "id":"1",
         "title": "播_直播间管理员表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/spread_directBroadcastManager.html?func=page_select_all&page_id=spread_directBroadcastManager",
+        "href": "page/qq_items/spread_directBroadcastManager.html?func=page_select_all+page_insert_update+page_delete&page_id=spread_directBroadcastManager",
         "spread": false
       }
     ]
@@ -249,43 +249,43 @@
         "id":"1",
         "title": "全_直播记录表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_liveRecording.html?func=page_select_all&page_id=global_liveRecording",
+        "href": "page/qq_items/global_liveRecording.html?func=page_select_all+page_insert_update+page_delete&page_id=global_liveRecording",
         "spread": false
       },{
         "id":"1",
         "title": "全_观看记录表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_watchRecording.html?func=page_select_all&page_id=global_watchRecording",
+        "href": "page/qq_items/global_watchRecording.html?func=page_select_all+page_insert_update+page_delete&page_id=global_watchRecording",
         "spread": false
       },{
         "id":"1",
         "title": "全_直播管理员表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_directBroadcastManager.html?func=page_select_all&page_id=global_directBroadcastManager",
+        "href": "page/qq_items/global_directBroadcastManager.html?func=page_select_all+page_insert_update+page_delete&page_id=global_directBroadcastManager",
         "spread": false
       },{
         "id":"1",
         "title": "全_直播间关注表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_liveAttention.html?func=page_select_all&page_id=global_liveAttention",
+        "href": "page/qq_items/global_liveAttention.html?func=page_select_all+page_insert_update+page_delete&page_id=global_liveAttention",
         "spread": false
       },{
         "id":"1",
         "title": "全_观看人数表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_watchNumber.html?func=page_select_all&page_id=global_watchNumber",
+        "href": "page/qq_items/global_watchNumber.html?func=page_select_all+page_insert_update+page_delete&page_id=global_watchNumber",
         "spread": false
       },{
         "id":"1",
         "title": "全_开通订单表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_openOrders.html?func=page_select_all&page_id=global_openOrders",
+        "href": "page/qq_items/global_openOrders.html?func=page_select_all+page_insert_update+page_delete&page_id=global_openOrders",
         "spread": false
       },{
         "id":"1",
         "title": "全_群聊申诉表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_groupChatComplain.html?func=page_select_all&page_id=global_groupChatComplain",
+        "href": "page/qq_items/global_groupChatComplain.html?func=page_select_all+page_insert_update+page_delete&page_id=global_groupChatComplain",
         "spread": false
       }
     ]
@@ -299,19 +299,19 @@
         "id":"1",
         "title": "全_礼物记录表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_giftRecord.html?func=page_select_all&page_id=global_giftRecord",
+        "href": "page/qq_items/global_giftRecord.html?func=page_select_all+page_insert_update+page_delete&page_id=global_giftRecord",
         "spread": false
       },{
         "id":"1",
         "title": "全_礼物清单表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_giftListing.html?func=page_select_all&page_id=global_giftListing",
+        "href": "page/qq_items/global_giftListing.html?func=page_select_all+page_insert_update+page_delete&page_id=global_giftListing",
         "spread": false
       },{
         "id":"1",
         "title": "全_礼物兑换记录表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_giftExchangeRecord.html?func=page_select_all&page_id=global_giftExchangeRecord",
+        "href": "page/qq_items/global_giftExchangeRecord.html?func=page_select_all+page_insert_update+page_delete&page_id=global_giftExchangeRecord",
         "spread": false
       }
     ]
@@ -325,19 +325,19 @@
         "id":"1",
         "title": "全_短信模板表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_shortInfo_template.html?func=page_select_all&page_id=global_shortInfo_template",
+        "href": "page/qq_items/global_shortInfo_template.html?func=page_select_all+page_insert_update+page_delete&page_id=global_shortInfo_template",
         "spread": false
       },{
         "id":"1",
         "title": "全_短信信息表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_shortInfo_content.html?func=page_select_all&page_id=global_shortInfo_content",
+        "href": "page/qq_items/global_shortInfo_content.html?func=page_select_all+page_insert_update+page_delete&page_id=global_shortInfo_content",
         "spread": false
       },{
         "id":"1",
         "title": "全_海外国家短信码表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_overseasTextCodeTable.html?func=page_select_all&page_id=global_overseasTextCodeTable",
+        "href": "page/qq_items/global_overseasTextCodeTable.html?func=page_select_all+page_insert_update+page_delete&page_id=global_overseasTextCodeTable",
         "spread": false
       }
     ]
@@ -351,13 +351,13 @@
         "id":"1",
         "title": "全_日志_钱表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_logMoney.html?func=page_select_all&page_id=global_logMoney",
+        "href": "page/qq_items/global_logMoney.html?func=page_select_all+page_insert_update+page_delete&page_id=global_logMoney",
         "spread": false
       },{
         "id":"1",
         "title": "全_日志_非钱表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_logNoMoney.html?func=page_select_all&page_id=global_logNoMoney",
+        "href": "page/qq_items/global_logNoMoney.html?func=page_select_all+page_insert_update+page_delete&page_id=global_logNoMoney",
         "spread": false
       }
     ]
@@ -371,25 +371,25 @@
         "id":"1",
         "title": "全_群设置表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_groupSetting.html?func=page_select_all&page_id=global_groupSetting",
+        "href": "page/qq_items/global_groupSetting.html?func=page_select_all+page_insert_update+page_delete&page_id=global_groupSetting",
         "spread": false
       },{
         "id":"1",
         "title": "全_说明表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_explain.html?func=page_select_all&page_id=global_explain",
+        "href": "page/qq_items/global_explain.html?func=page_select_all+page_insert_update+page_delete&page_id=global_explain",
         "spread": false
       },{
         "id":"1",
         "title": "全_设置表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_setting.html?func=page_select_all&page_id=global_setting",
+        "href": "page/qq_items/global_setting.html?func=page_select_all+page_insert_update+page_delete&page_id=global_setting",
         "spread": false
       },{
         "id":"1",
         "title": "全_直播权限表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_livePower.html?func=page_select_all&page_id=global_livePower",
+        "href": "page/qq_items/global_livePower.html?func=page_select_all+page_insert_update+page_delete&page_id=global_livePower",
         "spread": false
       }
     ]
@@ -403,49 +403,49 @@
         "id":"1",
         "title": "全_图片清单表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_picList.html?func=page_select_all&page_id=global_picList",
+        "href": "page/qq_items/global_picList.html?func=page_select_all+page_insert_update+page_delete&page_id=global_picList",
         "spread": false
       },{
         "id":"1",
         "title": "全_意见反馈表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_viewFeedback.html?func=page_select_all&page_id=global_viewFeedback",
+        "href": "page/qq_items/global_viewFeedback.html?func=page_select_all+page_insert_update+page_delete&page_id=global_viewFeedback",
         "spread": false
       },{
         "id":"1",
         "title": "全_并发处理表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_concurrentProcessing.html?func=page_select_all&page_id=global_concurrentProcessing",
+        "href": "page/qq_items/global_concurrentProcessing.html?func=page_select_all+page_insert_update+page_delete&page_id=global_concurrentProcessing",
         "spread": false
       },{
         "id":"1",
         "title": "全_实名认证表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_identityVerification.html?func=page_select_all&page_id=global_identityVerification",
+        "href": "page/qq_items/global_identityVerification.html?func=page_select_all+page_insert_update+page_delete&page_id=global_identityVerification",
         "spread": false
       },{
         "id":"1",
         "title": "全_群发消息表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_massInfo.html?func=page_select_all&page_id=global_massInfo",
+        "href": "page/qq_items/global_massInfo.html?func=page_select_all+page_insert_update+page_delete&page_id=global_massInfo",
         "spread": false
       },{
         "id":"1",
         "title": "全_聊天记录表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_chatRecord.html?func=page_select_all&page_id=global_chatRecord",
+        "href": "page/qq_items/global_chatRecord.html?func=page_select_all+page_insert_update+page_delete&page_id=global_chatRecord",
         "spread": false
       },{
         "id":"1",
         "title": "全_意见反馈表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_viewFeedback.html?func=page_select_all&page_id=global_viewFeedback",
+        "href": "page/qq_items/global_viewFeedback.html?func=page_select_all+page_insert_update+page_delete&page_id=global_viewFeedback",
         "spread": false
       },{
         "id":"1",
         "title": "全_融云登录表",
         "icon": "&#xe609;",
-        "href": "page/qq_items/global_cloudLogin.html?func=page_select_all&page_id=global_cloudLogin",
+        "href": "page/qq_items/global_cloudLogin.html?func=page_select_all+page_insert_update+page_delete&page_id=global_cloudLogin",
         "spread": false
       }
     ]

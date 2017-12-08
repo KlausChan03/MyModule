@@ -7,6 +7,13 @@ var pic_type = GetRequest(ifarme_func).pic_type;
 var rich_open = GetRequest(ifarme_func).rich_open;
 var video_open = GetRequest(ifarme_func).video_open;
 var sql_type = GetRequest(ifarme_func).sql_type;
+var func_arr = GetRequest(ifarme_func).func
+var get_func = [];
+get_func[0] =  func_arr.split("+")[0];
+get_func[1] =  func_arr.split("+")[1];
+get_func[2] =  func_arr.split("+")[2];
+// console.log(get_func[0],get_func[1],get_func[2])
+
 var form_special_control={};
 var data = {};
 var toolbar = true;
@@ -24,7 +31,7 @@ layui.use(["table", "form", "upload"], function() {
   data.type = "all";
   var obj_save = {
     datas: [data.field, data.tb_id, data.type],
-    func: GetRequest(ifarme_func).func
+    func: get_func[0]
   };
 
   var success_func = function(res) {
@@ -125,11 +132,15 @@ layui.use(["table", "form", "upload"], function() {
 
       var data = {};
       data.field = [syllable, syllableVal];
+      if(data.field[0] == "id" && typeof(Number(data.field[1])) == "NaN" ){
+        layer.msg("请输入数字类型的ID")
+        return false;
+      }
       data.tb_id = tb_id;
       data.type = "one";
       var obj_save = {
         datas: [data.field, data.tb_id, data.type],
-        func: GetRequest(ifarme_func).func
+        func: get_func[0]
       };
       var success_func = function(res) {
         // 生成表格
@@ -140,11 +151,12 @@ layui.use(["table", "form", "upload"], function() {
       var error_func = function(res) {
         console.log(res);
         if (res.状态 == "获取列表异常") {
-          layer.alert("查询无结果", { icon: 2 }, function() {
-            history.go(0);
+          layer.alert("查询无结果", { icon: 2 }, function(index) {
+            layer.close(index);
           });
         } else {
-          layer.alert(res.状态, { icon: 2 }, function() {
+          layer.alert(res.状态, { icon: 2 }, function(index) {
+            // layer.close(index);
             history.go(0);
           });
         }
@@ -166,7 +178,7 @@ layui.use(["table", "form", "upload"], function() {
             var select_id = [];
             select_id.push(data.id);
             table_act.delete(res, tb_id, select_id);
-            obj.del(); //删除对应行（tr）的DOM结构
+            // obj.del(); //删除对应行（tr）的DOM结构
             layer.close(index);
           });
           break;

@@ -1,3 +1,4 @@
+"use strict";
 var form_act = {};
 form_act.add_video_pic = function(pic_type, video_open) {
   layui.use(["upload", "element", "layer"], function() {

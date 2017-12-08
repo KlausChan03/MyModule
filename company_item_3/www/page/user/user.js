@@ -29,8 +29,8 @@ layui.config({
     //添加验证规则
     form.verify({
         newPwd : function(value, item){
-            if(value.length < 6){
-                return "密码长度不能小于6位";
+            if(value.length < 3){
+                return "密码长度不能小于3位";
             }
         },
         confirmPwd : function(value, item){

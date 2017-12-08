@@ -36,7 +36,7 @@ module.exports.run = function(body, pg, mo) {
   } else if (f.data.密码 == "" || f.data.密码 == null) {
     f._状态 = "请填写密码";
   }
-
+  
   sql ="select id,姓名,密码,权限组,权限id,随机码,状态,头像,解锁密码  from 管_管理员表 where 登录名 = '" +f.data.用户名 +"' ";
   var result_login = sqlite.query(db, sql);
 
@@ -45,9 +45,7 @@ module.exports.run = function(body, pg, mo) {
     f._状态 = "账号不存在";
   } else if (result_login.数据[0].状态 != "正常") {
     f._状态 = "账号已停用";
-  } else if (
-    result_login.数据[0].密码 != cipher.md5(result_login.数据[0].随机码 + f.data.密码)
-  ) {
+  } else if ( result_login.数据[0].密码 != cipher.md5(result_login.数据[0].随机码 + f.data.密码)) {
     f._状态 = "密码错误";
   }
   if (f._状态 != "成功") {
@@ -75,3 +73,5 @@ module.exports.run = function(body, pg, mo) {
   }
   return common.removenull(p, body);
 };
+
+

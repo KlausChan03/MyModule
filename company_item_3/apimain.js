@@ -179,7 +179,6 @@ app.post("/ajax.post*", function(req, res) {
         body.uuid = uuid.v4();
         var ajax = require("./ajax/ajax.js");
         var bool = ajax.searchfile(body.func);
-        console.log(body,"hahah")
         if (bool) {
           ajax.index(req, res, body);
         } else {

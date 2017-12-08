@@ -9,32 +9,33 @@ var moment = require("moment");
 var fs = require("fs");
 var sqlite = require("../func/sqlite.js");
 
-// var txsms = require("../func/txsms.js");
-
 config.readfile();
 
 module.exports.run = function(body, pg, mo) {
   var p = {};
-
-  body.receive = JSON.parse(body.data);
+  var f = {};
+  var menu = config.get("menu");
+  var table_name = "";
+  var table_id = "";
+  var insert_arr = "";
+  var update_arr = "";
   var 时间 = moment().format("YYYY-MM-DD HH:mm:ss");
   var 日期 = moment().format("YYYY-MM-DD");
-  var f = {};
+  var sql = "",sql_con = "";
+  var rw = RandomWord('123456789');
+  
+
+  body.receive = JSON.parse(body.data);
 
   f.data = body.receive[0];
   if (f.data.内容) {
     f.data.内容 = decodeURIComponent(f.data.内容);
   }
   f.check = body.receive[1];
-  console.log(f.data, "666");
-  // if(f.data.内容){
-  //   f.data.内容 = f.data.内容.replace(/_空格_/g,"&nbsp;")
-  // }
-  var menu = config.get("menu");
-  var table_name = "";
-  var table_id = "";
-  var insert_arr = "";
-  var update_arr = "";
+
+  
+
+
   menu.forEach(function(item) {
     if (item.导航) {
       for (i in item.导航) {
@@ -49,7 +50,13 @@ module.exports.run = function(body, pg, mo) {
       }
     }
   });
+
+  
     if (f.data.id == "") {
+      f.data.随机码 = random(4);      
+      f.data.密码 = cipher.md5(f.data.密码); 
+      f.data.密码 = cipher.md5(f.data.随机码 + f.data.密码); 
+
       // 插入
       var insert_str_one = insert_arr.join(",");
       var insert_str_two = "";
@@ -77,14 +84,27 @@ module.exports.run = function(body, pg, mo) {
       update_str = update_str.substring(0, update_str.length - 1);
     }
 
-    var sql = "";
+    var db = sqlite.connect();
+    
+    if(f.data.id != "")
+      sql_con = " and id <> " + f.data.id;
+      sql="select id from " + table_name + " where 登录名 = '"+f.data.登录名+"'"+sql_con;
+      f.用户信息 = sqlite.query(db,sql).数据;
+    if(f.用户信息[0]){
+      p.状态 = '登录名已存在';
+      return p;      
+    }
+
+  
     if (f.data.id == "") {
       sql = "insert into " + table_name + "(" + insert_str_one + ") values (" + insert_str_two + ")";
     } else {
       sql = "update " + table_name + " set " + update_str + " where id = " + f.data.id;
-      console.log(sql)
     }
-    var result = pgdb.query(pg, sql);
+
+    var result = sqlite.query(db,sql);
+    console.log(result)
+    sqlite.close(db);
 
     if (result.状态 != "成功") {
       p.状态 = "提交失败";
@@ -93,7 +113,33 @@ module.exports.run = function(body, pg, mo) {
       p.状态 = "成功";
       return p;
     }
-
-  
   return common.removenull(p);
 };
+
+function RandomWord(chars){
+  if(!(this instanceof RandomWord)){
+      return new RandomWord(chars);
+  }
+  this._chars = "";
+  if(chars){
+      add(chars);
+  }
+}
+
+function add(chars){
+this._chars += chars;
+  return this;
+}
+
+function random(size){
+var len = this._chars.length;
+  if(len === 0){
+      throw new Error('no chars,please use add(chars)');
+  }
+  var word = "";
+  for(var i=0;i<size;i++){
+      var cpo = parseInt(Math.random()*len);
+      word += this._chars.charAt(cpo);
+  }
+  return word;
+}

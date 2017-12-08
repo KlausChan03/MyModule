@@ -8,7 +8,6 @@ var request = require("../func/request.js");
 var moment = require("moment");
 var fs = require("fs");
 
-// var txsms = require("../func/txsms.js");
 
 
 config.readfile();
@@ -39,7 +38,6 @@ module.exports.run = function(body, pg, mo) {
 			}
 		}
 	});
-	console.log(select_arr,"roger");
 	if(f.type == "all") {
 		if(f.data == "") {
 			f.verify = "审核通过";
@@ -91,7 +89,7 @@ module.exports.run = function(body, pg, mo) {
 	if(result) {
 		// 通过数组的sort方法以id排序
 		if(f.type == "all"){
-			f.列表.sort(function (o1, o2) { return parseInt(o2.录入时间) - parseInt(o1.录入时间); });			
+			f.列表.sort(function (o1, o2) { return parseInt(o1.id) - parseInt(o2.id); });			
 		}
 		p.表格名称 = f.tb_name;
 		p.列表 = f.列表;

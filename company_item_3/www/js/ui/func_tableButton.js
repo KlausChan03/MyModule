@@ -1,3 +1,4 @@
+"use strict";
 var table_act = {};
 
 table_act.insert_name = window.sessionStorage.getItem("name");
@@ -8,7 +9,7 @@ table_act.delete = function(res, tb_id, select_id) {
     var data = {};
     data.tb_id = tb_id;
     data.select_id = { id: select_id };
-    var obj_save = { datas: [data.select_id, data.tb_id], func: "page_delete" };
+    var obj_save = { datas: [data.select_id, data.tb_id], func: get_func[2] };
     var success_func = function(res) {
         layer.alert(res.状态, function() {
             layer.closeAll();
@@ -66,7 +67,7 @@ table_act.insert = function(res, tb_id) {
 
                 var obj_save = {
                     datas: [data.field, data.tb_id],
-                    func: "page_insert_update"
+                    func: get_func[1]
                 };
                 var success_func = function(res) {
                     layer.alert(res.状态, function() {
@@ -156,7 +157,7 @@ table_act.update = function(res, tb_id, data) {
 
                 var obj_save = {
                     datas: [data.field, data.tb_id],
-                    func: "page_insert_update"
+                    func: get_func[1]
                 };
                 var success_func = function(res) {
                     layer.alert(res.状态, function() {
@@ -181,18 +182,21 @@ table_act.update = function(res, tb_id, data) {
 for (let i in table_act) {
     switch (i) {
         case "insert":
-            function insert_local_process() {}
+            var insert_local_process = function () {
+                console.log()
+            }
             break;
         case "update":
-            function update_local_process() {
+            var update_local_process = function() {
                 $("*[name='录入时间']").addClass("dateClass");
+                $("*[name='密码']").remove()
             }
             break;
     }
     switch (i) {
         case "update":
         case "insert":
-            function common_progress() {
+            var common_progress = function () {
                 // 视频、图片、富文本编辑 等引入
                 if ($("*[name='视频地址']") || $("*[name='图片地址']")) {
                     form_act.add_video_pic(pic_type, video_open);
@@ -252,7 +256,7 @@ for (let i in table_act) {
                             var control_power = res.数据;
                             var control_content = [];
                             var control_get_show = "";
-                            var control_check = "";
+                            var control_check = "",control_button ="";
                             
                             if($("[name='权限']").val() != ""){ 
                                 var control_get = JSON.parse($("[name='权限']").val());
@@ -264,7 +268,7 @@ for (let i in table_act) {
                                         control_get_show = control_get[i].查看 == 1 ? "显示":"不显示";   
                                         control_check =  control_get[i].查看 == 1 ? "checked":""                                                              
                                     }
-                                    control_content.push('<p class="power-title">'+ i +'、' + control_power[i].字段+'</p>'
+                                    control_content.push('<p class="power-title">'+ i +'&nbsp;' + control_power[i].字段+'</p>'
                                     + ' <input type="hidden" name="字段_'+control_power[i].编号+'" value="'+control_power[i].编号+'" />'
                                     + ' <p class="power-row-1">查看</p><input type="checkbox" name="查看_'+control_power[i].编号+'" value="'+control_get_show+'"  '+ control_check +'  title="显示">'
                                     + ' <p class="power-row-2">按钮</p>');
@@ -272,6 +276,9 @@ for (let i in table_act) {
                                         if(control_get[i] != undefined){ 
                                             control_button = control_get[i].按钮[j] != "0"  ? "checked":"" 
                                             control_content.push('<input type="checkbox" name="按钮'+ '_' + control_power[i].编号 + '_' + control_power[i].按钮[j] +'" value="' + control_power[i].按钮[j]  + '" '+ control_button +'  title="' + control_power[i].按钮[j]  + '">');                                     
+                                        }else{
+                                            control_button = "";
+                                            control_content.push('<input type="checkbox" name="按钮'+ '_' + control_power[i].编号 + '_' + control_power[i].按钮[j] +'" value="' + control_power[i].按钮[j]  + '" '+ control_button +'  title="' + control_power[i].按钮[j]  + '">');                                                                                 
                                         }
                                     }
 

@@ -38,7 +38,6 @@ ajax.ajax_common = function(obj_save, success_func, error_func, type) {
     var func = obj_save.func;
     var datas = obj_save.datas;
     datas = JSON.stringify(datas);
-
     $.ajax({
         type: "POST",
         url: "/ajax.post?func=" + func,
@@ -233,3 +232,39 @@ $(document).keydown(function(event) {
             break;
     }
 });
+
+
+/*限制只有中文和字母*/
+function input_test1(a) {
+	a.value = a.value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g, '')
+
+}
+
+/*限制只有数字*/
+function input_test2(a) {
+	a.value = a.value.replace(/\D/g, '')
+
+}
+
+/*限制只有数字字母*/
+function input_test3(a) {
+	a.value = a.value.replace(/[^\a-\z\A-\Z0-9]/g, '')
+
+}
+
+/*限制只有中文、英文、数字、空格*/
+function input_test4(a) {
+	a.value = a.value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5\ ]/g, '')
+
+}
+
+/*限制只有中文*/
+function input_test5(a) {
+	a.value = a.value.replace(/[^\u4E00-\u9FA5]/g, '')
+
+}
+
+/*限制只有中文、英文、数字*/
+function input_test6(a) {
+	a.value = a.value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g, '')
+}
