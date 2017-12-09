@@ -6,8 +6,8 @@ require.config({
 
     //暂时不能调用
     wangEditor: "../template/wangediter/wangEditor.min",
-    oss: "http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min",    
-
+    oss: "http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min",  
+    
     //lib层
     jquery: "lib/jquery.min",
     init: "lib/init",
@@ -15,9 +15,9 @@ require.config({
     common: "lib/common",
 
     //ui层
+    ui_login: "ui/ui_login",
     ui_index: "ui/ui_index",
     ui_main: "ui/ui_main",
-    ui_bodyTab: "ui/ui_bodyTab",
     ui_leftNav: "ui/ui_leftNav",
     canvas_login: "ui/canvas_login",
     func_formControl: "ui/func_formControl",
@@ -110,6 +110,10 @@ require.config({
     func_tableInit: ["common"],
 
     // 具体页面调用
+    ui_login:["layui","jquery", "common","canvas_login","MD5"],
+    ui_index:["layui", "jquery","ui_leftNav","common"],
+    ui_main:["layui", "jquery","ui_leftNav","common"],
+
     user_list: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     user_power: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
 
@@ -170,7 +174,3 @@ require.config({
 
   }
 });
-
-// require(['wangEditor','jquery'], function(wangEditor,$){
-//       var E = window.wangEditor;
-// });

@@ -25,7 +25,6 @@ layui.config({
     var password_o = $(".password").val();
     var password = $.md5(password_o);    
     var code_input = $("#code_input").val();
-    console.log(password,"llkk")
     if (username == "" || password_o == "") {
       layer.alert("账号和密码不能为空", { icon: 5, title: "登陆" });  
       return false;
@@ -47,7 +46,7 @@ layui.config({
       };
       var success_func = function (res) {
         // layer.alert(res.状态, { icon: 6, title: "登陆" });
-        window.location.href = "../../index.html";
+        window.location.href = "/index.html";
 //      return false;
       };
       var error_func = function (res) {

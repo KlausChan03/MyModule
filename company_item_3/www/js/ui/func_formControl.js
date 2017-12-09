@@ -1,11 +1,14 @@
 "use strict";
 var form_act = {};
-form_act.add_video_pic = function(pic_type, video_open) {
+
+
+form_act.add_video_pic = function(pic_type, video_open,pic,video) {
   layui.use(["upload", "element", "layer"], function() {
     var $ = layui.jquery,
       upload = layui.upload,
       element = layui.element,
       layer = layui.layer;
+
 
     $("*[name='图片地址']")
       .attr({ readonly: "readonly", "lay-verify": "required" })
@@ -15,7 +18,6 @@ form_act.add_video_pic = function(pic_type, video_open) {
       .addClass("required");
 
     if ($("*[name='视频地址']") && video_open == "true") {
-      console.log($("*[name='视频地址']"));
       //直接上传
       var $video = $("*[name='视频地址']");
       $video.addClass("video-input");

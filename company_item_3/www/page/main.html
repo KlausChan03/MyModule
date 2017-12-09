@@ -81,7 +81,17 @@
 		</div>
 	</div>
 
-	<script type="text/javascript" src="../layui/layui.js"></script>
-	<script type="text/javascript" src="../js/main.js"></script>
+	<!-- <script type="text/javascript" src="../layui/layui.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script> -->
+
+	<script src="/js/lib/require.js" data-main="/js/config"></script>
+    <script>
+			require(['config'], function () {
+				require(["ui_main"], function () {
+					console.log("main——调用成功")
+				})
+			})
+
+    </script>
 </body>
 </html>

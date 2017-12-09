@@ -113,7 +113,7 @@ layui.use(["table", "form", "upload"], function() {
           content:
             '<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p>登陆已超时</p></div>',
           yes: function() {
-            parent.window.location.href = "/page/login/login.html";
+            parent.window.location.href = "/page/login.html";
           }
         });
       }

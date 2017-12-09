@@ -30,7 +30,18 @@ layui.define(["element", "jquery"], function(exports) {
                 };
                 var error_func = function(res) {
                     if (res.状态 == "当前未登录") {
-                        window.location.href = "page/login.html";
+                        // layer.open({
+                        //   type: 1,
+                        //   title: "信息",
+                        //   area: '310px',
+                        //   id: 'LAY_layuipro',
+                        //   btn: ['确定'],
+                        //   content: '<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p>登陆已超时</p></div>',
+                        //   yes:function(){
+                        //     window.location.href="page/login/login.html";					
+                        //   }
+                        // });
+                        window.location.href = "page/login/login.html";
                     }
                 }
                 ajax.ajax_common(obj_save, success_func, error_func);

@@ -196,7 +196,7 @@ for (let i in table_act) {
     switch (i) {
         case "update":
         case "insert":
-            var common_progress = function () {
+                var common_progress = function () {
                 // 视频、图片、富文本编辑 等引入
                 if ($("*[name='视频地址']") || $("*[name='图片地址']")) {
                     form_act.add_video_pic(pic_type, video_open);
@@ -211,8 +211,11 @@ for (let i in table_act) {
                         break;
                         case 2:
                         control_state(form_special_control.state)
+                        break;                        
+                        case 100:
+                        input_rules(form_special_control.require_arr,form_special_control.disable_arr)
                         break;
-                        case 3:
+                        case 101:
                         control_power()
                         break;
                     }
@@ -243,8 +246,17 @@ for (let i in table_act) {
                             );
                     }
                 }
-
-                function control_power() {
+                
+                function input_rules(require_arr,disable_arr){
+                    for (let i in require_arr) {
+                        $("*[name='"+require_arr[i]+"'").attr("lay-verify","required").addClass("required");
+                    }
+                    for (let j in disable_arr) {
+                        $("*[name='"+disable_arr[j]+"'").attr({"disabled":"disabled","placeholder":"无需输入"});
+                        
+                    }
+                }
+                function control_power(state) {
                     var obj_save = {
                         datas: [data.field, data.tb_id],
                         func: "get_power_list"
@@ -285,7 +297,7 @@ for (let i in table_act) {
                                 }else{
                                     control_content.push('<p class="power-title">'+ i +'、'+ control_power[i].字段 +'</p>'
                                     + ' <input type="hidden" name="字段_'+control_power[i].编号+'" value="'+control_power[i].编号+'" />'
-                                    + ' <p class="power-row-1">查看</p><input type="checkbox" name="查看_'+control_power[i].编号+'" value="显示" title="显示">'
+                                    + ' <p class="power-row-1">查看</p><input type="checkbox" name="查看_'+control_power[i].编号+'" value="不显示" title="显示">'
                                     + ' <p class="power-row-2">按钮</p>');
                                     for (let j in control_power[i].按钮){
                                     control_content.push('<input type="checkbox" name="按钮'+ '_' + control_power[i].编号 + '_' + control_power[i].按钮[j] +'" value=' + control_power[i].按钮[j]  + ' title=' + control_power[i].按钮[j]  + '>');

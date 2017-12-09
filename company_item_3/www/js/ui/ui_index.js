@@ -1,3 +1,30 @@
+// 获取用户名和头像等信息
+var obj_save = { datas: {}, func: "admin_control_getUserInfo" };
+var success_func = function(res) {
+    console.log(res)
+    $(".userName").html(res.姓名);
+    if(res.头像!=""){
+        $("#updateImg").attr("src", res.头像);
+        $("#updateImg1").attr("src", res.头像);
+    }else{
+        $("#updateImg").attr("src", "/images/zhihu.jpg");
+        $("#updateImg1").attr("src", "/images/zhihu.jpg");
+    }
+    
+    window.sessionStorage.setItem("name", res.姓名);
+    window.sessionStorage.setItem("password", res.解锁密码);
+    window.sessionStorage.setItem("avatar", res.头像);
+
+};
+var error_func = function(res) {     
+    if (res.状态 == "当前未登录") {
+        window.location.href = "page/login.html";       
+    }
+}
+ajax.ajax_common(obj_save, success_func);
+
+
+
 var $, tab, skyconsWeather;
 var name = window.sessionStorage.getItem("name");
 var password = window.sessionStorage.getItem("password");
@@ -15,57 +42,6 @@ layui.config({
         url: "json/navs.json" //获取菜单json地址
     });
 
-    // 获取用户名和头像等信息
-    var obj_save = { datas: {}, func: "admin_control_getUserInfo" };
-    var success_func = function(res) {
-        console.log(res)
-        $(".userName").html(res.姓名);
-        $("#updateImg").attr("src", res.头像);
-        $("#updateImg1").attr("src", res.头像);
-        window.sessionStorage.setItem("name", res.姓名);
-        window.sessionStorage.setItem("password", res.解锁密码);
-        window.sessionStorage.setItem("avatar", res.头像);
-
-    };
-    var error_func = function(res) {
-        if (res.状态 == "当前未登录") {
-            layer.open({
-                type: 1,
-                title: "信息",
-                area: '310px',
-                id: 'LAY_layuipro',
-                btn: ['确定'],
-                content: '<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p>登陆已超时</p></div>',
-                yes: function() {
-                    window.location.href = "page/login/login.html";
-                }
-            });
-        }
-    }
-    ajax.ajax_common(obj_save, success_func);
-
-
-    // 通过接口获取验证登陆信息
-    // var obj_save = { datas: {}, func: "admin_control_main" };
-    // var success_func = function(res) {
-    // 	if(res.verify =="当前已登录"){
-
-
-    // 	}else if(res.verify =="当前未登录"){
-    // 		layer.open({
-    // 			type: 1,
-    // 			title: "信息",
-    // 			area: '310px',
-    // 			btn: ['确定'],
-    // 			content: '<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p>登陆已超时</p></div>',
-    // 			yes:function(){
-    // 				window.location.href="page/login/login.html";					
-    // 			}
-    // 		});
-    // 	}
-
-    // };
-    // ajax.ajax_common(obj_save, success_func);
 
 
 
@@ -380,7 +356,7 @@ layui.config({
         menu = JSON.parse(window.sessionStorage.getItem("menu"));
         curmenu = window.sessionStorage.getItem("curmenu");
         var openTitle = '';
-        for (let i = 0; i < menu.length; i++) {
+        for (var i = 0; i < menu.length; i++) {
             openTitle = '';
             if (menu[i].icon) {
                 if (menu[i].icon.split("-")[0] == 'icon') {
@@ -432,7 +408,7 @@ layui.config({
                     if ($(this).attr("lay-id") != '' && !$(this).hasClass("layui-this")) {
                         element.tabDelete("bodyTab", $(this).attr("lay-id")).init();
                         //此处将当前窗口重新获取放入session，避免一个个删除来回循环造成的不必要工作量
-                        for (let i = 0; i < menu.length; i++) {
+                        for (var i = 0; i < menu.length; i++) {
                             if ($("#top_tabs li.layui-this cite").text() == menu[i].title) {
                                 menu.splice(0, menu.length, menu[i]);
                                 window.sessionStorage.setItem("menu", JSON.stringify(menu));

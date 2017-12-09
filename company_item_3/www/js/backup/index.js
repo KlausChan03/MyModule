@@ -3,8 +3,14 @@ var obj_save = { datas: {}, func: "admin_control_getUserInfo" };
 var success_func = function(res) {
     console.log(res)
     $(".userName").html(res.姓名);
-    $("#updateImg").attr("src", res.头像);
-    $("#updateImg1").attr("src", res.头像);
+    if(res.头像!=""){
+        $("#updateImg").attr("src", res.头像);
+        $("#updateImg1").attr("src", res.头像);
+    }else{
+        $("#updateImg").attr("src", "/images/zhihu.jpg");
+        $("#updateImg1").attr("src", "/images/zhihu.jpg");
+    }
+    
     window.sessionStorage.setItem("name", res.姓名);
     window.sessionStorage.setItem("password", res.解锁密码);
     window.sessionStorage.setItem("avatar", res.头像);
