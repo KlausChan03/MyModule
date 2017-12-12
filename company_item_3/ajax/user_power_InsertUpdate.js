@@ -110,11 +110,11 @@ module.exports.run = function(body, pg, mo) {
     
     if (!f.data.id) {
       //新增
-      sql = "insert into 管_权限表 (名称,权限,状态,录入人,录入时间) values ('"+ f.data.名称 +"','"+ f.data.权限 +"','正常','"+ f.data.录入人 +"','"
-      + f.data.录入时间 +"')";
+      sql = "insert into 管_权限表 (名称,状态,录入人,录入时间,权限) values ('"+ f.data.名称 +"','"+f.data.状态 +"','"+ f.data.录入人 +"','"
+      + f.data.录入时间 +"','"+ f.data.权限 +"')";
     } else {
-      sql = "update 管_权限表 set 名称 = '"+ f.data.名称 +"', 权限 = '"+ f.data.权限 +"', 录入人 = '"+ f.data.录入人+"', 录入时间 = '"
-      + f.data.录入时间 +"' where id = "+ f.data.id;
+      sql = "update 管_权限表 set 名称 = '"+ f.data.名称  +"', 状态 = '"+ f.data.状态 + "', 录入人 = '"+ f.data.录入人+"', 录入时间 = '"
+      + f.data.录入时间 +"', 备注 = '"+ f.data.备注 + "', 权限 = '"+ f.data.权限 + "' where id = "+ f.data.id;
     }
 
     var result = sqlite.query(db,sql);

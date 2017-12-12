@@ -52,7 +52,7 @@ module.exports.run = function(body, pg, mo) {
   });
 
   
-    if (f.data.id == "") {
+    if (f.data.id == "" || f.data.id == undefined) {
       f.data.随机码 = random(4);      
       f.data.密码 = cipher.md5(f.data.密码); 
       f.data.密码 = cipher.md5(f.data.随机码 + f.data.密码); 
@@ -64,7 +64,6 @@ module.exports.run = function(body, pg, mo) {
       for (i in f.data) {
         test.push(f.data[i]);
       }
-      test.shift();
       for (i in test) {
         insert_str_two += "'" + test[i] + "',";
       }
@@ -77,7 +76,6 @@ module.exports.run = function(body, pg, mo) {
       for (i in f.data) {
         test.push(f.data[i]);
       }
-      test.shift();
       for (i in (update_str_one, test)) {
         update_str += update_str_one[i] + "='" + test[i] + "',";
       }
@@ -85,8 +83,8 @@ module.exports.run = function(body, pg, mo) {
     }
 
     var db = sqlite.connect();
-    
-    if(f.data.id != "")
+    console.log(f.data.id)
+    if(f.data.id != "" && f.data.id != undefined)
       sql_con = " and id <> " + f.data.id;
       sql="select id from " + table_name + " where 登录名 = '"+f.data.登录名+"'"+sql_con;
       f.用户信息 = sqlite.query(db,sql).数据;
@@ -96,11 +94,16 @@ module.exports.run = function(body, pg, mo) {
     }
 
   
-    if (f.data.id == "") {
+    if (f.data.id == "" || f.data.id == undefined) {
       sql = "insert into " + table_name + "(" + insert_str_one + ") values (" + insert_str_two + ")";
+      console.log(sql)
     } else {
       sql = "update " + table_name + " set " + update_str + " where id = " + f.data.id;
+      console.log(sql)
+      
     }
+
+    console.log(sql)
 
     var result = sqlite.query(db,sql);
     console.log(result)
@@ -111,7 +114,6 @@ module.exports.run = function(body, pg, mo) {
       return p;
     } else {
       p.状态 = "成功";
-      return p;
     }
   return common.removenull(p);
 };

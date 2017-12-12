@@ -5,7 +5,6 @@ var logs = require("../func/logs.js");
 var pgdb = require("../func/pgdb.js");
 var common = require("../func/common.js");
 var request = require("../func/request.js");
-var moment = require("moment");
 var fs = require("fs");
 var sqlite = require("../func/sqlite.js");
 
@@ -15,21 +14,15 @@ config.readfile();
 
 module.exports.run = function(body, pg, mo) {
   var p = {};
-
-  body.receive = JSON.parse(body.data);
-  var 时间 = moment().format("YYYY-MM-DD HH:mm:ss");
-  var 日期 = moment().format("YYYY-MM-DD");
   var f = {};
-
+  
+  body.receive = JSON.parse(body.data);
   f.data = body.receive[0];
   if (f.data.内容) {
     f.data.内容 = decodeURIComponent(f.data.内容);
   }
   f.check = body.receive[1];
-  console.log(f.data, "666");
-  // if(f.data.内容){
-  //   f.data.内容 = f.data.内容.replace(/_空格_/g,"&nbsp;")
-  // }
+
   var menu = config.get("menu");
   var table_name = "";
   var table_id = "";
@@ -38,7 +31,6 @@ module.exports.run = function(body, pg, mo) {
   menu.forEach(function(item) {
     if (item.导航) {
       for (i in item.导航) {
-        // console.log(item.导航[i].表格编号);
         if (item.导航[i].表格编号 == f.check) {
           table_type = item.导航[i].菜单;
           table_name = item.导航[i].表格名称;
@@ -49,7 +41,7 @@ module.exports.run = function(body, pg, mo) {
       }
     }
   });
-    if (f.data.id == "") {
+    if (f.data.id == "" || f.data.id == undefined) {
       // 插入
       var insert_str_one = insert_arr.join(",");
       var insert_str_two = "";
@@ -57,7 +49,6 @@ module.exports.run = function(body, pg, mo) {
       for (i in f.data) {
         test.push(f.data[i]);
       }
-      test.shift();
       for (i in test) {
         insert_str_two += "'" + test[i] + "',";
       }
@@ -70,7 +61,6 @@ module.exports.run = function(body, pg, mo) {
       for (i in f.data) {
         test.push(f.data[i]);
       }
-      test.shift();
       for (i in (update_str_one, test)) {
         update_str += update_str_one[i] + "='" + test[i] + "',";
       }
@@ -78,8 +68,10 @@ module.exports.run = function(body, pg, mo) {
     }
 
     var sql = "";
-    if (f.data.id == "") {
+    if (f.data.id == "" || f.data.id == undefined) {
       sql = "insert into " + table_name + "(" + insert_str_one + ") values (" + insert_str_two + ")";
+      console.log(sql)
+      
     } else {
       sql = "update " + table_name + " set " + update_str + " where id = " + f.data.id;
       console.log(sql)

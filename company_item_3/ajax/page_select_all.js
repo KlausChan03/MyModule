@@ -5,17 +5,13 @@ var logs = require("../func/logs.js");
 var pgdb = require("../func/pgdb.js");
 var common = require("../func/common.js");
 var request = require("../func/request.js");
-var moment = require("moment");
 var fs = require("fs");
-
-
 
 config.readfile();
 
 module.exports.run = function(body, pg, mo) {
+	
 	body.receive = JSON.parse(body.data);
-	var 时间 = moment().format("YYYY-MM-DD HH:mm:ss");
-	var 日期 = moment().format("YYYY-MM-DD");
 	var f = {};
 	var p = {};
 

@@ -11,10 +11,10 @@ form_act.add_video_pic = function(pic_type, video_open,pic,video) {
 
 
     $("*[name='图片地址']")
-      .attr({ readonly: "readonly", "lay-verify": "required" })
+      .attr({ readonly: "readonly"})
       .addClass("required");
     $("*[name='视频地址']")
-      .attr({ readonly: "readonly", "lay-verify": "required" })
+      .attr({ readonly: "readonly" })
       .addClass("required");
 
     if ($("*[name='视频地址']") && video_open == "true") {

@@ -35,6 +35,7 @@ layui.use(["table", "form", "upload"], function() {
   };
 
   var success_func = function(res) {
+    console.log(res)
     // 表格标题渲染
     var tb_title = res.表格名称;
     tb_title = tb_title.replace("表", "").replace(/^[\u2E80-\u9FFF]_/,"");

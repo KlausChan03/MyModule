@@ -40,6 +40,7 @@ ajax.ajax_common = function(obj_save, success_func, error_func, type) {
     datas = JSON.stringify(datas);
     $.ajax({
         type: "POST",
+        async: true,
         url: "/ajax.post?func=" + func,
         data: "data=" + datas,
         success: function(res) {
@@ -51,8 +52,31 @@ ajax.ajax_common = function(obj_save, success_func, error_func, type) {
             return false;
         }
     });
-
 };
+
+ajax.ajax_common_sync = function(obj_save, success_func, error_func, type) {
+    
+        var ajax_type;
+        if (!arguments[2]) { error_func = function() {}; }
+        if (!arguments[3]) { ajax_type = "POST"; }
+        var func = obj_save.func;
+        var datas = obj_save.datas;
+        datas = JSON.stringify(datas);
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: "/ajax.post?func=" + func,
+            data: "data=" + datas,
+            success: function(res) {
+                if (res.状态 == "成功") {
+                    success_func(res);
+                } else {
+                    error_func(res);
+                }
+                return false;
+            }
+        });
+    };
 
 ajax.ajax_upload = function(obj_save, success_func, error_func, type) {
 

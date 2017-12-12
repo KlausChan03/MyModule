@@ -5,11 +5,8 @@ var logs = require("../func/logs.js");
 var pgdb = require("../func/pgdb.js");
 var common = require("../func/common.js");
 var request = require("../func/request.js");
-var moment = require("moment");
 var fs = require("fs");
 var sqlite = require("../func/sqlite.js");
-
-// var txsms = require("../func/txsms.js");
 
 config.readfile();
 
@@ -18,8 +15,6 @@ module.exports.run = function(body, pg, mo) {
   var f = {};
 
   body.receive = JSON.parse(body.data);
-  var 时间 = moment().format("YYYY-MM-DD HH:mm:ss");
-  var 日期 = moment().format("YYYY-MM-DD");
   f.data = body.receive[0];
   f.check = body.receive[1];
 

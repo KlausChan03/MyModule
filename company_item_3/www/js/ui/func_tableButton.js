@@ -6,10 +6,10 @@ table_act.insert_time = getTime();
 
 // 删除功能
 table_act.delete = function(res, tb_id, select_id) {
-    var data = {};
-    data.tb_id = tb_id;
-    data.select_id = { id: select_id };
-    var obj_save = { datas: [data.select_id, data.tb_id], func: get_func[2] };
+    var g = {};
+    g.tb_id = tb_id;
+    g.select_id = { id: select_id };
+    var obj_save = { datas: [g.select_id, g.tb_id], func: get_func[2] };
     var success_func = function(res) {
         layer.alert(res.状态, function() {
             layer.closeAll();
@@ -26,24 +26,31 @@ table_act.delete = function(res, tb_id, select_id) {
 };
 // 新增功能
 table_act.insert = function(res, tb_id) {
-    var test_arr = [];
-    for (let i in res.列表[0]) {
-        test_arr.push(i);
-    }
-    var test = "";
-    test_arr.pop();
-    // console.log(test_arr);
+
+    var test_arr,input_str="";
+
+    //循环字段名
+    // for (let i in res.列表[0]) {
+    //     test_arr.push(i);
+    // }
+    var g = {};
+    g.tb_id = tb_id;
+    var obj_save = { datas:g.tb_id, func: "get_arrInsert"};
+    var success_func = function(res){test_arr = res.数据;}    
+    var error_func = function(res){}
+    ajax.ajax_common_sync(obj_save, success_func, error_func);
+
     for (let i = 0; i < test_arr.length; i++) {
-        test +=
+        input_str +=
             '<div class="layui-form-item"><label class="layui-form-label">' +
             test_arr[i] +
             '</label> <div class="layui-input-block"> <input type="text"  name="' +
             test_arr[i] +
             '"   placeholder="请输入' +
             test_arr[i] +
-            '" autocomplete="off" class="layui-input insert-input"> </div> </div>';
-    }
-
+            '" autocomplete="off" class="layui-input insert-input"></div> </div>';
+    }    
+    console.log(input_str)
     var success_func = function() {
         insert_local_process();
         common_progress();
@@ -86,27 +93,34 @@ table_act.insert = function(res, tb_id) {
             });
         });
     };
-    layObj.form("新增", success_func, test, tb_id);
+    layObj.form("新增", success_func, input_str, tb_id);
 };
 // 编辑功能
 table_act.update = function(res, tb_id, data) {
-    var test_arr = [];
-    var old_arr = [];
 
     //循环字段名
-    for (let i in res.列表[0]) {
-        test_arr.push(i);
-    }
     //循环字段名所对应的值
-    for (let j in data) {
-        old_arr.push(data[j]);
-    }
-    // console.log(old_arr);
-    var test = "";
+    var old_arr=[],test_arr,update_str="";
+    var g = {};
+    g.tb_id = tb_id;
+    g.id = data.id;
+    var obj_save = { datas:[g.tb_id,g.id], func: "get_arrUpdate"};
+    var success_func = function(res){
+        test_arr = res.字段;
+        for (let j in res.数据[0]) {
+            old_arr.push(res.数据[0][j]);
+        }
+    }    
+    var error_func = function(res){}
+    ajax.ajax_common_sync(obj_save, success_func, error_func);
+
+    // for (let i in res.列表[0]) {
+    //     test_arr.push(i);
+    // } 
+
 
     //赋给录入时期的的input的一个id名
     var classTest = "";
-    test_arr.pop();
     for (let i = 0; i < test_arr.length; i++) {
         // 特殊编码转义
         if (typeof old_arr[i] == "string") {
@@ -117,7 +131,7 @@ table_act.update = function(res, tb_id, data) {
                 .replace(/</g, "&lt;");
         }
         // input[type="text"]的遍历生成html
-        test +=
+        update_str +=
             '<div class="layui-form-item"><label class="layui-form-label">' +
             test_arr[i] +
             '</label> <div class="layui-input-block"> <input type="text"  name="' +
@@ -176,7 +190,7 @@ table_act.update = function(res, tb_id, data) {
             });
         });
     };
-    layObj.form("编辑", success_func, test, tb_id);
+    layObj.form("编辑", success_func, update_str, tb_id);
 };
 
 for (let i in table_act) {
