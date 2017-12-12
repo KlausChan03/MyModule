@@ -60,7 +60,6 @@ module.exports.run = function(body, pg, mo) {
 		}
 	}
 	var sql = "";
-	console.log(select_arr,"oh no")
 	if(f.type == "all" && f.verify == "审核通过") {
 		if(select_arr == "" || select_arr == undefined){
 			sql = "select * from " + f.tb_name + " where 1 = 1 ";		

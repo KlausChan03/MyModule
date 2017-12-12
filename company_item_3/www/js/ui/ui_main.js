@@ -30,7 +30,7 @@ layui.config({
 				}
 				$(".hot_news").html(hotNewsHtml);
 			}
-			show_requirement(6)		
+			show_requirement(7)		
 			
 			$(".next-requirement .more-msg").click(function(){		
 				if(flag==1){
@@ -40,7 +40,7 @@ layui.config({
 					$(".next-requirement .more").hide()	
 				}else{
 					flag=1;					
-					show_requirement(6)		
+					show_requirement(7)		
 					$(".next-requirement .more").show()						
 					$(".next-requirement .less").hide()
 				}				
@@ -69,7 +69,7 @@ layui.config({
 		dataType : "json",
 		success : function(data){
 			var all = data.length
-			platformVersion(data,3);
+			platformVersion(data,5);
 			$(".platform-function .more-msg").click(function(){
 				if(flag_ ==1){
 					flag_=0;
@@ -78,7 +78,7 @@ layui.config({
 					$(".platform-function .more").hide()	
 				}else{
 					flag_=1;				
-					platformVersion(data,3);
+					platformVersion(data,5);
 					$(".platform-function .more").show()					
 					$(".platform-function .less").hide()
 				}

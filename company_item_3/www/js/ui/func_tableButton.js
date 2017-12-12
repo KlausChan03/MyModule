@@ -203,7 +203,6 @@ for (let i in table_act) {
         case "update":
             var update_local_process = function() {
                 $("*[name='录入时间']").addClass("dateClass");
-                $("*[name='密码']").remove()
             }
             break;
     }
@@ -228,6 +227,8 @@ for (let i in table_act) {
                         break;                        
                         case 100:
                         input_rules(form_special_control.require_arr,form_special_control.disable_arr)
+                        // 密码每次重置
+                        $("*[name='密码']").val("");
                         break;
                         case 101:
                         control_power()
@@ -287,14 +288,15 @@ for (let i in table_act) {
                             if($("[name='权限']").val() != ""){ 
                                 var control_get = JSON.parse($("[name='权限']").val());
                             }
-                            
+                            var name = " = "
                             for (let i in control_power){
+                                var k = Number(i)+1;
                                 if($("[name='权限']").val() != ""){    
                                     if(control_get[i] != undefined){
                                         control_get_show = control_get[i].查看 == 1 ? "显示":"不显示";   
                                         control_check =  control_get[i].查看 == 1 ? "checked":""                                                              
                                     }
-                                    control_content.push('<p class="power-title">'+ i +'&nbsp;' + control_power[i].字段+'</p>'
+                                    control_content.push('<p class="power-title">'+ `${name}` + k + `${name}` + control_power[i].字段+'</p>'
                                     + ' <input type="hidden" name="字段_'+control_power[i].编号+'" value="'+control_power[i].编号+'" />'
                                     + ' <p class="power-row-1">查看</p><input type="checkbox" name="查看_'+control_power[i].编号+'" value="'+control_get_show+'"  '+ control_check +'  title="显示">'
                                     + ' <p class="power-row-2">按钮</p>');
@@ -309,7 +311,7 @@ for (let i in table_act) {
                                     }
 
                                 }else{
-                                    control_content.push('<p class="power-title">'+ i +'、'+ control_power[i].字段 +'</p>'
+                                    control_content.push('<p class="power-title">'+ `${name}` + k + `${name}` + control_power[i].字段 +'</p>'
                                     + ' <input type="hidden" name="字段_'+control_power[i].编号+'" value="'+control_power[i].编号+'" />'
                                     + ' <p class="power-row-1">查看</p><input type="checkbox" name="查看_'+control_power[i].编号+'" value="不显示" title="显示">'
                                     + ' <p class="power-row-2">按钮</p>');

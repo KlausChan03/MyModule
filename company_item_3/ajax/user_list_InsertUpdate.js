@@ -28,12 +28,15 @@ module.exports.run = function(body, pg, mo) {
   body.receive = JSON.parse(body.data);
 
   f.data = body.receive[0];
+  console.log(f.data)
   if (f.data.内容) {
     f.data.内容 = decodeURIComponent(f.data.内容);
   }
   f.check = body.receive[1];
 
-  
+  f.data.随机码 = random(4);      
+  f.data.密码 = cipher.md5(f.data.密码); 
+  f.data.密码 = cipher.md5(f.data.随机码 + f.data.密码); 
 
 
   menu.forEach(function(item) {
@@ -50,12 +53,9 @@ module.exports.run = function(body, pg, mo) {
       }
     }
   });
-
+  
   
     if (f.data.id == "" || f.data.id == undefined) {
-      f.data.随机码 = random(4);      
-      f.data.密码 = cipher.md5(f.data.密码); 
-      f.data.密码 = cipher.md5(f.data.随机码 + f.data.密码); 
 
       // 插入
       var insert_str_one = insert_arr.join(",");
@@ -69,6 +69,7 @@ module.exports.run = function(body, pg, mo) {
       }
       insert_str_two = insert_str_two.substring(0, insert_str_two.length - 1);
     } else {
+
       // 修改
       var update_str_one = update_arr;
       var update_str = "";
@@ -83,7 +84,6 @@ module.exports.run = function(body, pg, mo) {
     }
 
     var db = sqlite.connect();
-    console.log(f.data.id)
     if(f.data.id != "" && f.data.id != undefined)
       sql_con = " and id <> " + f.data.id;
       sql="select id from " + table_name + " where 登录名 = '"+f.data.登录名+"'"+sql_con;
@@ -92,21 +92,16 @@ module.exports.run = function(body, pg, mo) {
       p.状态 = '登录名已存在';
       return p;      
     }
-
   
     if (f.data.id == "" || f.data.id == undefined) {
       sql = "insert into " + table_name + "(" + insert_str_one + ") values (" + insert_str_two + ")";
-      console.log(sql)
+      console.log(sql,"insert")
     } else {
-      sql = "update " + table_name + " set " + update_str + " where id = " + f.data.id;
-      console.log(sql)
-      
+      sql = "update " + table_name + " set " + update_str + " where id = " + f.data.id;  
+      console.log(sql,"update")      
     }
 
-    console.log(sql)
-
     var result = sqlite.query(db,sql);
-    console.log(result)
     sqlite.close(db);
 
     if (result.状态 != "成功") {
