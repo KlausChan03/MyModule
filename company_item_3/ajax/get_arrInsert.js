@@ -12,7 +12,6 @@ module.exports.run = function(body, pg, mo) {
   var f = {};
   body.receive = JSON.parse(body.data);
   f.check = body.receive;
-  console.log(f.check)
   var menu = config.get("menu");
   var insert_arr = [];
   menu.forEach(function(item,index) {
@@ -26,7 +25,6 @@ module.exports.run = function(body, pg, mo) {
   });
   p.数据 = insert_arr;
   p.状态 = "成功";
-  console.log(p.数据)
 
   return common.removenull(p);
 };

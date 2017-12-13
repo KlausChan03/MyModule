@@ -196,7 +196,6 @@ for (let i in table_act) {
     switch (i) {
         case "insert":
             var insert_local_process = function () {
-                console.log()
             }
             break;
         case "update":

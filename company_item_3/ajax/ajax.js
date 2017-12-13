@@ -22,7 +22,6 @@ ajax.index = function(req, res, body) {
     
     var func = require("./" + body.func + ".js");
     body.send = func.run(body, obj.pg, obj.mongo);
-    // console.log(body)
     
     /**---------pg-------*/
     if (conf.postgresql.使用 == "是") {

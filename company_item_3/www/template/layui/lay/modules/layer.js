@@ -325,10 +325,12 @@ Class.pt.creat = function(){
   }).auto(times);
   
   //遮罩
-  $('#layui-layer-shade'+ that.index).css({
-    'background-color': config.shade[1] || '#000'
-    ,'opacity': config.shade[0]||config.shade
-  });
+  // $('#layui-layer-shade'+ that.index).css({
+  //   'background-color': config.shade[1] || '#000'
+  //   ,'opacity': config.shade[0]||config.shade
+  // });
+
+  $('#layui-layer-shade'+ that.index).css({"background-color": "rgba(0,0,0,"+ (config.shade[0] || config.shade)+")"});
 
   config.type == 2 && layer.ie == 6 && that.layero.find('iframe').attr('src', content[0]);
 

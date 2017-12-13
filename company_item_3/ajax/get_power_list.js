@@ -22,7 +22,6 @@ module.exports.run = function(body, pg, mo) {
   });
   p.数据 = arr;
   p.状态 = "成功";
-  console.log(p.数据)
 
   return common.removenull(p);
 };
