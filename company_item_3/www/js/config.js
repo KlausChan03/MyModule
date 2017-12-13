@@ -2,10 +2,10 @@ require.config({
   baseUrl: "/js/",
   paths: {
     //template层
-    layui: "../template/layui/layui",
+    layui: "/template/layui/layui",
 
     //暂时不能调用
-    wangEditor: "../template/wangediter/wangEditor.min",
+    wangEditor: "/template/wangediter/wangEditor.min",
     oss: "http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min",  
     
     //lib层
@@ -19,6 +19,7 @@ require.config({
     ui_index: "ui/ui_index",
     ui_main: "ui/ui_main",
     ui_leftNav: "ui/ui_leftNav",
+    ui_user: "ui/ui_user",
     canvas_login: "ui/canvas_login",
     func_formControl: "ui/func_formControl",
     func_tableButton: "ui/func_tableButton",
@@ -102,17 +103,19 @@ require.config({
     }
   },
   shim: {
+    layui: ["css!/template/layui/css/layui.css","css!/css/main.css","css!/css/layer-set-myself.css"],
     func_layer: ["css!/css/layer-set-myself.css", "layui"],
     MD5: ["jquery"],
     common: ["jquery"],
-    func_tableButton: ["common"],
-    func_formControl: ["common"],
-    func_tableInit: ["common"],
+    func_tableButton: ["common","layui"],
+    func_formControl: ["common","layui"],
+    func_tableInit: ["common","layui"],
 
     // 具体页面调用
     ui_login:["layui","jquery", "common","canvas_login","MD5"],
     ui_index:["layui", "jquery","ui_leftNav","common"],
     ui_main:["layui", "jquery","ui_leftNav","common"],
+    ui_user:["layui", "jquery","ui_leftNav","common","MD5"],
 
     user_list: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     user_power: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],

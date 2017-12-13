@@ -1,17 +1,15 @@
 "use strict";
 var form_act = {};
 
-
-form_act.add_video_pic = function(pic_type, video_open,pic,video) {
+form_act.add_video_pic = function(pic_type, video_open, pic, video) {
   layui.use(["upload", "element", "layer"], function() {
     var $ = layui.jquery,
       upload = layui.upload,
       element = layui.element,
       layer = layui.layer;
 
-
     $("*[name='图片地址']")
-      .attr({ readonly: "readonly"})
+      .attr({ readonly: "readonly" })
       .addClass("required");
     $("*[name='视频地址']")
       .attr({ readonly: "readonly" })
@@ -34,7 +32,6 @@ form_act.add_video_pic = function(pic_type, video_open,pic,video) {
         );
 
       $("#video-input").click(function() {
-        // console.log($("#file"));
         $("#file").click();
       });
       document.getElementById("file").addEventListener("change", function(e) {
@@ -281,6 +278,7 @@ form_act.add_video_pic = function(pic_type, video_open,pic,video) {
         url: "/temp",
         auto: true,
         size: 3000,
+        number: 8,
         multiple: multiple,
         done: function(res) {
           var datas = {};
@@ -345,7 +343,6 @@ form_act.editor = function(rich_open) {
       var $button_turn = $("#text-button");
       var $button_commit = $("#commit-button");
 
-      
       var E = window.wangEditor;
       var editor = new E("#div1", "#div2");
 

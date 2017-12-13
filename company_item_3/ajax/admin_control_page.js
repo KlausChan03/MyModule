@@ -94,8 +94,8 @@ module.exports.run = function(body, pg, mo) {
   p.listMenu = listMenuShow;
   p.listNav = list_;
 
-  console.log(p.listMenu)
-  console.log(p.listNav)
+  // console.log(p.listMenu)
+  // console.log(p.listNav)
 
   return common.removenull(p);
 };

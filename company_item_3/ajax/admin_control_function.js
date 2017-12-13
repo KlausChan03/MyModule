@@ -26,17 +26,14 @@ module.exports.run = function(body, pg, mo) {
 
   //第三步：控制可用按钮
   var isPower = false;
-
   var db = sqlite.connect();
-
   sql = "select id,权限 from 管_权限表 where id = '" + f.session.user_pid + "'";
   var power = sqlite.query(db, sql).数据;
-
   sqlite.close(db);
 
   f._权限 = JSON.parse(power[0].权限);
   for (var key in f._权限) {
-    if (f._权限[key]["字段"] == f.data) {
+    if (f._权限[key]["字段"] == f.data) {  
       //列表页
       if (f._权限[key]["查看"] == "1") {
         if (f._权限[key]["按钮"] != null && f._权限[key]["按钮"] != "") {
@@ -45,12 +42,8 @@ module.exports.run = function(body, pg, mo) {
         isPower = true;
         break;
       }
-    } else {
-      console.log("该列表你没有权限操作");
-    }
+    } 
   }
-
   p.keyPower = f._按钮权限;
-
   return common.removenull(p);
 };

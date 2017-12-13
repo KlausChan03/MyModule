@@ -1,5 +1,52 @@
 // 几种ajax请求方式
 var ajax = {};
+
+ajax.ajax_common = function(obj_save, success_func, error_func, type) {    
+    var ajax_type;
+    if (!arguments[2]) { error_func = function() {}; }
+    if (!arguments[3]) { ajax_type = "POST"; }
+    var func = obj_save.func;
+    var datas = obj_save.datas;
+    datas = JSON.stringify(datas);
+    $.ajax({
+        type: "POST",
+        async: true,
+        url: "/ajax.post?func=" + func,
+        data: "data=" + datas,
+        success: function(res) {
+            if (res.状态 == "成功") {
+                success_func(res);
+            } else {
+                error_func(res);
+            }
+            return false;
+        }
+    });
+};
+    
+ajax.ajax_common_sync = function(obj_save, success_func, error_func, type) {    
+    var ajax_type;
+    if (!arguments[2]) { error_func = function() {}; }
+    if (!arguments[3]) { ajax_type = "POST"; }
+    var func = obj_save.func;
+    var datas = obj_save.datas;
+    datas = JSON.stringify(datas);
+    $.ajax({
+        type: "POST",
+        async: false,
+        url: "/ajax.post?func=" + func,
+        data: "data=" + datas,
+        success: function(res) {
+            if (res.状态 == "成功") {
+                success_func(res);
+            } else {
+                error_func(res);
+            }
+            return false;
+        }
+    });
+};
+
 ajax.ajax_depend_concurrent = function(obj_save, success_func, error_func, type) {
     var ajax_type;
     var flags = 1;
@@ -30,63 +77,13 @@ ajax.ajax_depend_concurrent = function(obj_save, success_func, error_func, type)
     }
 };
 
-ajax.ajax_common = function(obj_save, success_func, error_func, type) {
-
-    var ajax_type;
-    if (!arguments[2]) { error_func = function() {}; }
-    if (!arguments[3]) { ajax_type = "POST"; }
-    var func = obj_save.func;
-    var datas = obj_save.datas;
-    datas = JSON.stringify(datas);
-    $.ajax({
-        type: "POST",
-        async: true,
-        url: "/ajax.post?func=" + func,
-        data: "data=" + datas,
-        success: function(res) {
-            if (res.状态 == "成功") {
-                success_func(res);
-            } else {
-                error_func(res);
-            }
-            return false;
-        }
-    });
-};
-
-ajax.ajax_common_sync = function(obj_save, success_func, error_func, type) {
-    
-        var ajax_type;
-        if (!arguments[2]) { error_func = function() {}; }
-        if (!arguments[3]) { ajax_type = "POST"; }
-        var func = obj_save.func;
-        var datas = obj_save.datas;
-        datas = JSON.stringify(datas);
-        $.ajax({
-            type: "POST",
-            async: false,
-            url: "/ajax.post?func=" + func,
-            data: "data=" + datas,
-            success: function(res) {
-                if (res.状态 == "成功") {
-                    success_func(res);
-                } else {
-                    error_func(res);
-                }
-                return false;
-            }
-        });
-    };
-
 ajax.ajax_upload = function(obj_save, success_func, error_func, type) {
-
     var ajax_type;
     if (!arguments[2]) { error_func = function() {}; }
     if (!arguments[3]) { ajax_type = "POST"; }
     var func = obj_save.func;
     var datas = obj_save.datas;
     datas = JSON.stringify(datas);
-
     $.ajax({
         type: "POST",
         url: "/ajax.post?func=" + func,
@@ -99,30 +96,23 @@ ajax.ajax_upload = function(obj_save, success_func, error_func, type) {
                 error_func(res);
             }
             return false;
-        },
-        　
-        complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
-            　　　　
-            if (status == 'timeout') { //超时,status还有success,error等值的情况
-                　　　　　
+        },        　
+        complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数            　　　　
+            if (status == 'timeout') { //超时,status还有success,error等值的情况                　　　　　
                 ajaxTimeoutTest.abort();　　　　　
                 alert("超时");　　　　
             }　　
         }
     });
-
 };
 
 
 ajax.ajax_html = function(obj_save, success_func, error_func, type) {
-
     var ajax_type;
     if (!arguments[2]) { error_func = function() {}; }
     if (!arguments[3]) { ajax_type = "POST"; }
     var func = obj_save.func;
     var datas = obj_save.datas;
-    // datas = JSON.stringify(datas);
-
     $.ajax({
         type: "POST",
         url: "/ajax.post?func=" + func,
@@ -137,17 +127,7 @@ ajax.ajax_html = function(obj_save, success_func, error_func, type) {
             }
             return false;
         },
-        　
-        complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
-            　　　　
-            if (status == 'timeout') { //超时,status还有success,error等值的情况
-                　　　　　
-                ajaxTimeoutTest.abort();　　　　　
-                alert("超时");　　　　
-            }　　
-        }
     });
-
 };
 
 function GetRequest() {

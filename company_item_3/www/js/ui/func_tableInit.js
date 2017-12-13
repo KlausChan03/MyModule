@@ -20,6 +20,7 @@ var toolbar = true;
 
 // 新方法实现数据渲染
 layui.use(["table", "form", "upload"], function() {
+  console.log(layui.v)
   var table = layui.table;
   var form = layui.form;
   var upload = layui.upload;

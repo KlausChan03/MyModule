@@ -69,12 +69,9 @@ module.exports.run = function(body, pg, mo) {
 
     var sql = "";
     if (f.data.id == "" || f.data.id == undefined) {
-      sql = "insert into " + table_name + "(" + insert_str_one + ") values (" + insert_str_two + ")";
-      console.log(sql)
-      
+      sql = "insert into " + table_name + "(" + insert_str_one + ") values (" + insert_str_two + ")";      
     } else {
       sql = "update " + table_name + " set " + update_str + " where id = " + f.data.id;
-      console.log(sql)
     }
     var result = pgdb.query(pg, sql);
 

@@ -16,6 +16,10 @@ section:first-child{
   margin-top: 0px;
 }
 
+.layui-select-title{
+  width:150px;
+}
+
 .layui-field-title{
   margin-bottom: 5px;
 }

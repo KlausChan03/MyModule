@@ -50,7 +50,6 @@ table_act.insert = function(res, tb_id) {
             test_arr[i] +
             '" autocomplete="off" class="layui-input insert-input"></div> </div>';
     }    
-    console.log(input_str)
     var success_func = function() {
         insert_local_process();
         common_progress();
@@ -242,14 +241,14 @@ for (let i in table_act) {
                             .parent()
                             .empty()
                             .append(
-                                '<input type="radio" name="状态" value=' + state[0] + ' title=' + state[0] + ' checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>a</span></div><input type="radio" name="状态" value=' + state[1] + ' title=' + state[1] + ' ><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i><span>b</span></div>'
+                                '<input type="radio" name="状态" value=' + state[0] + ' title=' + state[0] + ' checked=""><input type="radio" name="状态" value=' + state[1] + ' title=' + state[1] + ' >'
                             );
                     } else if ($("*[name='状态']").val() == state[0]) {
                         $("*[name='状态']")
                             .parent()
                             .empty()
                             .append(
-                                '<input type="radio" name="状态" value=' + state[0] + ' title=' + state[0] + ' checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i></div><input type="radio" name="状态" value=' + state[1] + ' title=' + state[1] + ' ><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i></div>'
+                                '<input type="radio" name="状态" value=' + state[0] + ' title=' + state[0] + ' checked=""><input type="radio" name="状态" value=' + state[1] + ' title=' + state[1] + ' >'                        
                             );
 
                     } else if ($("*[name='状态']").val() == state[1]) {
@@ -257,7 +256,7 @@ for (let i in table_act) {
                             .parent()
                             .empty()
                             .append(
-                                '<input type="radio" name="状态" value=' + state[0] + ' title=' + state[0] + '><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i></div><input type="radio" name="状态" value=' + state[1] + ' title=' + state[1] + ' checked=""><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i></div>'
+                                '<input type="radio" name="状态" value=' + state[0] + ' title=' + state[0] + ' checked=""><input type="radio" name="状态" value=' + state[1] + ' title=' + state[1] + ' >'
                             );
                     }
                 }
@@ -329,8 +328,6 @@ for (let i in table_act) {
                     var error_func = function(res){};
                     ajax.ajax_common(obj_save, success_func, error_func);         
                 }
-
-
 
                 $("*[name='录入人']").attr("readonly", "readonly");
                 $("*[name='录入时间']").attr("readonly", "readonly");
