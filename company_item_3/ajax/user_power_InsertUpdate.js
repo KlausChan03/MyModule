@@ -32,7 +32,11 @@ module.exports.run = function(body, pg, mo) {
   var table_id = "";
   var insert_arr = "";
   var update_arr = "";
+  var button_init = [];
   menu.forEach(function(item) {
+    if (item.按钮){
+      button_init = item.按钮;
+    }
     if (item.导航) {
       for (i in item.导航) {
         if (item.导航[i].表格编号 == f.check) {
@@ -92,14 +96,17 @@ module.exports.run = function(body, pg, mo) {
 
     function button_null(f, type, name) {
       var r = [];
-      if (eval("f.data." + type + "_" + name + "_新增") == null) r.push("0");
-      else r.push("新增");
-      if (eval("f.data." + type + "_" + name + "_编辑") == null)  r.push("0");
-      else r.push("编辑");
-      if (eval("f.data." + type + "_" + name + "_删除") == null)  r.push("0");
-      else r.push("删除");
-      if (eval("f.data." + type + "_" + name + "_批量删除") == null)  r.push("0");
-      else r.push("批量删除");
+     
+      // if (eval("f.data." + type + "_" + name + "_编辑") == null)  r.push("0");
+      // else r.push("编辑");
+      // if (eval("f.data." + type + "_" + name + "_删除") == null)  r.push("0");
+      // else r.push("删除");
+      // if (eval("f.data." + type + "_" + name + "_批量删除") == null)  r.push("0");
+      // else r.push("批量删除");
+      for(let i in button_init){
+        if (eval("f.data." + type + "_" + name + "_" + button_init[i]) == null) r.push("0");
+        else r.push(button_init[i]);
+      }
       console.log(r)
       return r;
     }

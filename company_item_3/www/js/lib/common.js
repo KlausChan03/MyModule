@@ -180,11 +180,12 @@ function getTime(n) {
     date.second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
     var currentTime = "";
     if(n==1){
-        currentTime = date.year + date.month + date.date + date.hour + date.minute + date.minute;    
+        currentTime = date.year + date.month + date.date + date.hour + date.minute + date.second;    
     }else{
-        currentTime = date.year + "-" + date.month + "-" + date.date + " " + date.hour + ":" + date.minute + ":" + date.minute;        
+        currentTime = date.year + "-" + date.month + "-" + date.date + " " + date.hour + ":" + date.minute + ":" + date.second;        
         
     }
+    console.log(currentTime)
     return currentTime;
 }
 

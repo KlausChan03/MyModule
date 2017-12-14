@@ -282,7 +282,7 @@ for (let i in table_act) {
                             var control_content = [];
                             var control_get_show = "";
                             var control_check = "",control_button ="";
-                            
+                            console.log(control_power)
                             if($("[name='权限']").val() != ""){ 
                                 var control_get = JSON.parse($("[name='权限']").val());
                             }
