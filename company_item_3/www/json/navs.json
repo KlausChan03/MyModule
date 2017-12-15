@@ -487,6 +487,12 @@
         "spread": false
       },
       {
+        "title": "陈廷星测试专用3",
+        "icon": "&#xe609;",
+        "href": "page/test/klaus_test_1215.html",
+        "spread": false
+      },
+      {
         "title": "登录",
         "icon": "&#xe609;",
         "href": "page/login/login.html",

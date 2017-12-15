@@ -185,7 +185,6 @@ function getTime(n) {
         currentTime = date.year + "-" + date.month + "-" + date.date + " " + date.hour + ":" + date.minute + ":" + date.second;        
         
     }
-    console.log(currentTime)
     return currentTime;
 }
 

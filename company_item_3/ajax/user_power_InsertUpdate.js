@@ -34,8 +34,8 @@ module.exports.run = function(body, pg, mo) {
   var update_arr = "";
   var button_init = [];
   menu.forEach(function(item) {
-    if (item.按钮){
-      button_init = item.按钮;
+    if (item.通用按钮){
+      button_init = item.通用按钮;
     }
     if (item.导航) {
       for (i in item.导航) {
