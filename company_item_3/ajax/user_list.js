@@ -33,7 +33,7 @@ module.exports.run = function(body, pg, mo) {
 			for(i in item.导航) {
 				if(item.导航[i].表格编号 == f.check) {
 					table_name = item.导航[i].表格名称;
-					select_arr = item.导航[i].查看语句;
+					select_arr = item.导航[i].查询语句;
 					f.tb_name = table_name;
 				}
 			}

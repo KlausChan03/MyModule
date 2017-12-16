@@ -316,10 +316,10 @@ function changeTableStutas(res, toolbar) {
 
     // 生成表格
     table.render({
-      initSort: {
-        field: "录入时间", //排序字段，对应 cols 设定的各字段名
-        type: "desc" //排序方式  asc: 升序、desc: 降序、null: 默认排序
-      },
+      // initSort: {
+      //   field: "录入时间", //排序字段，对应 cols 设定的各字段名
+      //   type: "desc" //排序方式  asc: 升序、desc: 降序、null: 默认排序
+      // },
       elem: "#demo",
       id: "test",
       data: res.列表,

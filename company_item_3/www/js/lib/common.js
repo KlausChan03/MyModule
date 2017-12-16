@@ -1,6 +1,29 @@
 // 几种ajax请求方式
 var ajax = {};
 
+ajax.ajax_get = function(obj_save, success_func, error_func, type) {    
+    var ajax_type;
+    if (!arguments[2]) { error_func = function() {}; }
+    if (!arguments[3]) { ajax_type = "GET"; }
+    var func = obj_save.func;
+    var datas = obj_save.datas;
+    datas = JSON.stringify(datas);
+    $.ajax({
+        type: "GET",
+        async: true,
+        url: func + ".xhtml",
+        data: "data=" + datas,
+        success: function(res) {
+            if (res.状态 == "成功") {
+                success_func(res);
+            } else {
+                error_func(res);
+            }
+            return false;
+        }
+    });
+};
+
 ajax.ajax_common = function(obj_save, success_func, error_func, type) {    
     var ajax_type;
     if (!arguments[2]) { error_func = function() {}; }

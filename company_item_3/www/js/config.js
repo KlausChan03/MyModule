@@ -5,8 +5,8 @@ require.config({
     layui: "/template/layui/layui",
 
     //暂时不能调用
-    wangEditor: "/template/wangediter/wangEditor.min",
-    oss: "http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min",  
+    // wangEditor: "/template/wangeditor/wangEditor.min",
+    // oss: "http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min",  
     
     //lib层
     jquery: "lib/jquery.min",
@@ -120,8 +120,8 @@ require.config({
     user_list: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     user_power: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
 
-    global_indexNews: [ "wangEditor","layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer"],
-    global_indexVideo: [ "oss","layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer"],
+    global_indexNews: ["layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer"],
+    global_indexVideo: ["layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer"],
     global_indexTemplate: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_member: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_account: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
@@ -174,6 +174,5 @@ require.config({
     global_chatRecord: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_viewFeedback: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_cloudLogin: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ]
-
   }
 });

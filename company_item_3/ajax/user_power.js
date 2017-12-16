@@ -18,7 +18,7 @@ module.exports.run = function(body, pg, mo) {
 	var 日期 = moment().format("YYYY-MM-DD");
 	var f = {};
 	var p = {};
-  var db = sqlite.connect();
+  	var db = sqlite.connect();
 
 	f.data = body.receive[0];
 	f.check = body.receive[1];

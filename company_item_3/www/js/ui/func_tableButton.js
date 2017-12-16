@@ -41,14 +41,16 @@ table_act.insert = function(res, tb_id) {
     ajax.ajax_common_sync(obj_save, success_func, error_func);
 
     for (let i = 0; i < test_arr.length; i++) {
-        input_str +=
-            '<div class="layui-form-item"><label class="layui-form-label">' +
-            test_arr[i] +
-            '</label> <div class="layui-input-block"> <input type="text"  name="' +
-            test_arr[i] +
-            '"   placeholder="请输入' +
-            test_arr[i] +
-            '" autocomplete="off" class="layui-input insert-input"></div> </div>';
+        // input_str +=
+        //     '<div class="layui-form-item"><label class="layui-form-label">' +
+        //     test_arr[i] +
+        //     '</label> <div class="layui-input-block"> <input type="text"  name="' +
+        //     test_arr[i] +
+        //     '"   placeholder="请输入' +
+        //     test_arr[i] +
+        //     '" autocomplete="off" class="layui-input insert-input"></div> </div>';
+
+        input_str += ` <div class="layui-form-item"><label class="layui-form-label">${test_arr[i]}</label> <div class="layui-input-block"> <input type="text"  name="${test_arr[i]}"  placeholder="请输入${test_arr[i]}"  autocomplete="off" class="layui-input insert-input"></div> </div> `;
     }    
     var success_func = function() {
         insert_local_process();
@@ -130,14 +132,15 @@ table_act.update = function(res, tb_id, data) {
                 .replace(/</g, "&lt;");
         }
         // input[type="text"]的遍历生成html
-        update_str +=
-            '<div class="layui-form-item"><label class="layui-form-label">' +
-            test_arr[i] +
-            '</label> <div class="layui-input-block"> <input type="text"  name="' +
-            test_arr[i] +
-            '" autocomplete="off" value="' +
-            old_arr[i] +
-            '" class="layui-input insert-input"> </div> </div>';
+        // update_str +=
+        //     '<div class="layui-form-item"><label class="layui-form-label">' +
+        //     test_arr[i] +
+        //     '</label> <div class="layui-input-block"> <input type="text"  name="' +
+        //     test_arr[i] +
+        //     '" autocomplete="off" value="' +
+        //     old_arr[i] +
+        //     '" class="layui-input insert-input"> </div> </div>';
+         update_str += `<div class="layui-form-item"><label class="layui-form-label">${test_arr[i]}</label> <div class="layui-input-block"> <input type="text"  name="${test_arr[i]}" autocomplete="off" value="${old_arr[i]}" class="layui-input insert-input"> </div> </div>`;
     }
 
     var success_func = function() {
