@@ -54,34 +54,34 @@ module.exports.run = function(body, pg, mo) {
     }
   });
   
-  
-    if (f.data.id == "" || f.data.id == undefined) {
-
-      // 插入
-      var insert_str_one = insert_arr.join(",");
-      var insert_str_two = "";
-      var test = [];
-      for (i in f.data) {
-        test.push(f.data[i]);
-      }
-      for (i in test) {
-        insert_str_two += "'" + test[i] + "',";
-      }
-      insert_str_two = insert_str_two.substring(0, insert_str_two.length - 1);
-    } else {
-
-      // 修改
-      var update_str_one = update_arr;
-      var update_str = "";
-      var test = [];
-      for (i in f.data) {
-        test.push(f.data[i]);
-      }
-      for (i in (update_str_one, test)) {
-        update_str += update_str_one[i] + "='" + test[i] + "',";
-      }
-      update_str = update_str.substring(0, update_str.length - 1);
+  if (f.data.id == "" || f.data.id == undefined) {
+    // 插入
+    var insert_str_one = insert_arr.join(",");
+    var insert_str_two = "";
+    var transition = [];
+    for (let i in f.data) {
+      transition.push(f.data[i]);
     }
+    transition.map(function(name, key) {
+      // insert_str_two += "'" + transition[key] + "',";
+      insert_str_two += `'${transition[key]}',`;
+    });
+    insert_str_two = insert_str_two.substring(0, insert_str_two.length - 1);
+  } else {
+    // 修改
+    var update_str_one = update_arr;
+    var update_str = "";
+    var transition = [];
+    for (let i in f.data) {
+      transition.push(f.data[i]);
+    }
+    transition.map(function(name, key) {
+      // update_str += update_str_one[key] + "='" + transition[key] + "',";
+      update_str += `${update_str_one[key]} ='${transition[key]}',`;
+    });
+    update_str = update_str.substring(0, update_str.length - 1);
+    // update_str = update_str.replace(/,$/, "");
+  }
 
     var db = sqlite.connect();
     if(f.data.id != "" && f.data.id != undefined)
@@ -95,10 +95,8 @@ module.exports.run = function(body, pg, mo) {
   
     if (f.data.id == "" || f.data.id == undefined) {
       sql = "insert into " + table_name + "(" + insert_str_one + ") values (" + insert_str_two + ")";
-      console.log(sql,"insert")
     } else {
-      sql = "update " + table_name + " set " + update_str + " where id = " + f.data.id;  
-      console.log(sql,"update")      
+      sql = "update " + table_name + " set " + update_str + " where id = " + f.data.id;      
     }
 
     var result = sqlite.query(db,sql);

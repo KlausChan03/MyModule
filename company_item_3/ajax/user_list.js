@@ -18,7 +18,7 @@ module.exports.run = function(body, pg, mo) {
 	var 日期 = moment().format("YYYY-MM-DD");
 	var f = {};
 	var p = {};
-  var db = sqlite.connect();
+  	var db = sqlite.connect();
 
 	f.data = body.receive[0];
 	f.check = body.receive[1];
@@ -63,36 +63,34 @@ module.exports.run = function(body, pg, mo) {
 
 	if(f.type == "all" && f.verify == "审核通过") {
 		if(select_arr == "" || select_arr == undefined){
-			sql = "select * from " + f.tb_name + " where 1 = 1 ";		
+			sql = "select * from " + f.tb_name + " where 1 = 1 order by 录入时间 DESC";		
 		}else{
-			sql = "select " + select_arr + " from " + f.tb_name + " where 1 = 1 ";			
+			sql = "select " + select_arr + " from " + f.tb_name + " where 1 = 1 order by 录入时间 DESC";			
 		}
-    var result = sqlite.query(db,sql);
+    	var result = sqlite.query(db,sql);
 	} else if(f.type == "one" && f.verify == "审核通过") {
-		sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "'";
-    var result = sqlite.query(db,sql);
+		sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by 录入时间 DESC ";
+   		var result = sqlite.query(db,sql);
 	}
-  sqlite.close(db);
+  	sqlite.close(db);
   
 	if(result) {
 		if(result.数据){
 			if(result.数据.length == 0) {
-				p.状态 = "获取列表异常";
-	
+				p.状态 = "获取列表异常";	
 			} else {
 				p.状态 = "成功";
 				f.列表 = result.数据;
 				f.条数 = result.数据.length;
 			}
-		}
-		
+		}		
 	}
 
 	if(result) {
 		// 通过数组的sort方法以id排序
-		if(f.type == "all"){
-			f.列表.sort(function (o1, o2) { return parseInt(o1.id) - parseInt(o2.id); });			
-		}
+		// if(f.type == "all"){
+		// 	f.列表.sort(function (o1, o2) { return parseInt(o1.id) - parseInt(o2.id); });			
+		// }
 		p.表格名称 = f.tb_name;
 		p.列表 = f.列表;
 		p.条数 = f.条数;

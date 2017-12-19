@@ -15,7 +15,7 @@ layui.config({
 	$(".test").click(function(){
 		let obj_save = {datas:"",func:"PT_init"};
 		let success_func = (res) => { console.log(res) }
-		ajax.ajax_get(obj_save,success_func)
+		ajax.ajax_common(obj_save,success_func)
 	})
 
 	$(".panel a").on("click",function(){

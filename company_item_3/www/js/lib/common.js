@@ -264,7 +264,6 @@ $(document).keydown(function(event) {
 /*限制只有中文和字母*/
 function input_test1(a) {
 	a.value = a.value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g, '')
-
 }
 
 /*限制只有数字*/

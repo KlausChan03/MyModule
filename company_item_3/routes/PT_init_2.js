@@ -9,7 +9,6 @@ var config = require("../func/config.js");
 var logs = require("../func/logs.js");
 var mongo = require("../func/mongo.js");
 var pgdb = require("../func/pgdb.js");
-var mysql = require("../func/mysql.js");
 var common = require("../func/common.js");
 var request = require("../func/request.js");
 var moment = require("moment");
@@ -17,7 +16,7 @@ var fs = require("fs");
 var uuid = require("uuid");
 var redisdb = require("../func/redisdb.js");
 
-module.exports.run = function(body,pg,mysql) {
+module.exports.run = function(body, pg, mo, redis) {
   var p = {},
     f = {},
     t = {};
@@ -27,10 +26,8 @@ module.exports.run = function(body,pg,mysql) {
   console.log(body.arg, "lll");
   body.receive = body.arg;
 
-  console.log(mysql)
-
   sql = "select * from 全_首页信息表  where 1 = 1"
-  var result = mysql.query(mysql, sql);
+  var result = pgdb.query(pg, sql);
   console.log(result)
   p.数据 = result.数据;
   p.状态 = "成功";

@@ -9,15 +9,12 @@ var fs = require("fs");
 
 config.readfile();
 
-module.exports.run = function(body, pg, mo) {
-	
+module.exports.run = function(body, pg, mo) {	
 	body.receive = JSON.parse(body.data);
-	var f = {};
-	var p = {};
+	var f = {},p = {};
 	var sql	// 执行语句
 	,result // 执行结果
-	,order_cond = "录入时间"; //排序条件	
-	
+	,order_cond; //排序条件		
 
 	f.data = body.receive[0];
 	f.check = body.receive[1];
@@ -56,23 +53,22 @@ module.exports.run = function(body, pg, mo) {
 			f.状态 = "请选择查询条件,并输入对应内容";				
 		}
 	}
-	for(let i in select_arr){
-		if(select_arr[i] != "录入时间"){
-			order_cond = "id"
-		}
-	}
+	if(select_arr.in_array("录入时间") == true){
+		order_cond = "录入时间"
+	}else{
+		order_cond = "id"					
+	};
+	
 	if(f.type == "all" && f.verify == "审核通过") {
 		if(select_arr == "" || select_arr == undefined){
-			// sql = "select * from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";		
-			sql = ` select * from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC `;		
-		}else{
-			// sql = "select " + select_arr + " from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";			
-			sql = ` select ${select_arr} from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC `;			
+					
+			sql = ` select * from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC `;// sql = "select * from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";
+		}else{						
+			sql = ` select ${select_arr} from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC `;	// sql = "select " + select_arr + " from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";		
 		}
 		result  = pgdb.query(pg, sql);
 	} else if(f.type == "one" && f.verify == "审核通过") {
-		// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";
-		sql = ` select * from ${f.tb_name} where ${f.data[0]} = ${f.data[1]} order by ${order_cond} DESC `;
+		sql = ` select * from ${f.tb_name} where ${f.data[0]} = '${f.data[1]}' order by ${order_cond} DESC `;		// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";
 		result = pgdb.query(pg, sql);
 	}
 
@@ -101,6 +97,13 @@ module.exports.run = function(body, pg, mo) {
 	} else {
 		p.状态 = f.状态;
 	}
-
 	return p;
 };
+
+Array.prototype.in_array = function(e) {  
+	for(i=0;i<this.length;i++) {  
+		if(this[i] == e)  
+			return true;  
+	}  
+	return false;  
+}  

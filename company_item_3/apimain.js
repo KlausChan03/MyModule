@@ -86,7 +86,7 @@ app.post("/ajax.post*", function(req, res) {
     .on("end", function() {
       try {
         console.log("-----------------接收参数-----------------");
-        console.log(req.url + "=====" + body);
+        console.log(req.url + " ----- " + body);
         console.log("-----------------接收参数-----------------");
         var path = url.parse(req.url, true).query;
         body = querystring.parse(body);
@@ -189,11 +189,11 @@ var timeStart = schedule.scheduleJob(rule, function() {
     console.log("redis可用连接数" + redisdb.pool._availableObjects.length);
   }
 
-  // if(config.get('app').mysql.使用 == '是') {
-  // 	var mysql = require('./func/mysql.js');
-  // 	console.log("mysql当前连接数" + mysql.pool._count);
-  // 	console.log("mysql可用连接数" + mysql.pool._availableObjects.length);
-  // }
+  if(config.get('app').mysql.使用 == '是') {
+  	var mysql = require('./func/mysql.js');
+  	console.log("mysql当前连接数" + mysql.pool._count);
+  	console.log("mysql可用连接数" + mysql.pool._availableObjects.length);
+  }
 });
 
 //文件上传

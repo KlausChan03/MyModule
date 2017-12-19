@@ -66,14 +66,6 @@ module.exports.run = function(body, pg, mo) {
         button_arr.push(i);
       }
     }
-
-    function button_concat(f,button_arr){
-        for (i in button_arr){
-
-        }
-    }
-    button_concat(f,button_arr)
-
     var a = {};
     all_arr.forEach(function(item, key) {
       item = item.replace("字段_", "");
@@ -103,10 +95,14 @@ module.exports.run = function(body, pg, mo) {
       // else r.push("删除");
       // if (eval("f.data." + type + "_" + name + "_批量删除") == null)  r.push("0");
       // else r.push("批量删除");
-      for(let i in button_init){
+      for(let i in button_init){     
         if (eval("f.data." + type + "_" + name + "_" + button_init[i]) == null) r.push("0");
         else r.push(button_init[i]);
       }
+      // button_init.map(function(name,i){
+      //   if (eval("f.data." + type + "_" + name + "_" + button_init[i]) == null) r.push("0");
+      //   else r.push(button_init[i]);
+      // })
       console.log(r)
       return r;
     }
@@ -126,7 +122,6 @@ module.exports.run = function(body, pg, mo) {
 
     var result = sqlite.query(db,sql);
     sqlite.close(db);
-    console.log(result)
     if(result.状态 == "成功"){
       p.状态 = "成功";
       

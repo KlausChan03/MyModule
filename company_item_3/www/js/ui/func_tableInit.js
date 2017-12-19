@@ -126,7 +126,32 @@ layui.use(["table", "form", "upload"], function() {
      */
     // 搜索刷新列表
     form.render("select");
+    // $(".layui-select-title input").change(function(){
+    //   if($(".layui-select-title input").val() == "id"){
+    //     $("#souVal").attr({onclick: "input_test2(this);",onkeyup: "input_test2(this);"})
+    //   }else{
+    //     $("#souVal").attr("")
+    //   }
+    // })
 
+    $(".layui-select-title input").bind("input propertychange",function(){
+      console.log("lll")
+      if($(this).val() == "id"){
+        $("#souVal").attr({onclick: "input_test2(this);",onkeyup: "input_test2(this);"})
+      }else{
+        $("#souVal").attr("")
+      }
+    });
+    
+    form.on('select(search)', function(data){
+      console.log(data.value); //得到被选中的值
+      if(data.value == "id"){
+        $("#souVal").attr({onclick: "input_test2(this);",onkeyup: "input_test2(this);"})
+      }else{
+        $("#souVal").attr({onclick,onkeyup});
+      }
+    });      
+          
     $("#seacherButton").on("click", function() {
       var syllable = $(".layui-select-title input").val();
       var syllableVal = $("#souVal").val();
