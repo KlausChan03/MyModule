@@ -87,6 +87,7 @@ require.config({
     global_explain: "ui/global_explain",
     global_setting: "ui/global_setting",
     global_livePower: "ui/global_livePower",
+    global_creditSetting: "ui/global_creditSetting",
     // 其他
     global_picList: "ui/global_picList",
     global_viewFeedback: "ui/global_viewFeedback",
@@ -166,6 +167,7 @@ require.config({
     global_explain: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_setting: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_livePower: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
+    global_creditSetting: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_picList: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_viewFeedback: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_concurrentProcessing: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],

@@ -37,7 +37,6 @@ ajax.index = function(req, res, body) {
       function(cb) {
         if (conf.postgresql.使用 != "是") {
           cb(null, "");
-          console.log("llll")
           return;
         }
         pgdb.open(function(err, client, done) {
@@ -55,28 +54,26 @@ ajax.index = function(req, res, body) {
           }
         });
       },
-      function(j,cb) {
-        if (conf.mysql.使用 != "是") {
-          cb(null, "");
-          console.log("2222")
-          
-          return;
-        }
-        mysql.open(function(err, client) {
-          if (err) {
-            console.log("连接pg数据库失败!");
-            logs.write("err", "错误:连接PG数据库失败,错误信息:" + err);
-            res
-              .status(200)
-              .send('{"code":-20005,"message":"postgresql error"}');
-            res.end();
-          } else {
-            obj.mysql = client;
-            console.log(obj.mysql)
-            cb(null, "");
-          }
-        });
-      },
+      // function(j,cb) {
+      //   if (conf.mysql.使用 != "是") {
+      //     cb(null, "");
+      //     return;
+      //   }
+      //   mysql.open(function(err, client) {
+      //     if (err) {
+      //       console.log("连接pg数据库失败!");
+      //       logs.write("err", "错误:连接PG数据库失败,错误信息:" + err);
+      //       res
+      //         .status(200)
+      //         .send('{"code":-20005,"message":"postgresql error"}');
+      //       res.end();
+      //     } else {
+      //       obj.mysql = client;
+      //       console.log(obj.mysql)
+      //       cb(null, "");
+      //     }
+      //   });
+      // },
       function(j, cb) {
         if (conf.mongodb.使用 != "是") {
           cb(null, "");

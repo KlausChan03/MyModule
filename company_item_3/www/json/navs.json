@@ -391,6 +391,12 @@
         "icon": "&#xe609;",
         "href": "page/qq_items/global_livePower.html?func=page_select_all+page_insert_update+page_delete&page_id=global_livePower",
         "spread": false
+      },{
+        "id":"1",
+        "title": "全_设置额度表",
+        "icon": "&#xe609;",
+        "href": "page/qq_items/global_creditSetting.html?func=page_select_all+page_insert_update+page_delete&page_id=global_creditSetting",
+        "spread": false
       }
     ]
   },{

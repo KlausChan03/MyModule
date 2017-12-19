@@ -225,7 +225,11 @@ for (let i in table_act) {
                         break;
                         case 2:
                         control_state(form_special_control.state)
-                        break;                        
+                        break;   
+                        case 11:
+                        control_state(form_special_control.state)                        
+                        form_special_control.func()
+                        break;                      
                         case 100:
                         input_rules(form_special_control.require_arr,form_special_control.disable_arr)
                         // 密码每次重置
