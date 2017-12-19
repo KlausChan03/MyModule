@@ -8,15 +8,12 @@ layui.config({
 	var flag = 1;
 	var flag_ = 1;
 
-
-
-
-	$("body").append("<button class='test'>TEST</button>")
-	$(".test").click(function(){
-		let obj_save = {datas:"",func:"PT_init"};
-		let success_func = (res) => { console.log(res) }
-		ajax.ajax_common(obj_save,success_func)
-	})
+	// $("body").append("<button class='test'>TEST</button>")
+	// $(".test").click(function(){
+	// 	let obj_save = {datas:"",func:"PT_init"};
+	// 	let success_func = (res) => { console.log(res) }
+	// 	ajax.ajax_common(obj_save,success_func)
+	// })
 
 	$(".panel a").on("click",function(){
 		window.parent.addTab($(this));

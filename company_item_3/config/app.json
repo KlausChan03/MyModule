@@ -22,7 +22,7 @@
     "db": "qqpt"
   },
   "mysql": {
-    "使用": "是",
+    "使用": "否",
     "host": "localhost",
     "user": "root",
     "pass": "123456",

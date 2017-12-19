@@ -81,8 +81,8 @@ layui.define(["element", "jquery"], function(exports) {
                     }
                     // 功能模块测试
                     // [
-                    var data_len = data.length-1;
-                    _data.push(data[data_len]);
+                    // var data_len = data.length-1;
+                    // _data.push(data[data_len]);
                     // ]
 
                     data = _data;
