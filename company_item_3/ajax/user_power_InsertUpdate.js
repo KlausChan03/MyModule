@@ -66,6 +66,7 @@ module.exports.run = function(body, pg, mo) {
         button_arr.push(i);
       }
     }
+
     var a = {};
     all_arr.forEach(function(item, key) {
       item = item.replace("字段_", "");

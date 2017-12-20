@@ -46,6 +46,7 @@ layui.use(["table", "form", "upload"], function() {
     // 功能按钮渲染
     var obj_save = { datas: tb_id, func: "admin_control_function" };
     var success_func = function(res) {
+      
       if (res.keyPower != "") {
         var key_arr = [];
         for (let i in res.keyPower) {
@@ -57,35 +58,19 @@ layui.use(["table", "form", "upload"], function() {
           if (key_arr[j] == "删除" || key_arr[j] == "编辑") {
             switch (key_arr[j]) {
               case "编辑":
-                $(".layui-hide").append(
-                  '<a class="layui-btn layui-btn-mini" lay-event="edit"><i class="layui-icon" style="font-size: 16px; color: #eee;">&#xe642;</i>' +
-                    key_arr[j] +
-                    "</a>"
-                );
+                $(".layui-hide").append(`<a class="layui-btn layui-btn-mini" lay-event="edit"><i class="layui-icon" style="font-size: 16px; color: #eee;">&#xe642;</i> ${key_arr[j]}</a>`);
                 break;
               case "删除":
-                $(".layui-hide").append(
-                  '<a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del"><i class="layui-icon" style="font-size: 16px; color: #eee;">&#x1006;</i>' +
-                    key_arr[j] +
-                    "</a>"
-                );
+                $(".layui-hide").append(`<a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del"><i class="layui-icon" style="font-size: 16px; color: #eee;">&#x1006;</i> ${key_arr[j]}</a>`);
                 break;
             }
           } else if (key_arr[j] == "新增" || key_arr[j] == "批量删除") {
             switch (key_arr[j]) {
               case "新增":
-                $(".layui-btn-group").append(
-                  '<a class="layui-btn layui-btn-normal layui-btn-mini" data-type="insertData"> <i class="layui-icon">&#xe654;</i>' +
-                    key_arr[j] +
-                    " </a>"
-                );
+                $(".layui-btn-group").append(`<a class="layui-btn layui-btn-normal layui-btn-mini" data-type="insertData"> <i class="layui-icon">&#xe654;</i> ${key_arr[j]} </a>`);
                 break;
               case "批量删除":
-                $(".layui-btn-group").append(
-                  '<a class="layui-btn layui-btn-normal layui-btn-mini" data-type="deleteData" style="margin-left:10px!important"> <i class="layui-icon">&#xe640;</i>' +
-                    key_arr[j] +
-                    " </a>"
-                );
+                $(".layui-btn-group").append(`<a class="layui-btn layui-btn-normal layui-btn-mini" data-type="deleteData" style="margin-left:10px!important"> <i class="layui-icon">&#xe640;</i> ${key_arr[j]} </a>`);
                 break;
             }
           }
@@ -94,6 +79,18 @@ layui.use(["table", "form", "upload"], function() {
         toolbar = false;
       }
 
+      // 通用按钮(无限制)
+      // 刷新
+      $(".layui-btn-group").append(`<a class="layui-btn layui-btn-normal layui-btn-mini btn-refresh" data-type="refresh" style="margin-left:10px!important"> <i class="layui-icon">&#x1002;</i>刷新</a>`);
+      
+      $(".btn-refresh").mouseover(function(){
+        $(".btn-refresh").find("i").addClass("layui-anim layui-anim-rotate layui-anim-loop");        
+      })
+      $(".btn-refresh").mouseout(function(){
+        $(".btn-refresh").find("i").removeClass("layui-anim layui-anim-rotate layui-anim-loop");        
+      })
+      
+      
       // 获取按钮后表格内按钮重载
       table.reload("test");
 
@@ -209,6 +206,9 @@ layui.use(["table", "form", "upload"], function() {
       isAll: function() {},
       parseTable: function() {
         table.init("parse-table-demo");
+      },
+      refresh: function() {
+        history.go(0);
       },
       insertData: function() {
         table_act.insert(res, tb_id);

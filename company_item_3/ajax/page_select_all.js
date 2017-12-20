@@ -14,8 +14,8 @@ module.exports.run = function(body, pg, mo) {
 	var f = {},p = {};
 	var sql	// 执行语句
 	,result // 执行结果
-	,order_cond; //排序条件		
-
+	,order_cond //排序条件		
+	,where_cond = " 1 = 1 "; //判断条件
 	f.data = body.receive[0];
 	f.check = body.receive[1];
 	f.type = body.receive[2];
@@ -42,6 +42,11 @@ module.exports.run = function(body, pg, mo) {
 	} else if(f.type == "one") {
 		if(f.data[0] != "" && f.data[0] != null && f.data[0] != undefined && f.data[1] != "" && f.data[1] != null && f.data[1] != undefined) {
 			f.verify = "审核通过";
+			if(f.data[0] == "id"){
+				f.verify_type = "int"
+			}else{
+				f.verify_type = "other"				
+			}
 		} else if ((f.data[0] == "" || f.data[0] == null || f.data[0] == undefined ) && f.data[1] != "" && f.data[1] != null && f.data[1] != undefined){
 			f.verify = "查询对象key为空";
 			f.状态 = "请选择查询条件";
@@ -60,15 +65,18 @@ module.exports.run = function(body, pg, mo) {
 	};
 	
 	if(f.type == "all" && f.verify == "审核通过") {
-		if(select_arr == "" || select_arr == undefined){
-					
+		if(select_arr == "" || select_arr == undefined){					
 			sql = ` select * from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC `;// sql = "select * from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";
 		}else{						
 			sql = ` select ${select_arr} from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC `;	// sql = "select " + select_arr + " from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";		
 		}
 		result  = pgdb.query(pg, sql);
 	} else if(f.type == "one" && f.verify == "审核通过") {
-		sql = ` select * from ${f.tb_name} where ${f.data[0]} = '${f.data[1]}' order by ${order_cond} DESC `;		// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";
+		if(f.verify_type == "other"){
+			sql = ` select * from ${f.tb_name} where ${f.data[0]} like '%${f.data[1]}%'  order by ${order_cond} DESC `;		// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";			
+		}else{
+			sql = ` select * from ${f.tb_name} where ${f.data[0]} = '${f.data[1]}'  order by ${order_cond} DESC `;		// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";						
+		}
 		result = pgdb.query(pg, sql);
 	}
 

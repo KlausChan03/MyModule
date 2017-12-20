@@ -1,6 +1,6 @@
 {
     "cmsName": "商学院后台管理",
-    "version": "v1.0.3",
+    "version": "v1.0.4",
     "author": "中网商前端团队",
     "homePage": "index.html",
     "server": "Linux",
@@ -11,5 +11,5 @@
     "powerby": "copyright @2017 Klaus",
     "record": "备案号存放处",
     "keywords": "",
-    "notice": "全球管理平台已更新至v1.0.3，敬请查看日志"
+    "notice": "全球管理平台已更新至v1.0.4，敬请查看日志"
 }
