@@ -8,6 +8,13 @@ layui.config({
 	var flag = 1;
 	var flag_ = 1;
 
+	// $("body").append("<button class='test'>TEST</button>")
+	// $(".test").click(function(){
+	// 	let obj_save = {datas:"",func:"PT_init"};
+	// 	let success_func = (res) => { console.log(res) }
+	// 	ajax.ajax_common(obj_save,success_func)
+	// })
+
 	$(".panel a").on("click",function(){
 		window.parent.addTab($(this));
 	})
@@ -30,7 +37,7 @@ layui.config({
 				}
 				$(".hot_news").html(hotNewsHtml);
 			}
-			show_requirement(6)		
+			show_requirement(7)		
 			
 			$(".next-requirement .more-msg").click(function(){		
 				if(flag==1){
@@ -40,7 +47,7 @@ layui.config({
 					$(".next-requirement .more").hide()	
 				}else{
 					flag=1;					
-					show_requirement(6)		
+					show_requirement(7)		
 					$(".next-requirement .more").show()						
 					$(".next-requirement .less").hide()
 				}				
@@ -69,7 +76,7 @@ layui.config({
 		dataType : "json",
 		success : function(data){
 			var all = data.length
-			platformVersion(data,3);
+			platformVersion(data,5);
 			$(".platform-function .more-msg").click(function(){
 				if(flag_ ==1){
 					flag_=0;
@@ -78,7 +85,7 @@ layui.config({
 					$(".platform-function .more").hide()	
 				}else{
 					flag_=1;				
-					platformVersion(data,3);
+					platformVersion(data,5);
 					$(".platform-function .more").show()					
 					$(".platform-function .less").hide()
 				}
@@ -111,7 +118,7 @@ layui.config({
 		for (var j=0; j<num; j++){
 			$(".version-msg").append('<div class="version-main"><h4 class="version-title"></h4><ul class="version-list"></ul></div>')
 			$(".version-msg .version-title:eq("+(j)+")").html(data[j].version);
-			for (var i=0;i<data[j].function.length;i++){
+			for (let i=0;i<data[j].function.length;i++){
 				$(".version-main:eq("+(j)+")").append('<p>*&nbsp;&nbsp;'+data[j].function[i]+'</p>')
 			}
 		}

@@ -38,44 +38,15 @@ process.on("SyntaxError", function(err) {
 
 var app = express();
 
-//redis存储session
-if (config.get("app").redis.使用 == "是") {
-  var RedisStrore = require("connect-redis")(session);
-  var cf = {
-    cookie: {
-      maxAge: 3600000
-    },
-    sessionStore: {
-      host: config.get("app").redis.host,
-      port: config.get("app").redis.port,
-      pass: config.get("app").redis.password,
-      db: config.get("app").redis.sessionDB,
-      ttl: 1800,
-      logErrors: true
-    }
-  };
+//session存储时间 30分钟（单位=毫秒）
+var sessionTime = 30 * 60 * 1001;
 
-  app.use(
-    session({
-      name: "hy-go",
-      secret: "Asecret123-",
-      resave: true,
-      rolling: true,
-      saveUninitialized: false,
-      cookie: cf.cookie,
-      store: new RedisStrore(cf.sessionStore)
-    })
-  );
-} else {
-  app.use(
-    session({
-      resave: true,
-      secret: uuid.v4(), //secret的值建议使用随机字符串
-      saveUninitialized: true,
-      cookie: { maxAge: 7200000 } // 过期时间（毫秒）
-    })
-  );
-}
+app.use(session({
+  resave:true,
+  secret: uuid.v4(), //secret的值建议使用随机字符串
+  saveUninitialized: true,
+  cookie: {maxAge: sessionTime} // 过期时间（毫秒）
+}));
 
 var server = http.createServer(app);
 
@@ -97,59 +68,14 @@ if (
   https
     .createServer(options, app)
     .listen(config.get("app").main.httpsPort, function() {
-      console.log(
-        "Https server  启动成功! 监听端口:" + config.get("app").main.httpsPort
-      );
+      console.log("Https server  启动成功! 监听端口:" + config.get("app").main.httpsPort);
     });
 }
 
 app.use(express.static("www"));
+app.set("views", path.join(__dirname, "www"));
+app.set("view engine", "ejs");
 
-app.post("/api.post", function(req, res) {
-  var body = "";
-  req.on("data", function(chunk) {
-    body += chunk;
-  });
-
-  req.on("end", function() {
-    try {
-      console.log("-----------------接收参数-----------------");
-      console.log(body);
-      console.log("-----------------接收参数-----------------");
-      body = querystring.parse(body);
-      //调用开始时间毫秒数
-      body.startTime = new Date().getTime();
-      body.date = moment().format("YYYY-MM-DD HH:mm:ss");
-      body.ip = req.ip;
-      body.uuid = uuid.v4();
-      if (body.func == undefined || body.words == undefined) {
-        res.send('{"code":"-2","msg":"func or words undefined "}').end();
-      } else {
-        //截取数据解密
-        var key = body.words.substr(0, 32);
-        var data = cipher.aesdecode(
-          body.words.substr(32, body.words.length),
-          key
-        );
-        if (data == null) {
-          res.send('{"code":"-3","msg":"words decode error"}').end();
-        } else {
-          body.receive = JSON.parse(data);
-          var api = require("./api/api.js");
-          var bool = api.searchfile(body.func);
-          if (bool) {
-            api.index(req, res, body);
-          } else {
-            res.send('{"code":"-4","msg":"not find func or words "}').end();
-          }
-        }
-      }
-    } catch (e) {
-      console.log(e);
-      res.send('{"code":"-1","msg":"body error"}').end();
-    }
-  });
-});
 
 app.post("/ajax.post*", function(req, res) {
   var body = "";
@@ -160,7 +86,7 @@ app.post("/ajax.post*", function(req, res) {
     .on("end", function() {
       try {
         console.log("-----------------接收参数-----------------");
-        console.log(req.url + " & " + body);
+        console.log(req.url + " ----- " + body);
         console.log("-----------------接收参数-----------------");
         var path = url.parse(req.url, true).query;
         body = querystring.parse(body);
@@ -179,7 +105,6 @@ app.post("/ajax.post*", function(req, res) {
         body.uuid = uuid.v4();
         var ajax = require("./ajax/ajax.js");
         var bool = ajax.searchfile(body.func);
-        console.log(body,"hahah")
         if (bool) {
           ajax.index(req, res, body);
         } else {
@@ -191,11 +116,8 @@ app.post("/ajax.post*", function(req, res) {
       }
     });
 });
-app.set("views", path.join(__dirname, "www"));
-// app.use(express.static(path.join(__dirname, 'views')));
-app.set("view engine", "ejs");
-// app.engine('ejs', require('ejs').renderFile);
-// app.set('view engine', 'html');
+
+
 
 app.get("/*.xhtml", function(req, res) {
   var data = {};
@@ -267,11 +189,11 @@ var timeStart = schedule.scheduleJob(rule, function() {
     console.log("redis可用连接数" + redisdb.pool._availableObjects.length);
   }
 
-  // if(config.get('app').mysql.使用 == '是') {
-  // 	var mysql = require('./func/mysql.js');
-  // 	console.log("mysql当前连接数" + mysql.pool._count);
-  // 	console.log("mysql可用连接数" + mysql.pool._availableObjects.length);
-  // }
+  if(config.get('app').mysql.使用 == '是') {
+  	var mysql = require('./func/mysql.js');
+  	console.log("mysql当前连接数" + mysql.pool._count);
+  	console.log("mysql可用连接数" + mysql.pool._availableObjects.length);
+  }
 });
 
 //文件上传

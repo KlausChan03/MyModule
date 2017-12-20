@@ -41,13 +41,14 @@ body,
 
 .body--ready {
   /* Ideas */
-  background: -webkit-linear-gradient(top, #e2b986 -10%, #241c35 140%);
+  /* background: -webkit-linear-gradient(top, #e2b986 -10%, #241c35 140%);
   background: -webkit-linear-gradient(top, #c97369 -40%, #241c35 130%);
   background: -webkit-linear-gradient(top, #fac4c4 -10%, #606386 140%);
   background: -webkit-linear-gradient(top, #519ab0 0%, #414A6D 110%);
   background: -webkit-linear-gradient(top, rgb(129, 0, 170) 0%, rgb(43, 4, 114) 110%);
   background: -webkit-linear-gradient(top, rgb(163, 235, 189) 0%, rgb(16, 93, 145) 110%);
-  background: -webkit-linear-gradient(top, rgb(165, 103, 189) 0%, rgb(75, 233, 214) 120%);
+  background: -webkit-linear-gradient(top, rgb(165, 103, 189) 0%, rgb(75, 233, 214) 120%); */
+  background: -webkit-linear-gradient(bottom, #0066FF  30%, #FF3333 70%)
 
 
   /* background: -webkit-linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);

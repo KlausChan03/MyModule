@@ -2,10 +2,18 @@
 
 //获取iframe url的参数信息
 var ifarme_func = window.top.document.getElementsByClassName("iframe_");
-var tb_id = GetRequest(ifarme_func).bc_id;
+var tb_id = GetRequest(ifarme_func).page_id;
 var pic_type = GetRequest(ifarme_func).pic_type;
 var rich_open = GetRequest(ifarme_func).rich_open;
 var video_open = GetRequest(ifarme_func).video_open;
+var sql_type = GetRequest(ifarme_func).sql_type;
+var func_arr = GetRequest(ifarme_func).func
+var get_func = [];
+get_func[0] =  func_arr.split("+")[0];
+get_func[1] =  func_arr.split("+")[1];
+get_func[2] =  func_arr.split("+")[2];
+// console.log(get_func[0],get_func[1],get_func[2])
+
 var form_special_control={};
 var data = {};
 var toolbar = true;
@@ -23,10 +31,11 @@ layui.use(["table", "form", "upload"], function() {
   data.type = "all";
   var obj_save = {
     datas: [data.field, data.tb_id, data.type],
-    func: GetRequest(ifarme_func).func
+    func: get_func[0]
   };
 
   var success_func = function(res) {
+    console.log(res)
     // 表格标题渲染
     var tb_title = res.表格名称;
     tb_title = tb_title.replace("表", "").replace(/^[\u2E80-\u9FFF]_/,"");
@@ -39,12 +48,12 @@ layui.use(["table", "form", "upload"], function() {
     var success_func = function(res) {
       if (res.keyPower != "") {
         var key_arr = [];
-        for (var i in res.keyPower) {
+        for (let i in res.keyPower) {
           key_arr.push(res.keyPower[i]);
         }
       }
       if (key_arr != "") {
-        for (var j in key_arr) {
+        for (let j in key_arr) {
           if (key_arr[j] == "删除" || key_arr[j] == "编辑") {
             switch (key_arr[j]) {
               case "编辑":
@@ -105,7 +114,7 @@ layui.use(["table", "form", "upload"], function() {
           content:
             '<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p>登陆已超时</p></div>',
           yes: function() {
-            parent.window.location.href = "/page/login/login.html";
+            parent.window.location.href = "/page/login.html";
           }
         });
       }
@@ -117,7 +126,16 @@ layui.use(["table", "form", "upload"], function() {
      */
     // 搜索刷新列表
     form.render("select");
-
+    
+    form.on('select(search)', function(data){
+      console.log(data.value); //得到被选中的值
+      if(data.value == "id"){
+        $("#souVal").attr({onclick: "input_test2(this);",onkeyup: "input_test2(this);"})
+      }else{
+        $("#souVal").attr({onclick,onkeyup});
+      }
+    });      
+          
     $("#seacherButton").on("click", function() {
       var syllable = $(".layui-select-title input").val();
       var syllableVal = $("#souVal").val();
@@ -128,7 +146,7 @@ layui.use(["table", "form", "upload"], function() {
       data.type = "one";
       var obj_save = {
         datas: [data.field, data.tb_id, data.type],
-        func: GetRequest(ifarme_func).func
+        func: get_func[0]
       };
       var success_func = function(res) {
         // 生成表格
@@ -139,11 +157,12 @@ layui.use(["table", "form", "upload"], function() {
       var error_func = function(res) {
         console.log(res);
         if (res.状态 == "获取列表异常") {
-          layer.alert("查询无结果", { icon: 2 }, function() {
-            history.go(0);
+          layer.alert("查询无结果", { icon: 2 }, function(index) {
+            layer.close(index);
           });
         } else {
-          layer.alert(res.状态, { icon: 2 }, function() {
+          layer.alert(res.状态, { icon: 2 }, function(index) {
+            // layer.close(index);
             history.go(0);
           });
         }
@@ -165,7 +184,7 @@ layui.use(["table", "form", "upload"], function() {
             var select_id = [];
             select_id.push(data.id);
             table_act.delete(res, tb_id, select_id);
-            obj.del(); //删除对应行（tr）的DOM结构
+            // obj.del(); //删除对应行（tr）的DOM结构
             layer.close(index);
           });
           break;
@@ -198,7 +217,7 @@ layui.use(["table", "form", "upload"], function() {
         var checkStatus = table.checkStatus("test"),
           data = checkStatus.data;
         var select_id = [];
-        for (var i in checkStatus.data) {
+        for (let i in checkStatus.data) {
           select_id.push(checkStatus.data[i].id);
         }
         if (select_id.length > 1) {
@@ -256,43 +275,43 @@ function changeTableStutas(res, toolbar) {
       );
     }
     // 插入表格头部
-    for (var i in res.列表[0]) {
+    for (let i in res.列表[0]) {
       th.push({ field: i, title: i, minWidth: 150, align: "center" });
       $(".select-test").append("<option value='" + i + "'>" + i + "</option>");
     }
-    // 头部单独处理
 
+    // 头部单独处理
     // 引入正序和倒序排序(sort)
     th[2].sort = true;
-    for (i in th) {
+    for (let i in th) {
       if (th[i].field == "录入时间") {
         var that = th[i];
-
         function get_sort(arg1) {
           this.sort = true;
           this.minWidth = 200;
         }
         get_sort.apply(that);
       }
+
       if (th[i].field == "id") {
         var that = th[i];
-
         function set_width(arg1) {
           this.minWidth = 80;
+          this.sort = true;
         }
         set_width.apply(that);
       }
+
       if (th[i].field == "状态") {
         var that = th[i];
-
         function set_width(arg1) {
           this.sort = true;
         }
         set_width.apply(that);
       }
+
       if (th[i].field == "排序") {
         var that = th[i];
-
         function set_width(arg1) {
           this.sort = true;
         }
@@ -302,20 +321,21 @@ function changeTableStutas(res, toolbar) {
 
     // 生成表格
     table.render({
-      initSort: {
-        field: "id", //排序字段，对应 cols 设定的各字段名
-        type: "asc" //排序方式  asc: 升序、desc: 降序、null: 默认排序
-      },
+      // initSort: {
+      //   field: "录入时间", //排序字段，对应 cols 设定的各字段名
+      //   type: "desc" //排序方式  asc: 升序、desc: 降序、null: 默认排序
+      // },
       elem: "#demo",
       id: "test",
       data: res.列表,
       width: "auto",
+      height: "full-155",
       cols: [th],
       skin: "row", //表格风格
       even: true,
       page: true, //是否显示分页
-      limits: [10, 15, 20, 50, 100],
-      limit: 15 //每页默认显示的数量
+      limits: [10, 15, 20, 50, 100, 500],
+      limit: 20 //每页默认显示的数量
     });
   });
 }

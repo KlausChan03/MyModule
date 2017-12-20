@@ -9,11 +9,11 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="../layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="/template/layui/css/layui.css" media="all" />
 	<link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
-	<link rel="stylesheet" href="../css/main.css" media="all" />
-	<link rel="stylesheet" href="../css/flex.css" media="all" />
-	<link rel="stylesheet" href="../css/layer-set-myself.css" media="all" />
+	<link rel="stylesheet" href="/css/main.css" media="all" />
+	<link rel="stylesheet" href="/css/flex.css" media="all" />
+	<link rel="stylesheet" href="/css/layer-set-myself.css" media="all" />
 	
 </head>
 <body class="childrenBody">
@@ -81,7 +81,17 @@
 		</div>
 	</div>
 
-	<script type="text/javascript" src="../layui/layui.js"></script>
-	<script type="text/javascript" src="../js/main.js"></script>
+	<!-- <script type="text/javascript" src="../layui/layui.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script> -->
+
+	<script src="/js/lib/require.js" data-main="/js/config"></script>
+    <script>
+			require(['config'], function () {
+				require(["ui_main"], function () {
+					console.log("main——调用成功")
+				})
+			})
+
+    </script>
 </body>
 </html>

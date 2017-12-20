@@ -162,7 +162,7 @@ var layObj = {
 		layer.open({
 			type: 1,
 			title: tit,
-			content: '<div class="site-text site-block"> <form class="layui-form form-insert-update" action=""> '+ test +'<div class="layui-input-block"> <button class="layui-btn layer-commit" lay-submit="" lay-filter="formDemo">立即提交</button> <button type="button" class="layui-btn layui-btn-primary layer-reset">重置</button> </div></form> </div>',
+			content: '<div class="site-text site-block"> <form class="layui-form form-insert-update" lay-filter="*" action=""> '+ test +'<div class="layui-input-block"> <button class="layui-btn layer-commit" lay-submit="" lay-filter="formDemo">立即提交</button> <button type="button" class="layui-btn layui-btn-primary layer-reset">重置</button> </div></form> </div>',
 			closeBtn: 1,
 			offset: ['5%'],
 			area:['auto','750px'],

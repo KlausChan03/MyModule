@@ -1,5 +1,75 @@
 // 几种ajax请求方式
 var ajax = {};
+
+ajax.ajax_get = function(obj_save, success_func, error_func, type) {    
+    var ajax_type;
+    if (!arguments[2]) { error_func = function() {}; }
+    if (!arguments[3]) { ajax_type = "GET"; }
+    var func = obj_save.func;
+    var datas = obj_save.datas;
+    datas = JSON.stringify(datas);
+    $.ajax({
+        type: "GET",
+        async: true,
+        url: func + ".xhtml",
+        data: "data=" + datas,
+        success: function(res) {
+            if (res.状态 == "成功") {
+                success_func(res);
+            } else {
+                error_func(res);
+            }
+            return false;
+        }
+    });
+};
+
+ajax.ajax_common = function(obj_save, success_func, error_func, type) {    
+    var ajax_type;
+    if (!arguments[2]) { error_func = function() {}; }
+    if (!arguments[3]) { ajax_type = "POST"; }
+    var func = obj_save.func;
+    var datas = obj_save.datas;
+    datas = JSON.stringify(datas);
+    $.ajax({
+        type: "POST",
+        async: true,
+        url: "/ajax.post?func=" + func,
+        data: "data=" + datas,
+        success: function(res) {
+            if (res.状态 == "成功") {
+                success_func(res);
+            } else {
+                error_func(res);
+            }
+            return false;
+        }
+    });
+};
+    
+ajax.ajax_common_sync = function(obj_save, success_func, error_func, type) {    
+    var ajax_type;
+    if (!arguments[2]) { error_func = function() {}; }
+    if (!arguments[3]) { ajax_type = "POST"; }
+    var func = obj_save.func;
+    var datas = obj_save.datas;
+    datas = JSON.stringify(datas);
+    $.ajax({
+        type: "POST",
+        async: false,
+        url: "/ajax.post?func=" + func,
+        data: "data=" + datas,
+        success: function(res) {
+            if (res.状态 == "成功") {
+                success_func(res);
+            } else {
+                error_func(res);
+            }
+            return false;
+        }
+    });
+};
+
 ajax.ajax_depend_concurrent = function(obj_save, success_func, error_func, type) {
     var ajax_type;
     var flags = 1;
@@ -30,40 +100,13 @@ ajax.ajax_depend_concurrent = function(obj_save, success_func, error_func, type)
     }
 };
 
-ajax.ajax_common = function(obj_save, success_func, error_func, type) {
-
-    var ajax_type;
-    if (!arguments[2]) { error_func = function() {}; }
-    if (!arguments[3]) { ajax_type = "POST"; }
-    var func = obj_save.func;
-    var datas = obj_save.datas;
-    datas = JSON.stringify(datas);
-
-    $.ajax({
-        type: "POST",
-        url: "/ajax.post?func=" + func,
-        data: "data=" + datas,
-        success: function(res) {
-            if (res.状态 == "成功") {
-                success_func(res);
-            } else {
-                error_func(res);
-            }
-            return false;
-        }
-    });
-
-};
-
 ajax.ajax_upload = function(obj_save, success_func, error_func, type) {
-
     var ajax_type;
     if (!arguments[2]) { error_func = function() {}; }
     if (!arguments[3]) { ajax_type = "POST"; }
     var func = obj_save.func;
     var datas = obj_save.datas;
     datas = JSON.stringify(datas);
-
     $.ajax({
         type: "POST",
         url: "/ajax.post?func=" + func,
@@ -76,30 +119,23 @@ ajax.ajax_upload = function(obj_save, success_func, error_func, type) {
                 error_func(res);
             }
             return false;
-        },
-        　
-        complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
-            　　　　
-            if (status == 'timeout') { //超时,status还有success,error等值的情况
-                　　　　　
+        },        　
+        complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数            　　　　
+            if (status == 'timeout') { //超时,status还有success,error等值的情况                　　　　　
                 ajaxTimeoutTest.abort();　　　　　
                 alert("超时");　　　　
             }　　
         }
     });
-
 };
 
 
 ajax.ajax_html = function(obj_save, success_func, error_func, type) {
-
     var ajax_type;
     if (!arguments[2]) { error_func = function() {}; }
     if (!arguments[3]) { ajax_type = "POST"; }
     var func = obj_save.func;
     var datas = obj_save.datas;
-    // datas = JSON.stringify(datas);
-
     $.ajax({
         type: "POST",
         url: "/ajax.post?func=" + func,
@@ -114,17 +150,7 @@ ajax.ajax_html = function(obj_save, success_func, error_func, type) {
             }
             return false;
         },
-        　
-        complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
-            　　　　
-            if (status == 'timeout') { //超时,status还有success,error等值的情况
-                　　　　　
-                ajaxTimeoutTest.abort();　　　　　
-                alert("超时");　　　　
-            }　　
-        }
     });
-
 };
 
 function GetRequest() {
@@ -177,9 +203,9 @@ function getTime(n) {
     date.second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
     var currentTime = "";
     if(n==1){
-        currentTime = date.year + date.month + date.date + date.hour + date.minute + date.minute;    
+        currentTime = date.year + date.month + date.date + date.hour + date.minute + date.second;    
     }else{
-        currentTime = date.year + "-" + date.month + "-" + date.date + " " + date.hour + ":" + date.minute + ":" + date.minute;        
+        currentTime = date.year + "-" + date.month + "-" + date.date + " " + date.hour + ":" + date.minute + ":" + date.second;        
         
     }
     return currentTime;
@@ -233,3 +259,38 @@ $(document).keydown(function(event) {
             break;
     }
 });
+
+
+/*限制只有中文和字母*/
+function input_test1(a) {
+	a.value = a.value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g, '')
+}
+
+/*限制只有数字*/
+function input_test2(a) {
+	a.value = a.value.replace(/\D/g, '')
+
+}
+
+/*限制只有数字字母*/
+function input_test3(a) {
+	a.value = a.value.replace(/[^\a-\z\A-\Z0-9]/g, '')
+
+}
+
+/*限制只有中文、英文、数字、空格*/
+function input_test4(a) {
+	a.value = a.value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5\ ]/g, '')
+
+}
+
+/*限制只有中文*/
+function input_test5(a) {
+	a.value = a.value.replace(/[^\u4E00-\u9FA5]/g, '')
+
+}
+
+/*限制只有中文、英文、数字*/
+function input_test6(a) {
+	a.value = a.value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g, '')
+}

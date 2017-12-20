@@ -1,5 +1,7 @@
+"use strict";
 var form_act = {};
-form_act.add_video_pic = function(pic_type, video_open) {
+
+form_act.add_video_pic = function(pic_type, video_open, pic, video) {
   layui.use(["upload", "element", "layer"], function() {
     var $ = layui.jquery,
       upload = layui.upload,
@@ -7,14 +9,13 @@ form_act.add_video_pic = function(pic_type, video_open) {
       layer = layui.layer;
 
     $("*[name='图片地址']")
-      .attr({ readonly: "readonly", "lay-verify": "required" })
+      .attr({ readonly: "readonly" })
       .addClass("required");
     $("*[name='视频地址']")
-      .attr({ readonly: "readonly", "lay-verify": "required" })
+      .attr({ readonly: "readonly" })
       .addClass("required");
 
     if ($("*[name='视频地址']") && video_open == "true") {
-      console.log($("*[name='视频地址']"));
       //直接上传
       var $video = $("*[name='视频地址']");
       $video.addClass("video-input");
@@ -24,44 +25,42 @@ form_act.add_video_pic = function(pic_type, video_open) {
       $video
         .parent()
         .append(
-          '<div style="margin-left:10px;">'+
-          '<button type="button" class="layui-btn layui-btn-mini" id="video-input"> <i class="layui-icon">&#xe67c;</i>上传视频 </button>'+
-          '<input type="file" name="file" id="file" accept=".mp4" value="" style="display: none;" /><p class="loading-icon" style="display:none"></p>'+
-          '<div class="video-progress layui-progress layui-progress" lay-showpercent="true" lay-filter="demo" style="width: 85px;margin-top: 20px;display:none"><div class="layui-progress-bar layui-bg-red" lay-percent="0%"></div></div></div>'
+          '<div style="margin-left:10px;">' +
+            '<button type="button" class="layui-btn layui-btn-mini" id="video-input"> <i class="layui-icon">&#xe67c;</i>上传视频 </button>' +
+            '<input type="file" name="file" id="file" accept=".mp4" value="" style="display: none;" /><p class="loading-icon" style="display:none"></p>' +
+            '<div class="video-progress layui-progress layui-progress" lay-showpercent="true" lay-filter="demo" style="width: 85px;margin-top: 20px;display:none"><div class="layui-progress-bar layui-bg-red" lay-percent="0%"></div></div></div>'
         );
 
       $("#video-input").click(function() {
-        // console.log($("#file"));
         $("#file").click();
       });
       document.getElementById("file").addEventListener("change", function(e) {
-
         // 初始化设置
-        var isIE = /msie/i.test(navigator.userAgent) && !window.opera;        
+        var isIE = /msie/i.test(navigator.userAgent) && !window.opera;
         var file = e.target.files[0];
-        var fileSize = 0;    
-        var size = fileSize / 1024;    
-        var name=e.target.value;
-        var fileName = name.substring(name.lastIndexOf(".")+1).toLowerCase();
+        var fileSize = 0;
+        var size = fileSize / 1024;
+        var name = e.target.value;
+        var fileName = name.substring(name.lastIndexOf(".") + 1).toLowerCase();
 
-        if (isIE && !e.target.files) {     
-          var filePath = e.target.value;     
-          var fileSystem = new ActiveXObject("Scripting.FileSystemObject");        
-          var file = fileSystem.GetFile (filePath);     
-          fileSize = file.Size;    
-        } else {    
-          fileSize = e.target.files[0].size;     
-        }   
-        if(size>20000){  
-        layer.msg("附件不能大于20M");
-          e.target.value="";
-          return
+        if (isIE && !e.target.files) {
+          var filePath = e.target.value;
+          var fileSystem = new ActiveXObject("Scripting.FileSystemObject");
+          var file = fileSystem.GetFile(filePath);
+          fileSize = file.Size;
+        } else {
+          fileSize = e.target.files[0].size;
+        }
+        if (size > 40000) {
+          layer.msg("附件不能大于40M");
+          e.target.value = "";
+          return;
         }
 
-        if(fileName !="mp4"){
-        layer.msg("请选择mp4格式文件上传！");
-          e.target.value="";
-          return
+        if (fileName != "mp4") {
+          layer.msg("请选择mp4格式文件上传！");
+          e.target.value = "";
+          return;
         }
 
         // ajax请求配置文件以及上传
@@ -70,12 +69,13 @@ form_act.add_video_pic = function(pic_type, video_open) {
           func: "get_alicloudConfig"
         };
         var success_func = function(res) {
-          var client = new OSS.Wrapper({
-            region: res.conf.region,
-            accessKeyId: res.conf.accessKeyId,
-            accessKeySecret: res.conf.accessKeySecret,
-            bucket: res.conf.bucket
-          });
+          require(["/js/lib/aliyun-oss.js"], function(OSS) {
+            var client = new OSS.Wrapper({
+              region: res.conf.region,
+              accessKeyId: res.conf.accessKeyId,
+              accessKeySecret: res.conf.accessKeySecret,
+              bucket: res.conf.bucket
+            });
 
           element.init();
           $(".video-progress").show(1000);
@@ -98,6 +98,7 @@ form_act.add_video_pic = function(pic_type, video_open) {
             .catch(function(err) {
               console.log(err);
             });
+          });          
         };
         var error_func = function(res) {
           console.log(res);
@@ -200,7 +201,7 @@ form_act.add_video_pic = function(pic_type, video_open) {
         var msg = {};
         msg.地址 = $("*[name='图片地址']").val();
         pic_arr = msg.地址.split("@split@");
-        for (i in pic_arr) {
+        for (let i in pic_arr) {
           pic_arr[i] += "@split@";
         }
         pic_show(msg);
@@ -217,7 +218,7 @@ form_act.add_video_pic = function(pic_type, video_open) {
       function pic_show(res) {
         if (pic_type == "all") {
           res.地址 = res.地址.split("@split@");
-          for (i in res.地址) {
+          for (let i in res.地址) {
             $show.append(
               '<div class="show-pic"><img class="show-pic-main" title="右键可复制地址" src="' +
                 res.地址[i] +
@@ -251,7 +252,7 @@ form_act.add_video_pic = function(pic_type, video_open) {
 
           var pic_arr_new = [];
           pic_arr.splice($index, 1);
-          for (i in pic_arr_) {
+          for (let i in pic_arr_) {
             pic_arr_new.push(pic_arr_[i]);
           }
           var pic_str_new = pic_arr_new.toString();
@@ -279,6 +280,7 @@ form_act.add_video_pic = function(pic_type, video_open) {
         url: "/temp",
         auto: true,
         size: 3000,
+        number: 8,
         multiple: multiple,
         done: function(res) {
           var datas = {};
@@ -343,59 +345,89 @@ form_act.editor = function(rich_open) {
       var $button_turn = $("#text-button");
       var $button_commit = $("#commit-button");
 
-      var E = window.wangEditor;
-      var editor = new E("#div1", "#div2");
-      editor.customConfig.onfocus = function() {
-        $(".editor-top").css({ "z-index": "10000" });
-      };
-      editor.customConfig.onblur = function() {
+      require(["/template/wangEditor/wangEditor.min.js"], function(E) {
+        var editor = new E("#div1", "#div2");
+        editor.customConfig.menus = [
+          "head", // 标题
+          "bold", // 粗体
+          "italic", // 斜体
+          "underline", // 下划线
+          "foreColor", // 文字颜色
+          "backColor", // 背景颜色
+          "link", // 插入链接
+          "list", // 列表
+          "justify", // 对齐方式
+          "emoticon", // 表情
+          "image", // 插入图片
+          "table", // 表格
+          "video", // 插入视频
+          "undo", // 撤销
+          "redo" // 重复
+        ];
+        // 解决引入H1和H5输入框后焦点冲突问题
         $(".editor-top").css({ "z-index": "10001" });
-      };
-      editor.create();
+        $("#div2").click(function() {
+          $(".editor-top").css({ "z-index": "10001" });
+        });
+        $("#div1").click(function() {
+          $(".editor-top").css({ "z-index": "10000" });
+        });
+        $("#div1").mouseover(function() {
+          $(".editor-top").css({ "z-index": "10000" });
+        });
 
-      var flag = 1;
-      $button_turn.click(function() {
-        if ($("*[name='内容']").val() != "") {
-          console.log($("*[name='内容']").val());
-          var editor_arr = $("*[name='内容']")
-            .val()
-            .replace("</h1><h5>", "</h1>__占位__<h5>")
-            .replace("</h5>", "</h5>__占位__");
-          editor_arr = editor_arr.split("__占位__");
-          $(".editor-title").val(
-            editor_arr[0].replace("<h1>", "").replace("</h1>", "")
-          );
-          $(".editor-info").val(
-            editor_arr[1].replace("<h5>", "").replace("</h5>", "")
-          );
-          editor.txt.html(editor_arr[2]);
-        }
-        if (flag == 1) {
-          flag = 0;
-          $("#editor").show();
-          $button_commit.show().css({ "margin-top": "10px" });
-          $button_turn
-            .html('<i class="layui-icon">&#xe619;</i>收起编辑')
-            .css({ "margin-top": "10px" });
-          $button_commit.click(function() {
-            console.log($(".editor-title").val());
-            var e_title = "<h1>" + $(".editor-title").val() + "</h1>";
-            var e_info = "<h5>" + $(".editor-info").val() + "</h5>";
-            var final_text = e_title + e_info + editor.txt.html();
-            console.log(final_text);
-            $("*[name='内容']").val(final_text);
-            // if ($("*[name='内容']").val() == final_text) {
+        editor.create();
+
+        var flag = 1;
+        $button_turn.click(function() {
+          if ($("*[name='内容']").val() != "") {
+            var editor_arr = $("*[name='内容']")
+              .val()
+              .replace("</h1><h5>", "</h1>__占位__<h5>")
+              .replace("</h5>", "</h5>__占位__");
+            editor_arr = editor_arr.split("__占位__");
+            // 判断原本是否含有<h1>和<h5>标签
+            if (editor_arr[0] != undefined && editor_arr[1] != undefined) {
+              $(".editor-title").val(
+                editor_arr[0].replace("<h1>", "").replace("</h1>", "")
+              );
+              $(".editor-info").val(
+                editor_arr[1].replace("<h5>", "").replace("</h5>", "")
+              );
+            } else {
+              $(".editor-title").val(editor_arr[0]);
+              $(".editor-info").val(editor_arr[1]);
+            }
+
+            editor.txt.html(editor_arr[2]);
+          }
+          if (flag == 1) {
+            flag = 0;
+            $("#editor").show();
+            $button_commit.show().css({ "margin-top": "10px" });
+            $button_turn
+              .html('<i class="layui-icon">&#xe619;</i>收起编辑')
+              .css({ "margin-top": "10px" });
+            $button_commit.click(function() {
+              console.log($(".editor-title").val());
+              var e_title = "<h1>" + $(".editor-title").val() + "</h1>";
+              var e_info = "<h5>" + $(".editor-info").val() + "</h5>";
+              var final_text = e_title + e_info + editor.txt.html();
+              console.log(final_text);
+              $("*[name='内容']").val(final_text);
+              // if ($("*[name='内容']").val() == final_text) {
               layer.msg("编辑成功", { icon: 1, time: 2000 });
-            // }
-          });
-        } else {
-          flag = 1;
-          $("#editor").hide();
-          $button_commit.hide().css({ "margin-top": "0px" });
-          $button_turn
-            .html('<i class="layui-icon">&#xe61a;</i>展开编辑')
-            .css({ "margin-top": "10px" });
-        }
+              // }
+            });
+          } else {
+            flag = 1;
+            $("#editor").hide();
+            $button_commit.hide().css({ "margin-top": "0px" });
+            $button_turn
+              .html('<i class="layui-icon">&#xe61a;</i>展开编辑')
+              .css({ "margin-top": "10px" });
+          }
+        });
       });
     }
   });

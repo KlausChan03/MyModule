@@ -45,11 +45,20 @@
 		    </div>
 		</div>
 	</form>
-	<script type="text/javascript" src="../../js/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="../../js/jquery.min.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
 	<script type="text/javascript" src="address.js"></script>
 	<script type="text/javascript" src="user.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
-	<script type="text/javascript" src="../../js/jquery.md5.js"></script>
+	<script type="text/javascript" src="../../js/jquery.md5.js"></script> -->
+	<script src="/js/lib/require.js" data-main="/js/config"></script>
+    <script>
+    
+        require(['config'], function () {
+            require(["ui_user"], function () {
+                console.log("ui_user —— 调用成功")
+            })
+		})
+	</script>
 </body>
 </html>

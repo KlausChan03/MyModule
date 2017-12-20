@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>登录--中网商后台管理</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="/template/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="/css/login.css" media="all" />
+	<link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css" />
+</head>
+<body>
+	<!-- <video class="video-player" preload="auto" autoplay="autoplay" loop="loop" data-height="1080" data-width="1920" height="1080" width="1920">
+	    <source src="17.swf" type="video/swf">
+	    此视频文件为支付宝所有，在此仅供样式参考，如用到商业用途，请自行更换为其他视频或图片，否则造成的任何问题使用者本人承担，谢谢
+	</video>-->
+	<div class="video_mask"></div> 
+	<div class="login">
+	    <h1>中网商管理平台</h1>
+	    <form class="layui-form">
+	    	<div class="layui-form-item">
+				<input class="layui-input username" name="username" placeholder="用户名"  type="text" autocomplete="on">
+		    </div>
+		    <div class="layui-form-item">
+				<input class="layui-input password" name="password" placeholder="密码" type="password" autocomplete="on">
+		    </div>
+		    <div class="layui-form-item form_code" >
+				<input class="layui-input verifycode" name="code" id="code_input" placeholder="不用，哈哈"  type="text" autocomplete="off" disabled="disabled" />
+				<div class="code" id="v_container" style="width: 116px;height: 36px;"></div>
+		    </div>
+			<button class="layui-btn login_btn" lay-submit="" lay-filter="login">登录</button>
+		</form>
+	</div>
+	<canvas class="canvas"></canvas>
+    <div class="help" style="display: none">?</div>
+    <div class="ui">
+        <input class="ui-input" type="text" />
+        <span class="ui-return">↵</span>
+	</div>
+	
+	<div class="overlay">
+        <div class="tabs">
+            <div class="tabs-labels">
+                <span class="tabs-label">Commands</span>
+
+            </div>
+
+            <div class="tabs-panels">
+                <ul class="tabs-panel commands"></ul>
+            </div>
+        </div>
+    </div>
+	<script type="text/javascript" src="../js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="../template/layui/layui.js"></script>
+	<script type="text/javascript" src="../js/ui/ui_login.js"></script>
+	<script type="text/javascript" src="../js/lib/common.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery.md5.js"></script>
+	<script type="text/javascript" src="../js/ui/canvas_login.js"></script>
+
+	
+	<!-- <script src="/js/lib/require.js" data-main="/js/config"></script>
+    <script>
+        require(['config'], function () {
+            require(["ui_login"], function () {
+                console.log("login——调用成功")
+            })
+        })
+    </script> -->
+</body>
+</html>

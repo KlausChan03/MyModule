@@ -3,7 +3,7 @@ var fs = require("fs");
 var config = require("../func/config.js");
 var pgdb = require("../func/pgdb.js");
 var mongo = require("../func/mongo.js");
-var logs = require("../func/mongo.js");
+var mysql = require("../func/mysql.js");
 var async = require("async");
 
 var ajax = {};
@@ -21,8 +21,7 @@ ajax.index = function(req, res, body) {
     
     
     var func = require("./" + body.func + ".js");
-    body.send = func.run(body, obj.pg, obj.mongo);
-    // console.log(body)
+    body.send = func.run(body, obj.pg, obj.mysql);
     
     /**---------pg-------*/
     if (conf.postgresql.使用 == "是") {

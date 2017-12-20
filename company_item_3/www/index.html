@@ -11,11 +11,11 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="icon" href="favicon.ico">
-	<link rel="stylesheet" href="layui/css/layui.css" media="all" />
-	<link rel="stylesheet" href="css/flex.css" media="all" />
+	<link rel="stylesheet" href="/template/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="/css/flex.css" media="all" />
 	<link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
-	<link rel="stylesheet" href="css/main.css" media="all" />
-	<link rel="stylesheet" href="css/layer-set-myself.css" media="all" />
+	<link rel="stylesheet" href="/css/main.css" media="all" />
+	<link rel="stylesheet" href="/css/layer-set-myself.css" media="all" />
 </head>
 <body class="main_body">
 	<div class="layui-layout layui-layout-admin">
@@ -57,7 +57,7 @@
 			    		<a href="javascript:;" class="mobileAddTab" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>设置</cite></a>
 			    	</li>
 			    	<li class="layui-nav-item" mobile>
-			    		<a href="page/login/login.html" class="signOut"><i class="iconfont icon-loginout"></i> 退出</a>
+			    		<a href="page/login.html" class="signOut"><i class="iconfont icon-loginout"></i> 退出</a>
 			    	</li>
 					<li class="layui-nav-item lockcms" pc>
 						<a href="javascript:;"><i class="iconfont icon-lock1"></i><cite>锁屏</cite></a>
@@ -71,7 +71,7 @@
 							<!-- <dd><a href="javascript:;" data-url="page/user/userInfo.html"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd> -->
 							<dd><a href="javascript:;" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>
 							<dd><a href="javascript:;" class="changeSkin"><i class="iconfont icon-huanfu"></i><cite>更换皮肤</cite></a></dd>
-							<dd><a href="page/login/login.html" class="signOut"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
+							<dd><a href="page/login.html" class="signOut"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
 						</dl>
 					</li>
 				</ul>
@@ -118,16 +118,24 @@
 	<div class="site-tree-mobile layui-hide"><i class="layui-icon">&#xe602;</i></div>
 	<div class="site-mobile-shade"></div>
 	
-	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="js/jquery.min.js"></script>
 	
 	<script type="text/javascript" src="layui/layui.js"></script>
 	<script type="text/javascript" src="js/common.js"></script>
 	
 	<script type="text/javascript" src="js/index.js"></script>
 	
-	<script type="text/javascript" src="js/leftNav.js"></script>
+	<script type="text/javascript" src="js/leftNav.js"></script> -->
 	<script src="http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"></script>
-	
+
+	<script src="/js/lib/require.js" data-main="/js/config"></script>
+    <script>
+        require(['config'], function () {
+            require(["ui_index"], function () {
+                console.log("index——调用成功")
+            })
+        })
+    </script>
 	<script type="text/javascript">
 		/**
 	 * 修改管理员头像 2017-10-30  zhou
