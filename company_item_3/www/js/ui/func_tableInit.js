@@ -98,6 +98,7 @@ layui.use(["table", "form", "upload"], function() {
       $(".table-title").html(tb_title);
       // changeTableStutas(res, toolbar);
       insertButton(table,res)
+      $("section .table-container").html("<img class='no-data' src='/images/no_data.png'>")
     }
   };
   ajax.ajax_common(obj_save, success_func, error_func);
