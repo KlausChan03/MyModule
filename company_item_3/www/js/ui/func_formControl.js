@@ -71,7 +71,7 @@ form_act.add_video_pic = function(pic_type, video_open, pic, video) {
                 func: "get_alicloudConfig"
               };
               var success_func = function(res) {
-                require(["/js/lib/aliyun-oss.js"], function(OSS) {
+                // require(["/js/lib/aliyun-oss.js"], function(OSS) {
                   var client = new OSS.Wrapper({
                     region: res.conf.region,
                     accessKeyId: res.conf.accessKeyId,
@@ -100,7 +100,7 @@ form_act.add_video_pic = function(pic_type, video_open, pic, video) {
                     .catch(function(err) {
                       console.log(err);
                     });
-                });
+                // });
               };
               var error_func = function(res) {
                 console.log(res);
@@ -355,7 +355,8 @@ form_act.editor = function(rich_open) {
       var $button_turn = $("#text-button");
       var $button_commit = $("#commit-button");
 
-      require(["/template/wangEditor/wangEditor.min.js"], function(E) {
+      // require(["/template/wangEditor/wangEditor.min.js"], function(E) {
+        var E = window.wangEditor;
         var editor = new E("#div1", "#div2");
         editor.customConfig.menus = [
           "head", // 标题
@@ -438,7 +439,7 @@ form_act.editor = function(rich_open) {
               .css({ "margin-top": "10px" });
           }
         });
-      });
+      // });
     }
   });
 };

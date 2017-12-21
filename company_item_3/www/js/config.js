@@ -104,7 +104,7 @@ require.config({
     }
   },
   shim: {
-    layui: ["css!/template/layui/css/layui.css","css!/css/main.css","css!/css/layer-set-myself.css"],
+    // layui: ["css!/template/layui/css/layui.css","css!/css/main.css","css!/css/layer-set-myself.css"],
     func_layer: ["css!/css/layer-set-myself.css", "layui"],
     MD5: ["jquery"],
     common: ["jquery"],

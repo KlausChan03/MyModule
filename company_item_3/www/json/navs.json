@@ -14,7 +14,7 @@
       {
         "title": "管_管理员表",
         "icon": "&#xe609;",
-        "href": "page/user/user_list.html?func=user_list+user_list_InsertUpdate+user_list_delete&page_id=user_list",
+        "href": "page/user/user_list.html?func=user_list+user_list_InsertUpdate+user_list_delete&page_id=user_list&pic_type=one",
         "spread": false
       },
       {

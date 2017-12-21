@@ -289,11 +289,13 @@ for (let i in table_act) {
                             var control_content = [];
                             var control_get_show = "";
                             var control_check = "",control_button ="";
+                            var name = " = "
+                            
                             console.log(control_power)
                             if($("[name='权限']").val() != ""){ 
                                 var control_get = JSON.parse($("[name='权限']").val());
+                                console.log(control_get)
                             }
-                            var name = " = "
                             for (let i in control_power){
                                 var k = Number(i)+1;
                                 if($("[name='权限']").val() != ""){    

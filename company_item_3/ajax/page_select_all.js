@@ -58,7 +58,8 @@ module.exports.run = function(body, pg, mo) {
 			f.状态 = "请选择查询条件,并输入对应内容";				
 		}
 	}
-	if(select_arr.in_array("录入时间") == true){
+
+	if(contains(select_arr, "录入时间") == true){
 		order_cond = "录入时间"
 	}else{
 		order_cond = "id"					
@@ -69,6 +70,7 @@ module.exports.run = function(body, pg, mo) {
 			sql = ` select * from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC `;// sql = "select * from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";
 		}else{						
 			sql = ` select ${select_arr} from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC `;	// sql = "select " + select_arr + " from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";		
+			console.log(sql,"hello")
 		}
 		result  = pgdb.query(pg, sql);
 	} else if(f.type == "one" && f.verify == "审核通过") {
@@ -84,6 +86,8 @@ module.exports.run = function(body, pg, mo) {
 		if(result.数据){
 			if(result.数据.length == 0) {
 				p.状态 = "获取列表异常";
+				f.列表 = result.数据;
+				f.条数 = result.数据.length;
 	
 			} else {
 				p.状态 = "成功";
@@ -108,10 +112,20 @@ module.exports.run = function(body, pg, mo) {
 	return p;
 };
 
-Array.prototype.in_array = function(e) {  
-	for(i=0;i<this.length;i++) {  
-		if(this[i] == e)  
-			return true;  
-	}  
-	return false;  
-}  
+// Array.prototype.in_array = function(e) {  
+// 	for(i=0;i<this.length;i++) {  
+// 		if(this[i] == e)  
+// 			return true;  
+// 	}  
+// 	return false;  
+// }  
+
+function contains(arr, obj) {  
+    var i = arr.length;  
+    while (i--) {  
+        if (arr[i] === obj) {  
+            return true;  
+        }  
+    }  
+    return false;  
+} 
