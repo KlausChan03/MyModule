@@ -66,7 +66,9 @@ table_act.insert = function(res, tb_id) {
                 if ("file" in data.field) {
                     delete data.field.file;
                 }
-                // 对内容字段进行二次编码
+                // 转码前将原本含有的“%”转义
+                data.field.内容 = data.field.内容.replace(/%/g, "\%")
+                // 对内容字段进行二次编码                
                 if (data.field.内容) {
                     data.field.内容 = encodeURIComponent(
                         encodeURIComponent(data.field.内容)
@@ -164,7 +166,9 @@ table_act.update = function(res, tb_id, data) {
                     delete data.field.file;
                 }
 
-                // 对内容字段进行二次编码
+                // 转码前将原本含有的“%”转义
+                data.field.内容 = data.field.内容.replace(/%/g, "\%")
+                // 对内容字段进行二次编码                
                 if (data.field.内容) {
                     data.field.内容 = encodeURIComponent(
                         encodeURIComponent(data.field.内容)
@@ -236,34 +240,18 @@ for (let i in table_act) {
                         $("*[name='密码']").val("");
                         break;
                         case 101:
-                        control_power()
+                        form_special_control.control_power()
                         break;
                     }
                 }
                 
                 function control_state(state) {
                     if ($("*[name='状态']").val() == "") {
-                        $("*[name='状态']")
-                            .parent()
-                            .empty()
-                            .append(
-                                '<input type="radio" name="状态" value=' + state[0] + ' title=' + state[0] + ' checked=""><input type="radio" name="状态" value=' + state[1] + ' title=' + state[1] + ' >'
-                            );
+                        $("*[name='状态']") .parent() .empty() .append( `<input type="radio" name="状态" value="${state[0]}"  title="${state[0]}" checked="checked" ><input type="radio" name="状态" value="${state[1]}" title="${state[1]}" >` );
                     } else if ($("*[name='状态']").val() == state[0]) {
-                        $("*[name='状态']")
-                            .parent()
-                            .empty()
-                            .append(
-                                '<input type="radio" name="状态" value=' + state[0] + ' title=' + state[0] + ' checked=""><input type="radio" name="状态" value=' + state[1] + ' title=' + state[1] + ' >'                        
-                            );
-
+                        $("*[name='状态']") .parent() .empty() .append( `<input type="radio" name="状态" value="${state[0]}"  title="${state[0]}" checked="checked" ><input type="radio" name="状态" value="${state[1]}" title="${state[1]}" >` );
                     } else if ($("*[name='状态']").val() == state[1]) {
-                        $("*[name='状态']")
-                            .parent()
-                            .empty()
-                            .append(
-                                '<input type="radio" name="状态" value=' + state[0] + ' title=' + state[0] + ' checked=""><input type="radio" name="状态" value=' + state[1] + ' title=' + state[1] + ' >'
-                            );
+                        $("*[name='状态']") .parent() .empty() .append( `<input type="radio" name="状态" value="${state[0]}"  title="${state[0]}"><input type="radio" name="状态" value="${state[1]}" title="${state[1]}" checked="checked" >` );
                     }
                 }
                 
@@ -272,69 +260,8 @@ for (let i in table_act) {
                         $("*[name='"+require_arr[i]+"'").attr("lay-verify","required").addClass("required");
                     }
                     for (let j in disable_arr) {
-                        $("*[name='"+disable_arr[j]+"'").attr({"disabled":"disabled","placeholder":"无需输入"});
-                        
+                        $("*[name='"+disable_arr[j]+"'").attr({"disabled":"disabled","placeholder":"无需输入"});                        
                     }
-                }
-                function control_power(state) {
-                    var obj_save = {
-                        datas: [data.field, data.tb_id],
-                        func: "get_power_list"
-                    };
-                    var success_func = function(res) {
-                        
-                        layui.use("form", function() {
-                            var form = layui.form;
-                            var control_power = res.数据;
-                            var control_content = [];
-                            var control_get_show = "";
-                            var control_check = "",control_button ="";
-                            var name = " = "
-                            
-                            console.log(control_power)
-                            if($("[name='权限']").val() != ""){ 
-                                var control_get = JSON.parse($("[name='权限']").val());
-                                console.log(control_get)
-                            }
-                            for (let i in control_power){
-                                var k = Number(i)+1;
-                                if($("[name='权限']").val() != ""){    
-                                    if(control_get[i] != undefined){
-                                        control_get_show = control_get[i].查看 == 1 ? "显示":"不显示";   
-                                        control_check =  control_get[i].查看 == 1 ? "checked":""                                                              
-                                    }
-                                    control_content.push('<p class="power-title">'+ `${name}` + k + `${name}` + control_power[i].字段+'</p>'
-                                    + ' <input type="hidden" name="字段_'+control_power[i].编号+'" value="'+control_power[i].编号+'" />'
-                                    + ' <p class="power-row-1">查看</p><input type="checkbox" name="查看_'+control_power[i].编号+'" value="'+control_get_show+'"  '+ control_check +'  title="显示">'
-                                    + ' <p class="power-row-2">按钮</p>');
-                                    for (let j in control_power[i].按钮){
-                                        if(control_get[i] != undefined){ 
-                                            control_button = control_get[i].按钮[j] != "0"  ? "checked":"" 
-                                            control_content.push('<input type="checkbox" name="按钮'+ '_' + control_power[i].编号 + '_' + control_power[i].按钮[j] +'" value="' + control_power[i].按钮[j]  + '" '+ control_button +'  title="' + control_power[i].按钮[j]  + '">');                                     
-                                        }else{
-                                            control_button = "";
-                                            control_content.push('<input type="checkbox" name="按钮'+ '_' + control_power[i].编号 + '_' + control_power[i].按钮[j] +'" value="' + control_power[i].按钮[j]  + '" '+ control_button +'  title="' + control_power[i].按钮[j]  + '">');                                                                                 
-                                        }
-                                    }
-
-                                }else{
-                                    control_content.push('<p class="power-title">'+ `${name}` + k + `${name}` + control_power[i].字段 +'</p>'
-                                    + ' <input type="hidden" name="字段_'+control_power[i].编号+'" value="'+control_power[i].编号+'" />'
-                                    + ' <p class="power-row-1">查看</p><input type="checkbox" name="查看_'+control_power[i].编号+'" value="不显示" title="显示">'
-                                    + ' <p class="power-row-2">按钮</p>');
-                                    for (let j in control_power[i].按钮){
-                                    control_content.push('<input type="checkbox" name="按钮'+ '_' + control_power[i].编号 + '_' + control_power[i].按钮[j] +'" value=' + control_power[i].按钮[j]  + ' title=' + control_power[i].按钮[j]  + '>');
-                                    }
-                                }
-                            }
-
-                            $("[name='权限']").parent().empty().addClass("power-main").append(control_content); 
-                            
-                            form.render()
-                        })
-                    };                    
-                    var error_func = function(res){};
-                    ajax.ajax_common(obj_save, success_func, error_func);         
                 }
 
                 $("*[name='录入人']").attr("readonly", "readonly");

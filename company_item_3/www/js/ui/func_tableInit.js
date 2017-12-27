@@ -134,7 +134,7 @@ function changeTableStutas(res, toolbar) {
     // 插入表格头部
     for (let i in res.列表[0]) {
       th.push({ field: i, title: i, minWidth: 150, align: "center" });
-      $(".select-test").append("<option value='" + i + "'>" + i + "</option>");
+      $(".select-test").append(`<option value="${i}">${i}</option>`);
     }
 
     // 头部单独处理
@@ -172,6 +172,7 @@ function changeTableStutas(res, toolbar) {
       id: "common-table",
       data: res.列表,
       width: "auto",
+      cellMinWidth: "120px",
       height: "full-155",
       cols: [th],
       skin: "row", //表格风格
@@ -263,6 +264,7 @@ function insertButton(table,res) {
     }
   };
   ajax.ajax_common(obj_save, success_func, error_func);
+
   //表格内功能工具条
   table.on("tool(demo)", function(obj) {
     //注：tool是工具条事件名，common-table是table原始容器的属性 lay-filter="对应的值"

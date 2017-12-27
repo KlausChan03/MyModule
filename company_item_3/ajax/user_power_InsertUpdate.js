@@ -54,11 +54,15 @@ module.exports.run = function(body, pg, mo) {
 
     let power_ls = f.data;
     let all_arr = [];
+    let name_arr = [];
     let check_arr = [];
     let button_arr = [];
     for (let i in power_ls) {
-      if (i.indexOf("字段") != -1) {
+      if (i.indexOf("全选") != -1) {
         all_arr.push(i);
+      }
+      if (i.indexOf("字段") != -1) {
+        name_arr.push(i);
       }
       if (i.indexOf("查看") != -1) {
         check_arr.push(i);
@@ -66,13 +70,16 @@ module.exports.run = function(body, pg, mo) {
       if (i.indexOf("按钮") != -1) {
         button_arr.push(i);
       }
+
     }
 
     let a = {};
-    all_arr.forEach(function(item, key) {
+    name_arr.forEach(function(item, key) {
+      console.log(item)
       item = item.replace("字段_", "");
       a[key] = {};
       a[key]["字段"] = item;      
+      a[key]["全选"] = all_null(f, "全选", item);      
       a[key]["查看"] = check_null(f, "查看", item);
       a[key]['按钮'] = button_null(f, '按钮', item);
 
@@ -82,6 +89,13 @@ module.exports.run = function(body, pg, mo) {
     });
 
     function check_null(f, type, name) {
+      let r = "0";
+      if (eval("f.data." + type + "_" + name) == null) r = "0";
+      else r = "1";
+      return r;
+    }
+
+    function all_null(f, type, name) {
       let r = "0";
       if (eval("f.data." + type + "_" + name) == null) r = "0";
       else r = "1";
@@ -105,11 +119,11 @@ module.exports.run = function(body, pg, mo) {
 
       return r;
     }
+    console.log(a)
  
     
     f.data.权限 = JSON.stringify(a);
     let db = sqlite.connect();
-    
     if (!f.data.id) {
       //新增
       sql = "insert into 管_权限表 (名称,状态,录入人,录入时间,权限) values ('"+ f.data.名称 +"','"+f.data.状态 +"','"+ f.data.录入人 +"','"

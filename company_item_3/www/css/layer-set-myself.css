@@ -1,5 +1,5 @@
 
-h1{font-size: 16px;}
+.layui-table h1{font-size: 16px;}
 .childrenBody{
   margin: 10px 10px 0;
   background-color: #f0f0f0;
@@ -241,6 +241,9 @@ section:first-child{
   right: 5px;
   cursor: pointer;
 }
+
+/* 权限模块 */
+
 .power-title{
   line-height: 30px;
   font-weight: bolder;
@@ -257,11 +260,19 @@ section:first-child{
 }
 
 .power-main .layui-form-checkbox{
-  height: 26px;
-  line-height: 24px;
+  height: 20px;
+  line-height: 18px;
   margin-top: 0px!important;
+  padding-right: 20px
 }
 
+.power-main .layui-form-checkbox i{
+  width: 20px;
+  font-size:13px;
+}
+.layui-form-checkbox span{
+  font-size: 12px;
+}
 .power-main .layui-form-radio{
   margin-top: 0px!important;
 }
@@ -271,6 +282,8 @@ section:first-child{
   line-height: 30px;
   margin-top: 0px;
 }
+
+
 
 /* .layui-table[lay-even] tr:nth-child(even){
   background-color: #f0f0f0!important;

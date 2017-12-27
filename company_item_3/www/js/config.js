@@ -39,6 +39,7 @@ require.config({
     global_account: "ui/global_account",
     global_memberInformation: "ui/global_memberInformation",
     global_deviceManagement: "ui/global_deviceManagement",
+    global_memberInformation_log: "ui/global_memberInformation_log",
     // 好友和群
     global_groupChat: "ui/global_groupChat",
     global_groupMember: "ui/global_groupMember",
@@ -46,6 +47,12 @@ require.config({
     global_groupLiveRight_Apply: "ui/global_groupLiveRight_Apply",
     global_groupApplyRecord: "ui/global_groupApplyRecord",
     global_groupOperationRecord: "ui/global_groupOperationRecord",
+    // 朋友圈
+    global_postInfo: "ui/global_postInfo",
+    global_postAdmire: "ui/global_postAdmire",
+    global_postComment: "ui/global_postComment",
+    global_postMsg: "ui/global_postMsg",
+
     // 充值全球币
     global_planSetting: "ui/global_planSetting",
     global_rechangeOrders: "ui/global_rechangeOrders",
@@ -127,6 +134,7 @@ require.config({
     global_member: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_account: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_memberInformation: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
+    global_memberInformation_log: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_deviceManagement: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_groupChat: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_groupMember: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
@@ -134,6 +142,11 @@ require.config({
     global_groupLiveRight_Apply: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_groupApplyRecord: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_groupOperationRecord: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
+    global_postInfo: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
+    global_postAdmire: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
+    global_postComment: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
+    global_postMsg: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
+    
     global_planSetting: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_rechangeOrders: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     global_payOrders: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],

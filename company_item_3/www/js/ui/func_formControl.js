@@ -72,34 +72,34 @@ form_act.add_video_pic = function(pic_type, video_open, pic, video) {
               };
               var success_func = function(res) {
                 // require(["/js/lib/aliyun-oss.js"], function(OSS) {
-                  var client = new OSS.Wrapper({
-                    region: res.conf.region,
-                    accessKeyId: res.conf.accessKeyId,
-                    accessKeySecret: res.conf.accessKeySecret,
-                    bucket: res.conf.bucket
-                  });
+                var client = new OSS.Wrapper({
+                  region: res.conf.region,
+                  accessKeyId: res.conf.accessKeyId,
+                  accessKeySecret: res.conf.accessKeySecret,
+                  bucket: res.conf.bucket
+                });
 
-                  element.init();
-                  $(".video-progress").show(1000);
-                  // 定义MP4文件名
-                  var video_name = getTime(1) + generateMixed(4) + ".mp4";
-                  client
-                    .multipartUpload(video_name, file, {
-                      progress: function*(p) {
-                        element.progress("demo", (p * 100).toFixed(2) + "%");
-                        if (p * 100 == 100) {
-                          $(".video-progress").hide(1000);
-                          layer.msg("上传成功");
-                        }
+                element.init();
+                $(".video-progress").show(1000);
+                // 定义MP4文件名
+                var video_name = getTime(1) + generateMixed(4) + ".mp4";
+                client
+                  .multipartUpload(video_name, file, {
+                    progress: function*(p) {
+                      element.progress("demo", (p * 100).toFixed(2) + "%");
+                      if (p * 100 == 100) {
+                        $(".video-progress").hide(1000);
+                        layer.msg("上传成功");
                       }
-                    })
-                    .then(function(result) {
-                      var video_url = result.res.requestUrls[0].split("?")[0];
-                      $(".video-input").val(video_url);
-                    })
-                    .catch(function(err) {
-                      console.log(err);
-                    });
+                    }
+                  })
+                  .then(function(result) {
+                    var video_url = result.res.requestUrls[0].split("?")[0];
+                    $(".video-input").val(video_url);
+                  })
+                  .catch(function(err) {
+                    console.log(err);
+                  });
                 // });
               };
               var error_func = function(res) {
@@ -174,13 +174,12 @@ form_act.add_video_pic = function(pic_type, video_open, pic, video) {
       form_special_control.pic.map(function(key, name) {
         pic_name = $(`*[name='${form_special_control.pic[name]}']`); // $("*[name='图片地址']")
         if (pic_name) {
-
           pic_name.attr({ readonly: "readonly" }).addClass("required");
           var pic_arr = [];
           var pic_str = "";
           var multiple = "";
           var $pic = pic_name;
-          console.log($pic)
+          console.log($pic);
           $pic.addClass("pic-input");
           $pic.css({ width: "100%" });
           $pic.parent().addClass("flex flex-hb-vc");
@@ -356,89 +355,89 @@ form_act.editor = function(rich_open) {
       var $button_commit = $("#commit-button");
 
       // require(["/template/wangEditor/wangEditor.min.js"], function(E) {
-        var E = window.wangEditor;
-        var editor = new E("#div1", "#div2");
-        editor.customConfig.menus = [
-          "head", // 标题
-          "bold", // 粗体
-          "italic", // 斜体
-          "underline", // 下划线
-          "foreColor", // 文字颜色
-          "backColor", // 背景颜色
-          "link", // 插入链接
-          "list", // 列表
-          "justify", // 对齐方式
-          "emoticon", // 表情
-          "image", // 插入图片
-          "table", // 表格
-          "video", // 插入视频
-          "undo", // 撤销
-          "redo" // 重复
-        ];
-        // 解决引入H1和H5输入框后焦点冲突问题
+      var E = window.wangEditor;
+      var editor = new E("#div1", "#div2");
+      editor.customConfig.menus = [
+        "head", // 标题
+        "bold", // 粗体
+        "italic", // 斜体
+        "underline", // 下划线
+        "foreColor", // 文字颜色
+        "backColor", // 背景颜色
+        "link", // 插入链接
+        "list", // 列表
+        "justify", // 对齐方式
+        "emoticon", // 表情
+        "image", // 插入图片
+        "table", // 表格
+        "video", // 插入视频
+        "undo", // 撤销
+        "redo" // 重复
+      ];
+      // 解决引入H1和H5输入框后焦点冲突问题
+      $(".editor-top").css({ "z-index": "10001" });
+      $("#div2").click(function() {
         $(".editor-top").css({ "z-index": "10001" });
-        $("#div2").click(function() {
-          $(".editor-top").css({ "z-index": "10001" });
-        });
-        $("#div1").click(function() {
-          $(".editor-top").css({ "z-index": "10000" });
-        });
-        $("#div1").mouseover(function() {
-          $(".editor-top").css({ "z-index": "10000" });
-        });
+      });
+      $("#div1").click(function() {
+        $(".editor-top").css({ "z-index": "10000" });
+      });
+      $("#div1").mouseover(function() {
+        $(".editor-top").css({ "z-index": "10000" });
+      });
 
-        editor.create();
+      editor.create();
 
-        var flag = 1;
-        $button_turn.click(function() {
-          if ($("*[name='内容']").val() != "") {
-            var editor_arr = $("*[name='内容']")
-              .val()
-              .replace("</h1><h5>", "</h1>__占位__<h5>")
-              .replace("</h5>", "</h5>__占位__");
-            editor_arr = editor_arr.split("__占位__");
-            // 判断原本是否含有<h1>和<h5>标签
-            if (editor_arr[0] != undefined && editor_arr[1] != undefined) {
-              $(".editor-title").val(
-                editor_arr[0].replace("<h1>", "").replace("</h1>", "")
-              );
-              $(".editor-info").val(
-                editor_arr[1].replace("<h5>", "").replace("</h5>", "")
-              );
-            } else {
-              $(".editor-title").val(editor_arr[0]);
-              $(".editor-info").val(editor_arr[1]);
-            }
-
-            editor.txt.html(editor_arr[2]);
-          }
-          if (flag == 1) {
-            flag = 0;
-            $("#editor").show();
-            $button_commit.show().css({ "margin-top": "10px" });
-            $button_turn
-              .html('<i class="layui-icon">&#xe619;</i>收起编辑')
-              .css({ "margin-top": "10px" });
-            $button_commit.click(function() {
-              console.log($(".editor-title").val());
-              var e_title = "<h1>" + $(".editor-title").val() + "</h1>";
-              var e_info = "<h5>" + $(".editor-info").val() + "</h5>";
-              var final_text = e_title + e_info + editor.txt.html();
-              console.log(final_text);
-              $("*[name='内容']").val(final_text);
-              // if ($("*[name='内容']").val() == final_text) {
-              layer.msg("编辑成功", { icon: 1, time: 2000 });
-              // }
-            });
+      var flag = 1;
+      $button_turn.click(function() {
+        if ($("*[name='内容']").val() != "") {
+          var editor_arr = $("*[name='内容']")
+            .val()
+            .replace("</h1><h5>", "</h1>__占位__<h5>")
+            .replace("</h5>", "</h5>__占位__");
+          editor_arr = editor_arr.split("__占位__");
+          // 判断原本是否含有<h1>和<h5>标签
+          if (editor_arr[0] != undefined && editor_arr[1] != undefined) {
+            $(".editor-title").val(
+              editor_arr[0].replace("<h1>", "").replace("</h1>", "")
+            );
+            $(".editor-info").val(
+              editor_arr[1].replace("<h5>", "").replace("</h5>", "")
+            );
           } else {
-            flag = 1;
-            $("#editor").hide();
-            $button_commit.hide().css({ "margin-top": "0px" });
-            $button_turn
-              .html('<i class="layui-icon">&#xe61a;</i>展开编辑')
-              .css({ "margin-top": "10px" });
+            $(".editor-title").val(editor_arr[0]);
+            $(".editor-info").val(editor_arr[1]);
           }
-        });
+
+          editor.txt.html(editor_arr[2]);
+        }
+        if (flag == 1) {
+          flag = 0;
+          $("#editor").show();
+          $button_commit.show().css({ "margin-top": "10px" });
+          $button_turn
+            .html('<i class="layui-icon">&#xe619;</i>收起编辑')
+            .css({ "margin-top": "10px" });
+          $button_commit.click(function() {
+            console.log($(".editor-title").val());
+            var e_title = "<h1>" + $(".editor-title").val() + "</h1>";
+            var e_info = "<h5>" + $(".editor-info").val() + "</h5>";
+            var final_text = e_title + e_info + editor.txt.html();
+            console.log(final_text);
+            $("*[name='内容']").val(final_text);
+            // if ($("*[name='内容']").val() == final_text) {
+            layer.msg("编辑成功", { icon: 1, time: 2000 });
+            // }
+          });
+        } else {
+          flag = 1;
+          $("#editor").hide();
+          $button_commit.hide().css({ "margin-top": "0px" });
+          $button_turn
+            .html('<i class="layui-icon">&#xe61a;</i>展开编辑')
+            .css({ "margin-top": "10px" });
+        }
+      });
       // });
     }
   });

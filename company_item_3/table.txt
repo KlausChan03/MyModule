@@ -1,0 +1,67 @@
+CREATE TABLE 全_发布信息表 (
+    id                  bigserial primary key,
+    账号                varchar(50),
+    唯一id              varchar(100),
+    内容                text,
+    图片                text,
+    视频                text,
+    视频时长            varchar(50),
+    类别                varchar(50),--等同与标签
+    状态                varchar(50),
+    录入人              varchar(50),
+    录入时间            varchar(23),
+    备注                text
+);
+CREATE TABLE 全_发布赞赏表 (
+    id                  bigserial primary key,
+    发布id              integer default 0,--发布id
+    账号                varchar(50),
+    唯一id              varchar(100),
+    金额                numeric(23,4) default 0,
+    类别                varchar(50),--打赏--点赞
+    状态                varchar(50),
+    录入人              varchar(50),
+    录入时间            varchar(23),
+    备注                text
+);
+CREATE TABLE 全_发布评论表 (
+    id                  bigserial primary key,
+    发布id              integer default 0,--发布id
+    发送账号            varchar(50),
+    发送唯一id          varchar(100),
+    接收账号            varchar(50),
+    接收唯一id          varchar(100),
+    内容                text,
+    状态                varchar(50),
+    录入人              varchar(50),
+    录入时间            varchar(23),
+    备注                text
+);
+CREATE TABLE 全_发布消息表 (
+    id                  bigserial primary key,
+    发布id              integer default 0,--发布id
+    发送账号            varchar(50),
+    接收账号            varchar(50),
+    评论id              integer default 0,--评论id
+    金额                numeric(23,4) default 0,
+    内容                text,--评论内容
+    类别                varchar(50),--点赞，评论，打赏，打赏评论
+    状态                varchar(50) default '未读',--已读、未读、已删除
+    录入人              varchar(50),
+    录入时间            varchar(23),
+    备注                text
+);
+CREATE TABLE 全_会员资料日志表 (
+    id                bigserial primary key,
+    唯一id            varchar(100) ,
+    账号              varchar(50),
+    名称              varchar(50),
+    手机号            varchar(50),
+    设置账号          varchar(50),
+    新手机号          varchar(50),
+    类别              varchar(50),
+    状态              varchar(50),
+    录入人            varchar(50),
+    录入时间          varchar(23),
+    备注              text 
+); //个人信息

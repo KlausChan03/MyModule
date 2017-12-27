@@ -83,6 +83,12 @@
         "icon": "&#xe609;",
         "href": "page/qq_items/global_deviceManagement.html?func=page_select_all+page_insert_update+page_delete&page_id=global_deviceManagement",
         "spread": false
+      },{
+        "id":"4",
+        "title": "全_会员资料日志表",
+        "icon": "&#xe609;",
+        "href": "page/qq_items/global_memberInformation_log.html?func=page_select_all+page_insert_update+page_delete&page_id=global_memberInformation_log",
+        "spread": false
       }
     ]
   },
@@ -127,6 +133,39 @@
         "title": "全_群操作记录表",
         "icon": "&#xe609;",
         "href": "page/qq_items/global_groupOperationRecord.html?func=page_select_all+page_insert_update+page_delete&page_id=global_groupOperationRecord",
+        "spread": false
+      }
+    ]
+  },
+  {
+    "title": "朋友圈",
+    "icon": "&#xe611;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "id":"1",
+        "title": "全_发布信息表",
+        "icon": "&#xe609;",
+        "href": "page/qq_items/global_postInfo.html?func=page_select_all+page_insert_update+page_delete&page_id=global_postInfo",
+        "spread": false
+      },{
+        "id":"1",
+        "title": "全_发布赞赏表",
+        "icon": "&#xe609;",
+        "href": "page/qq_items/global_postAdmire.html?func=page_select_all+page_insert_update+page_delete&page_id=global_postAdmire",
+        "spread": false
+      },{
+        "id":"1",
+        "title": "全_发布评论表",
+        "icon": "&#xe609;",
+        "href": "page/qq_items/global_postComment.html?func=page_select_all+page_insert_update+page_delete&page_id=global_postComment",
+        "spread": false
+      },{
+        "id":"1",
+        "title": "全_发布消息表",
+        "icon": "&#xe609;",
+        "href": "page/qq_items/global_postMsg.html?func=page_select_all+page_insert_update+page_delete&page_id=global_postMsg",
         "spread": false
       }
     ]
