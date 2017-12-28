@@ -275,7 +275,7 @@ function insertButton(table,res) {
         layer.msg("查看操作");
         break;
       case "del":
-        layer.confirm("确认删除该数据？", function(index) {
+        layer.confirm(`确认删除 id=${data.id} 此条数据？`,{title:"删除"}, function(index) {
           var select_id = [];
           select_id.push(data.id);
           table_act.delete(res, tb_id, select_id);
@@ -305,7 +305,7 @@ function insertButton(table,res) {
         select_id.push(checkStatus.data[i].id);
       }
       if (select_id.length > 1) {
-        layer.confirm("确认删除该数据？", function(index) {
+        layer.confirm(`确认删除 id=${select_id} 此 ${select_id.length} 条数据？`,{title:"批量删除"}, function(index) {
           table_act.delete(res, tb_id, select_id);
           layer.close(index);
         });

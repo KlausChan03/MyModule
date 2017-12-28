@@ -66,13 +66,13 @@ table_act.insert = function(res, tb_id) {
                 if ("file" in data.field) {
                     delete data.field.file;
                 }
-                // 转码前将原本含有的“%”转义
-                data.field.内容 = data.field.内容.replace(/%/g, "\%")
                 // 对内容字段进行二次编码                
                 if (data.field.内容) {
-                    data.field.内容 = encodeURIComponent(
-                        encodeURIComponent(data.field.内容)
-                    );
+                    // 转码前将原本含有的“%”转义                    
+                   data.field.内容 = data.field.内容.replace(/%/g, "\%")                    
+                   data.field.内容 = encodeURIComponent(
+                       encodeURIComponent(data.field.内容)
+                   );
                 }
 
                 var obj_save = {
@@ -166,10 +166,11 @@ table_act.update = function(res, tb_id, data) {
                     delete data.field.file;
                 }
 
-                // 转码前将原本含有的“%”转义
-                data.field.内容 = data.field.内容.replace(/%/g, "\%")
+
                 // 对内容字段进行二次编码                
                 if (data.field.内容) {
+                     // 转码前将原本含有的“%”转义                    
+                    data.field.内容 = data.field.内容.replace(/%/g, "\%")                    
                     data.field.内容 = encodeURIComponent(
                         encodeURIComponent(data.field.内容)
                     );
@@ -179,6 +180,7 @@ table_act.update = function(res, tb_id, data) {
                     datas: [data.field, data.tb_id],
                     func: get_func[1]
                 };
+                console.log(obj_save.datas[0])
                 var success_func = function(res) {
                     layer.alert(res.状态, function() {
                         layer.closeAll();

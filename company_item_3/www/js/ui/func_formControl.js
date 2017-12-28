@@ -13,7 +13,7 @@ form_act.add_video_pic = function(pic_type, video_open, pic, video) {
         video_name = $(`*[name='${form_special_control.video[name]}']`); // video_name
         if (video_name && video_open == "true") {
           //直接上传
-          video_name.attr({ readonly: "readonly" }).addClass("required");
+          // video_name.attr({ readonly: "readonly" }).addClass("required");
           var $video = video_name;
           $video.addClass("video-input");
           $video.css({ width: "100%" });
@@ -174,7 +174,7 @@ form_act.add_video_pic = function(pic_type, video_open, pic, video) {
       form_special_control.pic.map(function(key, name) {
         pic_name = $(`*[name='${form_special_control.pic[name]}']`); // $("*[name='图片地址']")
         if (pic_name) {
-          pic_name.attr({ readonly: "readonly" }).addClass("required");
+          // pic_name.attr({ readonly: "readonly" }).addClass("required");
           var pic_arr = [];
           var pic_str = "";
           var multiple = "";

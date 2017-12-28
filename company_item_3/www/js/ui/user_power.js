@@ -24,9 +24,9 @@ form_special_control.control_power = function(state) {
                         control_get_show = control_get[i].查看 == 1 ? "显示":"不显示";   
                         control_check =  control_get[i].查看 == 1 ? "checked":""  
                         control_get_all = control_get[i].全选 == 1 ? "全选":"非全选";   
-                        control_all =  control_get[i].全选 == 1 ? "checked":""  
-                                                                               
-                    }                                    
+                        control_all =  control_get[i].全选 == 1 ? "checked":""                                                                                 
+                    }  
+                             
                     control_content.push('<p class="power-title">'+ `${name}` + k + `${name}` + control_power[i].字段+'</p>'
                     + ' <input type="checkbox" name="全选_'+ control_power[i].编号 +'" lay-filter="'+ control_power[i].编号 +'" value="'+control_get_all+'"  '+ control_all +' >'
                     + ' <input type="hidden" name="字段_'+control_power[i].编号+'" value="'+control_power[i].编号+'" />'
@@ -51,29 +51,29 @@ form_special_control.control_power = function(state) {
                         control_content.push('<input type="checkbox" name="按钮'+ '_' + control_power[i].编号 + '_' + control_power[i].按钮[j] +'" value=' + control_power[i].按钮[j]  + ' title=' + control_power[i].按钮[j]  + '>');
                     }
                 }
+            }
+            $("[name='权限']").parent().empty().addClass("power-main").append(control_content); 
+            for (let i in control_power){
                 form.on(`checkbox(${control_power[i].编号})`, function(data){
                     if(data.elem.checked == true){
-                        $(`[name='查看_${control_power[i].编号}']`).attr("checked","checked")
+                        $(`[name='查看_${control_power[i].编号}']`).attr("checked","checked").val("显示")
                         $(`[name='查看_${control_power[i].编号}']`).next('.layui-form-checkbox').addClass('layui-form-checked')
-                        console.log( $(`[name='查看_${control_power[i].编号}']`).next('.layui-form-checkbox').hasClass("layui-form-checked"))
                         for (let j in control_power[i].按钮){
-                            console.log($(`[name='查看_${control_power[i].编号}_${control_power[i].按钮[j]}']`))
-                            $(`[name='按钮_${control_power[i].编号}_${control_power[i].按钮[j]}']`).attr("checked","checked")
+                            $(`[name='按钮_${control_power[i].编号}_${control_power[i].按钮[j]}']`).attr("checked","checked").val(control_power[i].按钮[j])                          
                             $(`[name='按钮_${control_power[i].编号}_${control_power[i].按钮[j]}']`).next('.layui-form-checkbox').addClass('layui-form-checked')
                         }                        
-                    }else{
-                        $(`[name='查看_${control_power[i].编号}']`).removeAttr("checked")
+                    }else{                                            
+                        // $(`[name='查看_${control_power[i].编号}']`).attr("checked","")
+                        $(`[name='查看_${control_power[i].编号}']`).removeAttr("checked").val("不显示")
                         $(`[name='查看_${control_power[i].编号}']`).next('.layui-form-checkbox').removeClass('layui-form-checked')                                        
-                        for (let j in control_power[i].按钮){
-                            $(`[name='按钮_${control_power[i].编号}_${control_power[i].按钮[j]}']`).removeAttr("checked")
+                        for (let j in control_power[i].按钮){                        
+                            $(`[name='按钮_${control_power[i].编号}_${control_power[i].按钮[j]}']`).removeAttr("checked").val(control_power[i].按钮[j])                  
                             $(`[name='按钮_${control_power[i].编号}_${control_power[i].按钮[j]}']`).next('.layui-form-checkbox').removeClass('layui-form-checked')                                            
                         }
                     }                   
-                });    
-
-            }
-            $("[name='权限']").parent().empty().addClass("power-main").append(control_content); 
-            form.render()
+                }); 
+            }   
+            form.render('checkbox');
             
         })
     };                    
