@@ -3,10 +3,10 @@
 //获取iframe url的参数信息
 var ifarme_func = window.top.document.getElementsByClassName("iframe_");
 var tb_id = GetRequest(ifarme_func).page_id;
-var pic_type = GetRequest(ifarme_func).pic_type;
-var rich_open = GetRequest(ifarme_func).rich_open;
-var video_open = GetRequest(ifarme_func).video_open;
-var sql_type = GetRequest(ifarme_func).sql_type;
+// var pic_type = GetRequest(ifarme_func).pic_type;
+// var rich_open = GetRequest(ifarme_func).rich_open;
+// var video_open = GetRequest(ifarme_func).video_open;
+// var sql_type = GetRequest(ifarme_func).sql_type;
 var func_arr = GetRequest(ifarme_func).func;
 var get_func = [];
 get_func[0] = func_arr.split("+")[0];
@@ -36,14 +36,14 @@ layui.use(["table", "form", "upload"], function() {
   var success_func = function(res) {
     // 表格标题渲染
     var tb_title = res.表格名称;
-    tb_title = tb_title.replace("表", "").replace(/^[\u2E80-\u9FFF]_/, "");
+    // tb_title = tb_title.replace("表", "").replace(/^[\u2E80-\u9FFF]_/, "");
+    tb_title = tb_title.replace("表", "").replace(/^[a-z]{0,8}_/, "");
     $(".table-title").html(tb_title);
-    changeTableStutas(res, toolbar);
+    table_render(res, toolbar);
     insertButton(table,res)
 
     //单条查询10/21 zhou
-    //搜索刷新列表
-    form.render("select");
+    
 
     form.on("select(search)", function(data) {
       console.log(data.value); //得到被选中的值
@@ -56,6 +56,9 @@ layui.use(["table", "form", "upload"], function() {
         $("#souVal").attr({ onclick, onkeyup });
       }
     });
+
+    //搜索刷新列表
+    form.render("select");
 
     $("#seacherButton").on("click", function() {
       var syllable = $(".layui-select-title input").val();
@@ -73,7 +76,7 @@ layui.use(["table", "form", "upload"], function() {
         // 生成表格
         var resSingle = res;
         toolbar = true;
-        changeTableStutas(resSingle, toolbar);
+        table_render(resSingle, toolbar);
       };
       var error_func = function(res) {
         if (res.状态 == "获取列表异常") {
@@ -96,7 +99,7 @@ layui.use(["table", "form", "upload"], function() {
       var tb_title = res.表格名称;
       tb_title = tb_title.replace("表", "").replace(/^[\u2E80-\u9FFF]_/, "");
       $(".table-title").html(tb_title);
-      // changeTableStutas(res, toolbar);
+      table_render(res, toolbar);
       insertButton(table,res)
       $("section .table-container").html("<img class='no-data' src='/images/no_data.png'>")
     }
@@ -110,7 +113,7 @@ layui.use(["table", "form", "upload"], function() {
  * @param {Object} res
  */
 
-function changeTableStutas(res, toolbar) {
+function table_render(res, toolbar) {
   layui.use(["table", "form"], function() {
     var table = layui.table;
     var bar_set = $(".layui-hide .layui-btn").length;

@@ -49,7 +49,8 @@
 /*左侧导航重定义*/
 .layui-nav-item a cite{ padding:0 5px; }
 .layui-side-scroll{ height:auto; }
-.layui-nav-tree .layui-nav-child a{ padding-left: 40px; }
+.layui-nav .layui-nav-item a{padding-left:15px;}
+.layui-nav-tree .layui-nav-child a{ padding-left: 38px; }
 .layui-nav-tree .layui-nav-child a:hover{ background-color:#4E5465; }
 .layui-nav-tree .layui-nav-child dd.layui-this a:hover{ background-color:#2D9CED; }
 

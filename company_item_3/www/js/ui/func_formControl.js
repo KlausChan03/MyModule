@@ -1,17 +1,16 @@
 "use strict";
 var form_act = {};
 var pic_name, video_name;
-form_act.add_video_pic = function(pic_type, video_open, pic, video) {
+form_act.add_video_pic = function(pic, video) {
   layui.use(["upload", "element", "layer"], function() {
     var $ = layui.jquery,
       upload = layui.upload,
       element = layui.element,
       layer = layui.layer;
 
-    if (form_special_control.video) {
+    if (form_special_control.video && form_special_control.video_open == true) {
       form_special_control.video.map(function(key, name) {
         video_name = $(`*[name='${form_special_control.video[name]}']`); // video_name
-        if (video_name && video_open == "true") {
           //直接上传
           // video_name.attr({ readonly: "readonly" }).addClass("required");
           var $video = video_name;
@@ -26,7 +25,6 @@ form_act.add_video_pic = function(pic_type, video_open, pic, video) {
                 '<input type="file" name="file" id="file" accept=".mp4" value="" style="display: none;" /><p class="loading-icon" style="display:none"></p>' +
                 '<div class="video-progress layui-progress layui-progress" lay-showpercent="true" lay-filter="demo" style="width: 85px;margin-top: 20px;display:none"><div class="layui-progress-bar layui-bg-red" lay-percent="0%"></div></div></div>'
             );
-
           $("#video-input").click(function() {
             $("#file").click();
           });
@@ -167,7 +165,6 @@ form_act.add_video_pic = function(pic_type, video_open, pic, video) {
           //     });
           //   }
           // });
-        }
       });
     }
     if (form_special_control.pic) {
@@ -179,7 +176,6 @@ form_act.add_video_pic = function(pic_type, video_open, pic, video) {
           var pic_str = "";
           var multiple = "";
           var $pic = pic_name;
-          console.log($pic);
           $pic.addClass("pic-input");
           $pic.css({ width: "100%" });
           $pic.parent().addClass("flex flex-hb-vc");
@@ -188,15 +184,14 @@ form_act.add_video_pic = function(pic_type, video_open, pic, video) {
             .parent()
             .append('<div class="show-block" id="show-block"></div>');
           var $show = $(".show-block");
-
-          if (pic_type == "all") {
+          if (form_special_control.pic_type == "all") {
             $pic
               .parent()
               .append(
                 '<button type="button" class="layui-btn layui-btn-mini" id="pic-input"  style="margin-left:10px"> <i class="layui-icon">&#xe67c;</i>上传多图 </button><button type="button" class="layui-btn layui-btn-mini" id="pic-reset" style="margin-left:10px"> <i class="layui-icon">&#x1006;</i>清空图片 </button>'
               );
             multiple = true;
-          } else if (pic_type == "one") {
+          } else if (form_special_control.pic_type == "one") {
             $pic
               .parent()
               .append(
@@ -205,7 +200,7 @@ form_act.add_video_pic = function(pic_type, video_open, pic, video) {
             multiple = false;
           }
 
-          if (pic_name.val() != "" && pic_type == "all") {
+          if (pic_name.val() != "" && form_special_control.pic_type == "all") {
             var msg = {};
             msg.地址 = pic_name.val();
             pic_arr = msg.地址.split("@split@");
@@ -213,7 +208,7 @@ form_act.add_video_pic = function(pic_type, video_open, pic, video) {
               pic_arr[i] += "@split@";
             }
             pic_show(msg);
-          } else if (pic_name.val() != "" && pic_type == "one") {
+          } else if (pic_name.val() != "" && form_special_control.pic_type == "one") {
             var msg = {};
             msg.地址 = pic_name.val();
             pic_arr = msg.地址.split("@split@");
@@ -224,7 +219,7 @@ form_act.add_video_pic = function(pic_type, video_open, pic, video) {
           }
 
           function pic_show(res) {
-            if (pic_type == "all") {
+            if (form_special_control.pic_type == "all") {
               res.地址 = res.地址.split("@split@");
               for (let i in res.地址) {
                 $show.append(
@@ -246,7 +241,7 @@ form_act.add_video_pic = function(pic_type, video_open, pic, video) {
             var $reset = $("#pic-reset");
 
             $close.off("click").on("click", function() {
-              if (pic_type == "one") {
+              if (form_special_control.pic_type == "one") {
                 $("#pic-input")
                   .attr({ title: "可以上传" })
                   .removeAttr("disabled")
@@ -300,7 +295,7 @@ form_act.add_video_pic = function(pic_type, video_open, pic, video) {
                 data: "data=" + datas,
                 success: function(res) {
                   layer.msg("上传成功");
-                  if (pic_type == "one") {
+                  if (form_special_control.pic_type == "one") {
                     $("#pic-input")
                       .attr({
                         disabled: "disabled",
@@ -330,13 +325,13 @@ form_act.add_video_pic = function(pic_type, video_open, pic, video) {
   });
 };
 
-form_act.editor = function(rich_open) {
+form_act.editor = function() {
   layui.use(["upload", "element", "layer"], function() {
     var $ = layui.jquery,
       upload = layui.upload,
       element = layui.element,
       layer = layui.layer;
-    if ($("*[name='内容']") && rich_open == "true") {
+    if ($("*[name='内容']") && form_special_control.rich_open == true) {
       var $text = $("*[name='内容']");
       $text.addClass("text-input");
       $text
@@ -408,7 +403,6 @@ form_act.editor = function(rich_open) {
             $(".editor-title").val(editor_arr[0]);
             $(".editor-info").val(editor_arr[1]);
           }
-
           editor.txt.html(editor_arr[2]);
         }
         if (flag == 1) {

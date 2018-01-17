@@ -391,7 +391,22 @@ layui
         .siblings()
         .removeClass("layui-nav-itemed");
     });
-
+    //公告层
+    (function () {
+      $.ajax({
+        url: "../json/systemParameter.json",
+        type: "get",
+        dataType: "json",
+        success: function(data) {
+          var main_title = data.cmsName;
+          if(main_title != ""){
+            $(".main-title").html(main_title)            
+          }else{
+            $(".main-title").html("中网商管理平台")
+          }
+        }
+      })
+    })()
     //公告层
     function showNotice() {
       $.ajax({

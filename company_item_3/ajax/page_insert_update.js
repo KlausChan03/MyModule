@@ -62,10 +62,13 @@ module.exports.run = function(body, pg, mo) {
 
   if (f.data.id == "" || f.data.id == undefined) {
     sql = `insert into ${table_name} (${insert_str_one}) values (${insert_str_two})`; // sql = "insert into " + table_name + "(" + insert_str_one + ") values (" + insert_str_two + ")";
+    console.log(sql)    
   } else {
     sql = `update ${table_name} set ${update_str} where id = ${f.data.id}`; // sql = "update " + table_name + " set " + update_str + " where id = " + f.data.id;
+    console.log(sql)
   }
   result = pgdb.query(pg, sql);
+  console.log(result)
 
   if (result.状态 != "成功") {
     p.状态 = "提交失败";

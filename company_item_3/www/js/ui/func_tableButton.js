@@ -166,7 +166,6 @@ table_act.update = function(res, tb_id, data) {
                     delete data.field.file;
                 }
 
-
                 // 对内容字段进行二次编码                
                 if (data.field.内容) {
                      // 转码前将原本含有的“%”转义                    

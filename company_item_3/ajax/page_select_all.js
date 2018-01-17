@@ -70,7 +70,6 @@ module.exports.run = function(body, pg, mo) {
 			sql = ` select * from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC `;// sql = "select * from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";
 		}else{						
 			sql = ` select ${select_arr} from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC `;	// sql = "select " + select_arr + " from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";		
-			console.log(sql,"hello")
 		}
 		result  = pgdb.query(pg, sql);
 	} else if(f.type == "one" && f.verify == "审核通过") {

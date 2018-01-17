@@ -69,6 +69,9 @@ section:first-child{
   height: 10px;
 }
 
+.layui-side .layui-nav-item i{
+  font-size: 16px;
+}
 
 .layui-tab-title li .layui-tab-close {
   position: relative;

@@ -7,6 +7,9 @@ function navBar(strData){
 	}	
 	var ulHtml = '<ul class="layui-nav layui-nav-tree">';
 	for(var i=0;i<data.length;i++){
+		// 修饰一级菜单
+		data[i].title = data[i].title.replace(/^[a-z\u2E80-\u9FFF]{0,8}_/, "")
+		// 修饰一级菜单
 		if(data[i].spread){
 			ulHtml += '<li class="layui-nav-item layui-nav-itemed">';
 		}else{
@@ -21,11 +24,14 @@ function navBar(strData){
 					ulHtml += '<i class="layui-icon" data-icon="'+data[i].icon+'">'+data[i].icon+'</i>';
 				}
 			}
-			ulHtml += '<cite>'+data[i].title+'</cite>';
+			ulHtml +=  `<cite> ${data[i].title} </cite></a></dd>`;
 			ulHtml += '<span class="layui-nav-more"></span>';
 			ulHtml += '</a>';
 			ulHtml += '<dl class="layui-nav-child">';
 			for(var j=0;j<data[i].children.length;j++){
+				// 修饰二级菜单
+				data[i].children[j].title = data[i].children[j].title.replace(/^[a-z\u2E80-\u9FFF]{0,8}_/, "")
+				// 修饰二级菜单				
 				if(data[i].children[j].target == "_blank"){
 					ulHtml += '<dd><a href="javascript:;"   data-url="'+data[i].children[j].href+'" target="'+data[i].children[j].target+'">';
 				}else{
@@ -38,7 +44,7 @@ function navBar(strData){
 						ulHtml += '<i class="layui-icon" data-icon="'+data[i].children[j].icon+'">'+data[i].children[j].icon+'</i>';
 					}
 				}
-				ulHtml += '<cite>'+data[i].children[j].title+'</cite></a></dd>';
+				ulHtml += `<cite> ${data[i].children[j].title} </cite></a></dd>`;
 			}
 			ulHtml += "</dl>";
 		}else{

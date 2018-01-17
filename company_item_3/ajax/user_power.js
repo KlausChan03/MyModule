@@ -76,8 +76,7 @@ module.exports.run = function(body, pg, mo) {
 	if(result) {
 		if(result.数据){
 			if(result.数据.length == 0) {
-				p.状态 = "获取列表异常";
-	
+				p.状态 = "获取列表异常";	
 			} else {
 				p.状态 = "成功";
 				f.列表 = result.数据;
