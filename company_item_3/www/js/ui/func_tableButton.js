@@ -116,12 +116,9 @@ table_act.update = function(res, tb_id, data) {
     }    
     var error_func = function(res){}
     ajax.ajax_common_sync(obj_save, success_func, error_func);
-
     // for (let i in res.列表[0]) {
     //     test_arr.push(i);
     // } 
-
-
     //赋给录入时期的的input的一个id名
     var classTest = "";
     for (let i = 0; i < test_arr.length; i++) {
@@ -152,20 +149,17 @@ table_act.update = function(res, tb_id, data) {
         layui.use(["form", "laydate"], function() {
             var form = layui.form;
             var laydate = layui.laydate;
-
             laydate.render({
                 type: "datetime",
                 elem: ".dateClass" //指定元素
             });
-            form.render();
-            
+            form.render();            
             form.on("submit(formDemo)", function(data) {
                 // 取值、在封装ajax传参前对部分字段处理
                 data.tb_id = tb_id;
                 if ("file" in data.field) {
                     delete data.field.file;
                 }
-
                 // 对内容字段进行二次编码                
                 if (data.field.内容) {
                      // 转码前将原本含有的“%”转义                    
@@ -174,12 +168,10 @@ table_act.update = function(res, tb_id, data) {
                         encodeURIComponent(data.field.内容)
                     );
                 }
-
                 var obj_save = {
                     datas: [data.field, data.tb_id],
                     func: get_func[1]
                 };
-                console.log(obj_save.datas[0])
                 var success_func = function(res) {
                     layer.alert(res.状态, function() {
                         layer.closeAll();
@@ -204,11 +196,34 @@ for (let i in table_act) {
     switch (i) {
         case "insert":
             var insert_local_process = function () {
+                $("*[name='录入人']").val(table_act.insert_name);
+                $("*[name='录入时间']").val(table_act.insert_time);
             }
             break;
         case "update":
             var update_local_process = function() {
-                $("*[name='录入时间']").addClass("dateClass");
+                if(form_special_control.system == true){                  
+                    $("*[name='录入时间']").addClass("dateClass");
+                    
+                    var $sys_name = $(`*[name='录入人']`); // sys_name
+                    $sys_name.addClass("sys-input-1");
+                    $sys_name.css({ width: "100%" });
+                    $sys_name.parent().addClass("flex flex-hb-vc");
+                    $sys_name.parent().append('<div style="margin-left:10px;"><button type="button" class="layui-btn layui-btn-mini" id="sys-input-1"> <i class="layui-icon">&#xe67c;</i>更新</button></div>');
+
+                    var $sys_time = $(`*[name='录入时间']`); // sys_time
+                    $sys_time.addClass("sys-input-2");
+                    $sys_time.css({ width: "100%" });
+                    $sys_time.parent().addClass("flex flex-hb-vc");
+                    $sys_time.parent().append('<div style="margin-left:10px;"><button type="button" class="layui-btn layui-btn-mini" id="sys-input-2"> <i class="layui-icon">&#xe67c;</i>更新</button></div>');
+                
+                    $("#sys-input-1").click(function(){
+                        $("*[name='录入人']").val(table_act.insert_name);
+                    })
+                    $("#sys-input-2").click(function(){
+                        $("*[name='录入时间']").val(table_act.insert_time);
+                    })                
+                }
             }
             break;
     }
@@ -218,10 +233,10 @@ for (let i in table_act) {
                 var common_progress = function () {
                 // 视频、图片、富文本编辑 等引入
                 if ($("*[name='视频地址']") || $("*[name='图片地址']")) {
-                    form_act.add_video_pic(pic_type, video_open);
+                    form_act.add_video_pic();
                 }
                 if ($("*[name='内容']")) {
-                    form_act.editor(rich_open);
+                    form_act.editor();
                 }
                 if (form_special_control.id != "") {                    
                     switch (form_special_control.id) {
@@ -247,15 +262,16 @@ for (let i in table_act) {
                 }
                 
                 function control_state(state) {
-                    if ($("*[name='状态']").val() == "") {
-                        $("*[name='状态']") .parent() .empty() .append( `<input type="radio" name="状态" value="${state[0]}"  title="${state[0]}" checked="checked" ><input type="radio" name="状态" value="${state[1]}" title="${state[1]}" >` );
-                    } else if ($("*[name='状态']").val() == state[0]) {
-                        $("*[name='状态']") .parent() .empty() .append( `<input type="radio" name="状态" value="${state[0]}"  title="${state[0]}" checked="checked" ><input type="radio" name="状态" value="${state[1]}" title="${state[1]}" >` );
-                    } else if ($("*[name='状态']").val() == state[1]) {
-                        $("*[name='状态']") .parent() .empty() .append( `<input type="radio" name="状态" value="${state[0]}"  title="${state[0]}"><input type="radio" name="状态" value="${state[1]}" title="${state[1]}" checked="checked" >` );
+                    let get_state = $("*[name='状态']").val();
+                    $("*[name='状态']") .parent() .empty().append('<div class="custom-state"></div>')
+                    for(let i in state){
+                        if(get_state == state[i]){
+                            $(".custom-state").append( `<input type="radio" name="状态" value="${state[i]}"  title="${state[i]}" checked="checked">` );
+                        }else{
+                            $(".custom-state").append( `<input type="radio" name="状态" value="${state[i]}"  title="${state[i]}">` );                            
+                        }
                     }
-                }
-                
+                }                
                 function input_rules(require_arr,disable_arr){
                     for (let i in require_arr) {
                         $("*[name='"+require_arr[i]+"'").attr("lay-verify","required").addClass("required");
@@ -264,15 +280,9 @@ for (let i in table_act) {
                         $("*[name='"+disable_arr[j]+"'").attr({"disabled":"disabled","placeholder":"无需输入"});                        
                     }
                 }
-
                 $("*[name='录入人']").attr("readonly", "readonly");
-                $("*[name='录入时间']").attr("readonly", "readonly");
-
-                $("*[name='录入人']").val(table_act.insert_name);
-                $("*[name='录入时间']").val(table_act.insert_time);
-
+                $("*[name='录入时间']").attr("readonly", "readonly"); 
                 $("*[name='id']").attr({ readonly: "readonly", placeholder: "" });
-
                 $("*[name='关键字']").attr(
                     "oninput",
                     "if(value.length>20)value=value.slice(0,20)"

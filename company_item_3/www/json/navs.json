@@ -301,6 +301,12 @@
         "spread": false
       },
       {
+        "title": "陈廷星测试专用4",
+        "icon": "&#xe857;",
+        "href": "page/test/klaus_mysql.html",
+        "spread": false
+      },
+      {
         "title": "登录",
         "icon": "&#xe857;",
         "href": "page/login/login.html",

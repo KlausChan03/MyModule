@@ -171,10 +171,14 @@ var rule = new schedule.RecurrenceRule();
 var times = [0, 30];
 rule.second = times;
 var timeStart = schedule.scheduleJob(rule, function() {
-  if (config.get("app").postgresql.使用 == "是") {
-    var pgdb = require("./func/pgdb.js");
-    console.log("postgresql当前连接数" + pgdb.pool._count);
-    console.log("postgresql可用连接数" + pgdb.pool._availableObjects.length);
+  if(config.get('app').main.dbType == 'mysql'){
+    var mysql = require('./func/mysql.js');
+    console.log("mysql当前连接数"+mysql.pool._count);
+    console.log("mysql可用连接数"+mysql.pool._availableObjects.length);
+  }else{
+    var pgdb = require('./func/pgdb.js');
+    console.log("postgresql当前连接数"+pgdb.pool._count);
+    console.log("postgresql可用连接数"+pgdb.pool._availableObjects.length);
   }
 
   if (config.get("app").mongodb.使用 == "是") {
@@ -189,11 +193,6 @@ var timeStart = schedule.scheduleJob(rule, function() {
     console.log("redis可用连接数" + redisdb.pool._availableObjects.length);
   }
 
-  if(config.get('app').mysql.使用 == '是') {
-  	var mysql = require('./func/mysql.js');
-  	console.log("mysql当前连接数" + mysql.pool._count);
-  	console.log("mysql可用连接数" + mysql.pool._availableObjects.length);
-  }
 });
 
 //文件上传

@@ -1,3 +1,10 @@
+/**pg数据库功能
+创建时间：2016-09-23
+创建人：吕扶美
+更新时间
+更新内容：
+更新人：
+*/
 var Fiber = require("fibers");
 var my = require("mysql");
 var config = require("./config.js");
@@ -48,41 +55,27 @@ mysql.close = function(client) {
   mysql.pool.release(client);
 };
 
-// mysql.start = function(connection) {
-//   connection.query("BEGIN;");
-// };
-
-// mysql.end = function(connection) {
-//   connection.query("COMMIT;");
-// };
-
-mysql.query = function(client, sql, sqlData) {
-  var result = {};
+mysql.query = function(client, sql) {
+  var result = 0;
   var fiber = Fiber.current;
-  var sql_err = "";
-  var sql_result = 0;
-  client.query(sql, sqlData, function(err, data, fields) {
-    sql_err = err;
-    sql_result = data;
-    fiber.run();
+  // console.log(client)
+  client.query(sql, function(err, data, fields) {
+    if (err) {
+      result = null;
+      console.log("aaaa:" + sql + "执行错误:" + err.stack);
+      logs.write("sql", "错误语句:" + sql + "错误信息:" + err.stack);
+      fiber.run();
+    } else {
+      if (data.affectedRows == undefined) {
+        result = data;
+      } else {
+        result = data.affectedRows;
+      }
+      fiber.run();
+    }
   });
-  console.log(result)
 
   Fiber.yield();
-
-  if (sql_err) {
-    result.状态 = "失败";
-    result.信息 = sql_err.stack;
-    console.log(":" + sql + "执行错误:" + sql_err.stack);
-    logs.write("sql", "错误语句:" + sql + "错误信息:" + sql_err.stack);
-  } else {
-    result.状态 = "成功";
-    if (sql_result.affectedRows == undefined) {
-      result.信息 = sql_result;
-    } else {
-      result.影响行数 = sql_result.affectedRows;
-    }
-  }
   return result;
 };
 

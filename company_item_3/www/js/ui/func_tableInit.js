@@ -12,38 +12,40 @@ var get_func = [];
 get_func[0] = func_arr.split("+")[0];
 get_func[1] = func_arr.split("+")[1];
 get_func[2] = func_arr.split("+")[2];
-// console.log(get_func[0],get_func[1],get_func[2])
-
 var form_special_control = {};
 var data = {};
-var toolbar = true;
+let toolbar = true;
+let tb_title = "";
+// let [obj_save,success_func,error_func] = [{},"",""];
 
-// 新方法实现数据渲染
+// 表格渲染
 layui.use(["table", "form", "upload"], function() {
   var table = layui.table;
   var form = layui.form;
   var upload = layui.upload;
   var $ = layui.jquery;
-  //存数据和表名
+
+  // 存储[数据,表名,查询类别];
   data.field = "";
   data.tb_id = tb_id;
   data.type = "all";
+
+  // ajax请求获取表格数据
   var obj_save = {
     datas: [data.field, data.tb_id, data.type],
     func: get_func[0]
   };
 
   var success_func = function(res) {
-    // 表格标题渲染
-    var tb_title = res.表格名称;
+    tb_title = res.表格名称.replace("表", "").replace(/^[a-z]{0,8}_/, "");    
     // tb_title = tb_title.replace("表", "").replace(/^[\u2E80-\u9FFF]_/, "");
-    tb_title = tb_title.replace("表", "").replace(/^[a-z]{0,8}_/, "");
     $(".table-title").html(tb_title);
-    table_render(res, toolbar);
-    insertButton(table,res)
 
-    //单条查询10/21 zhou
-    
+    // 渲染生成表格和按钮
+    table_render(res, toolbar);
+    insertButton(table, res)
+
+    //单条查询10/21 zhou   
 
     form.on("select(search)", function(data) {
       console.log(data.value); //得到被选中的值
@@ -59,12 +61,10 @@ layui.use(["table", "form", "upload"], function() {
 
     //搜索刷新列表
     form.render("select");
-
     $("#seacherButton").on("click", function() {
       var syllable = $(".layui-select-title input").val();
-      var syllableVal = $("#souVal").val();
+      var syllableVal = $("#souVal").val();   
 
-      var data = {};
       data.field = [syllable, syllableVal];
       data.tb_id = tb_id;
       data.type = "one";
@@ -73,7 +73,6 @@ layui.use(["table", "form", "upload"], function() {
         func: get_func[0]
       };
       var success_func = function(res) {
-        // 生成表格
         var resSingle = res;
         toolbar = true;
         table_render(resSingle, toolbar);
@@ -96,10 +95,9 @@ layui.use(["table", "form", "upload"], function() {
   var error_func = function(res) {
     if (res.状态 == "获取列表异常") {
       //渲染标题
-      var tb_title = res.表格名称;
-      tb_title = tb_title.replace("表", "").replace(/^[\u2E80-\u9FFF]_/, "");
+      tb_title = res.表格名称.replace("表", "").replace(/^[\u2E80-\u9FFF]_/, "");
       $(".table-title").html(tb_title);
-      table_render(res, toolbar);
+      // table_render(res, toolbar);
       insertButton(table,res)
       $("section .table-container").html("<img class='no-data' src='/images/no_data.png'>")
     }
@@ -114,7 +112,7 @@ layui.use(["table", "form", "upload"], function() {
  */
 
 function table_render(res, toolbar) {
-  layui.use(["table", "form"], function() {
+  layui.use(["table"], function() {
     var table = layui.table;
     var bar_set = $(".layui-hide .layui-btn").length;
     var th = [];
@@ -125,13 +123,7 @@ function table_render(res, toolbar) {
     } else {
       th.push(
         { checkbox: true, fixed: true, align: "center" },
-        {
-          title: "操作",
-          toolbar: "#act-bar",
-          width: 180,
-          fixed: true,
-          align: "center"
-        }
+        { title: "操作", toolbar: "#act-bar", width: 180, fixed: true, align: "center" }
       );
     }
     // 插入表格头部
@@ -168,7 +160,7 @@ function table_render(res, toolbar) {
         set_width.apply(that);
       }
     }
-
+    
     // 生成表格
     table.render({
       elem: "#demo",
@@ -318,3 +310,5 @@ function insertButton(table,res) {
     }
   };
 }
+
+

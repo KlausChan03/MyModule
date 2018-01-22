@@ -74,7 +74,7 @@ require.config({
 
     // 具体页面调用
     ui_login:["layui","jquery", "common","canvas_login","MD5"],
-    // ui_index:["layui", "jquery","ui_leftNav","common"],
+    ui_index:["layui", "jquery","ui_leftNav","common"],
     ui_main:["layui", "jquery","ui_leftNav","common"],
     ui_user:["layui", "jquery","ui_leftNav","common","MD5"],
 

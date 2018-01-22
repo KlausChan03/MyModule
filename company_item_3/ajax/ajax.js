@@ -14,9 +14,9 @@ ajax.index = function(req, res, body) {
 
   var fiber = Fiber(function(cb) {
     /**---------pg-------*/
-    if (conf.postgresql.使用 == "是") {
-      pgdb.start(obj.pg); //数据库事务开始
-    }
+    // if (conf.mysql.使用 == "是") {
+    //   mysql.start(obj.pg); //数据库事务开始
+    // }
     /**---------pg-------*/
     
     
@@ -24,9 +24,9 @@ ajax.index = function(req, res, body) {
     body.send = func.run(body, obj.pg, obj.mysql);
     
     /**---------pg-------*/
-    if (conf.postgresql.使用 == "是") {
-      pgdb.end(obj.pg); //数据库事务结束
-    }
+    // if (conf.mysql.使用 == "是") {
+    //   mysql.end(obj.pg); //数据库事务结束
+    // }
     /**---------pg-------*/
 
     cb(null, "");
@@ -34,22 +34,46 @@ ajax.index = function(req, res, body) {
 
   async.waterfall(
     [
+      // function(cb) {
+      //   console.log("i am here")
+        
+      //   if (conf.postgresql.使用 != "是") {
+      //     cb(null, "");
+      //     return;
+      //   }
+      //   pgdb.open(function(err, client, done) {
+      //     if (err) {
+      //       console.log("连接pg数据库失败!");
+      //       logs.write("err", "错误:连接PG数据库失败,错误信息:" + err);
+      //       res
+      //         .status(200)
+      //         .send('{"code":-20005,"message":"postgresql error"}');
+      //       res.end();
+      //     } else {
+      //       client.done = done;
+      //       obj.pg = client;
+      //       cb(null, "");
+      //     }
+      //   });
+      // },
       function(cb) {
-        if (conf.postgresql.使用 != "是") {
+        console.log("i am there")
+        
+        if (conf.mysql.使用 != "是") {
           cb(null, "");
           return;
         }
-        pgdb.open(function(err, client, done) {
+        mysql.open(function(err, client, done) {
           if (err) {
-            console.log("连接pg数据库失败!");
-            logs.write("err", "错误:连接PG数据库失败,错误信息:" + err);
+            console.log("连接mysql数据库失败!");
+            logs.write("err", "错误:连接mysql数据库失败,错误信息:" + err);
             res
               .status(200)
-              .send('{"code":-20005,"message":"postgresql error"}');
+              .send('{"code":-20005,"message":"mysql error"}');
             res.end();
           } else {
             client.done = done;
-            obj.pg = client;
+            obj.mysql = client;
             cb(null, "");
           }
         });

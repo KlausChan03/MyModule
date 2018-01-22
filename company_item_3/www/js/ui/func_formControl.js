@@ -7,7 +7,6 @@ form_act.add_video_pic = function(pic, video) {
       upload = layui.upload,
       element = layui.element,
       layer = layui.layer;
-
     if (form_special_control.video && form_special_control.video_open == true) {
       form_special_control.video.map(function(key, name) {
         video_name = $(`*[name='${form_special_control.video[name]}']`); // video_name
@@ -203,65 +202,46 @@ form_act.add_video_pic = function(pic, video) {
           if (pic_name.val() != "" && form_special_control.pic_type == "all") {
             var msg = {};
             msg.地址 = pic_name.val();
-            pic_arr = msg.地址.split("@split@");
+            pic_arr = msg.地址.split(",");
             for (let i in pic_arr) {
-              pic_arr[i] += "@split@";
+              pic_arr[i] += ",";
             }
             pic_show(msg);
           } else if (pic_name.val() != "" && form_special_control.pic_type == "one") {
             var msg = {};
             msg.地址 = pic_name.val();
-            pic_arr = msg.地址.split("@split@");
+            pic_arr = msg.地址.split(",");
             pic_show(msg);
-            $("#pic-input")
-              .attr({ disabled: "disabled", title: "请先删除之前上传的图片" })
-              .css({ background: "#999" });
+            $("#pic-input") .attr({ disabled: "disabled", title: "请先删除之前上传的图片" }) .css({ background: "#999" });
           }
 
           function pic_show(res) {
             if (form_special_control.pic_type == "all") {
-              res.地址 = res.地址.split("@split@");
+              res.地址 = res.地址.replace(/,$/, "").split(",");
               for (let i in res.地址) {
-                $show.append(
-                  '<div class="show-pic"><img class="show-pic-main" title="右键可复制地址" src="' +
-                    res.地址[i] +
-                    '"><span class="show-pic-close"><i class="layui-icon" style="font-size:24px">&#x1007;</i></span></div>'
-                );
+                $show.append( `<div class="show-pic"><img class="show-pic-main" title="右键可复制地址" src="${res.地址[i]}"><span class="show-pic-close"><i class="layui-icon" style="font-size:24px">&#x1007;</i></span></div>`);
               }
             } else {
-              $show.append(
-                '<div class="show-pic"><img class="show-pic-main" title="右键可复制地址" src="' +
-                  res.地址 +
-                  '"><span class="show-pic-close"><i class="layui-icon" style="font-size:24px">&#x1007;</i></span></div>'
-              );
+              $show.append( `<div class="show-pic"><img class="show-pic-main" title="右键可复制地址" src="${res.地址[i]}"><span class="show-pic-close"><i class="layui-icon" style="font-size:24px">&#x1007;</i></span></div>` );
             }
           }
           function pic_show_act() {
             var $close = $(".show-pic-close");
             var $reset = $("#pic-reset");
-
             $close.off("click").on("click", function() {
               if (form_special_control.pic_type == "one") {
-                $("#pic-input")
-                  .attr({ title: "可以上传" })
-                  .removeAttr("disabled")
-                  .css({ background: "#2B9CED" });
+                $("#pic-input") .attr({ title: "可以上传" }) .removeAttr("disabled") .css({ background: "#2B9CED" });
               }
-              var $index = $(this)
-                .parent()
-                .index();
+              var $index = $(this) .parent() .index();
               $show.find($(".show-pic:eq(" + $index + ")")).remove();
               var pic_arr_ = pic_arr;
-
               var pic_arr_new = [];
               pic_arr.splice($index, 1);
               for (let i in pic_arr_) {
                 pic_arr_new.push(pic_arr_[i]);
               }
               var pic_str_new = pic_arr_new.toString();
-              pic_str_new = pic_str_new
-                .replace(/@split@,/g, "@split@")
-                .replace(/@split@$/, "");
+              pic_str_new = pic_str_new .replace(/,$/, "");
               $pic.val(pic_str_new);
             });
 
@@ -269,10 +249,7 @@ form_act.add_video_pic = function(pic, video) {
               pic_arr = [];
               $pic.val("");
               $show.empty();
-              $("#pic-input")
-                .attr({ title: "可以上传" })
-                .removeAttr("disabled")
-                .css({ background: "#2B9CED" });
+              $("#pic-input") .attr({ title: "可以上传" }) .removeAttr("disabled") .css({ background: "#2B9CED" });
             });
           }
 
@@ -304,11 +281,11 @@ form_act.add_video_pic = function(pic, video) {
                       .css({ background: "#999" });
                   }
                   if (res.状态 == "上传成功") {
-                    pic_arr.push(res.地址 + "@split@");
+                    pic_arr.push(res.地址 + ",");
                     pic_str = pic_arr.toString();
                     pic_str = pic_str
-                      .replace(/@split@,/g, "@split@")
-                      .replace(/@split@$/, "");
+                      .replace(/,,/g, ",")
+                      .replace(/,$/, "");
                     $pic.val(pic_str);
                     pic_show(res);
                     pic_show_act();
