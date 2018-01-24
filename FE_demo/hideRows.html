@@ -1,0 +1,142 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style type="text/css">
+    table, tr, td, caption{
+        border:1px solid #666;
+        border-collapse:collapse;
+        background-color:rgb(210, 219, 236);
+    }
+ 
+    td, caption{
+        font-family:'微软雅黑';
+        font-size:12px;
+        text-align:center;
+        padding:3px 15px;
+    }
+ 
+    caption{
+        border-bottom:none;
+        cursor:pointer;
+    }
+  </style>
+ 
+  <script type="text/javascript">
+    window.onload = function(){
+        var tab = document.getElementsByTagName('table')[0];
+        tab.caption.onclick = function(){
+            var trs = tab.rows;
+            for(var i = 0, len = trs.length; i < len; i++){
+                var cell = trs[i].cells[1];
+                if(cell.style.display == 'none'){
+                    cell.style.display = '';
+                }else{
+                    cell.style.display = 'none';
+                }
+            }
+        }
+    }
+    
+  </script>
+ </head>
+ 
+ <body>
+  <table>
+    <caption>显示/隐藏价格</caption>
+    <tr>
+        <td>产品</td>
+        <td>价格</td>
+        <td>销量</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>88元</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>77元</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>66元</td>
+        <td>4</td>
+    </tr>
+  </table>
+ </body>
+=======
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style type="text/css">
+    table, tr, td, caption{
+        border:1px solid #666;
+        border-collapse:collapse;
+        background-color:rgb(210, 219, 236);
+    }
+ 
+    td, caption{
+        font-family:'微软雅黑';
+        font-size:12px;
+        text-align:center;
+        padding:3px 15px;
+    }
+ 
+    caption{
+        border-bottom:none;
+        cursor:pointer;
+    }
+  </style>
+ 
+  <script type="text/javascript">
+    window.onload = function(){
+        var tab = document.getElementsByTagName('table')[0];
+        tab.caption.onclick = function(){
+            var trs = tab.rows;
+            for(var i = 0, len = trs.length; i < len; i++){
+                var cell = trs[i].cells[1];
+                if(cell.style.display == 'none'){
+                    cell.style.display = '';
+                }else{
+                    cell.style.display = 'none';
+                }
+            }
+        }
+    }
+    
+  </script>
+ </head>
+ 
+ <body>
+  <table>
+    <caption>显示/隐藏价格</caption>
+    <tr>
+        <td>产品</td>
+        <td>价格</td>
+        <td>销量</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>88元</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>77元</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>66元</td>
+        <td>4</td>
+    </tr>
+  </table>
+ </body>
+>>>>>>> origin/master
+</html>

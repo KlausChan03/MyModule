@@ -34,50 +34,50 @@ ajax.index = function(req, res, body) {
 
   async.waterfall(
     [
-      // function(cb) {
-      //   console.log("i am here")
-        
-      //   if (conf.postgresql.使用 != "是") {
-      //     cb(null, "");
-      //     return;
-      //   }
-      //   pgdb.open(function(err, client, done) {
-      //     if (err) {
-      //       console.log("连接pg数据库失败!");
-      //       logs.write("err", "错误:连接PG数据库失败,错误信息:" + err);
-      //       res
-      //         .status(200)
-      //         .send('{"code":-20005,"message":"postgresql error"}');
-      //       res.end();
-      //     } else {
-      //       client.done = done;
-      //       obj.pg = client;
-      //       cb(null, "");
-      //     }
-      //   });
-      // },
       function(cb) {
-        console.log("i am there")
+        console.log("i am here")
         
-        if (conf.mysql.使用 != "是") {
+        if (conf.postgresql.使用 != "是") {
           cb(null, "");
           return;
         }
-        mysql.open(function(err, client, done) {
+        pgdb.open(function(err, client, done) {
           if (err) {
-            console.log("连接mysql数据库失败!");
-            logs.write("err", "错误:连接mysql数据库失败,错误信息:" + err);
+            console.log("连接pg数据库失败!");
+            logs.write("err", "错误:连接PG数据库失败,错误信息:" + err);
             res
               .status(200)
-              .send('{"code":-20005,"message":"mysql error"}');
+              .send('{"code":-20005,"message":"postgresql error"}');
             res.end();
           } else {
             client.done = done;
-            obj.mysql = client;
+            obj.pg = client;
             cb(null, "");
           }
         });
       },
+      // function(cb) {
+      //   console.log("i am there")
+        
+      //   if (conf.mysql.使用 != "是") {
+      //     cb(null, "");
+      //     return;
+      //   }
+      //   mysql.open(function(err, client, done) {
+      //     if (err) {
+      //       console.log("连接mysql数据库失败!");
+      //       logs.write("err", "错误:连接mysql数据库失败,错误信息:" + err);
+      //       res
+      //         .status(200)
+      //         .send('{"code":-20005,"message":"mysql error"}');
+      //       res.end();
+      //     } else {
+      //       client.done = done;
+      //       obj.mysql = client;
+      //       cb(null, "");
+      //     }
+      //   });
+      // },
       function(j, cb) {
         if (conf.mongodb.使用 != "是") {
           cb(null, "");

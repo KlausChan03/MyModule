@@ -77,7 +77,6 @@ ajax.ajax_get = function(obj_save, success_func, error_func, type) {
         url: func + ".xhtml",
         data: "data=" + datas,
         success: function(res) {
-            console.log(res)
             if (res.状态 == "成功") {            
                 success_func(res);
             } else {
@@ -101,7 +100,6 @@ ajax.ajax_common = function(obj_save, success_func, error_func, type) {
         url: "/ajax.post?func=" + func,
         data: "data=" + datas,
         success: function(res) {
-            console.log(res)
             if (res.状态 == "成功") {
                 success_func(res);
             } else {

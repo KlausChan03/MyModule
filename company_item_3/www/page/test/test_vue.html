@@ -26,6 +26,10 @@
             </p>
         </div>
     </div>
+    <div id="test">
+        {{roger}}<br>
+        {{klaus}}
+    </div>
 
 </body>
 <script>
@@ -46,6 +50,14 @@
         }
     })
 
+    var data = { roger: "111" ,klaus:""}
+    
+    var test = new Vue({
+        el:'#test',
+        data: data
+    })
+    
+    console.log(data.roger === test.roger)
 </script>
 
 </html>

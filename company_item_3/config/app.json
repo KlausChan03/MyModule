@@ -6,7 +6,7 @@
     "httpPort说明": "这个是http请求端口号",
     "httpsPort": 0,
     "httpsPort说明": "这个是https请求端口号",
-    "dbType": "mysql",
+    "dbType": "postgresql",
     "dbType说明": "使用数据库类别，分别为mysql和postgresql。。数据库参数对应下面",
     "serverKey": "asdfssdfsdfsdfsdfsfsdsdfsdfs",
     "serverKey说明": "这个功能是做为平台间交互的唯一标识"
@@ -19,14 +19,14 @@
     "db": "qqpt"
   },
   "postgresql": {
-    "使用": "否",
+    "使用": "是",
     "host": "120.55.52.229",
     "user": "postgres",
     "pass": "postgresql",
     "db": "ysj"
   },
 	"mysql":{
-    "使用": "是",
+    "使用": "否",
 		"host":"localhost",
 		"user":"root",
 		"pass":"123456",

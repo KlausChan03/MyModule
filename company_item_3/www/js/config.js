@@ -11,7 +11,7 @@ require.config({
     //lib层
     jquery: "lib/jquery.min",
     init: "lib/init",
-    MD5: "lib/jQuery.md5",
+    jquery_MD5: "lib/jquery.md5",
     common: "lib/common",
 
     //ui层
@@ -66,17 +66,17 @@ require.config({
   shim: {
     // layui: ["css!/template/layui/css/layui.css","css!/css/main.css","css!/css/layer-set-myself.css"],
     func_layer: ["css!/css/layer-set-myself.css", "layui"],
-    MD5: ["jquery"],
+    jquery_MD5: ["jquery"],
     common: ["jquery"],
     func_tableButton: ["common","layui"],
     func_formControl: ["common","layui"],
     func_tableInit: ["common","layui"],
 
     // 具体页面调用
-    ui_login:["layui","jquery", "common","canvas_login","MD5"],
+    ui_login:["layui","jquery", "common","canvas_login","jquery_MD5"],
     ui_index:["layui", "jquery","ui_leftNav","common"],
     ui_main:["layui", "jquery","ui_leftNav","common"],
-    ui_user:["layui", "jquery","ui_leftNav","common","MD5"],
+    ui_user:["layui", "jquery","ui_leftNav","common","jquery_MD5"],
 
     user_list: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     user_power: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],

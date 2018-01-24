@@ -104,66 +104,6 @@ form_act.add_video_pic = function(pic, video) {
               };
               ajax.ajax_common(obj_save, success_func, error_func);
             });
-
-          // var uploadInst = upload.render({
-          //   elem: "#video-input",
-          //   url: "/temp",
-          //   accept: "video",
-          //   auto: true,
-          //   done: function(res) {
-          //     var datas = {};
-          //     datas.img_list = res.newpath;
-          //     datas = JSON.stringify(datas);
-          //     console.log(datas);
-          //     // layer.open({
-          //     //   id: "upload",
-          //     //   type: 1,
-          //     //   title: "上传进度",
-          //     //   closeBtn: 0, //不显示关闭按钮
-          //     //   content:'<div class="flex-hc-vc" style="width: 100%; height: 100%; padding: 0 30px; box-sizing: border-box;"><div class="layui-progress layui-progress-big" lay-showPercent="true" lay-filter="demo" style="width: 100%;"> <div class="layui-progress-bar layui-bg-green" lay-percent="0%"></div> </div></div>',
-          //     //   area: ["250px", "150px"],
-          //     //   success: function() {
-          //     //     element.init();
-          //     //   }
-          //     // });
-          //     // element.progress("demo", "0%");
-
-          //     // var t = 0;
-          //     // setInterval(function(){
-          //     //   t = t+20;
-          //     //   element.progress('demo', t+'%');
-          //     // },10000)
-
-          //     $(".loading-icon")
-          //       .show()
-          //       .html(
-          //         '<i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop loading">&#xe63d;</i>'
-          //       );
-          //     $.ajax({
-          //       url: "/ajax.post?func=upload_video",
-          //       type: "POST",
-          //       data: "data=" + datas,
-          //       beforeSend: function() {},
-          //       success: function(res) {
-          //         if (res.状态 == "上传成功") {
-          //           // console.log(t)
-          //           // t= 0;
-          //           // clearInterval();
-          //           //   element.progress("demo", "100%");
-          //           setTimeout(function() {
-          //             // layer.close(layer.index);
-          //             var video_url = res.地址.split("?uploadId")[0];
-          //             $(".video-input").val(video_url);
-          //             layer.msg("上传成功");
-          //           }, 1000);
-          //           $(".loading-icon").hide();
-          //         } else {
-          //           layer.msg("上传失败");
-          //         }
-          //       }
-          //     });
-          //   }
-          // });
       });
     }
     if (form_special_control.pic) {

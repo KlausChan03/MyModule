@@ -28,11 +28,6 @@ table_act.delete = function(res, tb_id, select_id) {
 table_act.insert = function(res, tb_id) {
 
     var test_arr,input_str="";
-
-    //循环字段名
-    // for (let i in res.列表[0]) {
-    //     test_arr.push(i);
-    // }
     var g = {};
     g.tb_id = tb_id;
     var obj_save = { datas:g.tb_id, func: "get_arrInsert"};
@@ -41,15 +36,6 @@ table_act.insert = function(res, tb_id) {
     ajax.ajax_common_sync(obj_save, success_func, error_func);
 
     for (let i = 0; i < test_arr.length; i++) {
-        // input_str +=
-        //     '<div class="layui-form-item"><label class="layui-form-label">' +
-        //     test_arr[i] +
-        //     '</label> <div class="layui-input-block"> <input type="text"  name="' +
-        //     test_arr[i] +
-        //     '"   placeholder="请输入' +
-        //     test_arr[i] +
-        //     '" autocomplete="off" class="layui-input insert-input"></div> </div>';
-
         input_str += ` <div class="layui-form-item"><label class="layui-form-label">${test_arr[i]}</label> <div class="layui-input-block"> <input type="text"  name="${test_arr[i]}"  placeholder="请输入${test_arr[i]}"  autocomplete="off" class="layui-input insert-input"></div> </div> `;
     }    
     var success_func = function() {
@@ -116,9 +102,7 @@ table_act.update = function(res, tb_id, data) {
     }    
     var error_func = function(res){}
     ajax.ajax_common_sync(obj_save, success_func, error_func);
-    // for (let i in res.列表[0]) {
-    //     test_arr.push(i);
-    // } 
+
     //赋给录入时期的的input的一个id名
     var classTest = "";
     for (let i = 0; i < test_arr.length; i++) {
@@ -131,14 +115,6 @@ table_act.update = function(res, tb_id, data) {
                 .replace(/</g, "&lt;");
         }
         // input[type="text"]的遍历生成html
-        // update_str +=
-        //     '<div class="layui-form-item"><label class="layui-form-label">' +
-        //     test_arr[i] +
-        //     '</label> <div class="layui-input-block"> <input type="text"  name="' +
-        //     test_arr[i] +
-        //     '" autocomplete="off" value="' +
-        //     old_arr[i] +
-        //     '" class="layui-input insert-input"> </div> </div>';
          update_str += `<div class="layui-form-item"><label class="layui-form-label">${test_arr[i]}</label> <div class="layui-input-block"> <input type="text"  name="${test_arr[i]}" autocomplete="off" value="${old_arr[i]}" class="layui-input insert-input"> </div> </div>`;
     }
 
@@ -283,14 +259,6 @@ for (let i in table_act) {
                 $("*[name='录入人']").attr("readonly", "readonly");
                 $("*[name='录入时间']").attr("readonly", "readonly"); 
                 $("*[name='id']").attr({ readonly: "readonly", placeholder: "" });
-                $("*[name='关键字']").attr(
-                    "oninput",
-                    "if(value.length>20)value=value.slice(0,20)"
-                );
-                $("*[name='标题']").attr(
-                    "oninput",
-                    "if(value.length>30)value=value.slice(0,30)"
-                );
             }
             break;
     }

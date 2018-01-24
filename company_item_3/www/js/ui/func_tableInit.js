@@ -174,7 +174,18 @@ function table_render(res, toolbar) {
       even: true,
       page: true, //是否显示分页
       limits: [10, 15, 20, 50, 100, 500],
-      limit: 20 //每页默认显示的数量
+      limit: 20, //每页默认显示的数量
+      done: function(res, curr, count){
+        //如果是异步请求数据方式，res即为你接口返回的信息。
+        //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+        // console.log(res);
+
+        for(let i in res.data){
+          if(res.data[i].内容 && form_special_control.rich_open != true){
+            res.data[i].内容 = JSON.stringify(res.data[i].内容)
+          }
+        }
+      }
     });
   });
 }

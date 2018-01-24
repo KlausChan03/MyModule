@@ -104,6 +104,7 @@ module.exports.run = function(body, pg, mo) {
 		p.表格名称 = f.tb_name;
 		p.列表 = f.列表;
 		p.条数 = f.条数;
+		console.log(p.列表)
 
 	} else {
 		p.状态 = f.状态;
