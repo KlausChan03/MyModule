@@ -35,7 +35,6 @@ ajax.index = function(req, res, body) {
   async.waterfall(
     [
       function(cb) {
-        console.log("i am here")
         
         if (conf.postgresql.使用 != "是") {
           cb(null, "");
