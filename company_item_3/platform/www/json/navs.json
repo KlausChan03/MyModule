@@ -1,0 +1,318 @@
+[
+  {
+    "title": "后台首页",
+    "icon": "icon-computer",
+    "href": "page/main.html",
+    "spread": false
+  },
+  {
+    "title": "系统",
+    "icon": "&#xe631;",
+    "href": "page/main.html",
+    "spread": false,
+    "children": [
+      {
+        "title": "管_管理员表",
+        "icon": "&#xe857;",
+        "href": "page/user/user_list.html?func=user_list+user_list_InsertUpdate+user_list_delete&page_id=user_list&pic_type=one",
+        "spread": false
+      },
+      {
+        "title": "管_权限表",
+        "icon": "&#xe857;",
+        "href": "page/user/user_power.html?func=user_power+user_power_InsertUpdate+user_power_delete&page_id=user_power",
+        "spread": false
+      }
+    ]
+  },
+  {
+    "title": "会员账户",
+    "icon": "&#xe635;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "id":"1",
+        "title": "ys_会员表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_member.html?func=page_select_all+page_insert_update+page_delete&page_id=show_member",
+        "spread": false
+      },
+      {
+        "id":"2",
+        "title": "ys_会员资料表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_memberInfo.html?func=page_select_all+page_insert_update+page_delete&page_id=show_memberInfo",
+        "spread": false
+      }
+    ]
+  },
+  {
+    "title": "发布模块",
+    "icon": "&#xe609;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "id":"1",
+        "title": "ys_发布信息表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_publishMsg.html?func=page_select_all+page_insert_update+page_delete&page_id=show_publishMsg&pic_type=all",
+        "spread": false
+      },
+      {
+        "id":"2",
+        "title": "ys_点赞表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_upvote.html?func=page_select_all+page_insert_update+page_delete&page_id=show_upvote",
+        "spread": false
+      },
+      {
+        "id":"3",
+        "title": "ys_评论表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_comment.html?func=page_select_all+page_insert_update+page_delete&page_id=show_comment",
+        "spread": false
+      },
+      {
+        "id":"4",
+        "title": "ys_关注表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_focus.html?func=page_select_all+page_insert_update+page_delete&page_id=show_focus",
+        "spread": false
+      },
+      {
+        "id":"5",
+        "title": "ys_收藏表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_collect.html?func=page_select_all+page_insert_update+page_delete&page_id=show_collect",
+        "spread": false
+      }
+    ]
+  },{
+    "title": "直播模块",
+    "icon": "&#xe6ed;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "id":"1",
+        "title": "ys_直播记录表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_liveRecord.html?func=page_select_all+page_insert_update+page_delete&page_id=show_liveRecord",
+        "spread": false
+      },
+      {
+        "id":"2",
+        "title": "ys_直播观看记录表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_liveWatchRecord.html?func=page_select_all+page_insert_update+page_delete&page_id=show_liveWatchRecord",
+        "spread": false
+      }
+    ]
+  },{
+    "title": "群聊",
+    "icon": "&#xe662;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "id":"1",
+        "title": "ys_群表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_group.html?func=page_select_all+page_insert_update+page_delete&page_id=show_group",
+        "spread": false
+      },
+      {
+        "id":"2",
+        "title": "ys_群成员表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_groupMember.html?func=page_select_all+page_insert_update+page_delete&page_id=show_groupMember",
+        "spread": false
+      },
+      {
+        "id":"3",
+        "title": "ys_群签收表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_groupSign.html?func=page_select_all+page_insert_update+page_delete&page_id=show_groupSign",
+        "spread": false
+      },
+      {
+        "id":"4",
+        "title": "ys_群聊消息表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_groupChatInfo.html?func=page_select_all+page_insert_update+page_delete&page_id=show_groupChatInfo",
+        "spread": false
+      },
+      {
+        "id":"5",
+        "title": "ys_群操作记录表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_groupActionRecord.html?func=page_select_all+page_insert_update+page_delete&page_id=show_groupActionRecord",
+        "spread": false
+      }
+    ]
+  },{
+    "title": "好友",
+    "icon": "&#xe661;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "id":"1",
+        "title": "ys_好友表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_friend.html?func=page_select_all+page_insert_update+page_delete&page_id=show_friend",
+        "spread": false
+      },
+      {
+        "id":"2",
+        "title": "ys_单聊消息表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_friendMsg.html?func=page_select_all+page_insert_update+page_delete&page_id=show_friendMsg",
+        "spread": false
+      },
+      {
+        "id":"3",
+        "title": "ys_好友操作记录表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_friendActionRecord.html?func=page_select_all+page_insert_update+page_delete&page_id=show_friendActionRecord",
+        "spread": false
+      }
+    ]
+  },{
+    "title": "短信消息",
+    "icon": "&#xe63a;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "id":"1",
+        "title": "ys_短信信息表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_smsInfo.html?func=page_select_all+page_insert_update+page_delete&page_id=show_smsInfo",
+        "spread": false
+      },
+      {
+        "id":"2",
+        "title": "ys_消息动态表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_msgStatus.html?func=page_select_all+page_insert_update+page_delete&page_id=show_msgStatus",
+        "spread": false
+      },
+      {
+        "id":"3",
+        "title": "ys_短信模板表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_smsModel.html?func=page_select_all+page_insert_update+page_delete&page_id=show_smsModel",
+        "spread": false
+      }
+    ]
+  },{
+    "title": "设置管理",
+    "icon": "&#xe620;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "id":"1",
+        "title": "ys_设备管理表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_deviceManage.html?func=page_select_all+page_insert_update+page_delete&page_id=show_deviceManage",
+        "spread": false
+      },
+      {
+        "id":"2",
+        "title": "ys_版本控制表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_versionControl.html?func=page_select_all+page_insert_update+page_delete&page_id=show_versionControl",
+        "spread": false
+      },
+      {
+        "id":"3",
+        "title": "ys_登录设备管理表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_loginDeviceManage.html?func=page_select_all+page_insert_update+page_delete&page_id=show_loginDeviceManage",
+        "spread": false
+      },
+      {
+        "id":"4",
+        "title": "ys_海外国家短信码表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_overseasCode.html?func=page_select_all+page_insert_update+page_delete&page_id=show_overseasCode",
+        "spread": false
+      }
+    ]
+  },{
+    "title": "日志管理",
+    "icon": "&#xe63c;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "id":"1",
+        "title": "ys_日志_操作表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_logging.html?func=page_select_all+page_insert_update+page_delete&page_id=show_logging",
+        "spread": false
+      }      
+    ]
+  },
+  {
+    "title": "功能开发",
+    "icon": "&#xe630;",
+    "href": "",
+    "spread": false,
+    "children": [
+      {
+        "title": "404页面",
+        "icon": "&#xe857;",
+        "href": "page/404.html",
+        "spread": false
+      },
+      {
+        "title": "周文丽测试专用",
+        "icon": "&#xe857;",
+        "href": "page/test/zwl_test.html",
+        "spread": false
+      },
+      {
+        "title": "周文丽测试专用2",
+        "icon": "&#xe857;",
+        "href": "page/test/zwl_test2.html",
+        "spread": false
+      },
+      {
+        "title": "陈廷星测试专用",
+        "icon": "&#xe857;",
+        "href": "page/test/klaus_test.html",
+        "spread": false
+      },
+      {
+        "title": "陈廷星测试专用2",
+        "icon": "&#xe857;",
+        "href": "page/test/klaus_test2.html",
+        "spread": false
+      },
+      {
+        "title": "陈廷星测试专用3",
+        "icon": "&#xe857;",
+        "href": "page/test/klaus_test_1215.html",
+        "spread": false
+      },
+      {
+        "title": "陈廷星测试专用4",
+        "icon": "&#xe857;",
+        "href": "page/test/klaus_mysql.html",
+        "spread": false
+      },
+      {
+        "title": "登录",
+        "icon": "&#xe857;",
+        "href": "page/login/login.html",
+        "spread": false,
+        "target": "_blank"
+      }
+    ]
+  }
+]

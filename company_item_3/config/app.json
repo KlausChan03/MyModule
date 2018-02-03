@@ -18,13 +18,13 @@
     "pass": "qqpt123",
     "db": "qqpt"
   },
-  "postgresql": {
-    "使用": "是",
-    "host": "120.55.52.229",
-    "user": "postgres",
-    "pass": "postgresql",
-    "db": "ysj"
-  },
+	"postgresql":{
+    "使用":"是",
+		"host":"47.104.102.223:5432",
+		"user":"postgres",
+		"pass":"123456",
+		"db":"ysj"
+	},
 	"mysql":{
     "使用": "否",
 		"host":"localhost",
