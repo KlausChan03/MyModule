@@ -101,10 +101,15 @@ module.exports.run = function(body, pg, mo) {
 		// if(f.type == "all"){
 		// 	f.列表.sort(function (o1, o2) { return parseInt(o1.id) - parseInt(o2.id); });			
 		// }
+
+		for(let i in f.列表){
+			if(typeof(f.列表[i].内容)  == "object"){
+				f.列表[i].内容 = JSON.stringify(f.列表[i].内容)
+			}
+		}
 		p.表格名称 = f.tb_name;
 		p.列表 = f.列表;
 		p.条数 = f.条数;
-		console.log(p.列表)
 
 	} else {
 		p.状态 = f.状态;

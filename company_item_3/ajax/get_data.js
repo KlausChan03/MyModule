@@ -27,14 +27,65 @@ module.exports.run = function(body, pg, mo) {
       }
     }
   });
-  f.日期 = moment().format("YYYY-MM-DD");
-  f.今天起点 = moment().format("YYYY-MM-DD 00:00:00");
-  f.今天终点 = moment().format("YYYY-MM-DD 23:59:59");
 
-  //   sql = `SELECT 活跃时间 FROM ys_设备管理表 WHERE 活跃时间 < '${f.今天终点}' && 活跃时间 > '${f.今天起点}'`;
-  sql = `select * from ys_设备管理表 where substring(活跃时间,0,11) = '${f.日期}'`;
+  f.today = moment().format("YYYY-MM-DD");
+  f.week_begin = moment().day(0).format('YYYY-MM-DD');
+  f.week_end = moment().day(7).format('YYYY-MM-DD');  
+  f.month_begin = moment().startOf('month').format('YYYY-MM-DD');  
+  f.month_end = moment().endOf('month').format('YYYY-MM-DD');  
+
+  // 获取本日的登陆数据
+  sql = `select * from ys_设备管理表 where substring(活跃时间,0,11) = '${f.today}'`;
   result = pgdb.query(pg, sql);
-  p.data = result.数据;
+  p.login_t = result.数据;
+
+  // 获取本周的登陆数据 
+  sql = `select * from ys_设备管理表 where substring(活跃时间,0,11) > '${f.week_begin}' and substring(活跃时间,0,11) < '${f.week_end}'`;
+  result = pgdb.query(pg, sql);
+  p.login_w = result.数据;  
+
+  // 获取本月的登陆数据
+  sql = `select * from ys_设备管理表 where substring(活跃时间,0,11) > '${f.month_begin}' and substring(活跃时间,0,11) < '${f.month_end}'`;
+  result = pgdb.query(pg, sql);
+  p.login_m = result.数据;
+
+
+   // 获取本日的注册数据
+   sql = `select * from ys_会员表 where substring(录入时间,0,11) = '${f.today}'`;
+   result = pgdb.query(pg, sql);
+   p.register_t = result.数据;
+ 
+   // 获取本周的注册数据
+   sql = `select * from ys_会员表 where substring(录入时间,0,11) > '${f.week_begin}' and substring(录入时间,0,11) < '${f.week_end}'`;
+   result = pgdb.query(pg, sql);
+   p.register_w = result.数据;  
+ 
+   // 获取本月的注册数据
+   sql = `select * from ys_会员表 where substring(录入时间,0,11) > '${f.month_begin}' and substring(录入时间,0,11) < '${f.month_end}'`;
+   result = pgdb.query(pg, sql);
+   p.register_m = result.数据;
+
+
+   // 获取本日的发布数据
+   sql = `select * from ys_发布信息表 where substring(录入时间,0,11) = '${f.today}'`;
+   result = pgdb.query(pg, sql);
+   p.publish_t = result.数据;
+ 
+   // 获取本周的发布数据
+   sql = `select * from ys_发布信息表 where substring(录入时间,0,11) > '${f.week_begin}' and substring(录入时间,0,11) < '${f.week_end}'`;
+   result = pgdb.query(pg, sql);
+   p.publish_w = result.数据;  
+ 
+   // 获取本月的发布数据
+   sql = `select * from ys_发布信息表 where substring(录入时间,0,11) > '${f.month_begin}' and substring(录入时间,0,11) < '${f.month_end}'`;
+   result = pgdb.query(pg, sql);
+   p.publish_m = result.数据;
+
+
+
+
+  p.data = [p.login_t,p.login_w,p.login_m,p.register_t,p.register_w,p.register_m,p.publish_t,p.publish_w,p.publish_m];
   p.状态 = "成功";
+  console.log(p.data)
   return p;
 };

@@ -1,8 +1,9 @@
 .idea
 .project
+.vscode
 node_modules
 _logs
-.vscode
-start.json
 temp
+start.json
+company_item_3/mysql.db
 1.backup

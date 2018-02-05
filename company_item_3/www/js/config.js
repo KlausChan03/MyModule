@@ -13,6 +13,7 @@ require.config({
     init: "lib/init",
     jquery_MD5: "lib/jquery.md5",
     common: "lib/common",
+    chart: "lib/highcharts",
 
     //ui层
     ui_login: "ui/ui_login",
@@ -40,6 +41,7 @@ require.config({
     show_collect: "ui/show/show_collect",
     show_liveRecord: "ui/show/show_liveRecord",
     show_liveWatchRecord: "ui/show/show_liveWatchRecord",
+    show_liveSetting: "ui/show/show_liveSetting",
     show_group: "ui/show/show_group",
     show_groupMember: "ui/show/show_groupMember",
     show_groupSign: "ui/show/show_groupSign",
@@ -75,7 +77,7 @@ require.config({
     // 具体页面调用
     ui_login:["layui","jquery", "common","canvas_login","jquery_MD5"],
     ui_index:["layui", "jquery","ui_leftNav","common"],
-    ui_main:["layui", "jquery","ui_leftNav","common"],
+    ui_main:["layui", "jquery","ui_leftNav","common","chart"],
     ui_user:["layui", "jquery","ui_leftNav","common","jquery_MD5"],
 
     user_list: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
@@ -90,6 +92,7 @@ require.config({
     show_collect: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     show_liveRecord: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     show_liveWatchRecord: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
+    show_liveSetting: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     show_group: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     show_groupMember: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],
     show_groupSign: [ "layui", "jquery", "common", "init", "func_formControl", "func_tableButton", "func_tableInit", "func_layer" ],

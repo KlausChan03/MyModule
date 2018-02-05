@@ -40,7 +40,7 @@ module.exports.run = function(body, pg, mo) {
       }
     }
   });
-  console.log(table_type);
+  // console.log(table_type);
   switch (table_type) {
     case "系统":
       sqlite_func();

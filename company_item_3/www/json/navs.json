@@ -108,6 +108,13 @@
         "icon": "&#xe857;",
         "href": "page/show/show_liveWatchRecord.html?func=page_select_all+page_insert_update+page_delete&page_id=show_liveWatchRecord",
         "spread": false
+      },
+      {
+        "id":"3",
+        "title": "ys_直播设置表",
+        "icon": "&#xe857;",
+        "href": "page/show/show_liveSetting.html?func=page_select_all+page_insert_update+page_delete&page_id=show_liveSetting",
+        "spread": false
       }
     ]
   },{

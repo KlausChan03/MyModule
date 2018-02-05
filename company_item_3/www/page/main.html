@@ -19,7 +19,10 @@
 </head>
 
 <body class="childrenBody">
-	<div id="container" style="min-width:400px;height:400px"></div>
+	<div id="container" style="min-width:400px;height:400px" class="flex flex-hb-vc">
+		<div id="chart-1"></div>
+		<div id="chart-2"></div>
+	</div>
 	<div class="message"></div>
 	<div class="panel_box row"></div>
 
@@ -80,7 +83,7 @@
 			<div class="next-requirement">
 				<blockquote class="layui-elem-quote title flex-hb-vc">
 					<span>下期需求
-						<i class="iconfont icon-new1"></i>
+						<!-- <i class="iconfont icon-new1"></i> -->
 					</span>
 					<span class="more-msg">更多
 						<i class="layui-icon more">&#xe602;</i>
@@ -101,74 +104,17 @@
 
 	<!-- <script type="text/javascript" src="../layui/layui.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script> -->
-	<script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
-	<script src="/js/lib/jquery.min.js"></script>
+	<!-- <script src="/js/lib/jquery.min.js"></script> -->
+	<!-- <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script> -->
+	<!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/core.js"></script> -->
 	<script>
-		$('#container').highcharts({
-			chart: {
-				plotBackgroundColor: null,
-				plotBorderWidth: null,
-				plotShadow: false
-			},
-			title: {
-				text: '2014 某网站各浏览器浏览量占比'
-			},
-			tooltip: {
-				headerFormat: '{series.name}<br>',
-				pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
-			},
-			plotOptions: {
-				pie: {
-					allowPointSelect: true,
-					cursor: 'pointer',
-					dataLabels: {
-						enabled: true,
-						format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-						style: {
-							color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-						}
-					}
-				}
-			},
-			series: [{
-				type: 'pie',
-				name: '浏览器访问量占比',
-				data: [
-					['Firefox', 45.0],
-					['IE', 26.8],
-					{
-						name: 'Chrome',
-						y: 12.8,
-						sliced: true,
-						selected: true
-					},
-					['Safari', 8.5],
-					['Opera', 6.2],
-					['其他', 0.7]
-				]
-			}]
-		});
+
 	</script>
 	<script src="/js/lib/require.js" data-main="/js/config"></script>
 	<script>
 		require(['config'], function () {
 			require(["ui_main"], function () {
-				console.log("main——调用成功")
-				var chart = null;
-				// 获取 CSV 数据并初始化图表
-				var obj_save = {
-					datas: '',
-					func: "get_data"
-				};
-				var error_func = function (res) { }
-				var success_func = function (res) {
-					console.log(res)
-
-				}
-				ajax.ajax_common(obj_save, success_func, error_func);
-
-
-
+				
 
 			})
 		})
