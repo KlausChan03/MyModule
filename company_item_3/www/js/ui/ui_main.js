@@ -127,31 +127,30 @@ layui
       }
     }
 
-    console.log("main——调用成功");
 	var chart = null;
 	var myWidth = $('#container').css('width').slice(0,-2);
 	myWidth = myWidth/2-10;
-    // 获取 CSV 数据并初始化图表
-    var obj_save = {
-      datas: "",
-      func: "get_data"
-    };
-    var error_func = function(res) {};
-    var success_func = function(res) {
+  // 获取 CSV 数据并初始化图表
+  var obj_save = {
+    datas: "",
+    func: "get_data"
+  };
+  var error_func = function(res) {};
+  var success_func = function(res) {
 	Highcharts.setOptions({
 		// colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4']
-		colors: ['#333333', '#2B9CED', '#FF4F54', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4']
+		colors: ['#ffde00', '#2B9CED', '#FF4F54', '#333333', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4']
 	});
       
 	Highcharts.chart("chart-1",{
-        chart: {
+      chart: {
           plotBackgroundColor: null,
           plotBorderWidth: null,
 		  plotShadow: false,
 		  width: myWidth
         },
         title: {
-          text: "2014 某网站各浏览器浏览量占比"
+          text: "发布作品类型统计"
         },
         tooltip: {
           headerFormat: "{series.name}<br>",
@@ -170,19 +169,17 @@ layui
         series: [
           {
             type: "pie",
-            name: "浏览器访问量占比",
+            name: "发布类型占比",
             data: [
-              ["Firefox", 45.0],
-              ["IE", 26.8],
+              ["图文",res.publish_arr.图文.length],
               {
-                name: "Chrome",
-                y: 12.8,
+                name: "视频",
+                y: res.publish_arr.视频.length,
                 sliced: true,
                 selected: true
               },
-              ["Safari", 8.5],
-              ["Opera", 6.2],
-              ["其他", 0.7]
+              ["直播", res.publish_arr.直播.length],
+              ["其他", res.publish_arr.其他.length]
             ]
           }
         ]

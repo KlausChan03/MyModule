@@ -10,6 +10,7 @@ var fs = require("fs");
 config.readfile();
 
 module.exports.run = function(body, pg, mo) {
+  console.log(body)
   body.receive = JSON.parse(body.data);
   var p = {},f = {};
   var sql, result;

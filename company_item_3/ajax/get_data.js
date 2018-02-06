@@ -82,10 +82,24 @@ module.exports.run = function(body, pg, mo) {
    p.publish_m = result.数据;
 
 
+  //  获取发布类型比重
+  sql = `select 类别 from ys_发布信息表 where 状态 = '正常'`
+  result = pgdb.query(pg, sql);
+  p.publish_arr = {};
+  [p.publish_arr.图文,p.publish_arr.视频,p.publish_arr.直播,p.publish_arr.其他] = [[],[],[],[]]
+  for (let i in result.数据){
+    if(result.数据[i].类别 == "图文"){
+      p.publish_arr.图文.push(result.数据[i].类别)
+    }else if(result.数据[i].类别 == "视频"){
+      p.publish_arr.视频.push(result.数据[i].类别)
+    }else if(result.数据[i].类别 == "直播"){
+      p.publish_arr.直播.push(result.数据[i].类别)
+    }else{
+      p.publish_arr.其他.push(result.数据[i].类别)      
+    }      
+  }
 
-
-  p.data = [p.login_t,p.login_w,p.login_m,p.register_t,p.register_w,p.register_m,p.publish_t,p.publish_w,p.publish_m];
+  p.data = [p.login_t,p.login_w,p.login_m,p.register_t,p.register_w,p.register_m,p.publish_t,p.publish_w,p.publish_m,p.publish_arr];
   p.状态 = "成功";
-  console.log(p.data)
   return p;
 };

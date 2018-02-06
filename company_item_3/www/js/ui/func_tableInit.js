@@ -3,10 +3,6 @@
 //获取iframe url的参数信息
 var ifarme_func = window.top.document.getElementsByClassName("iframe_");
 var tb_id = GetRequest(ifarme_func).page_id;
-// var pic_type = GetRequest(ifarme_func).pic_type;
-// var rich_open = GetRequest(ifarme_func).rich_open;
-// var video_open = GetRequest(ifarme_func).video_open;
-// var sql_type = GetRequest(ifarme_func).sql_type;
 var func_arr = GetRequest(ifarme_func).func;
 var get_func = [];
 get_func[0] = func_arr.split("+")[0];
@@ -14,9 +10,7 @@ get_func[1] = func_arr.split("+")[1];
 get_func[2] = func_arr.split("+")[2];
 var form_special_control = {};
 var data = {};
-let toolbar = true;
 let tb_title = "";
-// let [obj_save,success_func,error_func] = [{},"",""];
 
 // 表格渲染
 layui.use(["table", "form", "upload"], function() {
@@ -42,8 +36,8 @@ layui.use(["table", "form", "upload"], function() {
     $(".table-title").html(tb_title);
 
     // 渲染生成表格和按钮
-    table_render(res, toolbar);
-    insertButton(table, res)
+    insertButton(table, res);   
+    table_render(res);
 
     //单条查询10/21 zhou   
 
@@ -74,8 +68,7 @@ layui.use(["table", "form", "upload"], function() {
       };
       var success_func = function(res) {
         var resSingle = res;
-        toolbar = true;
-        table_render(resSingle, toolbar);
+        table_render(resSingle);
       };
       var error_func = function(res) {
         if (res.状态 == "获取列表异常") {
@@ -111,53 +104,38 @@ layui.use(["table", "form", "upload"], function() {
  * @param {Object} res
  */
 
-function table_render(res, toolbar) {
+function table_render(res) {
   layui.use(["table"], function() {
-    var table = layui.table;
-    var bar_set = $(".layui-hide .layui-btn").length;
-    var th = [];
+    let table = layui.table;
+    let bar_set = $(".layui-hide .layui-btn").length;
+    let th = [];
 
     // 引入工具条
-    if (toolbar == "flase") {
-      th.push({ checkbox: true, fixed: true, align: "center" });
-    } else {
-      th.push(
-        { checkbox: true, fixed: true, align: "center" },
-        { title: "操作", toolbar: "#act-bar", width: 180, fixed: true, align: "center" }
-      );
-    }
+    th.push({ checkbox: true, fixed: true, align: "center" }, { title: "操作", toolbar: "#act-bar", width: 180, fixed: true, align: "center" });
+
     // 插入表格头部
     for (let i in res.列表[0]) {
       th.push({ field: i, title: i, minWidth: 150, align: "center" });
       $(".select-test").append(`<option value="${i}">${i}</option>`);
     }
 
-    // 头部单独处理
-    // 引入正序和倒序排序(sort)
-    th[2].sort = true;
+    // 排序、列宽等控制
+    function set_sort(arg1,arg2) {
+      arg1.sort = arg2;
+    }
+    function set_width(arg1,arg2) {
+      arg1.minWidth = arg2;
+    }
+
     for (let i in th) {
       if (th[i].field == "录入时间") {
-        var that = th[i];
-        function get_sort(arg1) {
-          this.sort = true;
-          this.minWidth = 200;
-        }
-        get_sort.apply(that);
+        set_width(th[i],200);
       }
       if (th[i].field == "id") {
-        var that = th[i];
-        function set_width(arg1) {
-          this.minWidth = 80;
-          this.sort = true;
-        }
-        set_width.apply(that);
+        set_width(th[i],100);
       }
-      if (th[i].field == "排序") {
-        var that = th[i];
-        function set_width(arg1) {
-          this.sort = true;
-        }
-        set_width.apply(that);
+      if (th[i].field != "" && th[i].title != "操作") {
+        set_sort(th[i],true);
       }
     }
     
@@ -178,13 +156,14 @@ function table_render(res, toolbar) {
       done: function(res, curr, count){
         //如果是异步请求数据方式，res即为你接口返回的信息。
         //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
-        // console.log(res);
-        // for(let i in res.data){
-        //   if(res.data[i].内容 && form_special_control.rich_open != true){
-        //     res.data[i].内容 = JSON.stringify(res.data[i].内容)
-        //   }
-        // }
-      }
+        console.log(res);
+      },
+      // url:"/ajax.post?func=page_select_all",
+      // method:'post',
+      // request: {
+      //   pageName: 'curr' //页码的参数名称，默认：page
+      //   ,limitName: 'nums' //每页数据量的参数名，默认：limit
+      // }    
     });
   });
 }
@@ -221,25 +200,17 @@ function insertButton(table,res) {
           }
         }
       }
-    } else {
-      toolbar = false;
     }
 
     // 通用按钮(无限制)
     // 刷新
-    $(".layui-btn-group").append(
-      `<a class="layui-btn layui-btn-normal layui-btn-mini btn-refresh" data-type="refresh" style="margin-left:10px!important"> <i class="layui-icon">&#x1002;</i>刷新</a>`
-    );
+    $(".layui-btn-group").append( `<a class="layui-btn layui-btn-normal layui-btn-mini btn-refresh" data-type="refresh" style="margin-left:10px!important"> <i class="layui-icon">&#x1002;</i>刷新</a>` );
 
     $(".btn-refresh").mouseover(function() {
-      $(".btn-refresh")
-        .find("i")
-        .addClass("layui-anim layui-anim-rotate layui-anim-loop");
+      $(".btn-refresh") .find("i") .addClass("layui-anim layui-anim-rotate layui-anim-loop");
     });
     $(".btn-refresh").mouseout(function() {
-      $(".btn-refresh")
-        .find("i")
-        .removeClass("layui-anim layui-anim-rotate layui-anim-loop");
+      $(".btn-refresh") .find("i") .removeClass("layui-anim layui-anim-rotate layui-anim-loop");
     });
 
     // 获取按钮后表格外按钮重载
@@ -260,8 +231,7 @@ function insertButton(table,res) {
         area: "310px",
         id: "LAY_layuipro",
         btn: ["确定"],
-        content:
-          '<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p>登陆已超时</p></div>',
+        content:'<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p>登陆已超时</p></div>',
         yes: function() {
           parent.window.location.href = "/page/login.html";
         }
@@ -274,7 +244,7 @@ function insertButton(table,res) {
   table.on("tool(demo)", function(obj) {
     //注：tool是工具条事件名，common-table是table原始容器的属性 lay-filter="对应的值"
     var data = obj.data, //获得当前行数据
-      layEvent = obj.event; //获得 lay-event 对应的值
+    layEvent = obj.event; 
     switch (layEvent) {
       case "detail":
         layer.msg("查看操作");
@@ -296,16 +266,12 @@ function insertButton(table,res) {
 
   //表格外功能工具条
   var active = {
-    refresh: function() {
-      history.go(0);
-    },
-    insertData: function() {
-      table_act.insert(res, tb_id);
-    },
-    deleteData: function() {
-      var checkStatus = table.checkStatus("common-table"),
-        data = checkStatus.data;
-      var select_id = [];
+    refresh: () => {history.go(0)},
+    insertData: () => {table_act.insert(res, tb_id)},
+    deleteData: () => {
+      var checkStatus = table.checkStatus("common-table");
+      var select_id = [];      
+      var data = checkStatus.data;
       for (let i in checkStatus.data) {
         select_id.push(checkStatus.data[i].id);
       }
