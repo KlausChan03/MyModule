@@ -25,7 +25,7 @@ var layObj = {
 			isOutAnim: false,
 			btn1: function(index, layero) {
 				layer.close(index);
-				//				btn1_opt();
+	
 			},
 			success: function(layero, index) {
 				

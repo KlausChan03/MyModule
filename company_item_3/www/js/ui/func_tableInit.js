@@ -10,7 +10,9 @@ get_func[1] = func_arr.split("+")[1];
 get_func[2] = func_arr.split("+")[2];
 var form_special_control = {};
 var data = {};
+let page_save = "";
 let tb_title = "";
+let [success_func,error_func,obj_save]=["","",""];
 
 // 表格渲染
 layui.use(["table", "form", "upload"], function() {
@@ -25,12 +27,12 @@ layui.use(["table", "form", "upload"], function() {
   data.type = "all";
 
   // ajax请求获取表格数据
-  var obj_save = {
+  obj_save = {
     datas: [data.field, data.tb_id, data.type],
     func: get_func[0]
   };
 
-  var success_func = function(res) {
+  success_func = (res) => {
     tb_title = res.表格名称.replace("表", "").replace(/^[a-z]{0,8}_/, "");    
     // tb_title = tb_title.replace("表", "").replace(/^[\u2E80-\u9FFF]_/, "");
     $(".table-title").html(tb_title);
@@ -42,7 +44,6 @@ layui.use(["table", "form", "upload"], function() {
     //单条查询10/21 zhou   
 
     form.on("select(search)", function(data) {
-      console.log(data.value); //得到被选中的值
       if (data.value == "id") {
         $("#souVal").attr({
           onclick: "input_test2(this);",
@@ -62,30 +63,25 @@ layui.use(["table", "form", "upload"], function() {
       data.field = [syllable, syllableVal];
       data.tb_id = tb_id;
       data.type = "one";
-      var obj_save = {
+      obj_save = {
         datas: [data.field, data.tb_id, data.type],
         func: get_func[0]
       };
-      var success_func = function(res) {
+      success_func = (res) => {
         var resSingle = res;
         table_render(resSingle);
       };
-      var error_func = function(res) {
+      error_func = (res) => {
         if (res.状态 == "获取列表异常") {
-          layer.alert("查询无结果", { icon: 2 }, function(index) {
-            layer.close(index);
-          });
+          layer.alert("查询无结果", { icon: 2 }, function(index) { layer.close(index) });
         } else {
-          layer.alert(res.状态, { icon: 2 }, function(index) {
-            // layer.close(index);
-            history.go(0);
-          });
+          layer.alert(res.状态, { icon: 2 }, function(index) { history.go(0) });
         }
       };
       ajax.ajax_common(obj_save, success_func, error_func);
     });
   };
-  var error_func = function(res) {
+  error_func = (res) => {
     if (res.状态 == "获取列表异常") {
       //渲染标题
       tb_title = res.表格名称.replace("表", "").replace(/^[\u2E80-\u9FFF]_/, "");
@@ -134,6 +130,9 @@ function table_render(res) {
       if (th[i].field == "id") {
         set_width(th[i],100);
       }
+      if (th[i].field == "用户id") {
+        set_width(th[i],250);
+      }
       if (th[i].field != "" && th[i].title != "操作") {
         set_sort(th[i],true);
       }
@@ -150,13 +149,15 @@ function table_render(res) {
       cols: [th],
       skin: "row", //表格风格
       even: true,
-      page: true, //是否显示分页
+      page: {curr:1}, //是否显示分页
       limits: [10, 15, 20, 50, 100, 500],
       limit: 20, //每页默认显示的数量
       done: function(res, curr, count){
         //如果是异步请求数据方式，res即为你接口返回的信息。
         //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
         console.log(res);
+        console.log(curr);
+        page_save = curr;
       },
       // url:"/ajax.post?func=page_select_all",
       // method:'post',
@@ -168,10 +169,11 @@ function table_render(res) {
   });
 }
 
+
 function insertButton(table,res) {
   // 功能按钮渲染
-  var obj_save = { datas: tb_id, func: "admin_control_function" };
-  var success_func = function(res) {
+  obj_save = { datas: tb_id, func: "admin_control_function" };
+  success_func = (res) => {
     if (res.keyPower != "") {
       var key_arr = [];
       for (let i in res.keyPower) {
@@ -223,7 +225,7 @@ function insertButton(table,res) {
     table.reload("common-table");
   
   };
-  var error_func = function(res) {
+  error_func = (res) => {
     if (res.状态 == "当前未登录") {
       parent.layer.open({
         type: 1,

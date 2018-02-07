@@ -63,11 +63,11 @@ form_act.add_video_pic = function(pic, video) {
               }
 
               // ajax请求配置文件以及上传
-              var obj_save = {
+              obj_save = {
                 datas: "",
                 func: "get_alicloudConfig"
               };
-              var success_func = function(res) {
+              success_func = (res) => {
                 // require(["/js/lib/aliyun-oss.js"], function(OSS) {
                 var client = new OSS.Wrapper({
                   region: res.conf.region,
@@ -99,7 +99,7 @@ form_act.add_video_pic = function(pic, video) {
                   });
                 // });
               };
-              var error_func = function(res) {
+              error_func = (res) => {
                 console.log(res);
               };
               ajax.ajax_common(obj_save, success_func, error_func);

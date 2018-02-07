@@ -9,14 +9,14 @@ table_act.delete = function(res, tb_id, select_id) {
     var g = {};
     g.tb_id = tb_id;
     g.select_id = { id: select_id };
-    var obj_save = { datas: [g.select_id, g.tb_id], func: get_func[2] };
-    var success_func = function(res) {
+    obj_save = { datas: [g.select_id, g.tb_id], func: get_func[2] };
+    success_func  = (res) => {
         layer.alert(res.状态, function() {
             layer.closeAll();
             history.go(0);
         });
     };
-    var error_func = function(res) {
+    error_func = (res) => {
         layer.alert(res.状态, function() {
             layer.closeAll();
             history.go(0);
@@ -30,15 +30,15 @@ table_act.insert = function(res, tb_id) {
     var test_arr,input_str="";
     var g = {};
     g.tb_id = tb_id;
-    var obj_save = { datas:g.tb_id, func: "get_arrInsert"};
-    var success_func = function(res){test_arr = res.数据;}    
-    var error_func = function(res){}
+    obj_save = { datas:g.tb_id, func: "get_arrInsert"};
+    success_func = (res) =>{ test_arr = res.数据;}    
+    error_func = (res) =>{}
     ajax.ajax_common_sync(obj_save, success_func, error_func);
 
     for (let i = 0; i < test_arr.length; i++) {
         input_str += ` <div class="layui-form-item"><label class="layui-form-label">${test_arr[i]}</label> <div class="layui-input-block"> <input type="text"  name="${test_arr[i]}"  placeholder="请输入${test_arr[i]}"  autocomplete="off" class="layui-input insert-input"></div> </div> `;
     }    
-    var success_func = function() {
+    success_func = () => {
         insert_local_process();
         common_progress();
 
@@ -61,17 +61,17 @@ table_act.insert = function(res, tb_id) {
                    );
                 }
 
-                var obj_save = {
+                obj_save = {
                     datas: [data.field, data.tb_id],
                     func: get_func[1]
                 };
-                var success_func = function(res) {
+                success_func  = (res) => {
                     layer.alert(res.状态, function() {
                         layer.closeAll();
                         history.go(0);
                     });
                 };
-                var error_func = function(res) {
+                error_func = (res) => {
                     layer.alert(res.状态, function() {
                         layer.closeAll();
                         history.go(0);
@@ -93,14 +93,14 @@ table_act.update = function(res, tb_id, data) {
     var g = {};
     g.tb_id = tb_id;
     g.id = data.id;
-    var obj_save = { datas:[g.tb_id,g.id], func: "get_arrUpdate"};
-    var success_func = function(res){
+    obj_save = { datas:[g.tb_id,g.id], func: "get_arrUpdate"};
+    success_func  = (res) =>{
         test_arr = res.字段;
         for (let j in res.数据[0]) {
             old_arr.push(res.数据[0][j]);
         }
     }    
-    var error_func = function(res){}
+    error_func = (res) =>{}
     ajax.ajax_common_sync(obj_save, success_func, error_func);
 
     //赋给录入时期的的input的一个id名
@@ -115,10 +115,10 @@ table_act.update = function(res, tb_id, data) {
                 .replace(/</g, "&lt;");
         }
         // input[type="text"]的遍历生成html
-         update_str += `<div class="layui-form-item"><label class="layui-form-label">${test_arr[i]}</label> <div class="layui-input-block"> <input type="text"  name="${test_arr[i]}" autocomplete="off" value="${old_arr[i]}" class="layui-input insert-input"> </div> </div>`;
+        update_str += `<div class="layui-form-item"><label class="layui-form-label">${test_arr[i]}</label> <div class="layui-input-block"> <input type="text"  name="${test_arr[i]}" autocomplete="off" value="${old_arr[i]}" class="layui-input insert-input"> </div> </div>`;
     }
 
-    var success_func = function() {
+    success_func = () => {
         update_local_process();
         common_progress();
 
@@ -140,21 +140,19 @@ table_act.update = function(res, tb_id, data) {
                 if (data.field.内容) {
                      // 转码前将原本含有的“%”转义                    
                     data.field.内容 = data.field.内容.replace(/%/g, "\%")                    
-                    data.field.内容 = encodeURIComponent(
-                        encodeURIComponent(data.field.内容)
-                    );
+                    data.field.内容 = encodeURIComponent( encodeURIComponent(data.field.内容) );
                 }
-                var obj_save = {
+                obj_save = {
                     datas: [data.field, data.tb_id],
                     func: get_func[1]
                 };
-                var success_func = function(res) {
+                success_func  = (res) => {
                     layer.alert(res.状态, function() {
                         layer.closeAll();
                         window.location.reload();
                     });
                 };
-                var error_func = function(res) {
+                error_func = (res) => {
                     layer.alert(res.状态, function() {
                         layer.closeAll();
                         history.go(0);

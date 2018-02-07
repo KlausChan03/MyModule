@@ -1,9 +1,11 @@
 .idea
 .project
 .vscode
+.babelrc
 node_modules
 _logs
 temp
 start.json
 company_item_3/mysql.db
 1.backup
+2.things
