@@ -6,27 +6,15 @@ var logger = require("morgan");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var http = require("http");
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 var config = require("./function/config.js");
-=======
->>>>>>> c331d07d9475ffd1daf316e293fad7e526eae7ca
 var https = require("https");
 var url = require("url");
 var querystring = require("querystring");
 var buffer = require("buffer");
-<<<<<<< HEAD
-=======
 var config = require("./function/config.js");
->>>>>>> 489d82e76355f102de77dd0ca3b2380084a559ef
-=======
->>>>>>> 2607991b77efc056aabed7517552384b71c86a2b
->>>>>>> c331d07d9475ffd1daf316e293fad7e526eae7ca
 
 // 加载路由控制
 var routes = require("./routes/index");
-// var users = require('./routes/users');
 var test = require("./routes/test");
 var push = require("./routes/push");
 
@@ -51,20 +39,9 @@ app.use(express.static(path.join(__dirname, "client")));
 
 // 匹配路径和路由
 app.use("/", routes);
-// app.use('/users', users);
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-app.post("/run", test.run);
-app.post("/swim", push.swim);
-=======
->>>>>>> c331d07d9475ffd1daf316e293fad7e526eae7ca
-// app.post("/run", test.run);
 
 app.post("/routes.post*", function(req, res) {
   var body = "";
-  console.log("111111");
   // body += chunk;
   // console.log(body);
   try {
@@ -101,14 +78,6 @@ app.post("/routes.post*", function(req, res) {
     res.send('{"code":"-1","msg":"body error"}').end();
   }
 });
-<<<<<<< HEAD
-=======
-app.post("/run", test.run);
-app.post("/swim", push.swim);
->>>>>>> 489d82e76355f102de77dd0ca3b2380084a559ef
-=======
->>>>>>> 2607991b77efc056aabed7517552384b71c86a2b
->>>>>>> c331d07d9475ffd1daf316e293fad7e526eae7ca
 
 // 404错误处理
 app.use(function(req, res, next) {
