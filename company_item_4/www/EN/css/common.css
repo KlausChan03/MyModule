@@ -1,0 +1,683 @@
+﻿/* reset */
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote, th, td, input, select, textarea, button { margin: 0; padding: 0 }
+
+body { background-color: #fff; }
+
+
+/* 初始化标签在所有浏览器中的margin、padding值 */
+fieldset, img { border: 0 none }
+
+
+/* 重置fieldset（表单分组）、图片的边框为0*/
+dl, ul, ol, menu, li { list-style: none }
+
+
+/* 重置类表前导符号为onne,menu在HTML5中有效 */
+blockquote, q { quotes: none }
+
+
+/* 重置嵌套引用的引号类型 */
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none
+}
+
+
+/* 重置嵌套引用*/
+
+input,
+select,
+textarea,
+button {
+    vertical-align: middle
+}
+
+
+/* 重置表单控件垂直居中*/
+
+button {
+    border: 0 none;
+    background-color: transparent;
+    cursor: pointer
+}
+
+
+/* 重置表单button按钮效果 */
+
+
+/* 重置body 页面背景为白色 */
+
+body,
+th,
+td,
+input,
+select,
+textarea,
+button {
+    font-size: 12px;
+    line-height: 1;
+    font-family: "微软雅黑", "黑体", "宋体";
+    color: #666
+}
+
+
+/* 重置页面文字属性 */
+
+a {
+    color: #666;
+    text-decoration: none
+}
+
+
+/* 重置链接a标签 */
+
+a:active,
+a:hover {
+    text-decoration: none
+}
+
+
+/* 重置链接a标签的鼠标滑动效果 */
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+var {
+    font-style: normal;
+    font-weight: normal
+}
+
+
+/* 重置样式标签的样式 */
+
+caption {
+    display: none;
+}
+
+
+/* 重置表格标题为隐藏 */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+
+/* 重置table属性 */
+
+img {
+    vertical-align: top
+}
+
+
+/* 图片在当前行内的垂直位置 */
+
+.li-border {
+    border-bottom: 1px solid #efefef;
+}
+
+
+/* 页面设置 */
+
+
+/* 取消a标签点击后的虚线框 */
+
+a {
+    outline: none;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active,
+a:focus {
+    outline: none!important;
+    border: none;
+    text-decoration: none;
+}
+
+input[disabled],
+textarea[disabled],
+select[disabled='disabled'] {
+    -webkit-text-fill-color: #666666;
+    -webkit-opacity: 1;
+    opacity: 1;
+    color: #666666;
+    background-color: #FFFFFF;
+}
+
+
+/* 设置页面文字等在拖动鼠标选中情况下的背景色与文字颜色 */
+
+
+/*   
+::selection {color: #fff;background-color: #4C6E78;}      
+::-moz-selection {color: #fff;background-color: #4C6E78;}   
+*/
+
+
+.text-center{
+    text-align: center;
+}
+
+/*清除浮动*/
+
+.clear {
+    clear: both;
+}
+
+
+/*清除浮动--推荐使用*/
+
+/*清除浮动代码*/ 
+.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0} 
+.clearfloat{zoom:1} 
+
+.clearfix:before,
+.clearfix:after {
+    content: '';
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.show-lb {
+    display: inline-block;
+}
+
+
+/**颜色**/
+
+.col18d {
+    color: #18d0fd;
+}
+
+.colff0 {
+    color: #FF0000!important;
+}
+
+.col999 {
+    color: #999;
+}
+
+.colfff {
+    color: #fff;
+}
+
+.col222 {
+    color: #222;
+}
+
+.col666 {
+    color: #666;
+}
+
+.colddd {
+    color: #ddd;
+}
+
+.bgcfff {
+    background: #fff;
+}
+
+.bgcf5f {
+    background: #f5f5f5;
+}
+
+.bgcfef {
+    background: #fefefe;
+}
+
+.bgcfdb {
+    background: #fdb44c;
+}
+
+.bgcfdd {
+    background: #fdd07f;
+}
+
+.bgcfdd-radius {
+    background: #fdd07f;
+    border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -webkit-appearance: none;
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+}
+
+
+/****/
+
+.opac10 {
+    opacity: 1;
+}
+
+.opac06 {
+    opacity: .6;
+}
+
+.opac03 {
+    opacity: .3;
+}
+
+
+.alpha {
+    height: 100%;
+    overflow-y: hidden!important;
+}
+
+
+/*back-icon*/
+
+.back-btn {
+    position: absolute;
+    z-index: 999;
+    bottom: 3rem;
+    margin: 0 auto;
+    left: 0;
+    width: 2.75rem;
+}
+
+.back-btn .back-icon {
+    margin-left: .5rem;
+    width: 2.75rem;
+}
+
+
+/**底部菜单**/
+
+.footer-iframe {
+    border: none;
+    margin: 0 auto;
+    width: 16rem;
+    height: 2.6rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #e3e3e3;
+    box-shadow: 0 -2px 4px #e3e3e3;
+}
+
+
+/*底部菜单选项*/
+
+
+/*.footer{
+	border:none;
+	margin: 0 auto;
+	width: 16rem;
+	height: 2.6rem;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border-top: 1px solid #e3e3e3;
+	box-shadow: 0 -2px 4px #e3e3e3;
+}
+.footer .f-menu{
+	list-style: none;
+	width: 15rem;
+	margin: 0 auto
+}
+.footer .f-menu:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.footer .f-menu li{
+	float: left;
+	width:3.75rem;
+	text-align: center;
+	font-size:.5rem;
+}
+.footer .f-menu li>img{
+	width: 3rem;
+	height: 1.5rem;
+}
+/*.footer .f-menu li>p{
+}*/
+
+
+/*提示框样式*/
+
+.tips.shake,
+.toast.shake {
+    animation: shake .3s ease;
+    -webkit-animation: shake .3s ease;
+    -ms-animation: shake .3s ease;
+    -moz-animation: shake .3s ease;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(-2%);
+    }
+    10% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(2%);
+    }
+    30% {
+        transform: translateX(0);
+    }
+    40% {
+        transform: translateX(-2%);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    60% {
+        transform: translateX(2%);
+    }
+    70% {
+        transform: translateX(0);
+    }
+    80% {
+        transform: translateX(-2%);
+    }
+    90% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(2%);
+    }
+}
+
+@-webkit-keyframes shake {
+    0% {
+        -webkit-transform: translateX(-2%);
+    }
+    10% {
+        -webkit-transform: translateX(0);
+    }
+    20% {
+        -webkit-transform: translateX(2%);
+    }
+    30% {
+        -webkit-transform: translateX(0);
+    }
+    40% {
+        -webkit-transform: translateX(-2%);
+    }
+    50% {
+        -webkit-transform: translateX(0);
+    }
+    60% {
+        -webkit-transform: translateX(2%);
+    }
+    70% {
+        -webkit-transform: translateX(0);
+    }
+    80% {
+        -webkit-transform: translateX(-2%);
+    }
+    90% {
+        -webkit-transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(2%);
+    }
+}
+
+@-ms-keyframes shake {
+    0% {
+        -ms-transform: translateX(-2%);
+    }
+    10% {
+        -ms-transform: translateX(0);
+    }
+    20% {
+        -ms-transform: translateX(2%);
+    }
+    30% {
+        -ms-transform: translateX(0);
+    }
+    40% {
+        -ms-transform: translateX(-2%);
+    }
+    50% {
+        -ms-transform: translateX(0);
+    }
+    60% {
+        -ms-transform: translateX(2%);
+    }
+    70% {
+        -ms-transform: translateX(0);
+    }
+    80% {
+        -ms-transform: translateX(-2%);
+    }
+    90% {
+        -ms-transform: translateX(0);
+    }
+    100% {
+        -ms-transform: translateX(2%);
+    }
+}
+
+@-moz-keyframes shake {
+    0% {
+        -moz-keyframes: translateX(-2%);
+    }
+    10% {
+        -moz-keyframes: translateX(0);
+    }
+    20% {
+        -moz-keyframes: translateX(2%);
+    }
+    30% {
+        -moz-keyframes: translateX(0);
+    }
+    40% {
+        -moz-keyframes: translateX(-2%);
+    }
+    50% {
+        -moz-keyframes: translateX(0);
+    }
+    60% {
+        -moz-keyframes: translateX(2%);
+    }
+    70% {
+        -moz-keyframes: translateX(0);
+    }
+    80% {
+        -moz-keyframes: translateX(-2%);
+    }
+    90% {
+        -moz-keyframes: translateX(0);
+    }
+    100% {
+        -moz-keyframes: translateX(2%);
+    }
+}
+
+
+
+
+/*color*/
+
+.col-333 {
+    color: #333333;
+}
+
+.col-666 {
+    color: #666666;
+}
+
+.col-999 {
+    color: #999999;
+}
+
+.col-FF4 {
+    color: #FF4848;
+}
+
+.col-F76 {
+    color: #F76F65;
+}
+
+.col-B4B {
+    color: #B4B4B4;
+}
+
+.col-2B9 {
+    color: #2B9CED;
+}
+
+.col-EFE {
+    color: #EFEFEF;
+}
+
+.col-58A {
+    color: #58aee6!important;
+}
+
+.col-009 {
+    color: #0096e0!important;
+}
+
+.bgc-2B9 {
+    background-color: #2B9CED;
+}
+
+.bgc-2D9 {
+    background-color: #2D9CED;
+}
+
+.bgc-666 {
+    background-color: #666666;
+}
+
+.bgc-fff {
+    background-color: #FFFFFF;
+}
+
+.bgc-0d7{
+    background-color:#0d72e4!important;
+}
+
+.border-col-F84 {
+    border: 1px dashed #F84838!important;
+    color: #F84838!important
+}
+
+.border-col-FFB {
+    border: 1px dashed #FFBB4E!important;
+    color: #FFBB4E!important
+}
+
+
+/*padding & margin*/
+
+.p-l-10 {
+    padding-left: 10px
+}
+
+.p-r-10 {
+    padding-right: 10px
+}
+
+.nomore-tips p {
+    color: #ddd;
+}
+
+.nomore-tips hr {
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+
+.toast {
+    width: 18rem;
+    height: 2rem;
+    line-height: 2rem;
+    display: inline-block;
+    position: fixed;
+    font-size: .65rem;
+    left: 0;
+    bottom: 4.25rem;
+    z-index: 111111;
+    text-align: center;
+    display: none;
+}
+
+.toast .toast-su {
+    height: 2rem;
+    line-height: 2rem;
+    display: inline-block;
+    margin: 0 auto;
+    background-color: #666;
+    border: 0.05rem solid #dfdfdf;
+    -webkit-border-radius: .25rem;
+    -moz-border-radius: .25rem;
+    -webkit-border-radius: .25rem;
+    -moz-border-radius: .25rem;
+    font-size: .6rem;
+    color: #fff;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+.tips {
+    width: 80%;
+    height: auto;
+    line-height: 2em;
+    display: inline-block;
+    position: fixed;
+    font-size: .26rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 1.7rem;
+    z-index: 131452000;
+    text-align: center;
+    display: none;
+}
+
+.tips .tips-in {
+    height: auto;
+    line-height: 2em;
+    display: inline-block;
+    margin: 0 auto;
+    background-color: #666;
+    -webkit-border-radius: .1rem;
+    -moz-border-radius: .1rem;
+    -webkit-border-radius: .1rem;
+    -moz-border-radius: .1rem;
+    font-size: .24rem;
+    color: #fff;
+    padding: 0 .2rem;
+}

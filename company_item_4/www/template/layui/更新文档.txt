@@ -1,0 +1,11 @@
+//css
+1.所有绿色(#009688 #5FB878)替换为#2B9CED
+2.
+//js
+1.遮罩层兼容性
+
+$('#layui-layer-shade'+ that.index).css({
+    'background-color': config.shade[1] || '#000'
+    ,'opacity': config.shade[0]||config.shade
+  });
+  $('#layui-layer-shade'+ that.index).css({"background-color": "rgba(0,0,0,"+ (config.shade[0] || config.shade)+")"});
