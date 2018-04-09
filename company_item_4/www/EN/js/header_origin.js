@@ -11,6 +11,7 @@ document.write(`
                 </div>
                 <div class="header-login fr">
                     <input id="input_" type="text" placeholder="keyword">
+                    <i class="search_"><img src="./img/u232.png"/></i>
                 </div>
             </div>            
         </div>                             

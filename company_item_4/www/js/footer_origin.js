@@ -46,7 +46,7 @@ document.write(`
                         <li><a href="#">贵州省人民政府</a></li>
                         <li><a href="#">世界旅游组织</a></li>
                         <li><a href="#">中国山地联合会</a></li>
-                        <li><a href="#">更多>></a></li>
+                        <li><a href="friendship_links.html">更多>></a></li>
                     </ul>
                 </li>         
             </ul>
@@ -136,3 +136,7 @@ $(".img-container img").hover(
       .css("width", $(this).css("width"));
   }
 );
+
+$(".search_").click(function(){
+    window.location.href="search.html"
+})

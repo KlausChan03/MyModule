@@ -40,6 +40,8 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-file-include": "^1.2.0"
+    "gulp-file-include": "^1.2.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
   }
 }

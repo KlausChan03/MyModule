@@ -148,3 +148,7 @@ $(".img-container img").hover(function(){
     $(this).parent().css("height",$(this).css("height"));
     $(this).parent().css("width",$(this).css("width"));                   
 })
+
+$(".search_").click(function(){
+    window.location.href="search.html"
+})

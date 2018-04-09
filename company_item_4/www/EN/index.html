@@ -22,7 +22,7 @@
     <div class="container">
         <div id="swiper-container-1" class="index-carousel swiper-container swiper-container-horizontal">
             <div class="swiper-wrapper">
-                <div class="swiper-slide swiper-slide-active"><img src="./img/u1.png" alt=""></div>
+                <div class="swiper-slide swiper-slide-active guizhou"><img src="./img/u1.png" alt=""></div>
                 <div class="swiper-slide swiper-slide-next"><img src="./img/u1.png" alt=""></div>
                 <div class="swiper-slide"><img src="./img/u1.png" alt=""></div>
             </div>
@@ -137,6 +137,7 @@
         var swiper_1 = new Swiper('#swiper-container-1', {
             autoplay: 5000,
             loop: true,
+            simulateTouch : false,
         });  
         
         var swiper_2 = new Swiper('#swiper-container-2', {
@@ -168,6 +169,11 @@
             var form = layui.form;
             form.render('select');
         })
+
+        // 链接跳转
+        $('.guizhou').click(function(){
+            window.location.href="./area_GuiZhouColorful.html"
+        })
         
         // 图片hover时局部放大
         $(".img-container").css({"overflow":"hidden"})
@@ -183,7 +189,6 @@
             $(this).parent().css("width",$(this).css("width"));                   
         })
 
-
         $(".arrow-left").on("click", function(e) {
             e.preventDefault();
             swiper_1.swipePrev();
@@ -192,6 +197,9 @@
             e.preventDefault();
             swiper_1.swipeNext();
         });
+
+        $(".section-5-content div img:nth-child(5n-4)").css({"margin-left":"0"})
+
     </script>
 </body>
 </html>

@@ -22,7 +22,7 @@
     <div class="container">
         <div id="swiper-container-1" class="index-carousel swiper-container swiper-container-horizontal">
             <div class="swiper-wrapper">
-                <div class="swiper-slide swiper-slide-active"><img src="./img/u1.png" alt=""></div>
+                <div class="swiper-slide swiper-slide-active guizhou"><img src="./img/u1.png" alt=""></div>
                 <div class="swiper-slide swiper-slide-next"><img src="./img/u1.png" alt=""></div>
                 <div class="swiper-slide"><img src="./img/u1.png" alt=""></div>
             </div>
@@ -209,6 +209,11 @@
             var element = layui.element;            
             var form = layui.form;
             form.render('select');
+        })
+
+        // 链接跳转
+        $('.guizhou').click(function(){
+            window.location.href="./area_GuiZhouColorful.html"
         })
         
         // 图片hover时局部放大

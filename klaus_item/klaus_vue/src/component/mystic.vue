@@ -5,10 +5,11 @@
 </template>
     
 <script>
-new Vue({
-  el: '#app3',
-  data: {
-    message: '<h1>菜鸟教程</h1>'
+export default {
+  data () {
+    return {
+      author: "Klaus Chan"
+    }
   }
-})
+}
 </script>

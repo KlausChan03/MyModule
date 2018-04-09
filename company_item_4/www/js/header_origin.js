@@ -11,7 +11,7 @@ document.write(`
                 </div>
                 <div class="header-login fr">
                     <input id="input_" type="text" placeholder="请输入搜索关键词">
-                    <i><img src="./img/u232.png"/></i>
+                    <i class="search_"><img src="./img/u232.png"/></i>
                     <span><a href="#">登陆</a></span>
                     <span><a href="#">新用户注册</a></span>
                 </div>

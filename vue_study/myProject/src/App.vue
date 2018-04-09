@@ -20,4 +20,11 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+#app .demo{
+  width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  line-height: 2
+}
 </style>

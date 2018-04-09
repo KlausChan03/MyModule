@@ -399,6 +399,9 @@ h3 span {
 #media-tab.layui-nav-tree {
     width: 250px;
 }
+#search-tab.layui-nav-tree{
+    width: 245px;
+}
 
 .member-container,
 .about-container,
@@ -482,6 +485,31 @@ h3 span {
     line-height: 1.5;
     font-size: 16px;
     color: #121212;
+}
+
+.news-tab,.news-tab ul,.news-tab ul li{
+    height: 65px;
+}
+.news-tab ul li{
+    width:80px;
+    padding: 0;
+    line-height: 65px;
+}
+
+.layui-tab-content{
+    padding: 0;
+}
+
+.layui-tab-title .layui-this:after{
+    height: 65px;
+    border-color:#e64646!important;    
+}
+
+.layui-tab-title .layui-this a{
+    color:#e64646;
+}
+.layui-tab-title li a{
+    font-size:16px;
 }
 
 /* .content-container-content{

@@ -107,15 +107,43 @@ h3 span {
 }
 
 .header .header-main .header-login input {
-    width: 250px;
+    width: 200px;
     height: 30px;
     line-height: 30px;
-    background: url("../img/u232.png") no-repeat 240px 50%;
-    padding: 0 5px;
+    /* background: url(../img/u232.png) no-repeat 240px 50%; */
+    padding: 0 40px 0 8px;
     font-size: 14px;
     border: 1px solid #d6d6d6;
-    border-radius: 3px;
+    border-radius: 4px;
 }
+
+.header .header-main .header-login i {
+    display: inline-block;
+    height: 30px;
+    width: 40px;
+    border: none;
+    vertical-align: middle;
+    position: relative;
+    line-height: 35px;
+    text-align: center;
+    margin-left: -42px;
+}
+.header .header-main .header-login i img{
+    width: 16px;
+    height: 16px;
+    margin-top:6px;
+}
+
+.header .header-main .header-login i:before{
+    position: absolute;
+    content: '';
+    height: 23px;
+    width: 1px;
+    background-color: #d6d6d6;
+    right: 40px;
+    top: 4px;
+}
+
 
 .header .header-main .header-login span {
     font-size: 14px;
@@ -235,7 +263,9 @@ h3 span {
 }
 
 .footer .footer-nav {
-    padding: 70px 0;
+    padding-top: 70px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #4f5150;
 }
 
 .footer-nav>li+li {
@@ -438,6 +468,10 @@ h3 span {
     color: #e91313 !important;
 }
 
+/* .content-container::after:hover .content-container-title::after:hover {
+    color: #e91313 !important;
+} */
+
 .content-container:hover .content-container-content {
     color: #6799ba;
 }
@@ -496,7 +530,7 @@ h3 span {
     font-weight: bold;
     position: absolute;
     bottom: 3px;
-    right: 8px;
+    margin-left: 5px;
     /* padding:0 20px 1px 45px; */
     /* 为了展示效果更好 */
     /* background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(white), color-stop(50%, white));

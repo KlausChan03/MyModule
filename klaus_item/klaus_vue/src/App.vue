@@ -18,12 +18,14 @@
     </ul>
     <firstcomponent></firstcomponent>
     <app3></app3>
+    <app4></app4>
   </div>
 </template>
 
 <script>
 import app3 from "./component/mystic.vue";
-import firstcomponent from "./component/dopa.vue";
+import app4 from "./component/dopa.vue";
+import firstcomponent from "./component/secondcomponent.vue";
 
 export default {
   name: 'app',

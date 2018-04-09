@@ -58,39 +58,39 @@
                         </div>
                     </div>
                     <div class="member-select">
-                        <form class="layui-form member-select-content" lay-filter="filter">
+                        <form class="layui-form member-select-content">
                             <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
                             <div class="layui-form-item">
                                 <label class="layui-form-label">区域</label>
                                 <div class="layui-input-block member-select-section select-continent">
-                                    <input type="checkbox" name="continent[allcheck]" title="全选" lay-ignore> 全选
+                                    <input type="checkbox" name="continent[allcheck]" title="全选" lay-skin="primary">
 
-                                    <input type="checkbox" name="continent[Asia]" title="亚洲" lay-ignore> 亚洲
-                                    <input type="checkbox" name="continent[Europe]" title="欧洲" lay-ignore> 欧洲
-                                    <input type="checkbox" name="continent[NorthAmerica]" title="北美洲" lay-ignore> 南美洲
-                                    <input type="checkbox" name="continent[SouthAmerica]" title="南美洲" lay-ignore> 北美洲
-                                    <input type="checkbox" name="continent[Africa]" title="非洲" lay-ignore>非洲
-                                    <input type="checkbox" name="continent[Oceania]" title="大洋洲" lay-ignore> 大洋洲
+                                    <input type="checkbox" name="continent[Asia]" title="亚洲" lay-skin="primary">
+                                    <input type="checkbox" name="continent[Europe]" title="欧洲" lay-skin="primary">
+                                    <input type="checkbox" name="continent[NorthAmerica]" title="北美洲" lay-skin="primary">
+                                    <input type="checkbox" name="continent[SouthAmerica]" title="南美洲" lay-skin="primary">
+                                    <input type="checkbox" name="continent[Africa]" title="非洲" lay-skin="primary">
+                                    <input type="checkbox" name="continent[Oceania]" title="大洋洲" lay-skin="primary">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">类型</label>
                                 <div class="layui-input-block member-select-section select-type">
-                                    <input type="checkbox" name="type[allcheck]" title="全选" lay-ignore> 全选
-                                    <input type="checkbox" name="type[zhengfu]" title="政府" lay-ignore> 政府
-                                    <input type="checkbox" name="type[qiye]" title="企业" lay-ignore> 企业
-                                    <input type="checkbox" name="type[jigou]" title="学术机构" lay-ignore> 学术机构
-                                    <input type="checkbox" name="type[meiti]" title="媒体" lay-ignore> 媒体
-                                    <input type="checkbox" name="type[shetuan]" title="社团" lay-ignore> 社团
-                                    <input type="checkbox" name="type[xiehui]" title="协会" lay-ignore> 协会
+                                    <input type="checkbox" name="type[allcheck]" title="全选" lay-skin="primary">
+                                    <input type="checkbox" name="type[zhengfu]" title="政府" lay-skin="primary">
+                                    <input type="checkbox" name="type[qiye]" title="企业" lay-skin="primary">
+                                    <input type="checkbox" name="type[jigou]" title="学术机构" lay-skin="primary">
+                                    <input type="checkbox" name="type[meiti]" title="媒体" lay-skin="primary">
+                                    <input type="checkbox" name="type[shetuan]" title="社团" lay-skin="primary">
+                                    <input type="checkbox" name="type[xiehui]" title="协会" lay-skin="primary">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">种类</label>
                                 <div class="layui-input-block member-select-section select-class">
-                                    <input type="checkbox" name="class[allcheck]" title="全选" lay-ignore> 全选
-                                    <input type="checkbox" name="class[all]" title="团体会员" lay-ignore> 团体会员
-                                    <input type="checkbox" name="class[person]" title="个人会员" lay-ignore> 个人会员
+                                    <input type="checkbox" name="class[allcheck]" title="全选" lay-skin="primary">
+                                    <input type="checkbox" name="class[all]" title="团体会员" lay-skin="primary">
+                                    <input type="checkbox" name="class[person]" title="个人会员" lay-skin="primary">
 
                                 </div>
                             </div>
@@ -111,22 +111,117 @@
 
     <script>
 
-        layui.use(['form', 'element','table'], function () {
+        layui.use(['form', 'element', 'table'], function () {
             var element = layui.element;
             var form = layui.form;
             var table = layui.table;
             var laypage = layui.laypage;
 
-            element.on('nav(member-tab)', function (data) {
-                console.log(data)
+            // element.on('nav(member-tab)', function (data) {
+            //     console.log(data)
+            // });
+            form.on('checkbox', function (data) {
+                // console.log(data)
+                // console.log(data.elem.name); //得到checkbox原始DOM对象
+                // console.log(data.elem.checked); //是否被选中，true或者false
+                // console.log(data.value); //复选框value值，也可以通过data.elem.value得到
+                // console.log(data.othis); //得到美化后的DOM对象
+                (function (name) {
+                    var name = data.elem.name.split('[', 1)
+                    if (data.elem.name.indexOf("allcheck") != -1 && data.elem.checked == true) {
+                        if (data.elem.name == `${name}[allcheck]`) {
+                            $(`[name="${name}[allcheck]"]`).siblings().prop("checked", true)
+                        }
+                    }
+                    if (data.elem.name.indexOf("allcheck") != -1 && data.elem.checked == false) {
+                        if (data.elem.name == `${name}[allcheck]`) {
+                            $(`[name="${name}[allcheck]"]`).siblings().prop("checked", false)
+                        }
+                    }
+                    if (data.elem.name.indexOf("allcheck") == -1 && data.elem.checked == false) {
+                        if (data.elem.name.indexOf(`${name}`) != -1) {
+                            $(`[name="${name}[allcheck]"]`).prop("checked", false)
+                        }
+                    }
+                    if (data.elem.name.indexOf("allcheck") == -1 && data.elem.checked == true) {
+                        // var $true_dom = $(`.layui-form-checked[name*=${name}]`)
+                        var $true_dom = $(`[class*=${name}] .layui-form-checked`)
+                        var $true_len = $(`[class*=${name}] .layui-form-checked`).length;
+                        var $origin_len = $(`[class*=${name}] .layui-form-checkbox`).length;
+                        console.log($true_len)
+                        if($true_len == $origin_len-1){
+                            $(`[name="${name}[allcheck]"]`).prop("checked", true)
+                        }
+                        
+                    }
+
+                })()
+                if (data.elem.checked != true) {
+                    switch (data.elem.name) {
+                        case "continent[Asia]":
+                            $(".Asia").removeClass("focus-this")
+                            break;
+                        case "continent[Europe]":
+                            $(".Europe").removeClass("focus-this")
+                            break;
+                        case "continent[NorthAmerica]":
+                            $(".NorthAmerica").removeClass("focus-this")
+                            break;
+                        case "continent[SouthAmerica]":
+                            $(".SouthAmerica").removeClass("focus-this")
+                            break;
+                        case "continent[Africa]":
+                            $(".Africa").removeClass("focus-this")
+                            break;
+                        case "continent[Oceania]":
+                            $(".Oceania").removeClass("focus-this")
+                            break;
+                        case "continent[allcheck]":
+                            $(".member-worldlist span").removeClass("focus-this")
+                            break;
+                    }
+                } else {
+                    switch (data.elem.name) {
+                        case "continent[Asia]":
+                            $(".Asia").addClass("focus-this")
+                            break;
+                        case "continent[Europe]":
+                            $(".Europe").addClass("focus-this")
+                            break;
+                        case "continent[NorthAmerica]":
+                            $(".NorthAmerica").addClass("focus-this")
+                            break;
+                        case "continent[SouthAmerica]":
+                            $(".SouthAmerica").addClass("focus-this")
+                            break;
+                        case "continent[Africa]":
+                            $(".Africa").addClass("focus-this")
+                            break;
+                        case "continent[Oceania]":
+                            $(".Oceania").addClass("focus-this")
+                            break;
+                        case "continent[allcheck]":
+                            $(".member-worldlist span").addClass("focus-this")
+                            break;
+                    }
+                }
+
+
+
+
+                form.render('checkbox');
+
+
             });
 
-            form.on('checkbox(filter)', function (data) {
-                console.log(data.elem); //得到checkbox原始DOM对象
-                console.log(data.elem.checked); //是否被选中，true或者false
-                console.log(data.value); //复选框value值，也可以通过data.elem.value得到
-                console.log(data.othis); //得到美化后的DOM对象
-            });
+            $(".member-worldlist span").click(function () {
+                if ($(this).hasClass("focus-this")) {
+                    $(this).removeClass("focus-this")
+                } else {
+                    $(this).addClass("focus-this")
+                }
+                // $(this).siblings().removeClass("focus-this")
+            })
 
 
             table.render({
@@ -134,8 +229,8 @@
                 , height: 400
                 , url: './js/user.json?page=1&limit=10' //数据接口
                 , request: {
-                pageName: 'page' //页码的参数名称，默认：page
-                ,limitName: 'limit' //每页数据量的参数名，默认：limit
+                    pageName: 'page' //页码的参数名称，默认：page
+                    , limitName: 'limit' //每页数据量的参数名，默认：limit
                 }
                 , limit: 10
                 , page: {
@@ -145,24 +240,15 @@
                     layout: ["prev", "page", "next"],
                     last: '尾页',
                     first: '首页',
-                    next:'下一页',
-                    prev:'上一页'
-                }                 
-                , cols: [[ 
+                    next: '下一页',
+                    prev: '上一页'
+                }
+                , cols: [[
                     // { field: 'id', title: 'ID', width: 80, sort: true, fixed: 'left' }
-                    { field: 'username', title: '会员名称', width: 370,align:'left'}
-                    , { field: 'type', title: '类型', width: 130,align:'center' }
-                    , { field: 'country', title: '国家', width: 130 ,align:'center'}
-                    , { field: 'tel', title: '联系电话', width: 135 ,align:'center'}
-                    // {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
-                    // ,{field: 'username', title: '用户名', width:80}
-                    // ,{field: 'sex', title: '性别', width:80, sort: true}
-                    // ,{field: 'city', title: '城市', width:80} 
-                    // ,{field: 'sign', title: '签名', width: 177}
-                    // ,{field: 'experience', title: '积分', width: 80, sort: true}
-                    // ,{field: 'score', title: '评分', width: 80, sort: true}
-                    // ,{field: 'classify', title: '职业', width: 80}
-                    // ,{field: 'wealth', title: '财富', width: 135, sort: true}
+                    { field: 'username', title: '会员名称', width: 370, align: 'left' }
+                    , { field: 'type', title: '类型', width: 130, align: 'center' }
+                    , { field: 'country', title: '国家', width: 130, align: 'center' }
+                    , { field: 'tel', title: '联系电话', width: 135, align: 'center' }
 
                 ]]
             })

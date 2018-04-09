@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function setCookie(name, value, time) {
+            var strsec = getsec(time);
+            var exp = new Date();
+            exp.setTime(exp.getTime() + strsec * 1);
+            document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+        }
+        function getsec(str) {
+            alert(str);
+            var str1 = str.substring(1, str.length) * 1;
+            var str2 = str.substring(0, 1);
+            if (str2 == "s") {
+                return str1 * 1000;
+            }
+            else if (str2 == "h") {
+                return str1 * 60 * 60 * 1000;
+            }
+            else if (str2 == "d") {
+                return str1 * 24 * 60 * 60 * 1000;
+            }
+        }
+        //这是有设定过期时间的使用示例： 
+        //s20是代表20秒 
+        //h是指小时，如12小时则是：h12 
+        //d是天数，30天则：d30 
+
+        setCookie("name", "hayden", "s20");
+        
+        function clearCookie() {
+            var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+            if (keys) {
+                for (var i = keys.length; i--;)
+                    document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+            }
+        }
+        window.onbeforeunload = function () {
+            return clearCookie();
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./template/layui/css/layui.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/share.css">
+    <link rel="stylesheet" href="./css/search.css">
+    <link rel="stylesheet" href="./css/layui-c.css">
+    <!-- <link rel="stylesheet" href="./plugin/swiper.min.css"> -->
+    <link rel="stylesheet" href="./plugin/idangerous.swiper2.7.6.css">
+    <title>会员服务</title>
+</head>
+
+<body>
+    <script src="./js/header.js"></script>
+    <div class="container w-1100">
+        <div class="search-header layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label">Site search</label>
+                <input type="text" name="search" lay-verify="search" placeholder="keyword" class="search-input layui-input">
+                <button class="search-button layui-btn" lay-filter="search">search</button>
+            </div>
+            <div class="layui-form-item">
+                <input type="radio" name="search-type" value="Search the full text" title="Search the full text" checked="checked">
+                <input type="radio" name="search-type" value="Search title" title="Search title">
+            </div>
+            <div class="layui-form-item">
+                <p>About results
+                    <span>3023</span>results(
+                    <span>0.036</span>seconds)</p>
+            </div>
+
+        </div>
+        <div class="search-content clearfloat">
+            <ul  id="search-tab" class="layui-nav layui-nav-tree fl">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">Web page type</a>
+                    <dl class="layui-nav-child layui-tab-title" lay-filter="demo">
+                        <dd class="search-tab-items layui-this">
+                            <a href="#" onclick="return false;">news</a>
+                        </dd>
+                        <dd class="search-tab-items">
+                            <a href="#" onclick="return false;">Thematic activities</a>
+                        </dd>
+                        <dd class="search-tab-items">
+                            <a href="#" onclick="return false;">Alliance members</a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+            <div id="search-main" class="search-main layui-tab-content fl">
+                
+                <div class="search-container search-1 layui-tab-item layui-show">
+                    <div class="news-left">
+                        <div class="news-t-1">
+                            <div class="news-t-1-top clearfloat">
+                                <h3 class="news-title fl">
+                                    <a href="#">The first Chinese tourism public opinion in Beijing to promote the innovation </a>
+                                </h3>
+                                <p class="news-date fr">23 minutes ago</p>
+                            </div>
+                            <div class="news-t-1-main">
+                                <p>Environmental supervision and enforcement of law enforcement in depth, supervision of deterrence, warning effects continue to appear, inspectors before and after the ..</p>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">The first Chinese tourism public opinion in Beijing to promote the innovation </a>
+                                    </h3>
+                                    <p class="news-date fr">23 minutes ago</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>Environmental supervision and enforcement of law enforcement in depth, supervision of deterrence, warning effects continue to appear, inspectors before and after the ..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">The first Chinese tourism public opinion in Beijing to promote the innovation </a>
+                                    </h3>
+                                    <p class="news-date fr">23 minutes ago</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>Environmental supervision and enforcement of law enforcement in depth, supervision of deterrence, warning effects continue to appear, inspectors before and after the ..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">The first Chinese tourism public opinion in Beijing to promote the innovation </a>
+                                    </h3>
+                                    <p class="news-date fr">23 minutes ago</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>Environmental supervision and enforcement of law enforcement in depth, supervision of deterrence, warning effects continue to appear, inspectors before and after the ..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">The first Chinese tourism public opinion in Beijing to promote the innovation </a>
+                                    </h3>
+                                    <p class="news-date fr">23 minutes ago</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>Environmental supervision and enforcement of law enforcement in depth, supervision of deterrence, warning effects continue to appear, inspectors before and after the ..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">The first Chinese tourism public opinion in Beijing to promote the innovation </a>
+                                    </h3>
+                                    <p class="news-date fr">23 minutes ago</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>Environmental supervision and enforcement of law enforcement in depth, supervision of deterrence, warning effects continue to appear, inspectors before and after the ..</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div id="lay-page" class="lay-page text-center"></div>
+
+                </div>
+                <div class="search-container search-3 layui-tab-item">
+                    <div class="news-left">
+                        <div class="news-t-1">
+                            <div class="news-t-1-top clearfloat">
+                                <h3 class="news-title fl">
+                                    <a href="#">The first Chinese tourism public opinion in Beijing to promote the innovation </a>
+                                </h3>
+                                <p class="news-date fr">24 minutes ago</p>
+                            </div>
+                            <div class="news-t-1-main">
+                                <p>Environmental supervision and enforcement of law enforcement in depth, supervision of deterrence, warning effects continue to appear, inspectors before and after the ..</p>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">The first Chinese tourism public opinion in Beijing to promote the innovation </a>
+                                    </h3>
+                                    <p class="news-date fr">23 minutes ago</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>Environmental supervision and enforcement of law enforcement in depth, supervision of deterrence, warning effects continue to appear, inspectors before and after the ..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">The first Chinese tourism public opinion in Beijing to promote the innovation </a>
+                                    </h3>
+                                    <p class="news-date fr">23 minutes ago</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>Environmental supervision and enforcement of law enforcement in depth, supervision of deterrence, warning effects continue to appear, inspectors before and after the ..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">The first Chinese tourism public opinion in Beijing to promote the innovation </a>
+                                    </h3>
+                                    <p class="news-date fr">23 minutes ago</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>Environmental supervision and enforcement of law enforcement in depth, supervision of deterrence, warning effects continue to appear, inspectors before and after the ..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">The first Chinese tourism public opinion in Beijing to promote the innovation </a>
+                                    </h3>
+                                    <p class="news-date fr">23 minutes ago</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>Environmental supervision and enforcement of law enforcement in depth, supervision of deterrence, warning effects continue to appear, inspectors before and after the ..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">The first Chinese tourism public opinion in Beijing to promote the innovation </a>
+                                    </h3>
+                                    <p class="news-date fr">23 minutes ago</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>Environmental supervision and enforcement of law enforcement in depth, supervision of deterrence, warning effects continue to appear, inspectors before and after the ..</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div id="lay-page-3" class="lay-page text-center"></div>
+
+                </div>
+                <div class="search-container search-4 layui-tab-item">
+                    <ul class="search-4-ul">
+                        <li class="search-4-items">An ecotourism area of the end of the earth in Sanya</li>
+                        <li class="search-4-items">Guizhou Moutai Wine Group</li>
+                        <li class="search-4-items">National Tourism Administration of the People's Republic of China</li>
+                        <li class="search-4-items">Guizhou Moutai Wine Group</li>
+                        <li class="search-4-items">National Tourism Administration of the People's Republic of China</li>
+                    </ul>
+                    <div id="lay-page-4" class="lay-page text-center"></div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="./js/footer.js"></script>
+    <!-- <script src="./plugin/swiper.min.js"></script> -->
+    <script src="./plugin/idangerous.swiper2.7.6.min.js"></script>
+
+    <script>
+        layui.use(['form', 'element'], function () {
+            var element = layui.element;
+            var form = layui.form
+            element.on('tab(demo)', function (data) {
+                console.log(data)
+                if(data.index== -1){
+                    $("#search-main>div:first-child").addClass("layui-show")
+                    $("#search-main>div:first-child").siblings().removeClass("layui-show")
+                }
+            });
+            element.tab({
+                headerElem: '#search-tab>li>dl>dd' //指定tab头元素项
+                , bodyElem: '#search-main>div' //指定tab主体元素项
+            });
+            element.render("tab")
+        });
+        // layui.use("laypage", function () {
+        //     var laypage = layui.laypage;
+        //     //执行一个laypage实例
+        //     laypage.render({
+        //         elem: "lay-page",
+        //         count: 300,
+        //         limit: 20,
+        //         layout: ["prev", "page", "next"],
+        //         last: '尾页',
+        //         first: '首页',
+
+        //     });
+        //     laypage.render({
+        //         elem: "lay-page-2",
+        //         count: 300,
+        //         limit: 20,
+        //         layout: ["prev", "page", "next"],
+        //         last: '尾页',
+        //         first: '首页',
+
+        //     });
+        //     laypage.render({
+        //         elem: "lay-page-3",
+        //         count: 300,
+        //         limit: 20,
+        //         layout: ["prev", "page", "next"],
+        //         last: '尾页',
+        //         first: '首页',
+
+        //     });
+        //     laypage.render({
+        //         elem: "lay-page-4",
+        //         count: 300,
+        //         limit: 20,
+        //         layout: ["prev", "page", "next"],
+        //         last: '尾页',
+        //         first: '首页',
+
+        //     });
+        //     laypage.render({
+        //         elem: "lay-page-5",
+        //         count: 300,
+        //         limit: 20,
+        //         layout: ["prev", "page", "next"],
+        //         last: '尾页',
+        //         first: '首页',
+
+        //     });
+        // });
+
+        $(".section-items:nth-child(4n-3)").css({ "margin-left": "0" })
+    </script>
+</body>
+
+</html>

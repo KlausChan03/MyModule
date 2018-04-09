@@ -14,7 +14,7 @@ export default {
       articles: [],
     }
   }
-  }
+  
 }
 </script>
  

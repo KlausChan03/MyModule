@@ -85,7 +85,7 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Test',
   data () {
     return {
       msg: 'This is a test.'

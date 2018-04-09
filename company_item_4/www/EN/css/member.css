@@ -1,14 +1,14 @@
 .container{
     background: url('../img/u97.jpg') no-repeat;
     position: relative;
-    height: 960px;
+    min-height: 1350px;
 }
 
 .member-content{
     position: absolute;;
-    height: 640px;
+    height: 1000px;
     width:1100px;    
-    margin-top:-320px;
+    margin-top:-500px;
     margin-left: -550px;
     padding: 10px;
     top:50%;
@@ -18,7 +18,7 @@
     border:none;
 }
 .member-content .layui-nav{
-    height: 640px;
+    height: 1000px;
     background-color: #cbf8e6;
 
 }
@@ -179,3 +179,93 @@
     width:190px;
 }
 
+.member-worldmap {
+    text-align: center;
+}
+
+.member-worldmap img {
+    width: 590px;
+    height: 370px;
+}
+.member-worldmap {
+    position: relative;
+}
+.member-worldlist span{
+    font-size: 14px;
+    color:#161616;
+    font-weight: bolder;
+    cursor: pointer;
+
+}
+
+.member-worldlist span.focus-this{
+    font-size: 20px;
+    color:#d41a1a;
+    margin-left: -5px;
+    margin-top: -5px;
+}
+
+.member-worldlist .Asia{
+    position: absolute;
+    left: 300px;
+    top: 110px;
+}
+.member-worldlist .Europe{
+    position: absolute;
+    left: 220px;
+    top: 80px;
+}
+.member-worldlist .NorthAmerica{
+    position: absolute;
+    left: 500px;
+    top: 90px;
+}
+.member-worldlist .SouthAmerica{
+    position: absolute;
+    left: 560px;
+    top: 210px;
+}
+.member-worldlist .Africa{
+    position: absolute;
+    left: 165px;
+    top: 155px;
+}
+.member-worldlist .Oceania{
+    position: absolute;
+    left: 345px;
+    top: 235px;
+}
+
+.member-select-content{
+    margin: 30px 0 20px 10px;
+}
+.member-select-content *{
+    font-size: 14px;
+}
+.member-select-content .layui-form-item{
+    margin-bottom: 0;
+}
+.member-select-content .layui-form-label{
+    padding: 0px 15px; 
+    margin-top: 10px;
+}
+
+.member-select-content  .layui-form-checkbox[lay-skin="primary"] span{
+    line-height: 1.5
+}
+.member-select-section{
+    padding: 0px 15px;
+    line-height: 20px;
+}
+
+.member-select-section input{
+    margin-left: 25px;
+}
+.member-select-section input:first-child{
+    margin-left: 0px;
+}
+
+.layui-laypage-table{
+    display: table!important;
+    margin: 0 auto!important;
+}
