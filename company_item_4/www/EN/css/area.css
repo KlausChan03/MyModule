@@ -286,6 +286,7 @@
     width: 190px;
 }
 
+
 .area-gallery-cross div {
     margin-top: 10px;
 }
@@ -323,7 +324,7 @@
 }
 
 .area-gallery-cross div+div+div+div img {
-    width: 429px;
+    width: 439px;
 }
 
 .area-gallery-cross div+div+div+div+div {
@@ -339,7 +340,7 @@
 }
 
 .area-gallery-cross div+div+div+div+div+div img {
-    width: 495px;
+    width: 500px;
 }
 
 .area-gallery-cross div+div+div+div+div+div+div {
@@ -347,8 +348,9 @@
 }
 
 .area-gallery-cross div+div+div+div+div+div+div img {
-    width: 352px;
+    width: 354px;
 }
+
 
 .area-gallery-cross .img-container {
     position: relative;

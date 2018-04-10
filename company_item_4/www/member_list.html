@@ -19,8 +19,8 @@
 
 <body>
     <script src="./js/header.js"></script>
-    <div class="container">
-        <div class="member-content clearfloat">
+    <div class="container container-l">
+        <div class="member-content member-content-l clearfloat">
             <ul id="member-tab" class="layui-nav layui-nav-tree fl" lay-filter="member-tab">
                 <li class="layui-nav-item layui-nav-itemed">
                     <a href="javascript:;">会员服务</a>
@@ -205,13 +205,7 @@
                             break;
                     }
                 }
-
-
-
-
                 form.render('checkbox');
-
-
             });
 
             $(".member-worldlist span").click(function () {
@@ -220,7 +214,6 @@
                 } else {
                     $(this).addClass("focus-this")
                 }
-                // $(this).siblings().removeClass("focus-this")
             })
 
 

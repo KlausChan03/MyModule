@@ -391,6 +391,11 @@ h3 span {
 
 .container {
     background-size: 100% 480px !important;
+    min-height: 700px;
+}
+
+.news-main,.activity-main{
+    margin-bottom: 100px;
 }
 
 #member-tab.layui-nav-tree,
@@ -532,3 +537,40 @@ h3 span {
     background: -ms-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
     background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
 } */
+
+
+/* 二级导航 */
+.second-tab,.second-tab ul,.news-tab ul li{
+    height: 65px;
+}
+.second-tab ul li{
+    width:80px;
+    padding: 0;
+    line-height: 65px;
+}
+
+.second-tab ul li.layui-this::before{
+    position: absolute;
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 8px 8px 8px 8px;
+    border-style: solid;
+    border-color: #e64646 transparent  transparent transparent;
+    margin-top: 65px;
+    margin-left: 40%;
+}
+
+.second-tab .layui-tab-content{
+    padding: 0;
+}
+
+.second-tab .layui-tab-title .layui-this:after{
+    height: 65px;
+    border-color:#e64646!important;    
+}
+
+.second-tab .layui-tab-title .layui-this a{
+    color:#e64646;
+}

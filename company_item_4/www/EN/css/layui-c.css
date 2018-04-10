@@ -25,12 +25,17 @@
     top:35px;   
 }
 
-.news-main .lay-page{
+.lay-page{
+    padding-top: 30px;
+ }
+ 
+/* .news-main .lay-page{
     margin: 40px 0 100px 0;
 }
 .media-main .lay-page,.study-main .lay-page{
     margin-top:20px;
-}
+} */
+
 .layui-laypage span{
     border:none;
 }
