@@ -1,0 +1,73 @@
+[{
+    "newsId" : "1",
+    "newsName" : "判定当前状态、超过操作时间等跳回登录页（优先级高）（初步完善）",
+    "newsAuthor" : "Klaus",
+    "newsStatus" : "审核通过",
+    "newsLook" : "开放浏览",
+    "isShow" : "",
+    "newsTime" : "2017-11-20"
+},{
+    "newsId" : "2",
+    "newsName" : "权限模块代码优化及用户登陆模块完善（优先级高）（已完善）",
+    "newsAuthor" : "Klaus",
+    "newsStatus" : "待审核",
+    "newsLook" : "开放浏览",
+    "isShow" : "checked",
+    "newsTime" : "2017-11-20"
+},{
+    "newsId" : "3",
+    "newsName" : "整理目录结构，清除原框架遗留文件及代码（优先级中）（已完善）",
+    "newsAuthor" : "admin",
+    "newsStatus" : "审核通过",
+    "newsLook" : "开放浏览",
+    "isShow" : "checked",
+    "newsTime" : "2017-11-20"
+},{
+    "newsId" : "4",
+    "newsName" : "前后台json对比协同校验以及增删改接口优化（优先级中）（已完善）",
+    "newsAuthor" : "admin",
+    "newsStatus" : "审核通过",
+    "newsLook" : "开放浏览",
+    "isShow" : "checked",
+    "newsTime" : "2017-11-20"
+},{
+    "newsId" : "5",
+    "newsName" : "单条数据查询自动化完善并开放功能（优先级中）（已完善）",
+    "newsAuthor" : "Klaus",
+    "newsStatus" : "待审核",
+    "newsLook" : "开放浏览",
+    "isShow" : "checked",
+    "newsTime" : "2017-11-20"
+},{
+    "newsId" : "6",
+    "newsName" : "引入require.js实现前端模块化（已完善）",
+    "newsAuthor" : "admin",
+    "newsStatus" : "审核通过",
+    "newsLook" : "开放浏览",
+    "isShow" : "checked",
+    "newsTime" : "2017-12-16"
+},{
+    "newsId" : "7",
+    "newsName" : "样式细节按照需求更新（优先级低）",
+    "newsAuthor" : "admin",
+    "newsStatus" : "审核通过",
+    "newsLook" : "开放浏览",
+    "isShow" : "checked",
+    "newsTime" : "长期"
+},{
+    "newsId" : "8",
+    "newsName" : "增加导出至Excel功能（优先级低）",
+    "newsAuthor" : "admin",
+    "newsStatus" : "审核通过",
+    "newsLook" : "开放浏览",
+    "isShow" : "checked",
+    "newsTime" : "2017-12-20"
+},{
+    "newsId" : "9",
+    "newsName" : "优化性能，提高安全性（任重道远）",
+    "newsAuthor" : "admin",
+    "newsStatus" : "审核通过",
+    "newsLook" : "开放浏览",
+    "isShow" : "checked",
+    "newsTime" : "2017-12-20"
+}]

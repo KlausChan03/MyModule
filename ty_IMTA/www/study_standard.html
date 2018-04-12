@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./template/layui/css/layui.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/share.css">
+    <link rel="stylesheet" href="./css/study.css">
+    <link rel="stylesheet" href="./css/layui-c.css">
+    <!-- <link rel="stylesheet" href="./plugin/swiper.min.css"> -->
+    <link rel="stylesheet" href="./plugin/idangerous.swiper2.7.6.css">
+    <title>学术研究-标准认证</title>
+</head>
+
+<body>
+    <script src="./js/header.js"></script>
+    <div class="container">
+        <div class="study-content clearfloat">
+            <ul id="study-tab" class="layui-nav layui-nav-tree fl" lay-filter="study-tab">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">学术研究</a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="study_report.html">联盟报告</a>
+                        </dd>
+                        <dd class="layui-this">
+                            <a href="study_standard.html">标准认证</a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+
+            <div id="study-main" class="study-main layui-tab-content fl">
+                <div class="section-1 study-container">
+                    <div class="news-t-2 clearfloat">
+                        <div class="news-t-2-left fl">
+                            <img src="./img/u381.png" alt="">
+                        </div>
+                        <div class="news-t-2-right fr">
+                            <div class="news-t-2-top clearfloat">
+                                <h3 class="news-title fl">首届中国旅游舆情在京召业化舆情管促进旅游产业创新发展</h3>
+                            </div>
+                            <div class="news-t-2-main">
+                                <p>农垦根据资源禀赋、市场需求，制定了“八八”战略，即重点发展天然橡胶、热带水果、热带作物、草畜养殖、南繁育制种、旅游健康地产、商贸物流、金融服务等八大产业..</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-t-2 clearfloat">
+                        <div class="news-t-2-left fl">
+                            <img src="./img/u381.png" alt="">
+                        </div>
+                        <div class="news-t-2-right fr">
+                            <div class="news-t-2-top clearfloat">
+                                <h3 class="news-title fl">首届中国旅游舆情在京召业化舆情管促进旅游产业创新发展</h3>
+                            </div>
+                            <div class="news-t-2-main">
+                                <p>农垦根据资源禀赋、市场需求，制定了“八八”战略，即重点发展天然橡胶、热带水果、热带作物、草畜养殖、南繁育制种、旅游健康地产、商贸物流、金融服务等八大产业..</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-t-2 clearfloat">
+                        <div class="news-t-2-left fl">
+                            <img src="./img/u381.png" alt="">
+                        </div>
+                        <div class="news-t-2-right fr">
+                            <div class="news-t-2-top clearfloat">
+                                <h3 class="news-title fl">首届中国旅游舆情在京召业化舆情管促进旅游产业创新发展</h3>
+                            </div>
+                            <div class="news-t-2-main">
+                                <p>农垦根据资源禀赋、市场需求，制定了“八八”战略，即重点发展天然橡胶、热带水果、热带作物、草畜养殖、南繁育制种、旅游健康地产、商贸物流、金融服务等八大产业..</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-t-2 clearfloat">
+                        <div class="news-t-2-left fl">
+                            <img src="./img/u381.png" alt="">
+                        </div>
+                        <div class="news-t-2-right fr">
+                            <div class="news-t-2-top clearfloat">
+                                <h3 class="news-title fl">首届中国旅游舆情在京召业化舆情管促进旅游产业创新发展</h3>
+                            </div>
+                            <div class="news-t-2-main">
+                                <p>农垦根据资源禀赋、市场需求，制定了“八八”战略，即重点发展天然橡胶、热带水果、热带作物、草畜养殖、南繁育制种、旅游健康地产、商贸物流、金融服务等八大产业..</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="lay-page" class="lay-page text-center"></div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="./js/footer.js"></script>
+    <!-- <script src="./plugin/swiper.min.js"></script> -->
+    <script src="./plugin/idangerous.swiper2.7.6.min.js"></script>
+    
+
+    <script>
+
+        layui.use(['form', 'element'], function () {
+            var element = layui.element;
+
+            element.on('nav(study-tab)', function (data) {
+                console.log(data)
+            });
+
+        })
+        layui.use("laypage", function () {
+            var laypage = layui.laypage;
+            //执行一个laypage实例
+            laypage.render({
+                elem: "lay-page",
+                count: 300,
+                limit: 20,
+                layout: ["prev", "page", "next"],
+                last: '尾页',
+                first: '首页'
+            });
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

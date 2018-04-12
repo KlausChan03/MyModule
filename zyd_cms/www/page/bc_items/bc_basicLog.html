@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../../css/layer-set-myself.css" media="all" />
+    <link rel="stylesheet" href="../../css/flex.css" media="all" />
+
+    <style>
+    </style>
+</head>
+
+<body class="childrenBody">
+    <fieldset class="layui-elem-field layui-field-title site-title">
+        <legend>
+            <a class="table-title" name="table-title"></a>
+        </legend>
+    </fieldset>
+    <div class="layui-btn-group button-out-table"></div>
+    <div class="layui-form zwlAppend">
+        <div class="layui-inline" id="sectionAtt">
+            <select name="city" lay-verify="" class="select-test" lay-filter="search">
+                <option value="">请选择您要查找的条件</option>
+            </select>     
+        </div>
+        <div class="layui-inline">
+            <input type="text" name="selectVal" required="" lay-verify="required" placeholder="请输入您要查找的内容" autocomplete="off" class="layui-input" id="souVal">
+        </div>
+        <div class="layui-inline">
+            <button class="layui-btn layui-btn-mini layui-bg-orange" data-type="" id="seacherButton" lay-filter="formSearch"><i class="layui-icon" style="font-size: 16px; color: #eee;">&#xe615;</i>查询</button>
+        </div>    
+    </div>
+    <div class="layui-form table-container">
+        <table class="layui-table  button-in-table" id="demo" lay-filter="demo"> </table>
+        <div class="layui-hide" id="act-bar"> </div>
+    </div>
+
+    <script>     </script>
+
+ <script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/table.js"></script>
+<script type="text/javascript" src="../../js/layFun.js"></script>
+<script>
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+/* .layui-layer-diy[type=page].w16 {
+	width: 6.4rem;
+	border-radius: .15rem;
+}
+
+.layui-layer-diy[type=page].w12 {
+	min-width: 4.8rem;
+	border-radius: .15rem;
+}
+
+.layui-layer-diy[type=page].w14 {
+	min-width: 5.6rem;
+	border-radius: .15rem;
+}
+
+.layui-layer-diy[type=page].w51 {
+	width: 5.1rem;
+	border-radius: .15rem;
+} */
+
+/* 底部显示与否 */
+.layui-layout-admin .layui-body{
+  bottom:0;
+}
+.layui-footer{
+  display: none;
+}
+
+/* 按钮样式 */
+.layui-btn-mini{
+  height: 24px;
+  line-height:24px;
+}
+
+/* 表格样式 */
+.layui-table-header tr th span{
+  font-weight: bolder;
+}
+
+/* 表单样式 */
+.layui-input, .layui-textarea, .layui-select{
+  height: 32px;
+  line-height: 32px;
+}
+
+.layui-btn-mini i{
+  font-size: 15px!important;
+}
+
+/* 弹窗样式 */
+.layui-layer-diy[type="page"].w520 {
+  width: 850px !important;
+  border-radius: 2px;
+}
+.layui-layer-title {
+  font-size: 16px!important;
+}
+.layui-layer-content .layui-form.form-insert-update {
+  padding: 20px 30px;
+}
+
+.layui-layer-content .form-insert-update .layui-form-label {
+  width: 85px;
+  padding: 9px 20px 9px 0px;
+}
+
+.layui-layer-content .form-insert-update .layui-input-block {
+  margin-left: 105px;
+}
+
+.layui-layer-content .form-insert-update .layui-btn {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+}
+
+/* 无数据提示样式 */
+.no-data{
+  width:150px;
+  height: 150px;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left:50%;
+  top:45%;
+}
+
+/* 锁屏样式 */
+.now-time{
+  position:absolute;
+  left:50%;
+  top:20%;
+  transform:translate(-50%,-50%);
+  font-size:60px;
+  color:#fff;
+}
+
+.lock-layer{
+  opacity: .7;
+}
+
+.bg-lock{
+  width:100%;
+  height: 100%;
+}
+
+.admin-header-lock .input_btn{
+  display: flex;
+  align-items: center;
+}
+
+
+.zwlAppend{
+  margin: 10px 0;
+}
+
+

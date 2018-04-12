@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./template/layui/css/layui.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/share.css">
+    <link rel="stylesheet" href="./css/search.css">
+    <link rel="stylesheet" href="./css/layui-c.css">
+    <!-- <link rel="stylesheet" href="./plugin/swiper.min.css"> -->
+    <link rel="stylesheet" href="./plugin/idangerous.swiper2.7.6.css">
+    <title>会员服务</title>
+</head>
+
+<body>
+    <script src="./js/header.js"></script>
+    <div class="container w-1100">
+        <div class="search-header layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label">站内搜索</label>
+                <input type="text" name="search" lay-verify="search" placeholder="贵州节庆活动" class="search-input layui-input">
+                <button class="search-button layui-btn" lay-filter="search">搜索</button>
+            </div>
+            <div class="layui-form-item">
+                <input type="radio" name="search-type" value="搜索全文" title="搜索全文" checked="checked">
+                <input type="radio" name="search-type" value="搜索标题" title="搜索标题">
+            </div>
+            <div class="layui-form-item">
+                <p>获得约
+                    <span>3023</span>条结果（用时
+                    <span>0.036</span>秒）</p>
+            </div>
+
+        </div>
+        <div class="search-content clearfloat">
+
+            <ul class="layui-nav layui-nav-tree fl" id="search-tab">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">网页类型</a>
+                    <dl class="layui-nav-child layui-tab-title" lay-filter="demo">
+                        <dd class="search-tab-items layui-this">
+                            <a href="#" onclick="return false;">新闻</a>
+                        </dd>
+                        <dd class="search-tab-items">
+                            <a href="#" onclick="return false;">图库</a>
+                        </dd>
+                        <dd class="search-tab-items">
+                            <a href="#" onclick="return false;">专题</a>
+                        </dd>
+                        <dd class="search-tab-items">
+                            <a href="#" onclick="return false;">联盟会员</a>
+                        </dd>
+                        <dd class="search-tab-items">
+                            <a href="#" onclick="return false;">会员产品</a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+
+            <div id="search-main" class="search-main layui-tab-content fl">
+                <div class="search-container layui-tab-item layui-show">
+                    <div class="news-left">
+                        <div class="news-t-1">
+                            <div class="news-t-1-top clearfloat">
+                                <h3 class="news-title fl">
+                                    <a href="#">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</a>
+                                </h3>
+                                <p class="news-date fr">2小时前</p>
+                            </div>
+                            <div class="news-t-1-main">
+                                <p>农垦根据资源禀赋、市场需求，制定了“八八”战略，即重点发展天然橡胶、热带水果、热带作物、草畜养殖、南繁育制种、旅游健康地产、商贸物流、金融服务等八大产业..</p>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</a>
+                                    </h3>
+                                    <p class="news-date fr">2小时前</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>农垦根据资源禀赋、市场需求，制定了“八八”战略，即重点发展天然橡胶、热带水果、热带作物、草畜养殖、南繁育制种、旅游健康地产、商贸物流、金融服务等八大产业..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</a>
+                                    </h3>
+                                    <p class="news-date fr">2小时前</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>农垦根据资源禀赋、市场需求，制定了“八八”战略，即重点发展天然橡胶、热带水果、热带作物、草畜养殖、南繁育制种、旅游健康地产、商贸物流、金融服务等八大产业..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</a>
+                                    </h3>
+                                    <p class="news-date fr">2小时前</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>农垦根据资源禀赋、市场需求，制定了“八八”战略，即重点发展天然橡胶、热带水果、热带作物、草畜养殖、南繁育制种、旅游健康地产、商贸物流、金融服务等八大产业..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</a>
+                                    </h3>
+                                    <p class="news-date fr">2小时前</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>农垦根据资源禀赋、市场需求，制定了“八八”战略，即重点发展天然橡胶、热带水果、热带作物、草畜养殖、南繁育制种、旅游健康地产、商贸物流、金融服务等八大产业..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</a>
+                                    </h3>
+                                    <p class="news-date fr">2小时前</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>农垦根据资源禀赋、市场需求，制定了“八八”战略，即重点发展天然橡胶、热带水果、热带作物、草畜养殖、南繁育制种、旅游健康地产、商贸物流、金融服务等八大产业..</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div id="lay-page" class="lay-page text-center"></div>
+
+                </div>
+                <div class="search-container layui-tab-item">
+
+                    <div class="section-container clearfloat">
+                        <div class="section-items fl">
+                            <div class="img-container">
+                                <img src="img/u381.png" alt="">
+                            </div>
+                            <div class="content-container">
+                                <h5 class="content-container-title">曼谷芭提提提雅6天5晚</h5>
+                                <p class="content-container-content">折扣价：
+                                    <span class="price">¥ 268</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="section-items fl">
+                            <div class="img-container">
+                                <img src="img/u381.png" alt="">
+                            </div>
+                            <div class="content-container">
+                                <h5 class="content-container-title">曼谷芭提提提雅6天5晚</h5>
+                                <p class="content-container-content">折扣价：
+                                    <span class="price">¥ 268</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="section-items fl">
+                            <div class="img-container">
+                                <img src="img/u381.png" alt="">
+                            </div>
+                            <div class="content-container">
+                                <h5 class="content-container-title">曼谷芭提提提雅6天5晚</h5>
+                                <p class="content-container-content">折扣价：
+                                    <span class="price">¥ 268</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="section-items fl">
+                            <div class="img-container">
+                                <img src="img/u381.png" alt="">
+                            </div>
+                            <div class="content-container">
+                                <h5 class="content-container-title">曼谷芭提提提雅6天5晚</h5>
+                                <p class="content-container-content">折扣价：
+                                    <span class="price">¥ 268</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="section-items fl">
+                            <div class="img-container">
+                                <img src="img/u381.png" alt="">
+                            </div>
+                            <div class="content-container">
+                                <h5 class="content-container-title">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</h5>
+                                <p class="content-container-content">折扣价：
+                                    <span class="price">¥ 268</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="section-items fl">
+                            <div class="img-container">
+                                <img src="img/u381.png" alt="">
+                            </div>
+                            <div class="content-container">
+                                <h5 class="content-container-title">曼谷芭提提提雅6天5晚</h5>
+                                <p class="content-container-content">折扣价：
+                                    <span class="price">¥ 268</span>
+                                </p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div id="lay-page-2" class="lay-page text-center"></div>
+                </div>
+                <div class="search-container layui-tab-item">
+                    <div class="news-left">
+                        <div class="news-t-1">
+                            <div class="news-t-1-top clearfloat">
+                                <h3 class="news-title fl">
+                                    <a href="#">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</a>
+                                </h3>
+                                <p class="news-date fr">2小时前</p>
+                            </div>
+                            <div class="news-t-1-main">
+                                <p>农垦根据资源禀赋、市场需求，制定了“八八”战略，即重点发展天然橡胶、热带水果、热带作物、草畜养殖、南繁育制种、旅游健康地产、商贸物流、金融服务等八大产业..</p>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</a>
+                                    </h3>
+                                    <p class="news-date fr">2小时前</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>农垦根据资源禀赋、市场需求，制定了“八八”战略，即重点发展天然橡胶、热带水果、热带作物、草畜养殖、南繁育制种、旅游健康地产、商贸物流、金融服务等八大产业..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</a>
+                                    </h3>
+                                    <p class="news-date fr">2小时前</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>农垦根据资源禀赋、市场需求，制定了“八八”战略，即重点发展天然橡胶、热带水果、热带作物、草畜养殖、南繁育制种、旅游健康地产、商贸物流、金融服务等八大产业..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</a>
+                                    </h3>
+                                    <p class="news-date fr">2小时前</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>农垦根据资源禀赋、市场需求，制定了“八八”战略，即重点发展天然橡胶、热带水果、热带作物、草畜养殖、南繁育制种、旅游健康地产、商贸物流、金融服务等八大产业..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</a>
+                                    </h3>
+                                    <p class="news-date fr">2小时前</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>农垦根据资源禀赋、市场需求，制定了“八八”战略，即重点发展天然橡胶、热带水果、热带作物、草畜养殖、南繁育制种、旅游健康地产、商贸物流、金融服务等八大产业..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</a>
+                                    </h3>
+                                    <p class="news-date fr">2小时前</p>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p>农垦根据资源禀赋、市场需求，制定了“八八”战略，即重点发展天然橡胶、热带水果、热带作物、草畜养殖、南繁育制种、旅游健康地产、商贸物流、金融服务等八大产业..</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div id="lay-page-3" class="lay-page text-center"></div>
+
+                </div>
+                <div class="search-container search-4 layui-tab-item">
+                    <ul class="search-4-ul">
+                        <li class="search-4-items">贵州茅台酒集团</li>
+                        <li class="search-4-items">三亚天涯海角生态旅游区</li>
+                        <li class="search-4-items">国家旅游局</li>
+                        <li class="search-4-items">贵州茅台酒集团</li>
+                        <li class="search-4-items">三亚天涯海角生态旅游区</li>
+                    </ul>
+                    <div id="lay-page-4" class="lay-page text-center"></div>
+
+                </div>
+                <div class="search-container search-5 layui-tab-item">
+                    <div class="news-left">
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</a>
+                                    </h3>
+
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p class="news-title-s">黄果树瀑布产业集团有限公司</p>
+                                    <span class="origin-price">原价：168</span>
+                                    <span class="now-price">折扣价：
+                                        <span>￥</span><span>268</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</a>
+                                    </h3>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p class="news-title-s">黄果树瀑布产业集团有限公司</p>
+                                    <span class="origin-price">原价：168</span>
+                                    <span class="now-price">折扣价：
+                                        <span>￥</span><span>268</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</a>
+                                    </h3>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p class="news-title-s">黄果树瀑布产业集团有限公司</p>
+                                    <span class="origin-price">原价：168</span>
+                                    <span class="now-price">折扣价：
+                                        <span>￥</span><span>268</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</a>
+                                    </h3>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p class="news-title-s">黄果树瀑布产业集团有限公司</p>
+                                    <span class="origin-price">原价：168</span>
+                                    <span class="now-price">折扣价：
+                                        <span>￥</span><span>268</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-t-2 clearfloat">
+                            <div class="news-t-2-left img-container fl">
+                                <img src="./img/u381.png" alt="">
+                            </div>
+                            <div class="news-t-2-right fr">
+                                <div class="news-t-2-top clearfloat">
+                                    <h3 class="news-title fl">
+                                        <a href="#">曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚曼谷芭提提提雅6天5晚</a>
+                                    </h3>
+                                </div>
+                                <div class="news-t-2-main">
+                                    <p class="news-title-s">黄果树瀑布产业集团有限公司</p>
+                                    <span class="origin-price">原价：168</span>
+                                    <span class="now-price">折扣价：
+                                        <span>￥</span><span>268</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="lay-page-5" class="lay-page text-center"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="./js/footer.js"></script>
+    <!-- <script src="./plugin/swiper.min.js"></script> -->
+    <script src="./plugin/idangerous.swiper2.7.6.min.js"></script>
+
+    <script>
+        layui.use(['form', 'element'], function () {
+            var element = layui.element;
+            var form = layui.form
+            element.on('tab(demo)', function (data) {
+                console.log(data)
+                if(data.index== -1){
+                    $("#search-main>div:first-child").addClass("layui-show")
+                    $("#search-main>div:first-child").siblings().removeClass("layui-show")
+                }
+            });
+            element.tab({
+                headerElem: '#search-tab>li>dl>.search-tab-items' //指定tab头元素项
+                , bodyElem: '#search-main>.search-container' //指定tab主体元素项
+            });
+        });
+        layui.use("laypage", function () {
+            var laypage = layui.laypage;
+            //执行一个laypage实例
+            laypage.render({
+                elem: "lay-page",
+                count: 300,
+                limit: 20,
+                layout: ["prev", "page", "next"],
+                last: '尾页',
+                first: '首页',
+
+            });
+            laypage.render({
+                elem: "lay-page-2",
+                count: 300,
+                limit: 20,
+                layout: ["prev", "page", "next"],
+                last: '尾页',
+                first: '首页',
+
+            });
+            laypage.render({
+                elem: "lay-page-3",
+                count: 300,
+                limit: 20,
+                layout: ["prev", "page", "next"],
+                last: '尾页',
+                first: '首页',
+
+            });
+            laypage.render({
+                elem: "lay-page-4",
+                count: 300,
+                limit: 20,
+                layout: ["prev", "page", "next"],
+                last: '尾页',
+                first: '首页',
+
+            });
+            laypage.render({
+                elem: "lay-page-5",
+                count: 300,
+                limit: 20,
+                layout: ["prev", "page", "next"],
+                last: '尾页',
+                first: '首页',
+
+            });
+        });
+
+        $(".section-items:nth-child(4n-3)").css({ "margin-left": "0" })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<script src="vue.js"></script>
+
+
+<body>
+    <div id="app-6">
+        <ol>
+            <!-- 创建一个 todo-item 组件的实例 -->
+            <todo-item></todo-item>
+        </ol>
+        <ul>
+            <li v-for="item in items">
+                {{item}}
+            </li>
+        </ul>
+        <div>
+            <p v-if="love">
+                klaus & laura
+            </p>
+            <p v-if="Math.random() > 0.5">
+                hello,laura
+            </p>
+            <p v-else>
+                who klaus
+            </p>
+        </div>
+    </div>
+    <div id="test">
+        {{roger}}
+        {{klaus}}
+        {{laura}}
+    </div>
+
+</body>
+<script>
+    // 定义名为 todo-item 的新组件
+    Vue.component('todo-item', {
+        template: '<li>这是个待办项</li>'
+    })
+
+    var app6 = new Vue({
+        el: '#app-6',
+        data: {
+            love: false,
+            message: 'Hello Vue!',
+            items: [
+                { message: "111" },
+                { message: "222" }
+            ]
+        }
+    })
+
+    var data = { roger: "111" ,klaus:""}
+    
+    var test = new Vue({
+        el:'#test',
+        data: data
+    })
+
+    test.laura = "333"
+    
+    console.log(data.roger === test.roger)
+</script>
+
+</html>

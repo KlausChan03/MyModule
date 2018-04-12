@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./template/layui/css/layui.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/share.css">
+    <link rel="stylesheet" href="./css/member.css">
+    <link rel="stylesheet" href="./css/layui-c.css">
+    <!-- <link rel="stylesheet" href="./plugin/swiper.min.css"> -->
+    <link rel="stylesheet" href="./plugin/idangerous.swiper2.7.6.css">
+    <title>会员服务</title>
+    <style>
+    </style>
+</head>
+
+<body class="EN">
+    <script src="./js/header.js"></script>
+    <div class="container container-l">
+        <div class="member-content member-content-l clearfloat">
+            <ul id="member-tab" class="layui-nav layui-nav-tree fl" lay-filter="member-tab">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">Membership service</a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="member_service.html">Service Introduction</a>
+                        </dd>
+                        <dd>
+                            <a href="member_join.html">Join process</a>
+                        </dd>
+                        <dd class="layui-this">
+                            <a href="member_list.html">Member Directory</a>
+                        </dd>
+                        <dd>
+                            <a href="member_elegant.html">Members’ demeanor</a>
+                        </dd>
+                        <dd>
+                            <a href="member_train.html">Training consultation</a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+
+            <div id="member-main" class="member-main layui-tab-content fl">
+                <div class="member-container">
+                    <div class="member-worldmap">
+                        <img src="./img/member-map.png" alt="">
+                        <div class="member-worldlist">
+                            <span class="Asia">Asia</span>
+                            <span class="Europe">Europe</span>
+                            <span class="NorthAmerica">North America</span>
+                            <span class="SouthAmerica">South America</span>
+                            <span class="Africa">Africa</span>
+                            <span class="Oceania">Oceania</span>
+                        </div>
+                    </div>
+                    <div class="member-select">
+                        <form class="layui-form member-select-content">
+                            <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">region</label>
+                                <div class="layui-input-block member-select-section select-continent">
+                                    <input type="checkbox" name="continent[allcheck]" title="All" lay-skin="primary">
+
+                                    <input type="checkbox" name="continent[Asia]" title="Asia " lay-skin="primary">
+                                    <input type="checkbox" name="continent[Europe]" title="Europe" lay-skin="primary">
+                                    <input type="checkbox" name="continent[NorthAmerica]" title="North America" lay-skin="primary">
+                                    <input type="checkbox" name="continent[SouthAmerica]" title="South America" lay-skin="primary">
+                                    <input type="checkbox" name="continent[Africa]" title="Africa" lay-skin="primary">
+                                    <input type="checkbox" name="continent[Oceania]" title="Oceania" lay-skin="primary">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">type</label>
+                                <div class="layui-input-block member-select-section select-type">
+                                    <input type="checkbox" name="type[allcheck]" title="All" lay-skin="primary">
+                                    <input type="checkbox" name="type[zhengfu]" title="Governmemt" lay-skin="primary">
+                                    <input type="checkbox" name="type[qiye]" title="Business" lay-skin="primary">
+                                    <input type="checkbox" name="type[jigou]" title="Academia" lay-skin="primary">
+                                    <input type="checkbox" name="type[meiti]" title="Media" lay-skin="primary">
+                                    <input type="checkbox" name="type[shetuan]" title="Association" lay-skin="primary">
+                                    <input type="checkbox" name="type[xiehui]" title="Civil Society" lay-skin="primary">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">character</label>
+                                <div class="layui-input-block member-select-section select-class">
+                                    <input type="checkbox" name="class[allcheck]" title="All" lay-skin="primary">
+                                    <input type="checkbox" name="class[all]" title="group member" lay-skin="primary">
+                                    <input type="checkbox" name="class[person]" title="individual member" lay-skin="primary">
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="member-table">
+                        <table id="demo" lay-filter="test"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="./js/footer.js"></script>
+    <!-- <script src="./plugin/swiper.min.js"></script> -->
+    <script src="./plugin/idangerous.swiper2.7.6.min.js"></script>
+
+
+    <script>
+
+        layui.use(['form', 'element', 'table'], function () {
+            var element = layui.element;
+            var form = layui.form;
+            var table = layui.table;
+            var laypage = layui.laypage;
+
+            // element.on('nav(member-tab)', function (data) {
+            //     console.log(data)
+            // });
+            form.on('checkbox', function (data) {
+                // console.log(data)
+                // console.log(data.elem.name); //得到checkbox原始DOM对象
+                // console.log(data.elem.checked); //是否被选中，true或者false
+                // console.log(data.value); //复选框value值，也可以通过data.elem.value得到
+                // console.log(data.othis); //得到美化后的DOM对象
+                (function (name) {
+                    var name = data.elem.name.split('[', 1)
+                    if (data.elem.name.indexOf("allcheck") != -1 && data.elem.checked == true) {
+                        if (data.elem.name == `${name}[allcheck]`) {
+                            $(`[name="${name}[allcheck]"]`).siblings().prop("checked", true)
+                        }
+                    }
+                    if (data.elem.name.indexOf("allcheck") != -1 && data.elem.checked == false) {
+                        if (data.elem.name == `${name}[allcheck]`) {
+                            $(`[name="${name}[allcheck]"]`).siblings().prop("checked", false)
+                        }
+                    }
+                    if (data.elem.name.indexOf("allcheck") == -1 && data.elem.checked == false) {
+                        if (data.elem.name.indexOf(`${name}`) != -1) {
+                            $(`[name="${name}[allcheck]"]`).prop("checked", false)
+                        }
+                    }
+                    if (data.elem.name.indexOf("allcheck") == -1 && data.elem.checked == true) {
+                        // var $true_dom = $(`.layui-form-checked[name*=${name}]`)
+                        var $true_dom = $(`[class*=${name}] .layui-form-checked`)
+                        var $true_len = $(`[class*=${name}] .layui-form-checked`).length;
+                        var $origin_len = $(`[class*=${name}] .layui-form-checkbox`).length;
+                        console.log($true_len)
+                        if($true_len == $origin_len-1){
+                            $(`[name="${name}[allcheck]"]`).prop("checked", true)
+                        }
+                        
+                    }
+
+                })()
+                if (data.elem.checked != true) {
+                    switch (data.elem.name) {
+                        case "continent[Asia]":
+                            $(".Asia").removeClass("focus-this")
+                            break;
+                        case "continent[Europe]":
+                            $(".Europe").removeClass("focus-this")
+                            break;
+                        case "continent[NorthAmerica]":
+                            $(".NorthAmerica").removeClass("focus-this")
+                            break;
+                        case "continent[SouthAmerica]":
+                            $(".SouthAmerica").removeClass("focus-this")
+                            break;
+                        case "continent[Africa]":
+                            $(".Africa").removeClass("focus-this")
+                            break;
+                        case "continent[Oceania]":
+                            $(".Oceania").removeClass("focus-this")
+                            break;
+                        case "continent[allcheck]":
+                            $(".member-worldlist span").removeClass("focus-this")
+                            break;
+                    }
+                } else {
+                    switch (data.elem.name) {
+                        case "continent[Asia]":
+                            $(".Asia").addClass("focus-this")
+                            break;
+                        case "continent[Europe]":
+                            $(".Europe").addClass("focus-this")
+                            break;
+                        case "continent[NorthAmerica]":
+                            $(".NorthAmerica").addClass("focus-this")
+                            break;
+                        case "continent[SouthAmerica]":
+                            $(".SouthAmerica").addClass("focus-this")
+                            break;
+                        case "continent[Africa]":
+                            $(".Africa").addClass("focus-this")
+                            break;
+                        case "continent[Oceania]":
+                            $(".Oceania").addClass("focus-this")
+                            break;
+                        case "continent[allcheck]":
+                            $(".member-worldlist span").addClass("focus-this")
+                            break;
+                    }
+                }
+                form.render('checkbox');
+            });
+
+            $(".member-worldlist span").click(function () {
+                if ($(this).hasClass("focus-this")) {
+                    $(this).removeClass("focus-this")
+                } else {
+                    $(this).addClass("focus-this")
+                }
+            })
+
+
+            table.render({
+                elem: '#demo'
+                , height: 400
+                , url: './js/user.json?page=1&limit=10' //数据接口
+                , request: {
+                    pageName: 'page' //页码的参数名称，默认：page
+                    , limitName: 'limit' //每页数据量的参数名，默认：limit
+                }
+                , limit: 10
+                , page: {
+                    theme: 'table',
+                    count: 300,
+                    limit: 10,
+                    layout: ["prev", "page", "next"],
+                    last: '尾页',
+                    first: '首页',
+                    next: '下一页',
+                    prev: '上一页'
+                }
+                , cols: [[
+                    // { field: 'id', title: 'ID', width: 80, sort: true, fixed: 'left' }
+                    { field: 'username', title: 'Member name', width: 370, align: 'left' }
+                    , { field: 'type', title: 'type', width: 130, align: 'center' }
+                    , { field: 'country', title: 'country', width: 130, align: 'center' }
+                    , { field: 'tel', title: 'tel', width: 135, align: 'center' }
+                ]]
+            })
+        });
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
