@@ -1,8 +1,0 @@
----2017-10-18 16:8:19【TypeError: Cannot read property 'query' of undefined
-    at Object.pgdb.query (E:\github项目\MyModule\company_item\func\pgdb.js:84:9)
-    at Object.module.exports.run (E:\github项目\MyModule\company_item\ajax\login.js:31:21)
-    at E:\github项目\MyModule\company_item\ajax\ajax.js:25:22】
----2017-10-18 16:11:29【TypeError: Cannot read property 'query' of undefined
-    at Object.pgdb.query (E:\github项目\MyModule\company_item\func\pgdb.js:84:9)
-    at Object.module.exports.run (E:\github项目\MyModule\company_item\ajax\BC_select_all.js:47:21)
-    at E:\github项目\MyModule\company_item\ajax\ajax.js:25:22】
