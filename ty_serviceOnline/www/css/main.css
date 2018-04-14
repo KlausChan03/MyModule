@@ -135,15 +135,15 @@ header .header-use-bottom > span:first-child::before{
     background: #adbed5;
 }
 .nav-left .nav-left-ul li.layui-this a{
-    background: #adbed5;    
-    /* border-bottom: 0;    */
+    background: transparent;    
+    border-bottom-color:transparent;   
 }
 .nav-left .nav-left-ul li:hover{
     background: #adbed5;        
 }
 .nav-left .nav-left-ul li a:hover{
     color:#333;
-    background: #adbed5;
+    background: transparent;
 }
 
 .nav-left .nav-left-ul li a span{
@@ -160,19 +160,51 @@ header .header-use-bottom > span:first-child::before{
 }
 
 .main .table-search{
-    padding:18px 0;
+    padding: 10px 0;
     background: #fff;
 
 }
 
-.table-search .layui-form-item{
+.table-action .layui-form-item{
+    margin:10px 0;
+}
+.table-action .layui-form-item .layui-inline{
     margin: 0;
 }
-.table-search .layui-form-item .layui-form-label{
+.table-action .layui-form-item .layui-form-label{
     padding: 0;
     line-height: 26px;
 }
-.table-search .layui-form-item .layui-input,.table-search .layui-form-item .layui-form-select{
+.table-action .layui-form-item .layui-input,.table-action .layui-form-item .layui-form-select{
     width:150px; height: 26px;
     border-color:#dcdbdc;
+}
+.table-action .layui-form-item .layui-input-inline{
+    width:150px; height: 26px;
+}
+
+.table-action .layui-form-item .layui-input-inline,.table-action .layui-form-item .layui-form-select{
+    margin-right: 10px;
+}
+
+.table-action .table-search-right{
+    width: 190px;
+}
+.table-action .table-search-right .table-search-button{
+    width: 90px; height: 32px;
+    line-height: 32px;
+    margin-left: 20px;
+}
+.table-action .table-others{
+    padding: 10px 0;
+}
+
+.table-action .table-others-right>div:first-child{
+    margin-right: 10px;
+}
+
+.table-action .table-method button{
+    font-size: 14px;
+    color:#497fc1;
+    border-color:#497fc1;
 }

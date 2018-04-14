@@ -255,6 +255,10 @@ select[disabled='disabled'] {
     color:#d54f26;
 }
 
+.col497{
+    color:#497fc1;
+}
+
 .col18d {
     color: #18d0fd;
 }
@@ -283,6 +287,9 @@ select[disabled='disabled'] {
     color: #ddd;
 }
 
+.bgc497{
+    background:#497fc1!important;
+}
 .bgcfff {
     background: #fff;
 }
