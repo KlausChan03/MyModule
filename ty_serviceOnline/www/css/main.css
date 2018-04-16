@@ -94,6 +94,8 @@ header .header-use-bottom > span:first-child::before{
     padding:20px 40px;
     background: #f3f3f3;
     height:calc(100vh - 160px);
+    width:100%;
+    overflow-x: hidden;
 }
 .nav-left .nav-left-ul {
     width: 210px; height:calc(100vh - 120px);
@@ -196,7 +198,7 @@ header .header-use-bottom > span:first-child::before{
     margin-left: 20px;
 }
 .table-action .table-others{
-    padding: 10px 0;
+    padding-top: 10px;
 }
 
 .table-action .table-others-right>div:first-child{
@@ -208,3 +210,32 @@ header .header-use-bottom > span:first-child::before{
     color:#497fc1;
     border-color:#497fc1;
 }
+
+
+
+.main .layui-laypage-skin{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+}
+
+.main .layui-laypage-skin .layui-laypage-curr .layui-laypage-em{
+    background-color: #adbed5;
+}
+
+
+
+.main .layui-table-tool,
+.main .layui-table-patch,
+.main .layui-table-mend,
+.main .layui-table[lay-even] tr:nth-child(even),
+.main .layui-table tbody tr:hover,
+.main .layui-table-hover,
+.main .layui-table-click{background-color: #e4f3fd;}
+
+
+.main .layui-table thead tr,
+.main .layui-table-header{background-color: #d7dfe8;}

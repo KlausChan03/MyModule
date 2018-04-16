@@ -30,13 +30,13 @@
             <div class="header-notice flex-ha-vc">
                 <img src="./img/h-notice.png" alt="">
                 <span>等待：
-                    <span class="header-notice-waiting cold54">0</span>
+                    <span data-method="offset" data-type="t" class="header-notice-waiting cold54">0</span>
                 </span>
                 <span>未接：
                     <span class="header-notice-unlisten cold54">12</span>
                 </span>
                 <span>已接：
-                    <span class="header-notice-haslisten ">0</span>
+                    <span class="header-notice-haslisten">0</span>
                 </span>
             </div>
             <div class="header-use flex-v flex-hc-vr">
@@ -90,14 +90,14 @@
                 <li class="layui-nav-item">
                     <a href="" onclick="return false;">
                         <span class="fl">建议列表</span>
-                        <span class="fl cold54">25</span>
+                        <span class="fl cold54">99+</span>
                         <span class="fr">获取</span>
                     </a>
                 </li>
                 <li class="layui-nav-item">
                     <a href="" onclick="return false;">
                         <span class="fl">服务监督</span>
-                        <span class="fl cold54">25</span>
+                        <span class="fl cold54">99+</span>
                         <span class="fr">获取</span>
                     </a>
                 </li>
@@ -176,11 +176,10 @@
                             <button class="layui-btn layui-btn-primary layui-btn-sm">导出数据</button>
                         </div>
                     </div>
-
                 </div>
             </section>
             <section>
-                <table id="demo" lay-filter="test"></table>
+                <table id="service-table" lay-filter="service"></table>
             </section>
         </article>
     </main>
@@ -193,31 +192,70 @@
     <!-- <script src="./js/footer.js"></script> -->
 
     <script>
-        layui.use(['form', 'element', 'table'], function () {
+        layui.config({
+            base: '/js/' //假设这是你存放拓展模块的根目录
+            }).extend({ //设定模块别名
+            layer_init: 'layer_init' //如果 mymod.js 是在根目录，也可以不用设定别名
+        });
+
+        layui.use(['form', 'element', 'table','jquery','layer_init'], function () {
             var element = layui.element;
             var form = layui.form;
             var table = layui.table;
-
-            //执行渲染
-            table.render({
-                elem: '#demo' //指定原始表格元素选择器（推荐id选择器）
-                , height: 315
-                , url: '/demo/table/user/' //数据接口
-                , page: true //开启分页
-                , cols: [[ //表头
-                    { field: 'id', title: 'ID', width: 80, sort: true, fixed: 'left' }
-                    , { field: 'username', title: '用户名', width: 80 }
-                    , { field: 'sex', title: '性别', width: 80, sort: true }
-                    , { field: 'city', title: '城市', width: 80 }
-                    , { field: 'sign', title: '签名', width: 177 }
-                    , { field: 'experience', title: '积分', width: 80, sort: true }
-                    , { field: 'score', title: '评分', width: 80, sort: true }
-                    , { field: 'classify', title: '职业', width: 80 }
-                    , { field: 'wealth', title: '财富', width: 135, sort: true }
-                ]]
-            });
+            var layer_init = layui.layer_init;
+            var $ = layui.$;
 
             form.render('select');
+            
+            //执行渲染
+            table.render({
+                elem: '#service-table' //指定原始表格元素选择器（推荐id选择器）
+                , height: 'full-350'
+                // , width: 1000
+                , limit: 10
+                , limits: [10,15,30,50,100]
+                , url: '/ajax.post?func=get_data' //数据接口
+                , where: {token: 'test', id: 123} 
+                , method:'post'
+                , page: {theme:"skin"} //开启分页
+                , cols: [[ //表头
+                    { field: 'id', title: 'ID', width: '5%', sort: true, fixed: 'left',align:'center' }
+                    , { field: '时间', title: '时间', width: '10%', sort: true ,align:'center' }
+                    , { field: '问题ID', title: '问题ID', width: '5%', sort: true ,align:'center'}
+                    , { field: '用户ID', title: '用户ID', width: '10%' , sort: true ,align:'center'}
+                    , { field: '产品类型', title: '产品类型', width: '10%', sort: true ,align:'center'}
+                    , { field: '问题类型', title: '问题类型', width: '5%', sort: true ,align:'center'}
+                    , { field: '描述', title: '描述', width: '15%' ,align:'center'}
+                    , { field: '状态', title: '状态', width: '5%',align:'center' }
+                    , { field: '联系方式', title: '联系方式', width: '10%',align:'center'}
+                    , { field: '交接内容', title: '交接内容', width: '10%' ,align:'center'}
+                    , { field: '操作人', title: '操作人', width: '10%' ,align:'center'}
+                ]],
+                response: {
+                    statusName: 'status' //数据状态的字段名称，默认：code
+                    ,statusCode: 200 //成功的状态码，默认：0
+                    ,msgName: 'hint' //状态信息的字段名称，默认：msg
+                    ,countName: 'total' //数据总数的字段名称，默认：count
+                    ,dataName: 'rows' //数据列表的字段名称，默认：data
+                }      
+                ,done:function(res,curr,count){
+                    console.log(res);
+                    console.log(curr); 
+                }
+            });
+
+            $(".header-notice-waiting").on('click', function(){
+                var othis = $(this), method = othis.data('method');
+                layer_init[method] ? layer_init[method].call(this, othis) : '';
+            })
+            
+
+            // $('#layerDemo .layui-btn').on('click', function(){
+            //     var othis = $(this), method = othis.data('method');
+            //     active[method] ? active[method].call(this, othis) : '';
+            // });
+
+
         })
     </script>
 </body>
