@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/flex.css">
     <link rel="stylesheet" href="./template/layui/css/layui.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/flex.css">
+    <link rel="stylesheet" href="./css/main.css">    
     <script src="./template/layui/layui.js"></script>
 
     <!-- <link rel="stylesheet" href="./css/share.css"> -->
@@ -22,93 +21,10 @@
 </head>
 
 <body>
-    <header class="header flex-hb-vc">
-        <div class="header-logo">
-            <img src="./img/h-logo.png" alt="">
-        </div>
-        <div class="header-main flex-hb-vc">
-            <div class="header-notice flex-ha-vc">
-                <img src="./img/h-notice.png" alt="">
-                <span>等待：
-                    <span data-method="offset" data-type="t" class="header-notice-waiting cold54">0</span>
-                </span>
-                <span>未接：
-                    <span class="header-notice-unlisten cold54">12</span>
-                </span>
-                <span>已接：
-                    <span class="header-notice-haslisten">0</span>
-                </span>
-            </div>
-            <div class="header-use flex-v flex-hc-vr">
-                <div class="header-use-top flex-hc-vc">
-                    <span class="header-use-id">林少芳</span>
-                    <span class="header-use-logOut flex-hc-vc">
-                        <img src="./img/i-1.png" alt="">
-                        <span>退出</span>
-                    </span>
-                </div>
-                <div class="header-use-bottom">
-                    <span>当前在线人数：
-                        <span class="header-use-num">0</span>人</span>
-                    <span>客服015已登录29线</span>
-                </div>
-            </div>
-        </div>
-
-    </header>
-    <nav class="nav-main">
-        <ul class="layui-nav nav-main-ul" lay-filter="nav-main">
-            <li class="layui-nav-item layui-this">
-                <a href="">答复系统</a>
-            </li>
-            <li class="layui-nav-item">
-                <a href="">报表</a>
-            </li>
-            <li class="layui-nav-item">
-                <a href="">内容管理</a>
-            </li>
-            <li class="layui-nav-item">
-                <a href="">系统设置</a>
-            </li>
-        </ul>
-    </nav>
+    <script src="./js/header.js"></script>
+    <script src="./js/navMain.js"></script>    
     <main class="container flex-hc-vc">
-        <nav class="nav-left">
-            <ul class="layui-nav layui-nav-tree nav-left-ul" lay-filter="nav-left">
-                <li class="layui-nav-item flex-hb-vc layui-this">
-                    <a href="" onclick="return false;">
-                        <span class="fl">问题列表</span>
-                        <span class="fl cold54">25</span>
-                        <span class="fr">获取</span>
-                    </a>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="" onclick="return false;">
-                        <span class="fl">呼叫列表</span>
-                    </a>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="" onclick="return false;">
-                        <span class="fl">建议列表</span>
-                        <span class="fl cold54">99+</span>
-                        <span class="fr">获取</span>
-                    </a>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="" onclick="return false;">
-                        <span class="fl">服务监督</span>
-                        <span class="fl cold54">99+</span>
-                        <span class="fr">获取</span>
-                    </a>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="" onclick="return false;">
-                        <span class="fl">常用链接</span>
-                    </a>
-                </li>
-
-            </ul>
-        </nav>
+        <script src="./js/navLeft.js"></script>
         <article class="main">
             <section class="table-action">
                 <h1 class="table-title">问题列表</h1>
@@ -149,7 +65,7 @@
                         </div>
                     </section>
                     <section class="table-search-right flex-hl-vc">
-                        <span class="table-search-more col497">更多搜索</span>
+                        <button class="table-search-more col497">更多搜索</button>
                         <button class="table-search-button layui-btn bgc497 colfff">搜索</button>
                     </section>
                 </form>
@@ -179,17 +95,19 @@
                 </div>
             </section>
             <section>
-                <table id="service-table" lay-filter="service"></table>
+                <table id="service-table" lay-filter="service-table"></table>
             </section>
         </article>
     </main>
     <footer></footer>
-
-
-
-
-    <!-- <script src="./js/header.js"></script> -->
+    
     <!-- <script src="./js/footer.js"></script> -->
+
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs bgc497" lay-event="detail" data-method="setTop">详情</a>
+        <!-- <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a> -->
+    </script>
 
     <script>
         layui.config({
@@ -219,17 +137,18 @@
                 , method:'post'
                 , page: {theme:"skin"} //开启分页
                 , cols: [[ //表头
-                    { field: 'id', title: 'ID', width: '5%', sort: true, fixed: 'left',align:'center' }
-                    , { field: '时间', title: '时间', width: '10%', sort: true ,align:'center' }
-                    , { field: '问题ID', title: '问题ID', width: '5%', sort: true ,align:'center'}
+                    // { field: 'id', title: 'ID', width: '5%', sort: true, fixed: 'left',align:'center' }, 
+                    { field: '时间', title: '时间', width: '10%', sort: true ,align:'center' }
+                    , { field: '问题ID', title: '问题ID', width: '6%', sort: true ,align:'center'}
                     , { field: '用户ID', title: '用户ID', width: '10%' , sort: true ,align:'center'}
                     , { field: '产品类型', title: '产品类型', width: '10%', sort: true ,align:'center'}
-                    , { field: '问题类型', title: '问题类型', width: '5%', sort: true ,align:'center'}
+                    , { field: '问题类型', title: '问题类型', width: '8%', sort: true ,align:'center'}
                     , { field: '描述', title: '描述', width: '15%' ,align:'center'}
                     , { field: '状态', title: '状态', width: '5%',align:'center' }
                     , { field: '联系方式', title: '联系方式', width: '10%',align:'center'}
                     , { field: '交接内容', title: '交接内容', width: '10%' ,align:'center'}
                     , { field: '操作人', title: '操作人', width: '10%' ,align:'center'}
+                    , { toolbar: '#barDemo', title: '更多', width: '5%' ,align:'center',fixed:'right'}
                 ]],
                 response: {
                     statusName: 'status' //数据状态的字段名称，默认：code
@@ -244,11 +163,27 @@
                 }
             });
 
-            $(".header-notice-waiting").on('click', function(){
+            //监听工具条
+            table.on('tool(service-table)', function(obj){ //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                var data = obj.data; //获得当前行数据
+                var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+                var tr = obj.tr; //获得当前行 tr 的DOM对象
+                
+                if(layEvent === 'detail'){ //查看
+                    var othis = $(this), method = othis.data('method');                    
+                    layer_init[method] ? layer_init[method].call(this, othis) : '';                    
+                } else if(layEvent === 'del'){ //删除
+
+                } else if(layEvent === 'edit'){ //编辑
+
+                }
+            });
+
+
+            $(".notice-act").on('click', function(){
                 var othis = $(this), method = othis.data('method');
                 layer_init[method] ? layer_init[method].call(this, othis) : '';
             })
-            
 
             // $('#layerDemo .layui-btn').on('click', function(){
             //     var othis = $(this), method = othis.data('method');

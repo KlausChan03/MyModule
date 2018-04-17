@@ -2,7 +2,7 @@
   "main": {
     "servername": "hygo-supply",
     "servername说明": "*必须修改项。这个是平台名称，mongodb日志会根据这个变量来创建日志集合的名称",
-    "httpPort": 8088,
+    "httpPort": 8888,
     "httpPort说明": "这个是http请求端口号",
     "httpsPort": 0,
     "httpsPort说明": "这个是https请求端口号",
@@ -20,7 +20,7 @@
   },
 	"postgresql":{
     "使用":"是",
-		"host":"139.199.159.181",
+		"host":"139.199.159.181:8090",
 		"user":"postgres",
 		"pass":"xing0629",
 		"db":"service_online"

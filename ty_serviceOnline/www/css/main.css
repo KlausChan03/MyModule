@@ -162,9 +162,8 @@ header .header-use-bottom > span:first-child::before{
 }
 
 .main .table-search{
-    padding: 10px 0;
+    padding: 10px;
     background: #fff;
-
 }
 
 .table-action .layui-form-item{
@@ -176,6 +175,9 @@ header .header-use-bottom > span:first-child::before{
 .table-action .layui-form-item .layui-form-label{
     padding: 0;
     line-height: 26px;
+    min-width: 100px;
+    font-size: 14px;
+    /* margin-right: 10px; */
 }
 .table-action .layui-form-item .layui-input,.table-action .layui-form-item .layui-form-select{
     width:150px; height: 26px;
@@ -190,7 +192,7 @@ header .header-use-bottom > span:first-child::before{
 }
 
 .table-action .table-search-right{
-    width: 190px;
+    width: 180px;
 }
 .table-action .table-search-right .table-search-button{
     width: 90px; height: 32px;
@@ -239,3 +241,64 @@ header .header-use-bottom > span:first-child::before{
 
 .main .layui-table thead tr,
 .main .layui-table-header{background-color: #d7dfe8;}
+
+
+/* 弹出层 */
+.phoneTips{
+    /* margin-top: 60px!important; */
+ 
+    margin-left: -20px!important;
+    border-radius: 6px!important;
+}
+
+#layui-layer1.phoneTips{
+    top:80px!important;
+}
+#layui-layer2.phoneTips{
+    top:330px!important;
+}
+
+.phoneTips .layui-layer-title{
+    height: 65px;
+    background-color: #fff;
+    border-radius: 6px 6px 0 0;
+}
+.phoneTips .phoneTips-header {
+    height: 65px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.phoneTips .phoneTips-title{
+    font-size: 14px;
+    color:#000;
+}
+
+
+.phoneTips .phoneTips-title span{
+    font-size:24px;    
+    color:#d54f26;
+}
+.phoneTips .phoneTips-icon{
+    position: absolute;
+    width: 82px;
+    height: 82px;
+    top:0;
+    left:50%;
+    transform: translate(-50%,-50%)
+}
+
+.phoneTips.layui-layer-page .layui-layer-content{
+    overflow: hidden;
+}
+
+.phoneTips .phoneTips-content{
+    overflow: hidden;
+    padding:15px 20px;
+    padding-bottom: 10px;
+}
+
+.phoneTips .phoneTips-content .phoneTips-items{
+    line-height: 2;
+}
+
