@@ -207,7 +207,7 @@ form_act.add_video_pic = function(pic, video) {
               datas.img_list = res.newpath;
               datas = JSON.stringify(datas);
               $.ajax({
-                url: "/ajax.post?func=upload_pic",
+                url: "/ajax.post?func=test_upload",
                 type: "POST",
                 data: "data=" + datas,
                 success: function(res) {

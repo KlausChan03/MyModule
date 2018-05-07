@@ -12,6 +12,7 @@
     "ali-oss": "^4.8.0",
     "async": "^2.1.4",
     "connect-redis": "^3.2.0",
+    "cos-nodejs-sdk-v5": "^2.4.0",
     "ejs": "^2.5.5",
     "excel-export": "^0.5.1",
     "express": "^4.14.0",

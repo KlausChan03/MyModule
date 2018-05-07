@@ -1,8 +1,17 @@
 {
-	"阿里云参数1": {
+	"阿里云参数": {
 		"region": "oss-cn-shenzhen",
 		"accessKeyId": "LTAIRz4pA6Qeu12D",
 		"accessKeySecret": "ZASbh3Xg1RtSo6VxwLnNkSlNvXNMYJ",
 		"bucket": "zyk-temp"
+	},
+	"腾讯云参数":{
+		"AppID":"1253164303",
+		"Bucket":"klausandlaura-1253164303",
+		"Region":"ap-guangzhou",
+		"SecretId":"AKID9C4lHcGwtfFgy4wgzENL7i7UikcIaApO",
+		"SecretKey":"Xv89iBSYXL3d6NSL3DUp6B5nMXdYHyXv"
 	}
+
+	
 }
