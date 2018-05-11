@@ -1,6 +1,6 @@
 "use strict";
 
-//获取iframe url的参数信息
+// 获取iframe url的参数信息
 var ifarme_func = window.top.document.getElementsByClassName("iframe_");
 var tb_id = GetRequest(ifarme_func).page_id;
 var func_arr = GetRequest(ifarme_func).func;
@@ -26,6 +26,7 @@ layui.use(["table", "form", "upload"], function() {
   data.tb_id = tb_id;
   data.type = "all";
 
+  
   // ajax请求获取表格数据
   obj_save = {
     datas: [data.field, data.tb_id, data.type],
@@ -152,6 +153,22 @@ function table_render(res) {
       page: {curr:1}, //是否显示分页
       limits: [10, 15, 20, 50, 100, 500],
       limit: 20, //每页默认显示的数量
+      url:`/ajax.post?func=page_select`,
+      method:'post',
+      // request: {
+      //   pageName: 'curr' //页码的参数名称，默认：page
+      //   ,limitName: 'nums' //每页数据量的参数名，默认：limit
+      // },
+      response: {
+        statusName: 'status' //数据状态的字段名称，默认：code
+        ,statusCode: 200 //成功的状态码，默认：0
+        ,msgName: 'hint' //状态信息的字段名称，默认：msg
+        ,countName: 'total' //数据总数的字段名称，默认：count
+        ,dataName: 'rows' //数据列表的字段名称，默认：data
+      }, 
+      where:{
+         field: data.field, tb_id: data.tb_id, type: data.type 
+      },
       done: function(res, curr, count){
         //如果是异步请求数据方式，res即为你接口返回的信息。
         //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
@@ -159,12 +176,7 @@ function table_render(res) {
         console.log(curr);
         page_save = curr;
       },
-      // url:"/ajax.post?func=page_select_all",
-      // method:'post',
-      // request: {
-      //   pageName: 'curr' //页码的参数名称，默认：page
-      //   ,limitName: 'nums' //每页数据量的参数名，默认：limit
-      // }    
+      
     });
   });
 }

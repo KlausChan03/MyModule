@@ -11,20 +11,24 @@ config.readfile();
 
 module.exports.run = function(body, pg, mo) {	
 	console.log(body)
-	body.receive = JSON.parse(body.data);
-	console.log(body.data)
-	
+	// body.receive = JSON.parse(body.data);
 	var f = {},p = {};
 	var sql	// 执行语句
 	,result // 执行结果
+	,count // 执行总条数
 	,order_cond //排序条件		
 	,where_cond = " 1 = 1 "; //判断条件
-	f.data = body.receive[0];
-	f.check = body.receive[1];
-	f.type = body.receive[2];
+	// f.data = body.receive[0];
+	// f.check = body.receive[1];
+	// f.type = body.receive[2];
+	f.data = body.field;
+	f.check = body.tb_id;
+	f.type = body.type;
+
+	let [page, limit] = [1,10];
 
 	var menu = config.get("menu");
-	var table_name,table_id,insert_arr,update_arr;
+	var table_name,table_id,insert_arr,update_arr,select_arr;
 	menu.forEach(function(item) {
 		if(item.导航) {
 			for(i in item.导航) {
@@ -62,7 +66,6 @@ module.exports.run = function(body, pg, mo) {
 		}
 	}
 	console.log(f)
-	
 
 	if(contains(select_arr, "录入时间") == true){
 		order_cond = "录入时间"
@@ -72,54 +75,56 @@ module.exports.run = function(body, pg, mo) {
 	
 	if(f.type == "all" && f.verify == "审核通过") {
 		if(select_arr == "" || select_arr == undefined){					
-			sql = ` select * from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC `;// sql = "select * from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";
+			sql = ` select * from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC limit ${limit} offset ${(page - 1) * limit + 1}`;// sql = "select * from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";
 		}else{						
-			sql = ` select ${select_arr} from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC `;	// sql = "select " + select_arr + " from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";		
+			sql = ` select ${select_arr} from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC limit ${limit} offset ${(page - 1) * limit + 1}`;	// sql = "select " + select_arr + " from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";		
 		}
 		result  = pgdb.query(pg, sql);
+		
 	} else if(f.type == "one" && f.verify == "审核通过") {
 		if(f.verify_type == "other"){
-			sql = ` select * from ${f.tb_name} where ${f.data[0]} like '%${f.data[1]}%'  order by ${order_cond} DESC `;		// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";			
+			sql = ` select * from ${f.tb_name} where ${f.data[0]} like '%${f.data[1]}%'  order by ${order_cond} DESC limit ${limit} offset ${(page - 1) * limit + 1}`;	// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";			
 		}else{
-			sql = ` select * from ${f.tb_name} where ${f.data[0]} = '${f.data[1]}'  order by ${order_cond} DESC `;		// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";						
+			sql = ` select * from ${f.tb_name} where ${f.data[0]} = '${f.data[1]}'  order by ${order_cond} DESC limit ${limit} offset ${(page - 1) * limit + 1}`;	// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";						
 		}
 		result = pgdb.query(pg, sql);
 	}
+
+	sql = ` select count(1) from ${f.tb_name} where 1 = 1`;
+	count = pgdb.query(pg, sql);
 
 	if(result) {
 		if(result.数据){
 			if(result.数据.length == 0) {
 				p.状态 = "获取列表异常";
 				f.列表 = result.数据;
-				f.条数 = result.数据.length;
+				f.条数 = count.数据[0].count;
 	
 			} else {
 				p.状态 = "成功";
 				f.列表 = result.数据;
-				f.条数 = result.数据.length;
+				f.条数 = count.数据[0].count;
 			}
 		}		
 	}
 
-	if(result) {
-		// 通过数组的sort方法以id排序
-		// if(f.type == "all"){
-		// 	f.列表.sort(function (o1, o2) { return parseInt(o1.id) - parseInt(o2.id); });			
-		// }
+	console.log(count.数据,f.条数)
 
+	if(result) {
 		for(let i in f.列表){
 			if(typeof(f.列表[i].内容)  == "object"){
 				f.列表[i].内容 = JSON.stringify(f.列表[i].内容)
 			}
 		}
 		p.表格名称 = f.tb_name;
-		p.列表 = f.列表;
-		p.条数 = f.条数;
+		p.total = f.条数;
+		p.rows = f.列表;
 
 	} else {
 		p.状态 = f.状态;
 	}
-	console.log(p,"1111111111111")
+	p.status = '200';
+	p.hint = '';
 	return p;
 };
 

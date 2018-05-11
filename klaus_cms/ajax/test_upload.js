@@ -46,11 +46,13 @@ module.exports.run = function (body, pg, mo) {
     var fiber = Fiber.current;
     // 分片上传
 
-    cos.sliceUploadFile({
+    cos.putObject({
         Bucket: conf.Bucket,
         Region: conf.Region,
         Key: f.fileName,
-        FilePath: f.data.img_list
+        ContentLength:'100',
+        // FilePath: f.data.img_list,
+        Body: fs.createReadStream(f.data.img_list),
     }, function (err, data) {
         console.log(err, data);
         console.log(data.Location);
