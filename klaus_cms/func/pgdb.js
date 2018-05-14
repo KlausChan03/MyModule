@@ -51,9 +51,9 @@ pgdb.pool = poolModule.Pool({
     });
   },
   // 连接池中最大连接数量
-  max: 50,
+  max: 100,
   // 连接池中最少连接数量
-  min: 10,
+  min: 2,
   // 如果一个线程30秒钟内没有被使用过的话。那么就释放
   idleTimeoutMillis: 30000,
   // 如果 设置为 true 的话，就是使用 console.log 打印入职，当然你可以传递一个 function 最为作为日志记录handler

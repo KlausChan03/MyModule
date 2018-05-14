@@ -25,7 +25,7 @@ module.exports.run = function(body, pg, mo) {
 	f.check = body.tb_id;
 	f.type = body.type;
 
-	let [page, limit] = [1,10];
+	let [page, limit] = [body.page,body.limit];
 
 	var menu = config.get("menu");
 	var table_name,table_id,insert_arr,update_arr,select_arr;

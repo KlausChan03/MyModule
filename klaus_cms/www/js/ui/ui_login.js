@@ -6,20 +6,17 @@ layui.config({
     layer = parent.layer === undefined ? layui.layer : parent.layer,
     $ = layui.jquery;
 
-  //video背景
-  // $(window).resize(function () {
-  //   // console.log($(window).width())
-  //   // console.log($(".video-player").width())
-  //   if ($(".video-player").width() > $(window).width()) {
-  //     $(".video-player").css({ "height": $(window).height(), "width": "auto" });
-  //   } else {
-  //     $(".video-player").css({ "width": $(window).width(), "height": "auto" });
-  //   }
-  // }).resize();
+  // 获取登录页面标题
+  (function(){
+    var obj_save ={func:"../json/systemParameter.json",datas:{}};
+    var success_func = (res) => {
+      $(".login-title").text(res.cmsName)
+    }
+    ajax.ajax_localjson (obj_save, success_func)
+  })()
 
   //登录按钮事件
   form.on("submit(login)", function (e) {
-//  stopDefault(e);
     var flag = verifyCode.validate(document.getElementById("code_input").value);
     var username = $(".username").val();
     var password_o = $(".password").val();

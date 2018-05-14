@@ -204,13 +204,28 @@ ajax.ajax_html = function(obj_save, success_func, error_func, type) {
         url: "/ajax.post?func=" + func,
         timeout: 1000, //超时时间设置，单位毫秒
         data: "data=" + datas,
-        datatype: "html",
         success: function(res) {
             if (res.状态 == "成功") {
                 success_func(res);
             } else {
                 error_func(res);
             }
+            return false;
+        },
+    });
+};
+
+ajax.ajax_localjson = function(obj_save, success_func, error_func, type) {
+    var ajax_type;
+    if (!arguments[2]) { error_func = function() {}; }
+    if (!arguments[3]) { ajax_type = "POST"; }
+    var func = obj_save.func;
+    var datas = obj_save.datas;
+    $.ajax({
+        url: func,
+        data: datas,
+        success: function(res) {
+            success_func(res);
             return false;
         },
     });

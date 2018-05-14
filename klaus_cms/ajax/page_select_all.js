@@ -61,7 +61,7 @@ module.exports.run = function(body, pg, mo) {
 			f.状态 = "请选择查询条件,并输入对应内容";				
 		}
 	}
-	console.log(f)
+
 	
 
 	if(contains(select_arr, "录入时间") == true){
@@ -102,10 +102,6 @@ module.exports.run = function(body, pg, mo) {
 	}
 
 	if(result) {
-		// 通过数组的sort方法以id排序
-		// if(f.type == "all"){
-		// 	f.列表.sort(function (o1, o2) { return parseInt(o1.id) - parseInt(o2.id); });			
-		// }
 
 		for(let i in f.列表){
 			if(typeof(f.列表[i].内容)  == "object"){
@@ -119,17 +115,9 @@ module.exports.run = function(body, pg, mo) {
 	} else {
 		p.状态 = f.状态;
 	}
-	console.log(p,"1111111111111")
 	return p;
 };
 
-// Array.prototype.in_array = function(e) {  
-// 	for(i=0;i<this.length;i++) {  
-// 		if(this[i] == e)  
-// 			return true;  
-// 	}  
-// 	return false;  
-// }  
 
 function contains(arr, obj) {  
     var i = arr.length;  
