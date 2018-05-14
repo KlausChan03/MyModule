@@ -20,8 +20,6 @@ module.exports.run = function(body, pg, mo) {
 	f.data = body.receive[0];
 	f.check = body.receive[1];
 	f.type = body.receive[2];
-	f.page = body.receive[3];
-	f.limit = body.receive[4];
 
 	
 	var menu = config.get("menu");
@@ -77,16 +75,16 @@ module.exports.run = function(body, pg, mo) {
 	
 	if(f.type == "all" && f.verify == "审核通过") {
 		if(select_arr == "" || select_arr == undefined){					
-			sql = ` select * from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC limit ${f.limit} offset ${f.start}`;// sql = "select * from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";
+			sql = ` select * from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC `;// sql = "select * from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";
 		}else{						
-			sql = ` select ${select_arr} from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC limit ${f.limit} offset ${f.start} `;	// sql = "select " + select_arr + " from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";		
+			sql = ` select ${select_arr} from ${f.tb_name} where 1 = 1 order by ${order_cond} DESC  `;	// sql = "select " + select_arr + " from " + f.tb_name + " where 1 = 1 order by " + order_cond + " DESC";		
 		}
 		result  = pgdb.query(pg, sql);
 	} else if(f.type == "one" && f.verify == "审核通过") {
 		if(f.verify_type == "other"){
-			sql = ` select * from ${f.tb_name} where ${f.data[0]} like '%${f.data[1]}%'  order by ${order_cond} DESC limit ${f.limit} offset ${f.start}`;		// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";			
+			sql = ` select * from ${f.tb_name} where ${f.data[0]} like '%${f.data[1]}%'  order by ${order_cond} DESC `;		// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";			
 		}else{
-			sql = ` select * from ${f.tb_name} where ${f.data[0]} = '${f.data[1]}'  order by ${order_cond} DESC limit ${f.limit} offset ${f.start}`;		// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";						
+			sql = ` select * from ${f.tb_name} where ${f.data[0]} = '${f.data[1]}'  order by ${order_cond} DESC `;		// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";						
 		}
 		result = pgdb.query(pg, sql);
 	}

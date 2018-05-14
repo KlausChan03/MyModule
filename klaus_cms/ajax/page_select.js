@@ -21,7 +21,13 @@ module.exports.run = function(body, pg, mo) {
 	// f.data = body.receive[0];
 	// f.check = body.receive[1];
 	// f.type = body.receive[2];
-	f.data = body.field;
+	if(body.field != ''){
+		f.data = JSON.parse(body.field);
+
+	}else{
+		f.data = body.field;
+		
+	}
 	f.check = body.tb_id;
 	f.type = body.type;
 
@@ -50,7 +56,7 @@ module.exports.run = function(body, pg, mo) {
 		if(f.data[0] != "" && f.data[0] != null && f.data[0] != undefined && f.data[1] != "" && f.data[1] != null && f.data[1] != undefined) {
 			f.verify = "审核通过";
 			if(f.data[0] == "id"){
-				f.verify_type = "int"
+				f.verify_type = "all"
 			}else{
 				f.verify_type = "other"				
 			}
@@ -65,7 +71,6 @@ module.exports.run = function(body, pg, mo) {
 			f.状态 = "请选择查询条件,并输入对应内容";				
 		}
 	}
-	console.log(f)
 
 	if(contains(select_arr, "录入时间") == true){
 		order_cond = "录入时间"
@@ -83,11 +88,12 @@ module.exports.run = function(body, pg, mo) {
 		
 	} else if(f.type == "one" && f.verify == "审核通过") {
 		if(f.verify_type == "other"){
-			sql = ` select * from ${f.tb_name} where ${f.data[0]} like '%${f.data[1]}%'  order by ${order_cond} DESC limit ${limit} offset ${(page - 1) * limit + 1}`;	// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";			
+			sql = ` select * from ${f.tb_name} where ${f.data[0]} like '%${f.data[1]}%'  order by ${order_cond} DESC`;	// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";			
 		}else{
-			sql = ` select * from ${f.tb_name} where ${f.data[0]} = '${f.data[1]}'  order by ${order_cond} DESC limit ${limit} offset ${(page - 1) * limit + 1}`;	// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";						
+			sql = ` select * from ${f.tb_name} where ${f.data[0]} = '${f.data[1]}'  order by ${order_cond} DESC`;	// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";						
 		}
 		result = pgdb.query(pg, sql);
+		console.log(result)
 	}
 
 	sql = ` select count(1) from ${f.tb_name} where 1 = 1`;
@@ -107,9 +113,6 @@ module.exports.run = function(body, pg, mo) {
 			}
 		}		
 	}
-
-	console.log(count.数据,f.条数)
-
 	if(result) {
 		for(let i in f.列表){
 			if(typeof(f.列表[i].内容)  == "object"){
@@ -127,14 +130,7 @@ module.exports.run = function(body, pg, mo) {
 	p.hint = '';
 	return p;
 };
-
-// Array.prototype.in_array = function(e) {  
-// 	for(i=0;i<this.length;i++) {  
-// 		if(this[i] == e)  
-// 			return true;  
-// 	}  
-// 	return false;  
-// }  
+ 
 
 function contains(arr, obj) {  
     var i = arr.length;  
