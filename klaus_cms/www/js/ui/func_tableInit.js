@@ -18,7 +18,7 @@ layui.use(["table", "form", "upload", "jquery"], function () {
 
   success_func = (res) => {
     console.log(res)
-    let table_title = res.表格名称.replace(/^[a-z]{0,8}_/, "");
+    let table_title = res.title.replace(/^[a-z]{0,8}_/, "");
     $(".table-title").html(table_title);
 
     // 渲染生成表格和按钮
@@ -55,7 +55,7 @@ layui.use(["table", "form", "upload", "jquery"], function () {
   error_func = (res) => {
     if (res.状态 == "获取列表异常") {
       //渲染标题
-      table_title = res.表格名称.replace("表", "").replace(/^[\u2E80-\u9FFF]_/, "");
+      table_title = res.title.replace("表", "").replace(/^[\u2E80-\u9FFF]_/, "");
       $(".table-title").html(table_title);
       // table_render(res, toolbar);
       insertButton(table, res)

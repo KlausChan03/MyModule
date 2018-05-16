@@ -93,8 +93,9 @@ module.exports.run = function(body, pg, mo) {
 			sql = ` select * from ${f.tb_name} where ${f.data[0]} = '${f.data[1]}'  order by ${order_cond} DESC`;	// sql = "select * from " + f.tb_name + " where " + f.data[0] + "=" + "'" + f.data[1] + "' order by " + order_cond + "DESC";						
 		}
 		result = pgdb.query(pg, sql);
-		console.log(result)
 	}
+	console.log(f,result,"tell me the truth")
+	
 
 	sql = ` select count(1) from ${f.tb_name} where 1 = 1`;
 	count = pgdb.query(pg, sql);
@@ -102,12 +103,12 @@ module.exports.run = function(body, pg, mo) {
 	if(result) {
 		if(result.数据){
 			if(result.数据.length == 0) {
-				p.状态 = "获取列表异常";
+				f.状态 = "获取列表异常";
 				f.列表 = result.数据;
 				f.条数 = count.数据[0].count;
 	
 			} else {
-				p.状态 = "成功";
+				f.状态 = "成功";
 				f.列表 = result.数据;
 				f.条数 = count.数据[0].count;
 			}
@@ -119,13 +120,11 @@ module.exports.run = function(body, pg, mo) {
 				f.列表[i].内容 = JSON.stringify(f.列表[i].内容)
 			}
 		}
-		p.表格名称 = f.tb_name;
-		p.total = f.条数;
-		p.rows = f.列表;
-
-	} else {
-		p.状态 = f.状态;
 	}
+	p.状态 = f.状态;
+	p.title = f.tb_name;
+	p.total = f.条数;
+	p.rows = f.列表;
 	p.status = '200';
 	p.hint = '';
 	return p;

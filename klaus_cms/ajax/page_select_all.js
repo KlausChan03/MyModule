@@ -52,7 +52,7 @@ module.exports.run = function (body, pg, mo) {
 		}
 	}
 	p.状态 = f.状态;
-	p.表格名称 = f.tb_name;
+	p.title = f.tb_name;
 	p.列表 = f.列表;
 	p.条数 = f.条数;
 	return p;
